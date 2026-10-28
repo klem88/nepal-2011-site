@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La virée à moto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
+  --accent:#2f4f3e; --moutarde:#a87a22; --accent-doux:#2f4f3e14; --papier-manuscrit:#efe9dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+    --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+  --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--encre);font:18px/1.7 "Source Serif 4",Georgia,serif}
+.page{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1500px;margin:0 auto}
+article{padding:56px clamp(20px,5vw,72px) 120px;max-width:760px;justify-self:end;width:100%}
+.colonne-carte{position:sticky;top:0;height:100vh;display:grid;grid-template-rows:1fr auto;border-left:1px solid var(--trait)}
+#carte{min-height:0;background:var(--papier-2)}
+.profil{background:var(--carte-fond);border-top:1px solid var(--trait);padding:10px 16px 8px;font:13px/1.4 system-ui,sans-serif;color:var(--encre-2)}
+.profil b{color:var(--encre)}
+.profil svg{display:block;width:100%;height:120px}
+.legende-jour{font:600 14px Fraunces,Georgia,serif;color:var(--encre);margin-bottom:4px;min-height:20px}
+
+.surtitre{font:600 12px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--moutarde);margin:0}
+h1{font:600 clamp(38px,5vw,56px)/1.05 Fraunces,Georgia,serif;margin:10px 0 12px;letter-spacing:-.01em}
+.sous-titre{font:italic 400 21px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 36px}
+.chapo{font-size:20px;line-height:1.65}
+.chapo::first-letter{font:600 64px/0.9 Fraunces,Georgia,serif;float:left;margin:6px 10px 0 0;color:var(--moutarde)}
+section{scroll-margin-top:24px;padding-top:12px}
+.tete-etape{margin:64px 0 26px;padding:18px 20px 16px;background:var(--carte-fond);border:1px solid var(--trait);border-top:3px solid var(--accent);border-radius:2px 2px 8px 8px}
+.tete-etape .quand{font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--encre-2);margin:0}
+.tete-etape .quand b{color:var(--moutarde);font-weight:700;margin-right:8px}
+.tete-etape h2{font:600 30px/1.15 Fraunces,Georgia,serif;margin:6px 0 4px}
+.tete-etape .trajet{font:italic 17px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 14px}
+.stats{list-style:none;margin:0;padding:12px 0 0;border-top:1px dashed var(--trait);display:flex;flex-wrap:wrap;gap:8px 20px;font:13.5px/1.35 system-ui,sans-serif;color:var(--encre)}
+.stats li{display:flex;align-items:center;gap:6px}
+.stats li.calc{font-variant-numeric:tabular-nums}
+.stats li.calc b{font-weight:600}
+.ico{width:16px;height:16px;flex:none;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+p{margin:0 0 1.1em;hyphens:auto}
+.scene{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:19px;line-height:1.7;border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:28px 0}
+.scene p:last-child{margin:0}
+
+figure.manuscrit{margin:32px -8px;padding:18px 18px 12px;background:var(--papier-manuscrit);border-radius:4px;box-shadow:0 1px 2px #0001,0 8px 24px -12px #0003;transform:rotate(-.4deg)}
+figure.manuscrit:nth-of-type(even){transform:rotate(.35deg)}
+figure.manuscrit img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
+figure.manuscrit figcaption{font:13px/1.5 system-ui,sans-serif;color:#6d6457;margin-top:10px}
+figure.manuscrit figcaption i{font:italic 15px/1.5 "Source Serif 4",Georgia,serif;color:#3b352c;display:block;margin-bottom:4px}
+
+figure.document{margin:32px 0;display:grid;gap:14px}
+figure.document.duo{grid-template-columns:.62fr 1fr;align-items:end}
+figure.document.seul{max-width:300px}
+figure.document img{display:block;width:100%;height:auto;border-radius:2px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.document figcaption{grid-column:1/-1;font:13px/1.5 system-ui,sans-serif;color:var(--encre-2)}
+figure.document figcaption b{color:var(--encre);font-weight:600}
+@media (max-width:600px){figure.document.duo{grid-template-columns:1fr}}
+blockquote.citation{font:italic 400 24px/1.45 Fraunces,Georgia,serif;margin:32px 0;padding:0;color:var(--encre)}
+blockquote.citation footer{font:13px system-ui,sans-serif;color:var(--encre-2);margin-top:8px;font-style:normal}
+
+aside.encadre{font:15px/1.55 system-ui,sans-serif;background:var(--carte-fond);border:1px solid var(--trait);border-radius:8px;padding:18px 20px;margin:32px 0}
+aside.encadre h3{font:600 17px Fraunces,Georgia,serif;margin:0 0 10px}
+aside.encadre ul{margin:0;padding-left:18px}
+aside.encadre li{margin:3px 0}
+table.filet{width:100%;border-collapse:collapse;font-size:14px}
+table.filet th,table.filet td{text-align:left;padding:7px 8px;border-top:1px solid var(--trait);vertical-align:top}
+table.filet th{font-weight:600;color:var(--encre-2);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+table.filet td:first-child{color:var(--encre-2);white-space:nowrap}
+table.filet td:last-child{font-weight:600}
+.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}
+.chiffres b{display:block;font:600 24px Fraunces,Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.chiffres span{font-size:13px;color:var(--encre-2)}
+.note-fin{font:14px/1.6 system-ui,sans-serif;color:var(--encre-2);border-top:1px solid var(--trait);margin-top:64px;padding-top:18px}
+.etiquette{background:var(--carte-fond);color:var(--encre);border:1px solid var(--trait);font:12px system-ui,sans-serif;box-shadow:none;padding:1px 6px}
+.etiquette::before{display:none}
+.num-nuit{background:var(--carte-fond);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:22px!important;height:22px!important;display:grid;place-items:center;font:600 11px system-ui,sans-serif}
+.leaflet-container{font:inherit;background:var(--papier-2)}
+#carte{background:var(--carte-fond)}
+.aide-carte{font:12px/1.4 system-ui,sans-serif;color:var(--encre-2);margin:2px 0 0}
+.num-nuit{cursor:pointer}
+.num-nuit.large{width:32px!important;border-radius:11px}
+.profil svg{cursor:pointer}
+.leaflet-container{background:var(--carte-fond)}
+.nom-lieu{font:italic 13px Fraunces,Georgia,serif;color:var(--encre);white-space:nowrap;text-shadow:0 0 3px var(--carte-fond),0 0 3px var(--carte-fond)}
+
+@media (max-width:960px){
+  .page{display:flex;flex-direction:column}
+  .colonne-carte{order:-1;position:sticky;top:0;height:38vh;z-index:5;border-left:0;border-bottom:1px solid var(--trait);grid-template-rows:1fr}
+  .profil{display:none}
+  article{padding:32px 18px 80px;max-width:none}
+  figure.manuscrit{margin:28px 0}
+  section{scroll-margin-top:40vh}
+}
+.nav-haut{font:600 12px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 28px}
+.nav-haut a,.nav-bas a{color:var(--encre-2);text-decoration:none}
+.nav-haut a:hover,.nav-bas a:hover{color:var(--accent)}
+.nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
+.nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
+.nav-bas .suivant{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-horloge" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/></symbol>
+  <symbol id="i-montee" viewBox="0 0 16 16"><path d="M1.5 13.5 6 7l3 3 5.5-7"/><path d="M10.5 3h4v4"/></symbol>
+  <symbol id="i-descente" viewBox="0 0 16 16"><path d="M1.5 2.5 6 9l3-3 5.5 7"/><path d="M10.5 13h4V9"/></symbol>
+  <symbol id="i-distance" viewBox="0 0 16 16"><circle cx="3" cy="12.5" r="1.6"/><circle cx="13" cy="3.5" r="1.6"/><path d="M4.5 12.5h4a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 1 0-5h4"/></symbol>
+  <symbol id="i-tente" viewBox="0 0 16 16"><path d="M1 14 8 2l7 12Z"/><path d="M8 2v12M6 14l2-4 2 4"/></symbol>
+  <symbol id="i-maison" viewBox="0 0 16 16"><path d="M2 7.5 8 2.5l6 5"/><path d="M3.5 6.5V14h9V6.5"/><path d="M6.5 14v-4h3v4"/></symbol>
+  <symbol id="i-cabane" viewBox="0 0 16 16"><path d="M1.5 8 8 3l6.5 5"/><path d="M3 7v7h10V7"/><path d="M3 10.5h10"/></symbol>
+  <symbol id="i-lit" viewBox="0 0 16 16"><path d="M1.5 4v9M1.5 10.5h13V13M14.5 10.5V8.5a2 2 0 0 0-2-2H7v4"/><circle cx="4.3" cy="8" r="1.4"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="10" rx="1.5"/><path d="M2.5 8h11M5 12v2M11 12v2"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 16 16"><path d="M6.5 9.5V3a1.5 1.5 0 0 1 3 0v6.5a3 3 0 1 1-3 0Z"/><path d="M8 7v4.5"/></symbol>
+  <symbol id="i-moto" viewBox="0 0 16 16"><circle cx="3.5" cy="11" r="2.4"/><circle cx="12.5" cy="11" r="2.4"/><path d="M3.5 11 6.5 6.5h4l2 4.5M8.5 6.5 7.3 4H5.5M10.5 6.5l1-2.5h1.6"/></symbol>
+</svg>
+<div class="page">
+<article>
+  <nav class="nav-haut"><a href="index.html">← Népal 2011 · les quatre chapitres</a></nav>
+  <p class="surtitre">Chapitre 4 · 18 – 29 novembre 2011</p>
+  <h1>La virée à moto</h1>
+  <p class="sous-titre">Cinq jours sur les routes de l'est, jusqu'à la frontière tibétaine et Jiri, puis Katmandou une dernière fois</p>
+
+  <section data-jour="tout">
+    <p class="chapo">À l'Everest, nous avions un guide et des lodges ; au Dhaulagiri, plus de guide ni de porteur. Pour la fin du voyage, nous avons retiré un filet de plus : deux motos louées à Thamel, sans papiers ni assurance, contre un passeport laissé en caution. Je n'avais jamais conduit de moto, et je n'avais pas de permis. Pendant cinq jours, nous avons roulé vers l'est, jusqu'à la frontière du Tibet puis jusqu'à Jiri, en plantant la tente chaque soir là où le paysage nous retenait. Puis il y eut Katmandou une dernière fois, une ville devenue un peu la nôtre, et le départ.</p>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Retour</b>18 novembre 2011</p>
+      <h2>Notre quartier préféré</h2>
+      <p class="trajet">Pokhara → Katmandou</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>bus pour Katmandou, départ 7 h 30</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>chambre avec salle de bain, Freak Street · 350 Rps</li></ul>
+    </header>
+    <p>Le réveil à 5 h 30 fut un peu difficile. Sacs bouclés, nous avons traversé au lever du jour les rues tranquilles de Pokhara jusqu'à la gare routière. Places réservées, bus à l'heure : tout se déroulait bien. À 7 h 30, nous partions, quelques biscuits pour la route. Pendant le trajet, je lisais <i>Annapurna, premier 8000</i>, et j'y retrouvais l'ambiance du tour du Dhaulagiri et du sanctuaire : à peu de chose près, nous avions suivi le même chemin que la première expédition française, en 1950. Dehors, il pleuvait. Une fois de plus, nous avions la chance d'être dans un bus pendant que le ciel se vidait.</p>
+    <p>Le bus nous a laissés dans un quartier inconnu de Katmandou, mais nous avons retrouvé sans peine Freak Street, notre quartier préféré. Trouver un hôtel bon marché fut plus compliqué. Nous avons fini par prendre une chambre propre, avec salle de bain, pour 350 roupies : un grand luxe, que nous ne nous étions plus offert depuis notre tout premier jour au Népal.</p>
+    <p>Nos habitudes sont vite revenues : flâner dans les rues à la recherche de beignets et de plats népalais que nous ne connaissions pas encore. Un délicieux beignet de lentilles et de légumes à 2 roupies, puis d'autres à une roupie. Et soudain, nez à nez avec Juan, l'ami espagnol rencontré à Sinuwa une semaine plus tôt. Quelle surprise ! Nous avons parlé un long moment. Il m'a donné de quoi finir de me rétablir, et nous nous sommes promis de dîner ensemble au retour de son trek dans le Langtang. Nous, nous gardions notre objectif : un voyage à moto. Dès le lendemain, nous irions nous renseigner sur la location. Le soir, un délicieux dal bhat dans la cantine en face de l'hôtel, pour 60 roupies, et nous sommes allés nous coucher, fatigués.</p>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Veille du départ</b>19 novembre 2011</p>
+      <h2>Trois gestes à connaître</h2>
+      <p class="trajet">Freak Street → Thamel, puis un premier tour de nuit</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-moto"/></svg>Hero Honda 125 cm³ et Pulsar · 400 Rps par jour et par moto</li><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>rendez-vous chez le loueur à 17 h</li></ul>
+    </header>
+    <p>C'était samedi, l'équivalent de notre dimanche, et la rue s'éveillait à peine. Petit déjeuner de beignets et de milk tea : trop de beignets, trop d'huile, nous étions lourds. Puis direction Thamel, où se concentrent les loueurs de motos. Après une étude de marché approfondie, nous avons choisi une Hero Honda de 125 cm³ et une Pulsar, à 400 roupies par jour et par moto. Il fallait revenir les chercher à 17 heures.</p>
+    <p>Nous étions surexcités, et complètement inconscients. Je n'avais aucune idée de la façon de conduire une moto ni d'en tenir le poids : je n'en avais jamais conduit, et je n'avais pas de permis. Seulement la photocopie de celui d'un ami de Romain, qui par chance me ressemblait un peu. J'espérais vivement ne pas être contrôlé. L'après-midi était douce, le beau temps revenait. Nous avons commandé chacun un jean taillé sur mesure, qui nous attendrait au retour, et j'ai craqué pour un costume, lui aussi sur mesure, dans une belle toile gris anthracite.</p>
+    <div class="scene">
+      <p>À 17 heures, le moment tant attendu et tant redouté. Au magasin, on ne nous demandait qu'une chose en échange des deux motos : un passeport original. Les motos n'avaient pas de papiers, pas d'assurance. Rien d'autre que notre identité. J'ai donné le mien : ainsi, en cas de contrôle de police, je n'aurais pas à justifier de mon identité. À partir de cet instant, je m'appelais Alban, et il me restait à apprendre mon nom de famille et ma date de naissance.</p>
+    </div>
+    <p>Le loueur, pressé de retourner à ses affaires, a déposé les deux motos dans la rue et nous a montré les trois manipulations à connaître. Nous nous sommes retrouvés seuls avec ces deux lourds engins, au milieu de Thamel, le plus gros quartier touristique de la ville, dans un trafic dense. Nous les avons poussées à la main jusqu'à une rue étroite, reculée, isolée. C'est là que nous avons appris à conduire. Un coup de kick, l'embrayage, la première, un coup d'accélérateur de la main droite en relâchant doucement l'embrayage de la main gauche. La moto avançait par à-coups, et j'arrivais maladroitement au fond de la ruelle. Je recommençais, pour faire de ce geste un réflexe : j'allais devoir le répéter mille fois les jours suivants. En roulant au pas, les deux jambes juste au-dessus du sol, je savais que j'étais incapable du moindre réflexe de freinage. Il fallait pourtant l'apprendre, et vite : au Népal, la circulation est chaotique. J'avais peur. Et j'oubliais de le dire : il faisait nuit.</p>
+    <p>La moto de Romain était déjà en panne : le kick ne marchait plus et elle calait. Un coup de téléphone, et on nous l'a échangée contre une Pulsar dernier cri, mais aussi plus effrayante. Après dix minutes d'allers-retours, il a fallu se lancer sur la route. Nous n'avions pas le choix : nos réservoirs étaient presque vides, il fallait trouver une station-service. J'étais très réticent. La nuit, le trafic, les klaxons, et sur la chaussée un mélange de voitures, de motos, de vélos, de pousse-pousse, de piétons et de chiens. Je suis parti devant : connaissant Romain, j'avais peur de le perdre.</p>
+    <figure class="manuscrit">
+      <img src="images/moto/extrait-grande-respiration.jpg" alt="Extrait manuscrit du carnet : C'est effrayant mais c'est parti ! Je décide de partir devant car connaissant Romain j'ai peur de le perdre. Ok – grande respiration – première – accélération – deuxième – je suis encore en vie – je suis EXTRÊMEMENT" width="1100" height="342">
+      <figcaption><i>« C'est effrayant mais c'est parti ! […] Ok – grande respiration – première – accélération – deuxième – je suis encore en vie – je suis EXTRÊMEMENT… »</i>Carnet 3, page 7 · le premier départ, de nuit, dans Katmandou</figcaption>
+    </figure>
+    <p>… extrêmement concentré, conscient du danger. Et jusque-là, nous nous débrouillions vraiment bien. Les rues devenaient de plus en plus larges, le trafic de plus en plus dense, le désordre indescriptible. Ce désordre, au fond, nous aidait : il nous forçait à rester vigilants et très lents, et dans un tel chaos, un mauvais conducteur passe inaperçu. Les stations-service sont rares au Népal. Il nous a fallu demander à plusieurs personnes, et une demi-heure, pour en trouver une. Le plein fait, nous avons repris la direction de l'hôtel, à travers le désordre hallucinant de Ratna Park. J'ai fini par suivre Romain, qui se repérait mieux que moi : j'étais tout entier à ma conduite. Puis j'ai pris l'engin en main, et j'ai été infiniment heureux d'arriver à Freak Street.</p>
+    <p>Je n'osais pas en parler à mes parents. Inconscience ou danger mesuré ? Je ne savais pas. Mais j'étais heureux de savoir conduire une moto, en plein Katmandou, et de nuit. Le lendemain, nous partirions à 6 heures pour éviter la circulation. À nous la route, à nous l'est du Népal.</p>
+  </section>
+
+  <section data-jour="1">
+    <header class="tete-etape" data-calc="1">
+      <p class="quand"><b>Jour 1</b>20 novembre 2011</p>
+      <h2>La plage de sable blanc</h2>
+      <p class="trajet">Katmandou → Bhaktapur → col de Nagarkot → Dowa Pati → au bord de la rivière</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 6 h · 9 h de moto, entre 30 et 40 km/h</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>1er bivouac, sur une plage de sable au bord de la rivière</li></ul>
+    </header>
+    <p>Le soir, j'étais trop fatigué pour écrire, et pourtant c'était une journée à raconter. Levés à 6 heures, nous sommes partis aussitôt. Les rues de Katmandou étaient calmes et nous avons bien trouvé la sortie. Mes réflexes de la veille revenaient doucement, pas tous : j'ai calé au milieu d'une grande rue de Ratna Park, que je m'apprêtais à prendre à contresens. Heureusement, il n'y avait pas grand monde.</p>
+    <p>Peu de routes goudronnées relient les villes entre elles, et elles sont très fréquentées. Calés sur la gauche, puisqu'on roule à gauche au Népal, nous avancions doucement et régulièrement, entre 30 et 40 km/h. Premier arrêt un peu en dessous de Bhaktapur, pour un petit déjeuner de bananes, de biscuits et de milk tea. Nos mains étaient glacées par la fraîcheur du matin, mais la journée s'annonçait splendide, et le soleil s'est vite découvert.</p>
+    <p>Vingt kilomètres de montée nous ont menés au col de Nagarkot, d'où l'on voit le centre de la chaîne himalayenne. Le soleil perçait à travers les arbres, il faisait doux, et cela me rappelait les cols des Alpes : c'était magnifique, et bien moins fatigant pour les jambes. Ma concentration, elle, était au maximum, au point d'en avoir mal à la tête. Nous avons ensuite pris une route secondaire, par Dowa Pati. Le chemin, de terre et de pierres brutes, s'est vite transformé en piste de VTT : nous glissions dans la boue, nous calions dans les côtes. Mais il traversait aussi des passages plats au milieu des rizières, et le paysage était très beau.</p>
+    <p>À midi, après déjà cinq heures de moto, une pause bien méritée : pour un euro à deux, un gros chowmein chacun, un thé et un dessert. Le rêve. Nous avons repris la route en direction de Jiri, vers l'est, en évitant désormais les pistes. La grand-route, rejointe à regret, s'est révélée très belle, authentique et de bonne qualité, tout est relatif. Je prenais de plus en plus d'aisance avec les vitesses, les freins, les dépassements, tout en restant extrêmement vigilant. La conduite népalaise est lente, comparée à la nôtre, et cela me laissait le temps de réfléchir et d'anticiper. Les lacets se succédaient, en montée, en descente : très beau, et très fatigant.</p>
+    <div class="scene">
+      <p>Après neuf heures de moto, nous nous sommes arrêtés près d'une rivière que nous suivions depuis longtemps et qui nous attirait. La lumière était extraordinaire, le cadre sublime. Les versants passaient de la jungle aux rizières. Au bord des routes séchaient des pousses de riz et poussaient des bananiers ; des écoliers partout, et des poules, des chèvres, des vaches qui traversaient sans prévenir. Une journée pleine de belles images, et de rencontres amusantes à chaque pause.</p>
+      <p>Nous avions trouvé un endroit paradisiaque : un petit bout de sable fin et blanc, à cinquante centimètres de l'eau. Notre premier camping sauvage.</p>
+    </div>
+    <p>La police et l'armée étaient très présentes sur la route, mais ne semblaient pas s'intéresser à nous : nous n'avions croisé aucun autre touriste. La nuit précédente, Romain avait été malade, lui que je commençais à croire invincible. Le soir, il était remis, et il n'avait rien changé à nos plans. Chapeau. Nous retrouvions les joies du camping et nos sacs de couchage. J'étais exténué, et j'avais besoin de cette nuit pour intégrer tout ce que j'avais appris dans la journée.</p>
+  </section>
+
+  <section data-jour="2">
+    <header class="tete-etape" data-calc="2">
+      <p class="quand"><b>Jour 2</b>21 novembre 2011</p>
+      <h2>La ligne au sol</h2>
+      <p class="trajet">Bord de la rivière → Barabise → Kodari, frontière tibétaine → crête de pins sur la route de Jiri</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ vers 8 h 30 – 9 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac sur une crête de pins</li></ul>
+    </header>
+    <p>Nous nous sommes réveillés dans l'humidité la plus complète. La vallée était noyée dans un brouillard épais, et l'arbre qui nous abritait nous déversait la rosée du matin, goutte après goutte, sur le visage. Le cadre restait beau, et nous avons pris le temps du petit déjeuner : tsampa de blé au miel, muesli et thé. Un délice.</p>
+    <p>Vers 8 h 30, nous avons pris la route du Tibet. Elle longeait la frontière avec la Chine, que dessinait un fleuve puissant. Il faisait beau, et la route était bonne jusqu'à Barabise. Ensuite, comme l'annonçait la carte, le goudron alternait avec une piste de terre défoncée, boueuse par endroits, très pierreuse ailleurs. Nous traversions des cours d'eau, en gardant l'œil sur les bus qui roulaient à l'arrache.</p>
+    <p>À l'heure du déjeuner, nous sommes arrivés à la frontière, à Kodari. La ville était en effervescence, posée tant bien que mal le long d'une route explosée. Les marchandises s'entassaient sur les bas-côtés, la file des camions s'allongeait. Nous avons garé les motos et nous sommes avancés timidement. Au loin se dessinait une grande ville étagée en terrasses, à l'architecture tibétaine. Après deux lignes de gardes, nous sommes arrivés à la frontière elle-même : une ligne tracée au sol, gardée par deux soldats chinois. Photos interdites. Nous avons fait demi-tour, heureux d'avoir atteint notre objectif.</p>
+    <p>Cinq minutes de moto plus loin, nous avons déjeuné sur un point de vue, face à une grande cascade, côté chinois. Je commençais sérieusement à prendre la moto en main, sans cesser d'être attentif à tout.</p>
+    <figure class="manuscrit">
+      <img src="images/moto/extrait-meilleure-ecole.jpg" alt="Extrait manuscrit du carnet : Aujourd'hui j'ai vraiment appris à conduire sur chemin de terre très sommaire. Y a-t-il meilleure école ? :) Nous revenons d'où" width="1100" height="200">
+      <figcaption><i>« Aujourd'hui j'ai vraiment appris à conduire sur chemin de terre très sommaire. Y a-t-il meilleure école ? :) »</i>Carnet 3, page 16 · au retour de la frontière</figcaption>
+    </figure>
+    <p>Nous sommes revenus jusqu'à notre point de départ du matin, puis nous avons pris la route de Jiri. Après trois quarts d'heure d'une montée abrupte en lacets, nous avons commencé à guetter un endroit pour la nuit. Un chemin nous a menés sur une crête plantée de pins. Le soleil commençait à se coucher, la lumière était belle, nous étions fatigués : nous avons décidé d'y établir notre camp. Très bonne décision.</p>
+    <div class="scene">
+      <p>La vue sur la vallée était magnifique, l'endroit très accueillant ; sa végétation nous faisait penser au Morgonnet, la petite montagne qui domine notre maison de famille, au-dessus du lac de Serre-Ponçon. En dix minutes, la tente était montée, et nous nous sommes installés confortablement pour regarder le soleil se coucher. La journée s'était très bien passée, nous étions contents. Une fois la nuit tombée, allongés dans la tente, nous pouvions voir le ciel étoilé.</p>
+    </div>
+  </section>
+
+  <section data-jour="3">
+    <header class="tete-etape" data-calc="3">
+      <p class="quand"><b>Jour 3</b>22 novembre 2011</p>
+      <h2>La terrasse de mousse</h2>
+      <p class="trajet">Crête de pins → les lacets de la route de Jiri → une terrasse cachée de la route</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>course à pied à l'aube · déjeuner à 11 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac caché sur une terrasse de mousse et d'herbe</li></ul>
+    </header>
+    <div class="scene">
+      <p>Quand j'ai ouvert un œil, le jour se levait. La cime des arbres se dessinait dans un ciel encore bleu pâle, avec au loin une légère teinte orangée. Il ne faisait pas froid, l'air était sec. Si je me levais, autant aller courir : tout m'y invitait, et depuis notre arrivée au Népal, je n'avais pas couru une seule fois. Un caleçon, un tee-shirt, et deux minutes plus tard j'étais dehors. Il devait être entre 5 h 30 et 6 heures.</p>
+      <p>Un chemin de terre filait à flanc de montagne, en pente douce, avec une vue imprenable sur la vallée et, au loin, sur la chaîne de l'Himalaya où se levait le soleil. Les sommets étaient orangés. C'était extraordinaire. Sous mes pieds, je sentais que les semelles de mes chaussures étaient usées.</p>
+    </div>
+    <p>Au bout d'une demi-heure, je suis rentré retrouver Romain, qui se levait. Petit déjeuner tranquille dans la tente : je retrouvais les sensations d'un matin de course à pied à Bruxelles. Quand les premiers rayons du soleil sont tombés sur la toile, nous avons rangé le camp.</p>
+    <p>La route était difficile. Nous prenions de l'altitude par une multitude de lacets serrés, et les bus nous arrivaient droit dessus, à toute allure. Ils avaient tous les droits et prenaient toute la place : chaque fois, nous nous précipitions sur le bas-côté. Deux paquets de biscuits engloutis sur une terrasse, dans un beau village d'altitude, n'y ont rien fait : la faim a avancé le déjeuner à 11 heures. La route longeait de larges flancs de montagne, et nous ouvrions de grands yeux devant la beauté du paysage : des collines boisées à perte de vue, et au fond, la chaîne de l'Himalaya. Nous avons déjeuné de nouilles et de semoule sur une terrasse verte au bord de la route, sous un soleil si fort que nous avons fini torse nu.</p>
+    <p>Ensuite, la route est devenue meilleure. Nous avons croisé un troupeau de cochons, et roulé souvent sur du millet que les jeunes étalaient sur la chaussée pour en récupérer les grains. Après un plein d'essence dans un village, nous avons trouvé un bon endroit pour la nuit. D'après certains, la route n'était pas sûre, à cause des voleurs ; nous avons caché les motos comme nous pouvions, et nous nous sommes installés sur une terrasse de mousse et d'herbe, invisible depuis la route.</p>
+    <div class="scene">
+      <p>Encore une fois, le paysage était grandiose, et nous avons profité d'un beau coucher de soleil. Le bois était sec : nous avons fait un feu, pour dîner et nous réchauffer.</p>
+    </div>
+    <blockquote class="citation">« Le feu s'éteignant, nous remarquons le ciel étoilé qui vient nous rappeler que nous sommes infiniment petits !! »<footer>Carnet 3, page 20</footer></blockquote>
+    <p>Puis nous nous sommes couchés, et le silence nous a entourés. Seuls les cris d'un cerf, d'après Romain, venaient le troubler.</p>
+  </section>
+
+  <section data-jour="4">
+    <header class="tete-etape" data-calc="4">
+      <p class="quand"><b>Jour 4</b>23 novembre 2011</p>
+      <h2>Jiri, puis la crête</h2>
+      <p class="trajet">Terrasse de mousse → Jiri → retour à la crête de pins</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>arrivée à Jiri à 11 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>froid et humide au réveil</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac sur la crête de pins, comme l'avant-veille</li></ul>
+    </header>
+    <p>Encore une grosse et belle journée. Au lever du jour, le ciel était complètement dégagé, mais il faisait froid et humide. Nous avions eu froid dans la nuit, nos sacs de couchage étaient trempés, et nous attendions le soleil avec impatience. En attendant, petit déjeuner : une grosse tsampa, du muesli, et le thé pour nous réchauffer. Dès les premiers rayons sur la tente, nous avons rangé le camp, tranquillement : s'habiller au soleil, c'est bien plus agréable. Puis nous avons sorti les motos de leur cachette, approximative, de la veille.</p>
+    <p>À l'ombre, la route était glaciale ; au soleil, délicieuse. Elle était très belle : toujours ces mêmes lacets qui montaient à flanc de montagne, et parfois sur la crête. Mais le gravier et le sable qui la couvraient nous ralentissaient. À 11 heures, nous atteignions Jiri, notre objectif. La ville était belle et paisible, le temps magnifique. Une pause, trois paquets de biscuits, et nous reprenions la route en sens inverse.</p>
+    <p>Le retour descendait plus souvent qu'il ne montait. Tout roulait, nous étions à l'aise sur nos motos. Ma vieille machine peinait dans les côtes, et Romain, sur sa moto neuve, me devançait largement. La lumière était belle, et je profitais pleinement du paysage. Pour déjeuner, nous nous sommes arrêtés sur une parcelle de millet, au soleil. En y chargeant mon sac, j'ai fait tomber ma moto : un clignotant cassé. Ce jour-là, l'armée nous a aussi arrêtés, mais seulement pour enregistrer notre passage à un point de contrôle, rien de plus. Les bus, eux, étaient toujours aussi brutaux, et nous toujours prêts à nous jeter dans les pierres du bas-côté.</p>
+    <p>Nous n'avions plus de lentilles : nous avons acheté notre dîner dans un beau petit village d'altitude, face à la chaîne de l'Himalaya. Au coucher du soleil, nous avons retrouvé la crête de pins de l'avant-veille, un endroit idéal parce que très peu humide au matin. Encore une grosse journée de conduite. Pour l'apéritif, des chips népalaises, pas bonnes celles-là, puis le dîner sous la tente, avec un beau ciel étoilé. Ce soir-là, je pensais terminer mon livre. Quelle histoire incroyable.</p>
+    <blockquote class="citation">« Nous sommes en totale liberté et en découverte perpétuelle. »<footer>Carnet 3, page 23</footer></blockquote>
+  </section>
+
+  <section data-jour="5">
+    <header class="tete-etape" data-calc="5">
+      <p class="quand"><b>Jour 5</b>24 novembre 2011</p>
+      <h2>Retour dans le chaos de Katmandou</h2>
+      <p class="trajet">Crête de pins → la grand-route → Katmandou</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>jusqu'à 80 km/h sur la grand-route</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>Trekker's Paradise, Freak Street · une chambre simple pour deux</li></ul>
+    </header>
+    <p>J'avais attrapé un rhume. Je retrouvais la sensation désagréable de juste avant le départ pour le Népal : les changements de température sur la moto et la grosse humidité froide des nuits y étaient pour quelque chose. Un Doliprane dans la nuit, et j'ai pu me rendormir.</p>
+    <div class="scene">
+      <p>Le réveil fut magique, dans la nature, au milieu des pins, sur notre crête. Au fond, le soleil se levait sur les sommets de l'Himalaya, et la brume emplissait la vallée. C'était notre dernière nuit de camping sauvage.</p>
+    </div>
+    <p>Après un très agréable petit déjeuner d'œufs et de biscuits, nous avons pris la route de Katmandou. Les derniers lacets de montagne, puis la route principale, qui nous a menés tout droit vers la capitale. Quel contraste avec la route de Jiri : un bon revêtement, assez de largeur pour deux camions. Particulièrement à l'aise, nous nous sommes permis de prendre de la vitesse, jusqu'à 80 km/h. À l'approche de Katmandou, le trafic s'est densifié. Doubler bus, camions et motos n'était pas simple, d'autant que ma moto manquait terriblement de reprise.</p>
+    <p>Aux abords de la ville, nous avons navigué dans une masse indescriptible de motos, de piétons, de bus et de scooters. Les motos déboulaient de n'importe où, les piétons traversaient n'importe quand. Les files ne se comptaient plus, et pas un feu de signalisation : seulement des policiers débordés par le nombre de véhicules. Nous avons eu du mal à trouver où déjeuner, avant de choisir une petite terrasse au soleil, où des bambous posés là nous ont servi de sièges. Puis encore un enfer de klaxons jusque chez le loueur.</p>
+    <p>Le loueur a refusé de nous rembourser le surplus d'essence. Bien décidés à ne pas perdre cet argent, nous avons cherché un acheteur dans la rue, demandé à des voyageurs, à des passants, et fini par trouver un taxi intéressé : nous avons rempli son réservoir de nos huit litres, contre 600 roupies. Très contents de notre économie, nous avons mangé des momos dans notre cantine tibétaine, Romain gardant un goût d'essence dans la bouche.</p>
+    <p>Nos jeans sur mesure étaient prêts, et très bien coupés. Autour d'un milk tea, nous avons commandé chacun trois autres pièces. Nous sommes rentrés à l'hôtel avec l'impression d'être habillés comme des princes, et l'heureuse sensation retrouvée de porter un jean. Je me suis aussi acheté un sac duffel noir, qui me faisait envie depuis un mois. Restait une mission, et pas une mince affaire : rapporter des cadeaux. Nous en parlions beaucoup ; nous trouverions.</p>
+    <p>Le soir, nous avons dîné au restaurant de naans, délicieux, fait la connaissance d'un couple de Français très sympathiques, et pris des nouvelles de la famille. Nous logions désormais au Trekker's Paradise, un vrai paradis : bonne ambiance et grande chambre pour une personne, moins chère, Romain s'étant proposé pour dormir par terre. Puis une promenade de nuit dans Freak Street et sur Durbar Square, au frais, dans des rues plus calmes. Quel bonheur de retrouver notre ville. Nous n'en aurions bientôt plus l'occasion.</p>
+
+    <aside class="encadre">
+      <h3>La virée en chiffres</h3>
+      <div class="chiffres" id="chiffres-tour"></div>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--encre-2)">Distances et altitude calculées sur les routes cartographiées, à titre indicatif. Les trois bivouacs, la plage, la crête de pins et la terrasse de mousse, sont placés approximativement sur la carte : le carnet ne les situe que par la route et le paysage.</p>
+    </aside>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>J-4</b>25 novembre 2011</p>
+      <h2>Une rue par métier</h2>
+      <p class="trajet">Katmandou</p>
+    </header>
+    <p>Le petit déjeuner fut incroyable : du yaourt frais, déjà sucré, trouvé dans la rue tôt le matin, avec des wheat flakes et une pâtisserie. Puis nous sommes partis découvrir un nouveau quartier de Katmandou, celui des vêtements, aux petites ruelles enfouies sous des tonnes d'habits de mauvaise qualité. Impressionnant. Chaque rue a sa spécialité : les épices, le thé, la peinture, l'artisanat, les vêtements, l'informatique, les montres, les tailleurs, la viande, le poisson. Toute la matinée, nous avons repéré les cadeaux à offrir, au retour comme à Noël, et nous en avons acheté quelques-uns pour nous.</p>
+    <p>Mais je ne digérais plus, et je retrouvais la désagréable sensation de Pokhara : fatigué, sans faim. Au déjeuner, un peu de poudre magique, et nous avons repris nos affaires. Je suis allé chercher mon costume, et il me plaisait bien ; j'espérais qu'il me plairait toujours à Bruxelles. J'en ai commandé un second, un noir classique cette fois. Et nous avons enfin trouvé l'idée du siècle pour Mamie et Grand-Père : une pierre sculptée au nom de leur chalet de Prunières. Le soir, un dîner somptueux, et pourtant peu cher, dans notre restaurant de naans préféré : alu matar, riz nature et alu naan.</p>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>J-3</b>26 novembre 2011</p>
+      <h2>La liste</h2>
+      <p class="trajet">Katmandou</p>
+    </header>
+    <p>Encore un délicieux petit déjeuner : le même yaourt, les mêmes wheat flakes, une grosse tsampa pour moi et des œufs pour Romain. La poudre de la veille semblait avoir fait effet. Nous avons dressé une longue liste de tout ce qu'il restait à faire dans les quelques jours qui nous restaient. D'abord, une douche : depuis plus d'une semaine, nous n'avions pas eu d'eau autrement que pour boire et manger, et la moto nous avait couverts de poussière. Victoire de courte durée : seul le robinet d'eau chaude fonctionnait, et l'eau était trop chaude. Le comble. Tant bien que mal, nous sommes redevenus propres.</p>
+    <p>La journée s'est passée à marchander et à chercher des idées de cadeaux pour tout le monde, en surveillant le poids et la place qui restait dans nos sacs. Toujours le beau temps, mais plus frais. Déjeuner et dîner au restaurant des naans, un régal. Les rencontres continuaient : Kumar, le vendeur de plaids, nous a raconté ses affaires avec le Japon et les États-Unis ; un groupe de Français, inconditionnels de Freak Street, y vivaient depuis un mois.</p>
+    <p>L'ambiance était détendue, et nous commencions à sentir que ces sorties étaient peut-être nos dernières à Katmandou avant longtemps.</p>
+    <figure class="manuscrit">
+      <img src="images/moto/extrait-nostalgie.jpg" alt="Extrait manuscrit du carnet : Nos sentiments sont partagés : l'excitation du départ se confond avec la nostalgie de quitter des lieux dans lesquels nous nous sentons bien. Une chose est sûre, nous profitons toujours de ce que la ville a à offrir." width="1100" height="358">
+      <figcaption><i>« Nos sentiments sont partagés : l'excitation du départ se confond avec la nostalgie de quitter des lieux dans lesquels nous nous sentons bien. Une chose est sûre, nous profitons toujours de ce que la ville a à offrir. »</i>Carnet 3, page 31</figcaption>
+    </figure>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>J-2</b>27 novembre 2011</p>
+      <h2>Patan, à la lampe de poche</h2>
+      <p class="trajet">Katmandou → Patan, retour à pied à la nuit tombée</p>
+    </header>
+    <p>Une nuit interrompue par un mal de ventre, rien de grave. Comme d'habitude, petit déjeuner pantagruélique, granola en plus. Forts de cette bonne dose d'énergie, nous avons décidé d'aller à Patan, la ville voisine que nous avions rapidement traversée au retour de la moto : seule une large rivière la sépare de Katmandou.</p>
+    <p>D'abord, les tailleurs, pour nous faire confectionner des chemises. Romain avait déjà trouvé un tissu orange, et il a facilement trouvé un tailleur. J'ai eu plus de mal à trouver un tissu à mon goût, avant de tomber sur un tailleur sympathique qui proposait à peu près ce que je cherchais. J'espérais que Simon, mon petit frère, serait du même avis que moi : il devait avoir les mêmes mesures. Nous avons aussi complété notre collection de plaids en laine de yak, avant de prendre enfin la direction de Patan. La route était longue, mais elle nous a fait découvrir de nouveaux quartiers, et beaucoup de magasins de chaussures, sans y trouver ce que nous cherchions.</p>
+    <p>Patan est une belle ville, avec un grand Durbar Square et de nombreux palais. La lumière était belle, les briques rouges, le bois des maisons joliment sculpté. Sur la place principale, où se tenait un meeting politique sur la démocratie, nous avons rencontré par hasard un couple d'Auvergnats. Nous avons fini la journée ensemble, et nous sommes rentrés tous les quatre à pied jusqu'à Katmandou.</p>
+    <div class="scene">
+      <p>La nuit était tombée, et la ville vivait la coupure d'électricité habituelle du soir. Les marchés se tenaient à la lampe de poche, et les phares des voitures et des motos éclairaient les trottoirs où nous marchions. L'ambiance était bonne. Il faisait frais, malgré la belle journée : peu à peu, le Népal entrait dans l'hiver.</p>
+    </div>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>J-1</b>28 novembre 2011</p>
+      <h2>La dernière journée</h2>
+      <p class="trajet">Katmandou</p>
+    </header>
+    <p>Levés spécialement tôt, sans aucune raison, nous sommes allés comme d'habitude acheter notre petit déjeuner dans les petites échoppes de notre rue. Puis nous sommes partis avec la liste des dernières courses avant le grand départ : quelques plaids de plus, des bonnets pour les amis que nous avions oubliés, des épices. Et nos pantalons. Après hésitation, nous avons décidé de les essayer. Heureusement : trop longs pour Romain, trop larges pour moi. Le couturier pouvait faire les retouches tout de suite. Nous avons attendu dans sa minuscule boutique, assis sur des tabourets, en sirotant les thés qu'on nous faisait apporter, et nous l'avons regardé retoucher habilement nos cinq pantalons en une heure.</p>
+    <p>Sous ce calme apparent, nous étions inquiets : trois autres commandes étaient en cours, et nous avions rendez-vous avec Juan, recroisé sur Freak Street plus tôt dans l'après-midi. Nous nous sommes pressés d'aller chercher mon costume, mais il n'était pas prêt, et le distributeur ne voulait plus nous donner d'argent. Au couturier, qui ne parlait pas trois mots d'anglais, j'ai à peu près réussi à expliquer que je repasserais le lendemain matin, mais que je voulais tout de même vérifier la largeur du pantalon. Elle était bonne. Plus le temps d'aller chercher la pierre sculptée destinée à Prunières. Romain a couru récupérer sa chemise et son pantalon, pendant que je tentais désespérément de retirer de l'argent. Après deux mauvais codes, je me suis concentré, et j'ai enfin obtenu de quoi finir notre voyage et nos achats. J'ai rejoint Juan en retard, à la chambre. Il venait, sans le faire exprès, de révéler au maître d'hôtel que nous dormions à deux dans une chambre simple. J'ai rattrapé la bourde, pendant que Romain se battait pour faire raccourcir son pantalon de velours.</p>
+    <p>Enfin, la soirée a pu commencer. Dans la chambre, nous avons montré à Juan nos achats et nos bons plans de Katmandou, avec, exceptionnellement, de la bière locale bien fraîche. L'excitation et la joie étaient grandes. Puis nous sommes allés dîner tous les trois au restaurant de naans, heureux, à nous raconter mille histoires et anecdotes. Ce jour-là, nous avions aussi rencontré un Hollandais tout juste arrivé au Népal. Nous avons pris un grand plaisir à lui expliquer, dans le peu de temps que nous avions, tout ce qui pouvait lui servir pour son voyage : c'était chouette de pouvoir transmettre ce que nous avions appris. Nous lui avons donné notre carte des Annapurnas, que nous avions nous-mêmes reçue d'un autre voyageur. C'est lui qui reprendrait notre chambre après notre départ.</p>
+    <div class="scene">
+      <p>De retour dans la chambre, après cette grosse journée, un désordre hallucinant nous attendait : des sacs plastiques partout, nos sacs de couchage, des restes de petits déjeuners, notre vaisselle. Nous nous sommes mis au travail, et nous avons rangé méticuleusement nos affaires dans les sacs de riz prévus à cet effet.</p>
+      <p>Cette journée, je ne l'ai racontée que le lendemain, assis à l'aéroport international de Katmandou. C'est la dernière page du carnet.</p>
+    </div>
+  </section>
+
+  <p class="note-fin">Ce chapitre est tiré du carnet 3.</p>
+  <nav class="nav-bas"><a class="precedent" href="chapitre-annapurna.html">← Chapitre 3<b>Kali Gandaki et sanctuaire des Annapurnas</b></a><a class="suivant" href="index.html">Retour à l'accueil →<b>Népal 2011</b></a></nav>
+</article>
+
+<div class="colonne-carte" aria-label="Carte de la virée à moto">
+  <div id="carte"></div>
+  <div class="profil">
+    <div class="legende-jour" id="legende-jour">La virée à moto</div>
+    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude de la virée à moto"></svg>
+    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="donnees.js"></script>
+<script src="courbes-moto.js"></script>
+<script>
+const V = window.VOYAGE, EP = "moto";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const ep = V.episodes.find(e => e.id === EP);
+const traces = V.traces.filter(f => f.properties.episode === EP);
+const AIDE = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit. Les bivouacs sont placés approximativement.";
+document.getElementById("aide-carte").textContent = AIDE;
+
+/* Carte */
+const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
+carte.setView([27.78, 85.75], 10);
+carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
+
+/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
+const renduCourbes = L.svg({padding: .3});
+const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
+for (const [alt, ligne] of window.COURBES.lignes) {
+  const maitresse = alt % window.COURBES.maitresse === 0;
+  L.polyline(ligne.map(c => [c[1], c[0]]), {
+    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
+  }).addTo(maitresse ? maitresses : intermediaires);
+}
+const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
+carte.on("zoomend", densite);
+const etiquette = (lat, lon, html, cls = "nom-lieu") =>
+  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: [-6, 8]})}).addTo(carte);
+for (const id of ["kathmandou", "bhaktapur", "nagarkot", "barabise", "kodari", "jiri"]) { const l = V.lieux[id]; etiquette(l.lat, l.lon, l.nom.replace(/ \(.*\)/, "")); }
+{ const l = V.lieux.kodari; etiquette(l.lat - .025, l.lon, `<span style="font-size:11px;opacity:.8">frontière tibétaine</span>`); }
+
+/* Aller à une étape du récit depuis la carte ou le profil */
+let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
+function allerAuJour(jour) {
+  const s = document.querySelector(`section[data-jour="${jour}"]`);
+  if (!s) return;
+  enNavigation = String(jour); afficher(String(jour));
+  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
+  addEventListener("scrollend", fin); setTimeout(fin, 2500);
+  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
+}
+const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
+
+const lignes = {}; // jour -> [polylines]
+for (const f of traces) {
+  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
+  const l = L.polyline(pts, {
+    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
+    dashArray: p.mode === "bus" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
+  }).addTo(carte);
+  (lignes[p.jour] ||= []).push(l);
+  // zone de clic large et invisible par-dessus le tracé
+  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
+    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
+    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
+    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
+    .on("click", () => allerAuJour(p.jour))
+    .addTo(carte);
+}
+const tout = L.featureGroup(Object.values(lignes).flat());
+
+/* Numéros des nuits : la crête de pins sert deux fois (nuits 2 et 4) */
+const nuits = {};
+for (const et of ep.etapes) { const id = et.troncons.at(-1)?.[1].at(-1); if (V.lieux[id]) (nuits[id] ||= []).push(et.jour); }
+for (const [id, jours] of Object.entries(nuits)) {
+  const l = V.lieux[id], large = jours.length > 1;
+  L.marker([l.lat, l.lon], {icon: L.divIcon({className: large ? "num-nuit large" : "num-nuit", html: jours.join("·"), iconSize: [large ? 32 : 22, 22]})})
+    .bindTooltip(`${jours.length > 1 ? "Nuits " + jours.join(" et ") : "Nuit " + jours[0]} · ${l.nom}${l.approx ? "<br><small>emplacement approximatif</small>" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
+    .on("click", () => allerAuJour(jours[0]))
+    .addTo(carte);
+}
+carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
+
+/* Profil */
+let profil = [], prec = null, d = 0;
+const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
+  const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+for (const f of traces.filter(f => f.properties.mode === "moto")) for (const c of f.geometry.coordinates) {
+  if (prec) d += dist(prec, c);
+  if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
+  prec = c;
+}
+const svg = document.getElementById("profil");
+function dessinerProfil(jour) {
+  const dMax = profil.at(-1).d, bas = 0, haut = 3000;
+  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
+  const pas = Math.max(1, Math.floor(profil.length / 800));
+  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
+  let grille = "";
+  for (let a = 1000; a <= 2000; a += 1000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
+  const sel = profil.filter(p => p.jour === jour);
+  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
+  svg.style.color = css("encre");
+  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+}
+
+const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
+const pointProfil = e => {
+  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
+  return profil.find(q => q.d >= d) || profil.at(-1);
+};
+svg.addEventListener("mousemove", e => {
+  const p = pointProfil(e);
+  repere.setLatLng([p.lat, p.lon]).addTo(carte);
+  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
+});
+svg.addEventListener("mouseleave", () => {
+  carte.removeLayer(repere);
+  document.getElementById("aide-carte").textContent = AIDE;
+});
+svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
+
+/* Chiffres */
+const moto = traces.filter(f => f.properties.mode === "moto");
+const kmTour = moto.reduce((s, f) => s + f.properties.km, 0);
+const altMax = Math.max(...profil.map(p => p.alt));
+document.getElementById("chiffres-tour").innerHTML = `
+  <div><b>5 jours</b><span>sur la route</span></div>
+  <div><b>≈ ${fmt(kmTour)} km</b><span>à moto</span></div>
+  <div><b>≈ ${fmt(Math.round(altMax / 100) * 100)} m</b><span>point le plus haut de la route</span></div>
+  <div><b>4 nuits</b><span>sous la tente, en camping sauvage</span></div>
+  <div><b>400 Rps</b><span>par jour et par moto</span></div>
+  <div><b>1</b><span>passeport laissé en caution</span></div>`;
+
+/* Chiffres du jour dans les en-têtes (calculés sur la carte) */
+const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
+  const j = +h.dataset.calc, fs = traces.filter(f => f.properties.jour === j && f.properties.mode === "moto");
+  const km = fs.reduce((s, f) => s + f.properties.km, 0);
+  if (km) h.querySelector(".stats").insertAdjacentHTML("afterbegin", `<li class="calc" title="Calculé sur les routes cartographiées">${ico("moto")}<b>≈ ${fmt(km)} km</b> à moto</li>`);
+});
+
+/* La carte suit la lecture */
+let courant = null;
+function afficher(jour) {
+  if (jour === courant) return; courant = jour;
+  const tous = jour === "tout";
+  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
+  const cible = tous ? tout : L.featureGroup(lignes[jour] || []);
+  if (cible.getLayers().length) carte.flyToBounds(cible.getBounds(), {padding: innerWidth < 960 ? [16, 16] : [50, 50], maxZoom: 13, duration: .9});
+  (lignes[jour] || []).forEach(l => l.bringToFront());
+  document.getElementById("legende-jour").textContent = tous ? "La virée à moto · profil d'altitude" : titreJour(jour);
+  dessinerProfil(tous ? null : +jour);
+}
+const obs = new IntersectionObserver(entrees => {
+  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
+}, {rootMargin: "-35% 0px -55% 0px"});
+document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
+afficher("tout");
+addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
+addEventListener("resize", () => carte.invalidateSize());
+</script>
+</body>
+</html>

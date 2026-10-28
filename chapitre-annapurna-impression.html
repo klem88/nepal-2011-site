@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annapurnas, version imprimable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+/* Maquette d'impression : A4 à l'italienne, toujours en clair */
+:root{--papier:#f6f4ee;--carte-fond:#fcfbf8;--encre:#26241f;--encre-2:#6b675e;--trait:#dcd7cc;--accent:#2f4f3e;--moutarde:#a87a22;--papier-manuscrit:#efe9dc}
+@page{size:A4 landscape;margin:14mm 16mm 16mm;
+  @bottom-left{content:"Népal 2011 · Kali Gandaki et sanctuaire des Annapurnas";font:8pt "Source Serif 4",Georgia,serif;color:#6b675e}
+  @bottom-right{content:counter(page);font:600 8pt "Source Serif 4",Georgia,serif;color:#6b675e}}
+@page:first{@bottom-left{content:none}@bottom-right{content:none}}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9d6cf}
+body{font:9.6pt/1.5 "Source Serif 4",Georgia,serif;color:var(--encre);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.feuille{width:297mm;min-height:210mm;margin:12mm auto;background:var(--papier);padding:14mm 16mm 16mm;box-shadow:0 2px 12px #0003}
+@media print{html,body{background:var(--papier)}.feuille{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;background:none}}
+
+/* Ouverture */
+.ouverture{display:grid;grid-template-columns:88mm 1fr;gap:10mm;height:180mm;break-after:page}
+.ouverture .gauche{display:flex;flex-direction:column}
+.surtitre{font:600 7.5pt system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--moutarde);margin:0}
+h1{font:600 34pt/1 Fraunces,Georgia,serif;margin:4mm 0 3mm;letter-spacing:-.01em}
+.sous-titre{font:italic 12.5pt/1.35 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 7mm}
+.chapo{font-size:10.5pt;line-height:1.55;margin:0}
+.chapo::first-letter{font:600 30pt/.9 Fraunces,Georgia,serif;float:left;margin:1.2mm 2mm 0 0;color:var(--moutarde)}
+.chiffres{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3mm 4mm;border-top:.4pt solid var(--trait);padding-top:4mm}
+.chiffres b{display:block;font:600 14pt Fraunces,Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.chiffres span{font:7pt/1.3 system-ui,sans-serif;color:var(--encre-2)}
+.droite{display:grid;grid-template-rows:1fr 30mm;gap:3mm;min-height:0}
+.cadre-carte{position:relative;overflow:hidden;border:.4pt solid var(--trait);background:var(--carte-fond)}
+.cadre-carte svg{position:absolute;inset:0;width:100%;height:100%}
+.cadre-carte .credit{position:absolute;right:2mm;bottom:1.5mm;font:5.5pt system-ui,sans-serif;color:#6b675e;background:#fcfbf8cc;padding:.3mm 1.2mm}
+.profil{border:.4pt solid var(--trait);background:var(--carte-fond);padding:2mm 3mm 1mm}
+.profil p{margin:0;font:600 7pt system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--encre-2)}
+.profil svg{display:block;width:100%;height:22mm}
+
+/* Récit en deux colonnes */
+.recit{column-count:2;column-gap:10mm;column-fill:auto}
+.recit p{margin:0 0 2.2mm;text-align:justify;hyphens:auto;orphans:3;widows:3}
+.recit section{break-inside:auto}
+.tete-etape{break-inside:avoid;break-after:avoid;margin:0 0 3.5mm;padding:2.6mm 3mm 2.4mm;background:var(--carte-fond);border:.4pt solid var(--trait);border-top:1.4pt solid var(--accent)}
+.recit section + section .tete-etape{margin-top:5mm}
+.tete-etape .quand{font:600 6.8pt system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--encre-2);margin:0}
+.tete-etape .quand b{color:var(--moutarde);margin-right:2mm}
+.tete-etape h2{font:600 15pt/1.1 Fraunces,Georgia,serif;margin:1mm 0 .6mm}
+.tete-etape .trajet{font:italic 9pt/1.3 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 2mm;text-align:left}
+.stats{list-style:none;margin:0;padding:1.6mm 0 0;border-top:.4pt dashed var(--trait);display:flex;flex-wrap:wrap;gap:1mm 4mm;font:7.2pt/1.3 system-ui,sans-serif}
+.stats li{display:flex;align-items:center;gap:1.2mm}
+.stats b{font-weight:600}
+.ico{width:9pt;height:9pt;flex:none;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.scene{font:italic 9.8pt/1.55 Fraunces,Georgia,serif;border-left:1.2pt solid var(--accent);padding-left:3.5mm;margin:3mm 0}
+.scene p{text-align:left}
+figure.manuscrit{break-inside:avoid;margin:3mm 0 4mm;padding:2.5mm 2.5mm 2mm;background:var(--papier-manuscrit)}
+figure.manuscrit img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
+figure.manuscrit figcaption{font:6.8pt/1.4 system-ui,sans-serif;color:var(--encre-2);margin-top:1.5mm}
+figure.manuscrit figcaption i{display:block;font:italic 8pt/1.4 "Source Serif 4",Georgia,serif;color:#3b352c;margin-bottom:.6mm}
+figure.document{break-inside:avoid;margin:3mm 0 4mm;display:grid;grid-template-columns:.62fr 1fr;gap:2.5mm;align-items:end}
+figure.document img{display:block;width:100%;height:auto}
+figure.document.seul{grid-template-columns:38mm 1fr}
+figure.document.seul figcaption{grid-column:2;align-self:end}
+figure.document figcaption{grid-column:1/-1;font:6.8pt/1.45 system-ui,sans-serif;color:var(--encre-2)}
+figure.document figcaption b{color:var(--encre)}
+blockquote.citation{break-inside:avoid;font:italic 13pt/1.35 Fraunces,Georgia,serif;margin:4mm 0;padding:3mm 0;border-block:.4pt solid var(--trait);text-align:center}
+blockquote.citation footer{font:6.8pt system-ui,sans-serif;color:var(--encre-2);margin-top:1.5mm;font-style:normal}
+aside.encadre{break-inside:avoid;font:7.8pt/1.45 system-ui,sans-serif;background:var(--carte-fond);border:.4pt solid var(--trait);padding:3mm;margin:3mm 0}
+aside.encadre h3{font:600 10pt Fraunces,Georgia,serif;margin:0 0 2mm}
+table.filet{width:100%;border-collapse:collapse}
+table.filet th,table.filet td{text-align:left;padding:1mm 1.5mm;border-top:.4pt solid var(--trait);vertical-align:top}
+table.filet th{font-size:6.5pt;text-transform:uppercase;letter-spacing:.06em;color:var(--encre-2);border-top:0}
+table.filet td:first-child{color:var(--encre-2)}
+table.filet td:last-child{font-weight:600}
+.note-fin{column-span:all;font:7pt/1.5 system-ui,sans-serif;color:var(--encre-2);border-top:.4pt solid var(--trait);margin-top:5mm;padding-top:2.5mm}
+.recit .chapo,.recit h1,.recit .sous-titre,.recit .surtitre{display:none}
+#chiffres-tour{display:none}
+/* Titre plus long qu'au chapitre 2 : la page d'ouverture est resserrée */
+.ouverture h1{font-size:27pt;margin:3mm 0 2.5mm}
+.ouverture .sous-titre{margin-bottom:5mm}
+.ouverture .chapo{font-size:9.8pt;line-height:1.5}
+.recit aside.encadre:has(#chiffres-tour){display:none}
+
+.ecran{font:13px/1.5 system-ui,sans-serif;max-width:297mm;margin:12mm auto 0;color:#3b3934}
+@media print{.ecran{display:none}}
+.nav-haut,.nav-bas{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-horloge" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/></symbol>
+  <symbol id="i-montee" viewBox="0 0 16 16"><path d="M1.5 13.5 6 7l3 3 5.5-7"/><path d="M10.5 3h4v4"/></symbol>
+  <symbol id="i-descente" viewBox="0 0 16 16"><path d="M1.5 2.5 6 9l3-3 5.5 7"/><path d="M10.5 13h4V9"/></symbol>
+  <symbol id="i-distance" viewBox="0 0 16 16"><circle cx="3" cy="12.5" r="1.6"/><circle cx="13" cy="3.5" r="1.6"/><path d="M4.5 12.5h4a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 1 0-5h4"/></symbol>
+  <symbol id="i-tente" viewBox="0 0 16 16"><path d="M1 14 8 2l7 12Z"/><path d="M8 2v12M6 14l2-4 2 4"/></symbol>
+  <symbol id="i-maison" viewBox="0 0 16 16"><path d="M2 7.5 8 2.5l6 5"/><path d="M3.5 6.5V14h9V6.5"/><path d="M6.5 14v-4h3v4"/></symbol>
+  <symbol id="i-cabane" viewBox="0 0 16 16"><path d="M1.5 8 8 3l6.5 5"/><path d="M3 7v7h10V7"/><path d="M3 10.5h10"/></symbol>
+  <symbol id="i-lit" viewBox="0 0 16 16"><path d="M1.5 4v9M1.5 10.5h13V13M14.5 10.5V8.5a2 2 0 0 0-2-2H7v4"/><circle cx="4.3" cy="8" r="1.4"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="10" rx="1.5"/><path d="M2.5 8h11M5 12v2M11 12v2"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 16 16"><path d="M6.5 9.5V3a1.5 1.5 0 0 1 3 0v6.5a3 3 0 1 1-3 0Z"/><path d="M8 7v4.5"/></symbol>
+</svg>
+
+<p class="ecran">Aperçu de la version imprimable (A4 à l'italienne). Pour l'imprimer ou l'enregistrer en PDF : Ctrl + P, sans en-têtes ni pieds de page du navigateur. Le texte est repris automatiquement du chapitre web.</p>
+
+<div class="feuille">
+  <div class="ouverture">
+    <div class="gauche">
+      <p class="surtitre">Chapitre 3 · 3 – 17 novembre 2011</p>
+      <h1>Kali Gandaki et sanctuaire des Annapurnas</h1>
+      <p class="sous-titre" id="sous-titre"></p>
+      <p class="chapo" id="chapo"></p>
+      <div class="chiffres" id="chiffres"></div>
+    </div>
+    <div class="droite">
+      <div class="cadre-carte" id="carte"><svg></svg><span class="credit">Courbes de niveau tous les 100 m · Terrain Tiles (AWS Open Data) · tracés OpenStreetMap</span></div>
+      <div class="profil"><p>Profil d'altitude · les numéros indiquent les nuits</p><svg id="profil" viewBox="0 0 1000 100" preserveAspectRatio="none"></svg></div>
+    </div>
+  </div>
+  <div class="recit" id="recit"></div>
+</div>
+
+<script src="donnees.js"></script>
+<script src="courbes-annapurna.js"></script>
+<script>
+const V = window.VOYAGE, EP = "annapurna";
+const ep = V.episodes.find(e => e.id === EP);
+const traces = V.traces.filter(f => f.properties.episode === EP);
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const ACCENT = "#2f4f3e", ENCRE = "#26241f";
+
+/* ---------- Carte vectorielle sur fond topo gris ---------- */
+function carteStatique(cadre) {
+  const W0 = cadre.clientWidth, H0 = cadre.clientHeight;
+  // cadrage sur la marche (sans le bus depuis Pokhara), zoom le plus fort qui tient, puis mise à l'échelle
+  const aPied = traces.filter(f => f.properties.mode === "marche");
+  const projZ = z => (lat, lon) => { const s = 256 * 2 ** z, r = lat * Math.PI / 180;
+    return [(lon + 180) / 360 * s, (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * s]; };
+  let zoom = 13, boite;
+  for (; zoom > 8; zoom--) {
+    const pts = aPied.flatMap(f => f.geometry.coordinates.map(c => projZ(zoom)(c[1], c[0])))
+      .concat([projZ(zoom)(V.lieux.pokhara.lat - .01, V.lieux.pokhara.lon + .02)]);
+    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+    boite = [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+    if ((boite[2] - boite[0]) * 1.15 <= W0 && (boite[3] - boite[1]) * 1.15 <= H0) break;
+  }
+  const k = Math.min(W0 / ((boite[2] - boite[0]) * 1.15), H0 / ((boite[3] - boite[1]) * 1.15));
+  const W = W0 / k, H = H0 / k, proj = projZ(zoom);
+  const monde = document.createElement("div");
+  Object.assign(monde.style, {position: "absolute", left: 0, top: 0, width: W + "px", height: H + "px", transform: `scale(${k})`, transformOrigin: "0 0"});
+  monde.append(cadre.querySelector("svg")); cadre.prepend(monde);
+  const cx = (boite[0] + boite[2]) / 2, cy = (boite[1] + boite[3]) / 2;
+  const ox = cx - W / 2, oy = cy - H / 2;
+  const P = (lat, lon) => { const [x, y] = proj(lat, lon); return [x - ox, y - oy]; };
+  let s = "";
+  // fond au trait : courbes de niveau seules, maîtresses tous les 500 m
+  for (const [alt, ligne] of window.COURBES.lignes) {
+    const q = ligne.map(c => P(c[1], c[0]));
+    if (q.every(([x, y]) => x < -20 || y < -20 || x > W + 20 || y > H + 20)) continue;
+    const m = alt % window.COURBES.maitresse === 0;
+    s += `<path d="${q.map((v, i) => (i ? "L" : "M") + v[0].toFixed(1) + " " + v[1].toFixed(1)).join("")}" fill="none" stroke="#6b675e" stroke-width="${m ? .7 : .35}" stroke-opacity="${m ? .6 : .35}"/>`;
+  }
+  {
+    for (const [lat, lon, nom] of [[28.5961, 83.8203, "Annapurna I · 8 091 m"], [28.4947, 83.9489, "Machapuchare · 6 993 m"]]) {
+      const [x, y] = P(lat, lon);
+      s += `<path d="M${x} ${y - 5}l5 9h-10z" fill="none" stroke="${ENCRE}" stroke-width="1"/><text x="${x + 8}" y="${y + 3}" font-size="10.5" font-family="Fraunces, Georgia, serif" font-style="italic" fill="${ENCRE}" paint-order="stroke" stroke="#fcfbf8" stroke-width="3">${nom}</text>`;
+    }
+  }
+  for (const f of traces) {
+    const d = f.geometry.coordinates.map((c, i) => (i ? "L" : "M") + P(c[1], c[0]).map(v => v.toFixed(1)).join(" ")).join("");
+    const bus = f.properties.mode === "bus";
+    s += `<path d="${d}" fill="none" stroke="${bus ? "#6b675e" : ACCENT}" stroke-width="${bus ? 1.4 : 2.4}" stroke-linecap="round" stroke-linejoin="round" ${bus ? 'stroke-dasharray="1.5 4"' : (f.properties.trace_reel ? "" : 'stroke-dasharray="6 4"')}/>`;
+  }
+  {
+    const l = V.lieux.abc, [x, y] = P(l.lat, l.lon);
+    s += `<path d="M${x} ${y - 6}l6 10h-12z" fill="${ENCRE}" stroke="#fff" stroke-width="1"/>
+      <text x="${x - 9}" y="${y + 3}" text-anchor="end" font-size="10" font-family="system-ui" font-weight="600" fill="${ENCRE}" paint-order="stroke" stroke="#fcfbf8" stroke-width="3">ABC · ${fmt(l.alt)} m</text>`;
+  }
+  const villes = {pokhara: [12, 4], tatopani_kg: [12, 4], marpha: [9, 4]};
+  for (const [id, [dx, dy]] of Object.entries(villes)) {
+    const l = V.lieux[id], [x, y] = P(l.lat, l.lon);
+    s += `<text x="${x + dx}" y="${y + dy}" font-size="11" font-family="Fraunces, Georgia, serif" font-style="italic" fill="${ENCRE}" paint-order="stroke" stroke="#fcfbf8" stroke-width="3">${l.nom.replace(/ \(.*\)/, "")}</text>`;
+  }
+  const deja = {};
+  for (const et of ep.etapes) {
+    const id = et.troncons.at(-1)?.[1].at(-1), l = V.lieux[id]; if (!l) continue;
+    const rang = deja[id] = (deja[id] ?? -1) + 1; // Sinuwa revient deux fois : le second numéro est décalé
+    const [x0, y] = P(l.lat, l.lon), x = x0 + rang * 18;
+    s += `<circle cx="${x}" cy="${y}" r="8" fill="#fcfbf8" stroke="${ACCENT}" stroke-width="1.3"/><text x="${x}" y="${y + 3.4}" text-anchor="middle" font-size="9.5" font-family="system-ui" font-weight="700" fill="${ACCENT}">${et.jour}</text>`;
+  }
+  // échelle 10 km et nord
+  const lat0 = 28.4, [x0] = P(lat0, 83.7), [x1] = P(lat0, 83.7 + 10 / (111.32 * Math.cos(lat0 * Math.PI / 180)));
+  const L10 = x1 - x0;
+  s += `<g transform="translate(14 ${H - 22})"><path d="M0 0v5h${L10}V0" fill="none" stroke="${ENCRE}" stroke-width="1"/><text x="${L10 + 5}" y="6" font-size="9" font-family="system-ui" fill="${ENCRE}">10 km</text></g>
+        <g transform="translate(${W - 22} 22)"><path d="M0 -12l5 14-5-4-5 4z" fill="${ENCRE}"/><text y="14" text-anchor="middle" font-size="8" font-family="system-ui" font-weight="700" fill="${ENCRE}">N</text></g>`;
+  const svg = cadre.querySelector("svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = s;
+}
+
+/* ---------- Profil ---------- */
+function profil() {
+  const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
+    const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+  const pr = []; let d = 0, prec = null;
+  for (const f of traces.filter(f => f.properties.mode === "marche")) for (const c of f.geometry.coordinates) {
+    if (prec) d += dist(prec, c); if (c[2] != null) pr.push({d, alt: c[2], jour: f.properties.jour}); prec = c; }
+  const dMax = pr.at(-1).d, X = v => v / dMax * 1000, Y = a => 96 - a / 5000 * 92;
+  const pas = Math.max(1, Math.floor(pr.length / 700));
+  const pts = pr.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
+  let s = "";
+  for (const a of [1000, 2000, 3000, 4000]) s += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="${ENCRE}" stroke-opacity=".15" vector-effect="non-scaling-stroke"/><text x="3" y="${Y(a) - 2}" font-size="8" fill="${ENCRE}" opacity=".55">${fmt(a)} m</text>`;
+  const fins = {}; for (const p of pr) fins[p.jour] = p;
+  for (const p of Object.values(fins)) s += `<line x1="${X(p.d)}" x2="${X(p.d)}" y1="${Y(p.alt)}" y2="96" stroke="${ACCENT}" stroke-opacity=".5" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/><text x="${X(p.d) - 2}" y="${Y(p.alt) - 4}" font-size="8" font-weight="700" text-anchor="end" fill="${ACCENT}">${p.jour}</text>`;
+  document.getElementById("profil").innerHTML = `<polygon points="0,96 ${pts} 1000,96" fill="${ACCENT}" fill-opacity=".14"/><polyline points="${pts}" fill="none" stroke="${ACCENT}" stroke-width="1.6" vector-effect="non-scaling-stroke"/>${s}`;
+  return {km: traces.filter(f => f.properties.mode === "marche").reduce((s, f) => s + f.properties.km, 0),
+          dp: traces.filter(f => f.properties.mode === "marche").reduce((s, f) => s + f.properties.d_plus, 0)};
+}
+
+/* ---------- Texte repris du chapitre web ---------- */
+async function texte(tot) {
+  const html = await (await fetch("chapitre-annapurna.html")).text();
+  const doc = new DOMParser().parseFromString(html, "text/html"), art = doc.querySelector("article");
+  document.getElementById("sous-titre").textContent = art.querySelector(".sous-titre").textContent;
+  document.getElementById("chapo").textContent = art.querySelector(".chapo").textContent;
+  const recit = document.getElementById("recit");
+  for (const n of art.children) if (n.matches("section, .note-fin")) recit.append(document.importNode(n, true));
+  const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+  recit.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
+    const j = +h.dataset.calc, fs = traces.filter(f => f.properties.jour === j);
+    const m = fs.filter(f => f.properties.mode === "marche"), b = fs.filter(f => f.properties.mode === "bus");
+    const km = m.reduce((s, f) => s + f.properties.km, 0), dp = m.reduce((s, f) => s + f.properties.d_plus, 0), dm = m.reduce((s, f) => s + f.properties.d_moins, 0);
+    const kb = b.reduce((s, f) => s + f.properties.km, 0);
+    let x = km ? `<li>${ico("distance")}<b>≈ ${fmt(km)} km</b></li><li>${ico("montee")}<b>+${fmt(dp)} m</b></li><li>${ico("descente")}<b>−${fmt(dm)} m</b></li>` : "";
+    if (kb) x += `<li>${ico("bus")}<b>≈ ${fmt(kb)} km</b> en bus</li>`;
+    h.querySelector(".stats").insertAdjacentHTML("afterbegin", x);
+  });
+  document.getElementById("chiffres").innerHTML = `
+    <div><b>9 jours</b><span>de marche, de Marpha à Phedi</span></div>
+    <div><b>≈ ${fmt(tot.km)} km</b><span>à pied</span></div>
+    <div><b>≈ ${fmt(tot.dp)} m</b><span>de montée cumulée</span></div>
+    <div><b>1 500 m</b><span>nets en un jour, de Sinuwa au MBC</span></div>
+    <div><b>1 nuit</b><span>sous la tente, au MBC</span></div>
+    <div><b>6 jours</b><span>à Pokhara</span></div>`;
+  document.body.dataset.pret = "1";
+}
+
+carteStatique(document.getElementById("carte"));
+texte(profil());
+</script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le tour du Dhaulagiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
+  --accent:#2f4f3e; --moutarde:#a87a22; --accent-doux:#2f4f3e14; --papier-manuscrit:#efe9dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+    --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+  --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--encre);font:18px/1.7 "Source Serif 4",Georgia,serif}
+.page{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1500px;margin:0 auto}
+article{padding:56px clamp(20px,5vw,72px) 120px;max-width:760px;justify-self:end;width:100%}
+.colonne-carte{position:sticky;top:0;height:100vh;display:grid;grid-template-rows:1fr auto;border-left:1px solid var(--trait)}
+#carte{min-height:0;background:var(--papier-2)}
+.profil{background:var(--carte-fond);border-top:1px solid var(--trait);padding:10px 16px 8px;font:13px/1.4 system-ui,sans-serif;color:var(--encre-2)}
+.profil b{color:var(--encre)}
+.profil svg{display:block;width:100%;height:120px}
+.legende-jour{font:600 14px Fraunces,Georgia,serif;color:var(--encre);margin-bottom:4px;min-height:20px}
+
+.surtitre{font:600 12px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--moutarde);margin:0}
+h1{font:600 clamp(38px,5vw,56px)/1.05 Fraunces,Georgia,serif;margin:10px 0 12px;letter-spacing:-.01em}
+.sous-titre{font:italic 400 21px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 36px}
+.chapo{font-size:20px;line-height:1.65}
+.chapo::first-letter{font:600 64px/0.9 Fraunces,Georgia,serif;float:left;margin:6px 10px 0 0;color:var(--moutarde)}
+section{scroll-margin-top:24px;padding-top:12px}
+.tete-etape{margin:64px 0 26px;padding:18px 20px 16px;background:var(--carte-fond);border:1px solid var(--trait);border-top:3px solid var(--accent);border-radius:2px 2px 8px 8px}
+.tete-etape .quand{font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--encre-2);margin:0}
+.tete-etape .quand b{color:var(--moutarde);font-weight:700;margin-right:8px}
+.tete-etape h2{font:600 30px/1.15 Fraunces,Georgia,serif;margin:6px 0 4px}
+.tete-etape .trajet{font:italic 17px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 14px}
+.stats{list-style:none;margin:0;padding:12px 0 0;border-top:1px dashed var(--trait);display:flex;flex-wrap:wrap;gap:8px 20px;font:13.5px/1.35 system-ui,sans-serif;color:var(--encre)}
+.stats li{display:flex;align-items:center;gap:6px}
+.stats li.calc{font-variant-numeric:tabular-nums}
+.stats li.calc b{font-weight:600}
+.ico{width:16px;height:16px;flex:none;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+p{margin:0 0 1.1em;hyphens:auto}
+.scene{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:19px;line-height:1.7;border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:28px 0}
+.scene p:last-child{margin:0}
+
+figure.manuscrit{margin:32px -8px;padding:18px 18px 12px;background:var(--papier-manuscrit);border-radius:4px;box-shadow:0 1px 2px #0001,0 8px 24px -12px #0003;transform:rotate(-.4deg)}
+figure.manuscrit:nth-of-type(even){transform:rotate(.35deg)}
+figure.manuscrit img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
+figure.manuscrit figcaption{font:13px/1.5 system-ui,sans-serif;color:#6d6457;margin-top:10px}
+figure.manuscrit figcaption i{font:italic 15px/1.5 "Source Serif 4",Georgia,serif;color:#3b352c;display:block;margin-bottom:4px}
+
+figure.document{margin:32px 0;display:grid;gap:14px}
+figure.document.duo{grid-template-columns:.62fr 1fr;align-items:end}
+figure.document.seul{max-width:300px}
+figure.document img{display:block;width:100%;height:auto;border-radius:2px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.document figcaption{grid-column:1/-1;font:13px/1.5 system-ui,sans-serif;color:var(--encre-2)}
+figure.document figcaption b{color:var(--encre);font-weight:600}
+@media (max-width:600px){figure.document.duo{grid-template-columns:1fr}}
+blockquote.citation{font:italic 400 24px/1.45 Fraunces,Georgia,serif;margin:32px 0;padding:0;color:var(--encre)}
+blockquote.citation footer{font:13px system-ui,sans-serif;color:var(--encre-2);margin-top:8px;font-style:normal}
+
+aside.encadre{font:15px/1.55 system-ui,sans-serif;background:var(--carte-fond);border:1px solid var(--trait);border-radius:8px;padding:18px 20px;margin:32px 0}
+aside.encadre h3{font:600 17px Fraunces,Georgia,serif;margin:0 0 10px}
+aside.encadre ul{margin:0;padding-left:18px}
+aside.encadre li{margin:3px 0}
+table.filet{width:100%;border-collapse:collapse;font-size:14px}
+table.filet th,table.filet td{text-align:left;padding:7px 8px;border-top:1px solid var(--trait);vertical-align:top}
+table.filet th{font-weight:600;color:var(--encre-2);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+table.filet td:first-child{color:var(--encre-2);white-space:nowrap}
+table.filet td:last-child{font-weight:600}
+.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}
+.chiffres b{display:block;font:600 24px Fraunces,Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.chiffres span{font-size:13px;color:var(--encre-2)}
+.note-fin{font:14px/1.6 system-ui,sans-serif;color:var(--encre-2);border-top:1px solid var(--trait);margin-top:64px;padding-top:18px}
+.etiquette{background:var(--carte-fond);color:var(--encre);border:1px solid var(--trait);font:12px system-ui,sans-serif;box-shadow:none;padding:1px 6px}
+.etiquette::before{display:none}
+.num-nuit{background:var(--carte-fond);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:22px!important;height:22px!important;display:grid;place-items:center;font:600 11px system-ui,sans-serif}
+.leaflet-container{font:inherit;background:var(--papier-2)}
+#carte{background:var(--carte-fond)}
+.aide-carte{font:12px/1.4 system-ui,sans-serif;color:var(--encre-2);margin:2px 0 0}
+.num-nuit{cursor:pointer}
+.profil svg{cursor:pointer}
+.leaflet-container{background:var(--carte-fond)}
+.nom-lieu{font:italic 13px Fraunces,Georgia,serif;color:var(--encre);white-space:nowrap;text-shadow:0 0 3px var(--carte-fond),0 0 3px var(--carte-fond)}
+
+@media (max-width:960px){
+  .page{display:flex;flex-direction:column}
+  .colonne-carte{order:-1;position:sticky;top:0;height:38vh;z-index:5;border-left:0;border-bottom:1px solid var(--trait);grid-template-rows:1fr}
+  .profil{display:none}
+  article{padding:32px 18px 80px;max-width:none}
+  figure.manuscrit{margin:28px 0}
+  section{scroll-margin-top:40vh}
+}
+.nav-haut{font:600 12px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 28px}
+.nav-haut a,.nav-bas a{color:var(--encre-2);text-decoration:none}
+.nav-haut a:hover,.nav-bas a:hover{color:var(--accent)}
+.nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
+.nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
+.nav-bas .suivant{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-horloge" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/></symbol>
+  <symbol id="i-montee" viewBox="0 0 16 16"><path d="M1.5 13.5 6 7l3 3 5.5-7"/><path d="M10.5 3h4v4"/></symbol>
+  <symbol id="i-descente" viewBox="0 0 16 16"><path d="M1.5 2.5 6 9l3-3 5.5 7"/><path d="M10.5 13h4V9"/></symbol>
+  <symbol id="i-distance" viewBox="0 0 16 16"><circle cx="3" cy="12.5" r="1.6"/><circle cx="13" cy="3.5" r="1.6"/><path d="M4.5 12.5h4a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 1 0-5h4"/></symbol>
+  <symbol id="i-tente" viewBox="0 0 16 16"><path d="M1 14 8 2l7 12Z"/><path d="M8 2v12M6 14l2-4 2 4"/></symbol>
+  <symbol id="i-maison" viewBox="0 0 16 16"><path d="M2 7.5 8 2.5l6 5"/><path d="M3.5 6.5V14h9V6.5"/><path d="M6.5 14v-4h3v4"/></symbol>
+  <symbol id="i-cabane" viewBox="0 0 16 16"><path d="M1.5 8 8 3l6.5 5"/><path d="M3 7v7h10V7"/><path d="M3 10.5h10"/></symbol>
+  <symbol id="i-lit" viewBox="0 0 16 16"><path d="M1.5 4v9M1.5 10.5h13V13M14.5 10.5V8.5a2 2 0 0 0-2-2H7v4"/><circle cx="4.3" cy="8" r="1.4"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="10" rx="1.5"/><path d="M2.5 8h11M5 12v2M11 12v2"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 16 16"><path d="M6.5 9.5V3a1.5 1.5 0 0 1 3 0v6.5a3 3 0 1 1-3 0Z"/><path d="M8 7v4.5"/></symbol>
+</svg>
+<div class="page">
+<article>
+  <nav class="nav-haut"><a href="index.html">← Népal 2011 · les quatre chapitres</a></nav>
+  <p class="surtitre">Chapitre 2 · 24 octobre – 2 novembre 2011</p>
+  <h1>Le tour du Dhaulagiri</h1>
+  <p class="sous-titre">Dix jours sans guide ni porteur, des rizières de la Myagdi au French Pass</p>
+
+  <section data-jour="tout">
+    <p class="chapo">Au retour de l'Everest, nous avions vu les plus hautes montagnes du monde, mais toujours depuis des sentiers battus et rebattus, en plein tourisme de masse. Il nous restait un mois et une envie précise : marcher là où presque personne ne passe. Sur la carte, à l'ouest de Pokhara, un itinéraire faisait le tour d'un géant de glace de 8 167 mètres. On nous en parlait comme du trek le plus exigeant du Népal. C'est là que nous sommes allés, Romain et moi, seuls avec une tente, une carte fausse et quelques kilos de tsampa.</p>
+
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Préparatifs</b>21 – 23 octobre 2011</p>
+      <h2>Ceux qui secouaient la tête</h2>
+      <p class="trajet">Katmandou → Pokhara</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>bus pour Pokhara, départ 6 h 30</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Pokhara, une chambre double pour trois</li></ul>
+    </header>
+    <p>L'idée était revenue un soir, après trois heures dans un cybercafé de Katmandou. Le tour du Dhaulagiri demandait deux bonnes semaines, du matériel en plus, et il cumulait tout ce qu'on apprend à redouter : glacier, altitude, froid extrême, vent, isolement. Mais il n'exigeait ni permis hors de prix ni officier de liaison. Nous voulions le faire sans guide ni porteur. J'avais du mal à mesurer la folie de l'entreprise. Raisonnable ? Nous nous répétions que nous avions le temps : le temps d'attendre, de faire demi-tour, de nous tromper. On ne saurait jamais si on n'essayait pas.</p>
+    <p>Les jours suivants ont surtout consisté à collectionner les mises en garde. À l'agence, Krishna nous a expliqué que le tour ne pouvait pas se faire légalement en individuel, à cause d'un poste de contrôle juste avant le camp des Italiens. Un guide nous a prévenus qu'il neigeait sur le French Pass. Si l'on dressait la liste des obstacles, la sagesse voulait que nous restions à Katmandou, ou que nous payions guide et porteurs. Je gardais pourtant le sentiment que c'était faisable, si la météo le permettait. C'était notre seule chance de voir le Népal loin des circuits touristiques, et c'était devenu le cœur du voyage.</p>
+    <p>Alors nous nous sommes préparés. Avec l'aide de Dependra, notre guide de l'Everest, nous avons acheté des guêtres, de petits crampons, des draps de soie. À l'agence, nous avons récupéré une tente et des tapis de sol. Le plus difficile fut la nourriture : tout calculer au gramme près, selon le poids, le nombre de repas, les chances de manger chez l'habitant et le nombre de cartouches de gaz. Sur un site internet, nous avons trouvé la description du tour, étape par étape, et nous en avons recopié chacun six dans nos carnets. La veille du départ, nous avons dîné avec Isabelle et Christian, nos compagnons suisses de l'Everest, à qui nous avons promis un compte rendu illustré. De retour à l'hôtel, l'ampoule de la chambre a grillé : les sacs ont été bouclés à la frontale.</p>
+    <figure class="document seul">
+      <img src="images/documents/photos-identite.jpg" alt="Deux photos d'identité de Clément posées sur l'enveloppe du Bhandari Photo Shop, Thamel, Katmandou" width="993" height="1123" loading="lazy">
+      <figcaption><b>Bhandari Photo Shop, Thamel.</b> Les photos d'identité tirées à Katmandou : ce sont celles que l'on retrouve collées sur la carte TIMS et le permis ACAP.</figcaption>
+    </figure>
+    <p>À Pokhara, chaque fois que nous annoncions notre destination, nous avions droit à la même tête choquée et au même avertissement : il neigeait beaucoup là-haut, en ce moment.</p>
+  </section>
+
+  <section data-jour="0">
+    <header class="tete-etape" data-calc="0">
+      <p class="quand"><b>Jour 0</b>24 octobre 2011</p>
+      <h2>La route s'en va</h2>
+      <p class="trajet">Pokhara → Beni</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>5 h de bus, départ 13 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à l'hôtel, Beni · 250 Rps</li></ul>
+    </header>
+    <p>Permis TIMS et ACAP en poche, un taxi nous a déposés à la gare routière de Baglung. À partir de là, nous n'avons plus vu un seul touriste. Le bus de 13 heures était plein, des passagers voyageaient sur le toit. Il s'est enfoncé dans d'immenses vallées vertes couvertes de jungle, le long d'un fleuve large et puissant. De gros nuages noirs nous inquiétaient au loin. Le beau temps est revenu, le goudron, lui, nous a quittés pour de bon. Le bus était aussi défoncé que la route, et plus d'une fois nous l'avons cru sur le point de se renverser.</p>
+    <figure class="document duo">
+      <img src="images/documents/carte-tims.jpg" alt="Carte TIMS de Clément, délivrée le 24 octobre 2011 : zone Annapurna, entrée le 25 octobre, sortie le 25 novembre, itinéraire Beni – Annapurna Base Camp – Phedi / Annapurna circuit" width="955" height="1330" loading="lazy">
+      <img src="images/documents/permis-acap.jpg" alt="Permis d'entrée dans l'aire de conservation des Annapurnas (ACAP), délivré à Pokhara le 24 octobre 2011 pour 2 000 roupies, avec les tampons des postes de Ghasa et de Sikha" width="1404" height="474" loading="lazy">
+      <figcaption><b>Les deux sésames du 24 octobre.</b> À gauche, la carte TIMS délivrée à Pokhara, valable du 25 octobre au 25 novembre. L'itinéraire déclaré indique « Beni – Annapurna Base Camp – Phedi / Annapurna circuit ». À droite, le permis de l'aire de conservation des Annapurnas, 2 000 roupies : ses tampons, posés plus tard le long de la Kali Gandaki, serviront à dater la suite du voyage. Numéros de passeport et date de naissance masqués.</figcaption>
+    </figure>
+    <p>Nous sommes arrivés à Beni après le coucher du soleil. La ville n'était éclairée que par des guirlandes, comme un soir de Noël : nous tombions en plein festival hindou, cinq jours de fête où les enfants dansent en habits traditionnels. Au troisième hôtel, une famille entière nous a accueillis. Au dîner, le grand-père, qui adorait la Belgique et l'économie, a fini par nous mettre en garde contre le Dhaulagiri, lui aussi.</p>
+  </section>
+
+  <section data-jour="1">
+    <header class="tete-etape" data-calc="1">
+      <p class="quand"><b>Jour 1</b>25 octobre 2011</p>
+      <h2>Les sources chaudes</h2>
+      <p class="trajet">Beni → Tatopani en bus, puis à pied par Babiyachaur jusqu'à Darbang</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 11 h 30 · 3 h 30 de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Darbang · 200 Rp</li></ul>
+    </header>
+    <p>Un dernier bus nous a épargné une portion de route sans intérêt et nous a déposés à Tatopani, où l'eau sort de terre à 50 °C. Entourés de Népalais, nous nous sommes lavés et avons fait notre lessive dans les bassins. Nous y avons croisé un groupe de dix Français et Belges en route pour le Tukuche, un sommet de 6 900 mètres. Dans une petite échoppe, la vendeuse a proposé de cuisiner ce que nous lui achetions : des nouilles et deux œufs.</p>
+    <p>À 11 h 30, nous avons enfin commencé à marcher. Les sacs étaient lourds, il faisait chaud. Le chemin, large et poussiéreux, était coupé de rivières qu'il fallait traverser pieds nus. Après un thé et des samosas à Babiyachaur, nous sommes arrivés à Darbang, où le contrôle des permis s'est passé sans encombre. Dans le lodge, nous avons rencontré une expédition slovaque partie pour le Dhampus Peak : dix grimpeurs, vingt-trois porteurs et sans doute quatre guides. Leur chef nous a fait comprendre qu'ils auraient une journée d'avance sur nous et qu'ils pourraient nous aider en cas de problème. Trente-sept personnes allaient tracer la partie difficile devant nous, s'il ne neigeait pas d'ici là.</p>
+    <p>À 18 heures, l'orage a éclaté. Sous la pluie battante, une petite inquiétude nous a gagnés : notre tente était bien modeste, et là-haut, sur le glacier, il y aurait de la neige.</p>
+  </section>
+
+  <section data-jour="2">
+    <header class="tete-etape" data-calc="2">
+      <p class="quand"><b>Jour 2</b>26 octobre 2011</p>
+      <h2>La journée des contrastes</h2>
+      <p class="trajet">Darbang → Dharapani → Muri</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 10 h 30 · arrivée 17 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-maison"/></svg>nuit chez l'habitant, Muri · 700 Rps avec le dîner</li></ul>
+    </header>
+    <p>La journée a commencé en pleine nuit, avec des crampes d'estomac qui m'ont empêché de me rendormir. À 6 heures, j'ai réveillé Romain : le départ était prévu à 5 heures, mais il avait perdu son téléphone et nous n'avions plus de réveil. Le thé et la tsampa n'ont rien arrangé. Dans une cabane qui servait de pharmacie, une femme m'a donné des pilules, sans effet. Le temps filait, il fallait avancer, et je ne tenais plus droit. Il ne restait qu'une solution : rendre le repas de la veille que je ne digérais pas. L'heure qui a suivi fut un cauchemar.</p>
+    <p>À 10 h 30, j'étais vidé, mais je revivais. Un Pepsi, un peu de repos, et nous sommes partis. Après presque dix heures de bataille, la légère douleur de la marche était un bonheur. À midi, nous traversions Dharapani, un joli village perché aux maisons ocre rouge. C'était la saison de la récolte : le riz était partout, à tous les stades. Il faisait chaud ; je marchais en collant court de course et chemise de lin. Devant nous, les nuages s'accumulaient, et la peur d'arriver à la nuit nous a fait presser le pas. À un poste de contrôle, un policier nous a réclamé des crayons, que nous lui avons donnés, puis un Pepsi, que nous avons poliment esquivé.</p>
+    <p>Peu avant Muri, un homme nous a abordés. Il était professeur d'anglais. Sans lui, nous nous serions trompés de chemin. Il nous a conduits jusqu'au village et nous a indiqué une maison où dormir et manger. À Muri, il n'y avait plus rien pour les touristes : des maisons traditionnelles, une cuisine au feu de bois, et presque plus personne pour parler anglais. C'est la fille aînée de la maison qui nous a aidés à négocier le prix. Le soir, nous avons mangé assis en tailleur sur une paillasse, sous le regard des six enfants de la famille.</p>
+    <div class="scene">
+      <p>Le matin, j'étais malade ; le soir, heureux. Le temps avait d'abord été mauvais, et pourtant le Dhaulagiri nous est apparu dans la lumière du couchant. Nous étions partis d'une ville qui avait encore des hôtels pour arriver dans un village où les touristes sont rares. Il n'y a pas de meilleur nom pour cette journée.</p>
+    </div>
+  </section>
+
+  <section data-jour="3">
+    <header class="tete-etape" data-calc="3">
+      <p class="quand"><b>Jour 3</b>27 octobre 2011</p>
+      <h2>Le grenier à maïs</h2>
+      <p class="trajet">Muri → Boghara</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>6 h 30 → 11 h 17</li><li><svg class="ico" aria-hidden="true"><use href="#i-maison"/></svg>nuit au grenier, chez l'habitant, Boghara</li></ul>
+    </header>
+    <p>Départ à 6 h 30 sous un ciel d'un bleu pur, où se découpaient nettement les cinq sommets du Dhaulagiri. Notre carte était mauvaise et nous jouait des tours. Ce sont les villageois, l'un après l'autre, qui nous ont remis sur la bonne route. Sans eux, nous nous serions perdus plusieurs fois. La vallée était profonde et abrupte, ses parois couvertes de forêts denses et de cascades. Nous avons d'abord marché dans la jungle humide, au bord de la rivière, puis sur un chemin taillé dans la roche, haut perché, en plein soleil. Ce que nous imaginions faire en une heure et demie nous en a pris plus du double. La veille pesait encore dans nos jambes et dans nos têtes.</p>
+    <p>À Boghara, à l'heure du déjeuner, il était hors de question de repartir. On nous a guidés jusqu'à la première maison du village, et nous avons dormi deux heures dans notre chambre : le grenier, avec les réserves de maïs. Dans l'après-midi sont arrivés un groupe de trekkeurs, puis deux, puis trois, chacun avec ses guides, ses porteurs et ses ânes. Une organisation impressionnante, et une tout autre manière de vivre la montagne.</p>
+    <p>Au début de la soirée, des enfants et quelques adultes se sont installés devant la maison. Ils se sont mis à chanter et à danser, et nous avec eux. On apportait des plateaux d'offrandes : farine de maïs, pain, alcool, billets. Nous avons donné notre part. On a mangé et bu de l'alcool de riz. La fête finie, notre dal bhat nous a été servi dans le grenier, juste au-dessus de la cuisine. On y entendait tout, et la fumée du feu de bois montait jusqu'à nous.</p>
+  </section>
+
+  <section data-jour="4">
+    <header class="tete-etape" data-calc="4">
+      <p class="quand"><b>Jour 4</b>28 octobre 2011</p>
+      <h2>La jungle primaire</h2>
+      <p class="trajet">Boghara → Dobang → Choriban, deux étapes en une</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>8 h de marche · +2 000 m selon le carnet</li><li><svg class="ico" aria-hidden="true"><use href="#i-cabane"/></svg>nuit dans une cabane, Choriban · 3 400 m</li></ul>
+    </header>
+    <p>Notre plan pour la journée : doubler l'étape pour passer devant les trois groupes. Levés à 5 heures, à la frontale, nous avons allumé le réchaud et préparé la tsampa. Un chemin boueux et raide nous a fait descendre dans la forêt. Elle s'est vite transformée en jungle primaire ; on se serait cru en Amazonie. Nous avancions dans la boue, entre les pierres, enjambant mille ruisseaux, au milieu des lianes, des cris d'oiseaux et d'une humidité épaisse. Des ponts parfois peu rassurants franchissaient d'énormes torrents. Je donnais un rythme lent, pour ne pas nous épuiser. Malgré cela, à 10 h 40, nous étions à Dobang, en avance sur les temps habituels.</p>
+    <p>À 11 h 45, nous repartions pour Choriban. La fatigue est venue avec les longues montées boueuses. C'est là que nous avons croisé les premiers touristes du trek : un couple venu de Fairbanks, en Alaska, des marcheurs et campeurs aguerris. Le soir, nous étions seuls au campement, dans une petite cabane avec deux couchettes de foin et un feu au centre. Pas de cheminée, comme partout au Népal. Huit heures de marche, deux étapes en une.</p>
+    <p>Avant la nuit, nous sommes allés chercher de l'eau, avons fait du feu et cuit des chapatis de tsampa. Nous avons peu mangé : il fallait économiser. Nous ignorions encore si l'on servait des repas au camp des Italiens, et combien de jours nous resterions sur le glacier. Nous avions cinq jours de vivres confortables ; sept ou huit en se serrant la ceinture. J'avais mal aux épaules, j'avais encore faim, et j'étais heureux. Derrière nous restaient la jungle et les villages reculés ; devant nous commençait la haute montagne. À 18 h 30, nous dormions.</p>
+  </section>
+
+  <section data-jour="5">
+    <header class="tete-etape" data-calc="5">
+      <p class="quand"><b>Jour 5</b>29 octobre 2011</p>
+      <h2>Le chasseur</h2>
+      <p class="trajet">Choriban → camp de base des Italiens</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>arrivée 11 h 45 · journée d'acclimatation</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>1re nuit sous tente, camp des Italiens · 3 700 m</li></ul>
+    </header>
+    <p>L'étape était courte, deux cents mètres de dénivelé à peine, et pourtant nous l'avons gravie lentement, péniblement. La veille, nous avions dîné de nouilles et de trois bouts de viande séchée. À 11 h 45, nous arrivions affamés au dernier refuge du trek, où le moindre plat coûtait une fortune. Un chowmein englouti ne nous a pas rassasiés ; une omelette de deux œufs, le plat le moins cher, nous a rendu le sourire.</p>
+    <p>À 3 700 mètres, en plein soleil, nous étions les deux seuls étrangers du camp, face à la paroi ouest du Dhaulagiri, septième sommet du monde. Nous jouions aux cartes quand un chasseur s'est mis à dépecer un animal de montagne sous nos yeux. Par curiosité, nous lui avons demandé si nous pouvions en acheter un morceau. La gardienne du refuge l'a cuisiné avec un peu de piment, et nous l'avons dégusté au soleil. Un moment inoubliable, couronné par une cigarette achetée à l'unité, le dernier luxe avant longtemps.</p>
+    <p>Ce jour-là, nous avons monté la tente pour la première fois, et refait entièrement nos sacs en comptant nos vivres. Le groupe de Français croisé à Tatopani est arrivé avec un nombre incroyable d'ânes et de guides. Il s'installait pour s'acclimater, pendant que nous prenions une journée d'avance. Le soir, la cuisinière nous a servi quatre grandes assiettes de riz et de dal, amusée de nous voir manger autant. À côté de nous, l'expédition disposait de sa tente cuisine, de sa tente salle à manger, et même d'une douche chaude.</p>
+    <p>Sous la toile, dans le bruit d'une petite pluie, j'ai écrit sur Romain. Nous parlions peu en marchant, mais nous nous comprenions très bien. Pas de décalage dans nos attentes, la même simplicité, la même écoute. Même la tente en témoignait : pas un millimètre carré perdu, deux méthodiques qui rangent chacun à sa place.</p>
+    <blockquote class="citation">« Nous avançons dans la même direction avec le même bagage et le même émerveillement. »<footer>Carnet 2, page 20</footer></blockquote>
+  </section>
+
+  <section data-jour="6">
+    <header class="tete-etape" data-calc="6">
+      <p class="quand"><b>Jour 6</b>30 octobre 2011</p>
+      <h2>Le premier glacier</h2>
+      <p class="trajet">Camp des Italiens → Glacier Camp</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>tout est gelé au départ</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>tente, Glacier Camp · 4 100 m</li></ul>
+    </header>
+    <p>Petit déjeuner allongés dans nos duvets, pour garder la chaleur : tsampa et thé mêlés de porridge. Dehors, tout était gelé. La lumière du matin sur le Dhaulagiri coupait le souffle. Nous avons secoué la fine pellicule de glace de la tente, salué les Français, puis nous sommes partis. Malgré les gants, les bonnets et les polaires, impossible de se réchauffer. Seule la concentration exigée par la descente, très raide, dans la moraine y parvenait.</p>
+    <p>La montée suivante était tout aussi acrobatique, et nous l'avons poussée beaucoup trop haut. Nous avions perdu le chemin. L'idée de désescalader ce couloir de pierres et d'herbes hautes m'a traversé désagréablement. Nous avons finalement retrouvé la trace plus bas, le long de la rivière. Venaient ensuite des ruisseaux gelés, puis une vallée désertique de terre orange et de pierres rosées, toujours à l'ombre. Puis le glacier : immense, couvert de pierres, laissant voir par endroits de larges crevasses et de la glace vive. Nous étions les premiers, comme chaque matin, suivis de près par les sherpas éclaireurs de l'expédition française.</p>
+    <p>Au Glacier Camp, que d'autres appellent le camp des Japonais, un vent modéré mais incessant rendait l'air glacial. Avant de nous réfugier dans la tente, nous en avons muré les bords de pierres. L'après-midi s'est passé sous la toile : lecture, cartes, itinéraire. Une seule sortie, pour aller chercher de l'eau dans une rigole de glace. À 16 h 30, nous étions dans nos sacs. Le dîner, à la nuit tombée : un paquet de nouilles, dix cuillères de semoule et trois bouts de viande séchée. Trois ou quatre fois cette ration aurait fait un bon repas ; le poids en avait décidé autrement. C'était délicieux.</p>
+    <div class="scene">
+      <p>Dans la tente, nous vivions dans un espace minuscule. Il suffisait d'en sortir la tête pour découvrir le glacier et ses parois verticales de pierre, de neige et de glace. Et régulièrement, des chutes de pierres et de neige résonnaient de leur bruit sourd, pour nous rappeler la gravité du lieu. Je me félicitais de savoir quelques tentes de gens expérimentés autour de nous. Ce ne serait plus le cas plus haut.</p>
+    </div>
+    <p>Nous apprenions aussi une mauvaise nouvelle pour notre rêve de sommet : le Dhampus Peak demandait un permis de 600 dollars, que nous n'avions pas.</p>
+  </section>
+
+  <section data-jour="7">
+    <header class="tete-etape" data-calc="7">
+      <p class="quand"><b>Jour 7</b>31 octobre 2011</p>
+      <h2>La plus mauvaise nuit</h2>
+      <p class="trajet">Glacier Camp → camp de base du Dhaulagiri</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>6 h 45 → 9 h 45</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>tente, camp de base · 4 800 m</li></ul>
+    </header>
+    <p>Ce fut la pire nuit depuis notre arrivée au Népal, un mois plus tôt. Nous avions sous-estimé les graviers qui couvrent le glacier : la nuit, ils transmettent directement le froid de la glace vive, et mon tapis de sol premier prix n'y pouvait rien. Il y avait aussi les avalanches, nettes et fréquentes. La première a été si puissante que je suis resté tétanisé, à l'idée qu'elle atteigne la tente. Le froid, l'étroitesse des duvets, le noir complet : l'angoisse est montée, avec son cortège de scénarios. Je me suis tout de même endormi au petit matin.</p>
+    <p>À 5 h 30, nous nous sommes raconté nos nuits. Emmitouflés dans nos sacs, chacun s'était cru seul au monde. Elles avaient été identiques en tous points. Cela m'a réconforté de l'avoir partagée, et Romain, lui, voyait les choses du bon côté :</p>
+    <figure class="manuscrit">
+      <img src="images/extrait-rom-nuit.jpg" alt="Extrait manuscrit du carnet : « C'est pas catastrophique, le plus important c'est de pouvoir dormir au moins 4 ou 5 heures » et il a raison. Avec du recul ça n'est qu'une mauvaise nuit ! Mais pour moi c'était la première" width="1100" height="413">
+      <figcaption><i>« C'est pas catastrophique, le plus important c'est de pouvoir dormir au moins 4 ou 5 heures » et il a raison. Avec du recul ça n'est qu'une mauvaise nuit !</i>Carnet 2, page 28 · les mots de Romain, au réveil sur le glacier</figcaption>
+    </figure>
+    <p>Partis à 6 h 45, nous étions les tout premiers dans la vallée glacée. À 9 h 45, nous arrivions au camp de base du Dhaulagiri, par beau temps, face à la paroi nord, au Tukuche et au Sita Chuchura. Comme un rituel, nous avons fait sécher la tente et les duvets avant l'arrivée du vent, puis élevé de petits murets de pierres. Ici, les sardines refusaient d'entrer dans la glace : pierres et ficelles feraient l'affaire. À midi, la vue s'est bouchée et de fins flocons de glace ont commencé à tomber. L'après-midi s'est passé au rami et au thé. Nous étions à la veille des deux journées les plus importantes et les plus délicates du trek.</p>
+    <figure class="manuscrit">
+      <img src="images/extrait-seul-endroit.jpg" alt="Extrait manuscrit du carnet : extraordinaire d'être là ! C'est précisément le seul endroit où nous voulons être. Il n'y a pas d'autres endroits au monde qui nous fait rêver vraiment… à part peut-être d'être confortablement à la maison, au chaud, le frigidaire plein et entouré de famille et amis !" width="1100" height="661">
+      <figcaption><i>« C'est précisément le seul endroit où nous voulons être. Il n'y a pas d'autres endroits au monde qui nous fait rêver vraiment… à part peut-être d'être confortablement à la maison, au chaud, le frigidaire plein et entouré de famille et amis ! »</i>Carnet 2, page 29 · écrit sous la tente au camp de base, juste avant que le froid n'arrête l'écriture</figcaption>
+    </figure>
+    <p>J'ai dû poser le stylo : j'avais trop froid aux mains pour continuer. Au dîner, notre plat favori, nouilles, couscous et viande séchée, suivi d'une poignée de granola. Le couple d'Alaska campait à une minute de nous. Lui enseignait à des enfants de neuf ou dix ans, elle étudiait la biologie dans une station du Grand Nord. Dehors, il s'est mis à neiger fort, et le paysage a blanchi.</p>
+  </section>
+
+  <section data-jour="8">
+    <header class="tete-etape" data-calc="8">
+      <p class="quand"><b>Jour 8</b>1er novembre 2011</p>
+      <h2>Premiers au French Pass</h2>
+      <p class="trajet">Camp de base → French Pass, 5 360 m → Hidden Valley</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 4 h 30 · 6 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>−15 à −20 °C sur la crête</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>tente, Hidden Valley · 5 140 m</li></ul>
+    </header>
+    <p>Deux ou trois centimètres de neige recouvraient le sol. Nous avions étalé polaires et vestes sous les tapis pour mieux nous isoler. Moi, je n'ai presque pas dormi : l'altitude, qui me reprend de temps en temps. À 3 heures, nous préparions le petit déjeuner. En passant la tête dehors, j'ai découvert le paysage tout blanc sous une petite lune et un ciel étoilé.</p>
+    <div class="scene">
+      <p>À 4 h 30, il a fallu sortir plier la tente. La lune s'était couchée, la nuit était noire, et le froid mordant. C'est seulement là que nous avons compris que nous étions la seule tente du camp. La neige avait effacé le chemin.</p>
+      <p>Nous savions qu'un autre groupe campait plus loin et devait partir à 5 heures pour le col. Nous l'avons rejoint à grand-peine, de nuit, sans trace, sur un glacier heureusement couvert de pierres. Ils se réveillaient tout juste. Alors, avec les premières lueurs, nous avons ouvert la voie nous-mêmes, dans la fine couche de neige qui laissait deviner le sentier.</p>
+    </div>
+    <p>Chaque minute offrait un nouveau jeu de lumière sur les sommets. Le lever du soleil sur le Dhaulagiri restera l'un des moments forts de mes souvenirs. Il y eut ensuite une longue crête exposée, réputée pour ses vents glacés, et elle a tenu sa réputation : entre −15 et −20 °C. La gourde que je gardais contre moi, sous le manteau, s'est changée en bloc de glace.</p>
+    <figure class="manuscrit">
+      <img src="images/extrait-french-pass.jpg" alt="Extrait manuscrit du carnet : Nous arrivons finalement au French Pass sans vent, le ciel découvert, au soleil et les premiers ! Le paysage à 360° est magnifique. Nous sommes fiers, contents" width="1100" height="419">
+      <figcaption><i>« Nous arrivons finalement au French Pass sans vent, le ciel découvert, au soleil et les premiers ! Le paysage à 360° est magnifique. »</i>Carnet 2, page 33</figcaption>
+    </figure>
+    <p>Là-haut, à 5 360 mètres, le panorama s'ouvrait à 360 degrés. Nous étions fiers, contents, heureux. Crampons aux pieds, nous sommes descendus vers la Hidden Valley, un haut plateau au pied du Tukuche. Les jambes étaient lourdes, et malgré toutes nos couches portées en même temps, nous ne nous sommes jamais réchauffés.</p>
+    <p>Il nous restait pourtant une idée en tête : le Dhampus Peak. Vu de près, c'était une pente raide, enneigée et criblée de crevasses. L'ascension de nuit, que nous avions envisagée, nous est apparue pour ce qu'elle était : impensable et suicidaire. Deux Autrichiens très sympathiques nous ont donné un espoir de nous joindre légalement à leur ascension. Leur sherpa nous a expliqué que le sommet était technique et demandait corde, baudrier, piolet, crampons et chaussures adaptées. Nous n'avions rien de tout cela. Nous avons compris et approuvé son refus. J'étais très déçu, mais sans regret : nous avions tout tenté.</p>
+    <p>Le soir, j'ai fait le bilan. Ce n'était pas un sommet, mais c'était sans doute l'étape clé du trek : la plus belle, la plus haute, la plus technique et la plus fatigante. Et je me suis rappelé pourquoi j'étais parti : apprendre des autres et de soi-même, plus que conquérir un sommet.</p>
+  </section>
+
+  <section data-jour="9">
+    <header class="tete-etape" data-calc="9">
+      <p class="quand"><b>Jour 9</b>2 novembre 2011</p>
+      <h2>Le vent du Dhampus Pass</h2>
+      <p class="trajet">Hidden Valley → Dhampus Pass, 5 240 m → Yak Kharka → Marpha</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>7 h 30 → 15 h · deux étapes en une</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>−15 °C dans la tempête</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Marpha · 2 600 m</li></ul>
+    </header>
+    <p>La nuit à 5 140 mètres fut la plus froide de ma vie. La tente était posée sur de l'herbe, mais les vents d'altitude ont fait chuter la température jusqu'à la limite de nos duvets. Même en polaire, collant et chaussettes, il fallait s'enfermer entièrement dans le sac, au point d'y manquer d'air. Au matin, il nous a fallu deux heures et un petit déjeuner chaud pour sortir dans les premiers rayons du soleil. Tout était gelé, le rangement fut laborieux.</p>
+    <p>À 7 h 30, face au soleil, nous avons attaqué la pente neigeuse du Dhampus Pass. Nous l'imaginions monotone. Elle nous a surpris par ses paysages neufs et le plaisir de marcher dans la neige fraîche. Au camp de base du Dhampus Peak, une expédition allemande nous a confirmé que l'ascension était technique, et particulièrement difficile cette année. Comme tout le monde, ils s'étonnaient de nous voir à deux, sans guide ni porteur, avec un sac raisonnable.</p>
+    <p>Au-delà du col, la descente suivait de larges flancs enneigés, où un faux pas nous aurait fait glisser loin. Nous avancions vigilants, avec la chaîne des Annapurnas pour nouvel horizon. Au bout de trois heures, nous avions dépassé les expéditions parties avant nous, et c'est là que la tempête nous a pris. Le vent s'est levé d'un coup, la température est tombée à −15 °C au moins. Frigorifiés et couverts de glace, nous sommes descendus au plus vite une pente raide et glissante.</p>
+    <p>À midi, nous étions à Yak Kharka, un camp désert et inhospitalier qui domine une vallée morte, battue par les vents. La décision n'a pas pris longtemps : nous doublerions l'étape. Après un déjeuner à l'abri, dans une grande étable vide, avec le peu d'eau qui n'avait pas gelé, nous avons descendu toute la vallée.</p>
+    <div class="scene">
+      <p>À 15 heures, Marpha. Des maisons, de l'oxygène, de la chaleur. Un lit dans un lodge, un milk tea, une part de la tarte aux pommes qui fait la réputation du village. Puis la première douche depuis neuf jours. Le soir, nous avons fêté notre réussite à la façon népalaise, avec un alcool de pomme local allongé d'eau chaude sucrée.</p>
+      <p>C'était le 2 novembre. Nous étions au Népal depuis un mois, jour pour jour.</p>
+    </div>
+    <blockquote class="citation">« Contrasté, exigeant et formateur ! »<footer>Carnet 2, page 40 · le bilan du tour, en trois mots</footer></blockquote>
+
+    <aside class="encadre">
+      <h3>Le tour en chiffres</h3>
+      <div class="chiffres" id="chiffres-tour"></div>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--encre-2)">Distances et dénivelés calculés sur les sentiers cartographiés, à titre indicatif. Le carnet, lui, compte en heures.</p>
+    </aside>
+  </section>
+
+  <p class="note-fin">Ce chapitre est tiré du carnet 2 et du carnet 1.</p>
+  <nav class="nav-bas"><a class="precedent" href="chapitre-everest.html">← Chapitre 1<b>Le trek de l'Everest</b></a><a class="suivant" href="chapitre-annapurna.html">Chapitre 3 →<b>Kali Gandaki et sanctuaire des Annapurnas</b></a></nav>
+</article>
+
+<div class="colonne-carte" aria-label="Carte du tour du Dhaulagiri">
+  <div id="carte"></div>
+  <div class="profil">
+    <div class="legende-jour" id="legende-jour">Le tour du Dhaulagiri</div>
+    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude du tour"></svg>
+    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="donnees.js"></script>
+<script src="courbes-dhaulagiri.js"></script>
+<script>
+const V = window.VOYAGE, EP = "dhaulagiri";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const ep = V.episodes.find(e => e.id === EP);
+const traces = V.traces.filter(f => f.properties.episode === EP);
+
+/* Carte */
+const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
+carte.setView([28.55, 83.55], 10);
+carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
+
+/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
+const renduCourbes = L.svg({padding: .3});
+const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
+for (const [alt, ligne] of window.COURBES.lignes) {
+  const maitresse = alt % window.COURBES.maitresse === 0;
+  L.polyline(ligne.map(c => [c[1], c[0]]), {
+    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
+  }).addTo(maitresse ? maitresses : intermediaires);
+}
+const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
+carte.on("zoomend", densite);
+const etiquette = (lat, lon, html, cls = "nom-lieu") =>
+  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: [-6, 8]})}).addTo(carte);
+etiquette(28.6967, 83.4875, `<svg width="12" height="10" style="vertical-align:-1px"><path d="M6 1 L11 9 H1 Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg> Dhaulagiri I · 8 167 m`);
+for (const id of ["beni", "marpha", "pokhara"]) { const l = V.lieux[id]; etiquette(l.lat, l.lon, l.nom.replace(/ \(.*\)/, "")); }
+
+/* Aller à une étape du récit depuis la carte ou le profil */
+let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
+function allerAuJour(jour) {
+  const s = document.querySelector(`section[data-jour="${jour}"]`);
+  if (!s) return;
+  enNavigation = String(jour); afficher(String(jour));
+  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
+  addEventListener("scrollend", fin); setTimeout(fin, 2500);
+  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
+}
+const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
+
+const lignes = {}; // jour -> [polylines]
+for (const f of traces) {
+  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
+  const l = L.polyline(pts, {
+    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
+    dashArray: p.mode === "bus" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
+  }).addTo(carte);
+  (lignes[p.jour] ||= []).push(l);
+  // zone de clic large et invisible par-dessus le tracé
+  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
+    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
+    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
+    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
+    .on("click", () => allerAuJour(p.jour))
+    .addTo(carte);
+}
+const tout = L.featureGroup(Object.values(lignes).flat());
+
+/* Numéros des nuits */
+for (const et of ep.etapes) {
+  const dernier = et.troncons.at(-1)?.[1].at(-1), l = V.lieux[dernier];
+  if (!l) continue;
+  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "num-nuit", html: et.jour, iconSize: [22, 22]})})
+    .bindTooltip(`Nuit ${et.jour} · ${l.nom}${l.alt ? " · " + fmt(l.alt) + " m" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
+    .on("click", () => allerAuJour(et.jour))
+    .addTo(carte);
+}
+for (const id of ["french_pass", "dhampus_pass"]) {
+  const l = V.lieux[id];
+  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "", iconSize: [14, 12], html: `<svg width="14" height="12"><path d="M7 1 L13 11 H1 Z" fill="${css("encre")}" stroke="${css("carte-fond")}" stroke-width="1.5"/></svg>`})})
+    .bindTooltip(`${l.nom} · ${fmt(l.alt)} m`, {permanent: true, direction: "right", offset: [6, 0], className: "etiquette"}).addTo(carte);
+}
+carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
+
+/* Profil */
+let profil = [], prec = null, d = 0;
+const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
+  const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+for (const f of traces.filter(f => f.properties.mode === "marche")) for (const c of f.geometry.coordinates) {
+  if (prec) d += dist(prec, c);
+  if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
+  prec = c;
+}
+const svg = document.getElementById("profil");
+function dessinerProfil(jour) {
+  const dMax = profil.at(-1).d, bas = 0, haut = 6000;
+  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
+  const pas = Math.max(1, Math.floor(profil.length / 800));
+  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
+  let grille = "";
+  for (let a = 1000; a <= 5000; a += 2000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
+  const sel = profil.filter(p => p.jour === jour);
+  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
+  svg.style.color = css("encre");
+  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+}
+
+const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
+const pointProfil = e => {
+  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
+  return profil.find(q => q.d >= d) || profil.at(-1);
+};
+svg.addEventListener("mousemove", e => {
+  const p = pointProfil(e);
+  repere.setLatLng([p.lat, p.lon]).addTo(carte);
+  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
+});
+svg.addEventListener("mouseleave", () => {
+  carte.removeLayer(repere);
+  document.getElementById("aide-carte").textContent = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.";
+});
+svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
+
+/* Chiffres */
+const marche = traces.filter(f => f.properties.mode === "marche");
+const kmTour = marche.reduce((s, f) => s + f.properties.km, 0), dpTour = marche.reduce((s, f) => s + f.properties.d_plus, 0);
+document.getElementById("chiffres-tour").innerHTML = `
+  <div><b>10 jours</b><span>au lieu des 14 prévus</span></div>
+  <div><b>≈ ${fmt(kmTour)} km</b><span>à pied</span></div>
+  <div><b>≈ ${fmt(dpTour)} m</b><span>de montée cumulée</span></div>
+  <div><b>5 360 m</b><span>French Pass, point le plus haut</span></div>
+  <div><b>4 nuits</b><span>sous la tente, dont une à 5 140 m</span></div>
+  <div><b>0</b><span>guide, porteur ou âne</span></div>`;
+
+/* Chiffres du jour dans les en-têtes (calculés sur la carte) */
+const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
+  const j = +h.dataset.calc, fs = traces.filter(f => f.properties.jour === j);
+  const m = fs.filter(f => f.properties.mode === "marche"), b = fs.filter(f => f.properties.mode === "bus");
+  const km = m.reduce((s, f) => s + f.properties.km, 0), dp = m.reduce((s, f) => s + f.properties.d_plus, 0), dm = m.reduce((s, f) => s + f.properties.d_moins, 0);
+  const kmBus = b.reduce((s, f) => s + f.properties.km, 0);
+  let html = "";
+  if (km) html += `<li class="calc" title="Calculé sur les sentiers cartographiés">${ico("distance")}<b>≈ ${fmt(km)} km</b> à pied</li>
+    <li class="calc" title="Dénivelé positif calculé">${ico("montee")}<b>+${fmt(dp)} m</b></li>
+    <li class="calc" title="Dénivelé négatif calculé">${ico("descente")}<b>−${fmt(dm)} m</b></li>`;
+  if (kmBus) html += `<li class="calc">${ico("bus")}<b>≈ ${fmt(kmBus)} km</b> en bus</li>`;
+  h.querySelector(".stats").insertAdjacentHTML("afterbegin", html);
+});
+
+/* La carte suit la lecture */
+let courant = null;
+// Leaflet renvoie une position invalide (NaN) si l'on « vole » vers la vue actuelle ou dans une carte encore invisible
+function voler(centre, zoom) {
+  if (!carte.getSize().x || !carte.getSize().y) return carte.setView(centre, zoom, {animate: false});
+  if (carte.getCenter().distanceTo(centre) < 5 && Math.abs(carte.getZoom() - zoom) < .01) return;
+  carte.flyTo(centre, zoom, {duration: .9});
+}
+function afficher(jour) {
+  if (jour === courant) return; courant = jour;
+  const tous = jour === "tout";
+  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
+  const cible = tous ? tout : L.featureGroup(lignes[jour] || []);
+  if (cible.getLayers().length) { const v = carte._getBoundsCenterZoom(cible.getBounds(), {padding: innerWidth < 960 ? [16, 16] : [50, 50], maxZoom: 13}); voler(v.center, v.zoom); }
+  (lignes[jour] || []).forEach(l => l.bringToFront());
+  const et = ep.etapes.find(e => String(e.jour) === String(jour));
+  document.getElementById("legende-jour").textContent = tous ? "Le tour du Dhaulagiri · profil d'altitude" : titreJour(jour);
+  dessinerProfil(tous ? null : +jour);
+}
+const obs = new IntersectionObserver(entrees => {
+  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
+}, {rootMargin: "-35% 0px -55% 0px"});
+document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
+afficher("tout");
+addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
+addEventListener("resize", () => carte.invalidateSize());
+</script>
+</body>
+</html>

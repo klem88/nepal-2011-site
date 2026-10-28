@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le trek de l'Everest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
+  --accent:#2f4f3e; --moutarde:#a87a22; --accent-doux:#2f4f3e14; --papier-manuscrit:#efe9dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+    --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+  --accent:#9cc3a8; --moutarde:#d9ab55; --accent-doux:#9cc3a81f; --papier-manuscrit:#e6e0d2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papier);color:var(--encre);font:18px/1.7 "Source Serif 4",Georgia,serif}
+.page{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1500px;margin:0 auto}
+article{padding:56px clamp(20px,5vw,72px) 120px;max-width:760px;justify-self:end;width:100%}
+.colonne-carte{position:sticky;top:0;height:100vh;display:grid;grid-template-rows:1fr auto;border-left:1px solid var(--trait)}
+#carte{min-height:0;background:var(--papier-2)}
+.profil{background:var(--carte-fond);border-top:1px solid var(--trait);padding:10px 16px 8px;font:13px/1.4 system-ui,sans-serif;color:var(--encre-2)}
+.profil b{color:var(--encre)}
+.profil svg{display:block;width:100%;height:120px}
+.legende-jour{font:600 14px Fraunces,Georgia,serif;color:var(--encre);margin-bottom:4px;min-height:20px}
+
+.surtitre{font:600 12px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--moutarde);margin:0}
+h1{font:600 clamp(38px,5vw,56px)/1.05 Fraunces,Georgia,serif;margin:10px 0 12px;letter-spacing:-.01em}
+.sous-titre{font:italic 400 21px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 36px}
+.chapo{font-size:20px;line-height:1.65}
+.chapo::first-letter{font:600 64px/0.9 Fraunces,Georgia,serif;float:left;margin:6px 10px 0 0;color:var(--moutarde)}
+section{scroll-margin-top:24px;padding-top:12px}
+.tete-etape{margin:64px 0 26px;padding:18px 20px 16px;background:var(--carte-fond);border:1px solid var(--trait);border-top:3px solid var(--accent);border-radius:2px 2px 8px 8px}
+.tete-etape .quand{font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--encre-2);margin:0}
+.tete-etape .quand b{color:var(--moutarde);font-weight:700;margin-right:8px}
+.tete-etape h2{font:600 30px/1.15 Fraunces,Georgia,serif;margin:6px 0 4px}
+.tete-etape .trajet{font:italic 17px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 14px}
+.stats{list-style:none;margin:0;padding:12px 0 0;border-top:1px dashed var(--trait);display:flex;flex-wrap:wrap;gap:8px 20px;font:13.5px/1.35 system-ui,sans-serif;color:var(--encre)}
+.stats li{display:flex;align-items:center;gap:6px}
+.stats li.calc{font-variant-numeric:tabular-nums}
+.stats li.calc b{font-weight:600}
+.ico{width:16px;height:16px;flex:none;color:var(--accent);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+p{margin:0 0 1.1em;hyphens:auto}
+.scene{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:19px;line-height:1.7;border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:28px 0}
+.scene p:last-child{margin:0}
+
+figure.manuscrit{margin:32px -8px;padding:18px 18px 12px;background:var(--papier-manuscrit);border-radius:4px;box-shadow:0 1px 2px #0001,0 8px 24px -12px #0003;transform:rotate(-.4deg)}
+figure.manuscrit:nth-of-type(even){transform:rotate(.35deg)}
+figure.manuscrit img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
+figure.manuscrit figcaption{font:13px/1.5 system-ui,sans-serif;color:#6d6457;margin-top:10px}
+figure.manuscrit figcaption i{font:italic 15px/1.5 "Source Serif 4",Georgia,serif;color:#3b352c;display:block;margin-bottom:4px}
+
+figure.document{margin:32px 0;display:grid;gap:14px}
+figure.document.duo{grid-template-columns:.62fr 1fr;align-items:end}
+figure.document.seul{max-width:300px}
+figure.document img{display:block;width:100%;height:auto;border-radius:2px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.document figcaption{grid-column:1/-1;font:13px/1.5 system-ui,sans-serif;color:var(--encre-2)}
+figure.document figcaption b{color:var(--encre);font-weight:600}
+@media (max-width:600px){figure.document.duo{grid-template-columns:1fr}}
+blockquote.citation{font:italic 400 24px/1.45 Fraunces,Georgia,serif;margin:32px 0;padding:0;color:var(--encre)}
+blockquote.citation footer{font:13px system-ui,sans-serif;color:var(--encre-2);margin-top:8px;font-style:normal}
+
+aside.encadre{font:15px/1.55 system-ui,sans-serif;background:var(--carte-fond);border:1px solid var(--trait);border-radius:8px;padding:18px 20px;margin:32px 0}
+aside.encadre h3{font:600 17px Fraunces,Georgia,serif;margin:0 0 10px}
+aside.encadre ul{margin:0;padding-left:18px}
+aside.encadre li{margin:3px 0}
+table.filet{width:100%;border-collapse:collapse;font-size:14px}
+table.filet th,table.filet td{text-align:left;padding:7px 8px;border-top:1px solid var(--trait);vertical-align:top}
+table.filet th{font-weight:600;color:var(--encre-2);font-size:12px;text-transform:uppercase;letter-spacing:.06em;border-top:0}
+table.filet td:first-child{color:var(--encre-2);white-space:nowrap}
+table.filet td:last-child{font-weight:600}
+.chiffres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px}
+.chiffres b{display:block;font:600 24px Fraunces,Georgia,serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.chiffres span{font-size:13px;color:var(--encre-2)}
+.note-fin{font:14px/1.6 system-ui,sans-serif;color:var(--encre-2);border-top:1px solid var(--trait);margin-top:64px;padding-top:18px}
+.etiquette{background:var(--carte-fond);color:var(--encre);border:1px solid var(--trait);font:12px system-ui,sans-serif;box-shadow:none;padding:1px 6px}
+.etiquette::before{display:none}
+.num-nuit{background:var(--carte-fond);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:22px!important;height:22px!important;display:grid;place-items:center;font:600 11px system-ui,sans-serif}
+.leaflet-container{font:inherit;background:var(--papier-2)}
+#carte{background:var(--carte-fond)}
+.aide-carte{font:12px/1.4 system-ui,sans-serif;color:var(--encre-2);margin:2px 0 0}
+.num-nuit{cursor:pointer}
+.profil svg{cursor:pointer}
+.leaflet-container{background:var(--carte-fond)}
+.nom-lieu{font:italic 13px Fraunces,Georgia,serif;color:var(--encre);white-space:nowrap;text-shadow:0 0 3px var(--carte-fond),0 0 3px var(--carte-fond)}
+
+@media (max-width:960px){
+  .page{display:flex;flex-direction:column}
+  .colonne-carte{order:-1;position:sticky;top:0;height:38vh;z-index:5;border-left:0;border-bottom:1px solid var(--trait);grid-template-rows:1fr}
+  .profil{display:none}
+  article{padding:32px 18px 80px;max-width:none}
+  figure.manuscrit{margin:28px 0}
+  section{scroll-margin-top:40vh}
+}
+.num-nuit.multi{width:auto!important;border-radius:11px;padding:0 6px;white-space:nowrap}
+.nav-haut{font:600 12px system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin:0 0 28px}
+.nav-haut a,.nav-bas a{color:var(--encre-2);text-decoration:none}
+.nav-haut a:hover,.nav-bas a:hover{color:var(--accent)}
+.nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
+.nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
+.nav-bas .suivant{text-align:right;margin-left:auto}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-horloge" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/></symbol>
+  <symbol id="i-montee" viewBox="0 0 16 16"><path d="M1.5 13.5 6 7l3 3 5.5-7"/><path d="M10.5 3h4v4"/></symbol>
+  <symbol id="i-descente" viewBox="0 0 16 16"><path d="M1.5 2.5 6 9l3-3 5.5 7"/><path d="M10.5 13h4V9"/></symbol>
+  <symbol id="i-distance" viewBox="0 0 16 16"><circle cx="3" cy="12.5" r="1.6"/><circle cx="13" cy="3.5" r="1.6"/><path d="M4.5 12.5h4a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 1 0-5h4"/></symbol>
+  <symbol id="i-tente" viewBox="0 0 16 16"><path d="M1 14 8 2l7 12Z"/><path d="M8 2v12M6 14l2-4 2 4"/></symbol>
+  <symbol id="i-maison" viewBox="0 0 16 16"><path d="M2 7.5 8 2.5l6 5"/><path d="M3.5 6.5V14h9V6.5"/><path d="M6.5 14v-4h3v4"/></symbol>
+  <symbol id="i-cabane" viewBox="0 0 16 16"><path d="M1.5 8 8 3l6.5 5"/><path d="M3 7v7h10V7"/><path d="M3 10.5h10"/></symbol>
+  <symbol id="i-lit" viewBox="0 0 16 16"><path d="M1.5 4v9M1.5 10.5h13V13M14.5 10.5V8.5a2 2 0 0 0-2-2H7v4"/><circle cx="4.3" cy="8" r="1.4"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 16 16"><rect x="2.5" y="2" width="11" height="10" rx="1.5"/><path d="M2.5 8h11M5 12v2M11 12v2"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 16 16"><path d="M6.5 9.5V3a1.5 1.5 0 0 1 3 0v6.5a3 3 0 1 1-3 0Z"/><path d="M8 7v4.5"/></symbol>
+  <symbol id="i-avion" viewBox="0 0 16 16"><path d="M14.5 3.2c.5-.9-.4-1.8-1.3-1.3L10 4.2 3.2 2.6 2 3.8l5.3 3.1-2.6 2.6-2.1-.3-.9.9 2.4 1.5 1.5 2.4.9-.9-.3-2.1 2.6-2.6 3.1 5.3 1.2-1.2L11.5 6Z"/></symbol>
+</svg>
+<div class="page">
+<article>
+  <nav class="nav-haut"><a href="index.html">← Népal 2011 · les quatre chapitres</a></nav>
+  <p class="surtitre">Chapitre 1 · 29 septembre – 20 octobre 2011</p>
+  <h1>Le trek de l'Everest</h1>
+  <p class="sous-titre">Quatorze jours avec un guide, de Lukla au Kala Patthar par Gokyo et le Cho La</p>
+
+  <section data-jour="tout">
+    <p class="chapo">Le 3 octobre 2011, au petit matin, notre avion a survolé la chaîne de l'Himalaya avant de se poser à Katmandou. Romain et moi avions près de deux mois devant nous, un sac de 55 litres chacun, et une première montagne en tête : l'Everest. Pour ce premier trek, nous ne serions pas seuls. Un guide, des lodges, les repas compris : la haute montagne à la manière de tout le monde, sur un sentier où se pressent les touristes. Cela ne nous a pas empêchés d'y trouver nos propres détours, par les lacs de Gokyo et le col du Cho La, jusqu'au Kala Patthar, face au plus haut sommet du monde.</p>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Départ</b>29 septembre – 3 octobre 2011</p>
+      <h2>Six kilos six</h2>
+      <p class="trajet">Paris → Muscat → Katmandou</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-avion"/></svg>vol de 2 h 35 du matin depuis Muscat</li><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>atterrissage 7 h 30</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>20 °C, beau temps</li></ul>
+    </header>
+    <p>Les jours qui précèdent un grand départ ont quelque chose d'une démolition. Tout se mélangeait, tout s'écroulait, et je découvrais à quel point notre quotidien repose sur des habitudes et des certitudes. Demain ne serait fait d'aucune d'elles.</p>
+    <blockquote class="citation">« Je prépare mes affaires comme si j'allais rentrer complètement changé. »<footer>Carnet 1, page 1 · 29 septembre 2011</footer></blockquote>
+    <p>La veille du départ, j'ai pris un café avec mon père à la Croix-Rouge, puis acheté des lunettes au Vieux Campeur et un sac à dos chez Décathlon. Dans le carnet, la liste tient en deux pages : un collant court de course à pied, une petite doudoune, des lunettes de glacier, une frontale, un iPod, deux carnets de voyage, trois rasoirs jetables. Et, sur une page à part, la pharmacie, avec la posologie de chaque boîte.</p>
+    <figure class="document" style="max-width:460px">
+      <img src="images/documents/visa-ambassade.jpg" alt="Reçu n° 2887 de l'ambassade du Népal à Bruxelles, daté du 26 septembre 2011 : 90 euros reçus de Clément Roux pour un visa" width="1400" height="959" loading="lazy">
+      <figcaption><b>Reçu de l'ambassade du Népal à Bruxelles, 26 septembre 2011.</b> Quatre-vingt-dix euros pour le visa, la case « Visa » entourée au stylo.</figcaption>
+    </figure>
+    <p>Le 2 octobre, nous avons quitté Paris avec un sac de 6,6 kg, tout compris, et pas de bagage à main, seulement les poches pleines. À l'escale de Muscat, à Oman, un dîner de fast-food et une longue attente. Le vol de nuit fut décousu : réveillé à 3 h 30 pour un petit déjeuner épicé, rendormi, puis réveillé pour de bon au-dessus de l'Himalaya.</p>
+    <figure class="document">
+      <img src="images/documents/cartes-embarquement.jpg" alt="Deux cartes d'embarquement Oman Air au nom de Clément Roux : vol WY134 Paris CDG – Muscat le 2 octobre à 11 h 30, siège 38B ; vol WY335 Muscat – Katmandou le 3 octobre à 2 h 35, siège 19B" width="1400" height="1029" loading="lazy">
+      <figcaption><b>Les deux cartes d'embarquement.</b> Paris – Muscat le 2 octobre à 11 h 30, puis Muscat – Katmandou le 3 octobre à 2 h 35 du matin. Numéro de billet masqué.</figcaption>
+    </figure>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Katmandou</b>3 – 4 octobre 2011</p>
+      <h2>Seize jours pour 609 euros</h2>
+      <p class="trajet">Thamel, Durbar Square, Freak Street</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>guesthouse à Thamel, au-dessus d'une rue passante</li></ul>
+    </header>
+    <p>À peine sortis de l'aéroport, il a fallu négocier. Le taxi d'abord. Puis le trek du camp de base de l'Everest, dans le bureau d'une agence, et le même trek chez la concurrence. Un thé népalais à l'Orléan's café, et nous avons fini par choisir Krishna, de Global Adventure Trekking : seize jours de trek pour 609 euros, avec le vol aller-retour pour Lukla, le taxi, un guide, les nuits en lodge et tous les repas.</p>
+    <figure class="document large">
+      <img src="images/documents/recu-everest.jpg" alt="Reçu de réservation n° 912 de Global Adventure Trekking, Thamel, Katmandou, daté du 3 octobre 2011 : « Trekking to Everest » du 07/10/2011 au 22/10/2011, 67 300 roupies, deux personnes" width="1404" height="910" loading="lazy">
+      <figcaption><b>Reçu n° 912, 3 octobre 2011.</b> La réservation chez Global Adventure Trekking : « Trekking to Everest », du 7 au 22 octobre, 67 300 roupies par personne, pour deux. Nous rentrerons deux jours avant la date prévue. Numéro de passeport masqué.</figcaption>
+    </figure>
+    <p>Malgré deux heures de sommeil et le décalage horaire, nous avons arpenté Thamel dans tous les sens, nos sacs sur le dos. Toutes les rues se ressemblaient : goudron défoncé, flaques de mousson, motos et taxis partout. Il n'y avait pas de trottoirs, et pourtant chacun s'y tenait, pour rester en vie. Les magasins de matériel de trek et leurs rabatteurs, les vendeurs de CD et de DVD, les épiceries : tout le monde vous appelle, tout le monde klaxonne, tout réclame votre attention. Nous avons déjeuné dans une petite cantine tibétaine qui ne payait pas de mine, avec un tissu orange de moine en guise de porte et une grande photo du dalaï-lama au mur. Au dîner, des adolescents de quatorze à seize ans nous ont rejoints. Ils étaient sales, marqués, ils fumaient et buvaient. J'étais si fatigué que je me suis endormi.</p>
+    <p>Le lendemain, nous avons pris le petit déjeuner sur le toit de la guesthouse, seuls, au soleil, à côté d'un gros plant de cannabis. Puis nous avons marché jusqu'à Durbar Square et ses temples, sans parvenir à nous orienter : aucun nom de rue, un plan très approximatif. Plus au sud, Freak Street, l'ancien repaire des hippies, était un quartier pauvre où l'on vendait fruits, légumes et poulets vivants à même le sol. Un vieil homme y faisait frire des samosas dans une grande bassine de métal. C'est là que nous avons rencontré Jean-Louis, « Loulou », un Bruxellois qui revenait des Andes et partirait pour l'Inde un mois plus tard.</p>
+    <p>À une terrasse, un couple de Français nous a vanté les treks sans guide, hors des sentiers battus. Nous étions terriblement attirés. Après réflexion, le tour du Dhaulagiri nous a semblé répondre le mieux à nos envies : très sauvage, à peine décrit dans les guides, presque entièrement sous la tente, avec deux cols à plus de 5 000 mètres. Nous avons acheté la carte. La suite viendrait plus tard. Ce soir-là, les Népalais fêtaient quelque chose en famille, et notre rue de Thamel était vide. Les voitures n'avaient même plus besoin de klaxonner.</p>
+  </section>
+
+  <section data-jour="tout">
+    <header class="tete-etape">
+      <p class="quand"><b>Katmandou</b>5 – 6 octobre 2011</p>
+      <h2>Sur le toit du bus</h2>
+      <p class="trajet">Ratna Park → Pharping, aller-retour</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>1 h de bus à l'aller, le retour sur le toit</li></ul>
+    </header>
+    <p>À Ratna Park, nous sommes montés dans un bus pour Pharping. Une heure inoubliable, assis au fond sur une banquette minuscule, serrés les uns contre les autres. Le bus zigzaguait entre les motos, les passants et les voitures, puis il a quitté la ville et pris de l'altitude sur de petites routes. Il s'arrêtait sans cesse, nous faisait sauter sur nos sièges et roulait souvent à la limite du vide. Plusieurs fois, nous avons retenu notre souffle.</p>
+    <p>À Pharping, nous avons visité un monastère tibétain et déjeuné dans un restaurant de deux petites tables collées à la cuisinière. Personne n'y parlait anglais : nous avons fait confiance au frère et à la sœur qui cuisinaient, et deux plats chacun nous ont coûté 1,2 euro en tout. La ville était pauvre et en partie en ruine, mais la lumière était belle. Les maisons de bois et de brique rouge, enduites de chaux ocre et jaune, portaient des fenêtres et des piliers finement sculptés. Les enfants nous lançaient des « Where are you from ? », et la serveuse du café riait de bon cœur chaque fois que nous disions merci en népalais.</p>
+    <p>Le retour s'est fait sur le toit d'un bus qui dévalait la montagne à toute vitesse, en baissant la tête sous les branches et les câbles électriques. Là-haut, nous avons fait la connaissance d'un sherpa né près de l'Everest, devenu moine à neuf ans, éduqué à Dharamsala, et qui vivait désormais près de Katmandou avec sa femme autrichienne. Il nous a donné des conseils pour le trek et nous a invités dans sa famille à notre retour. À Ratna Park, un homme d'affaires népalais qui parlait bien français nous a offert un thé, puis un dîner dans sa grande maison : bière, dal bhat géant avec de la viande et des chapatis, mangés assis par terre et avec les mains. Il nous a parlé de ses exportations de vêtements, de ses enfants qui étudiaient l'informatique en Inde, et nous les a passés au téléphone. Nous sommes rentrés avec le sentiment d'avoir enfin découvert le Népal. Jamais je n'avais senti aussi nettement la frontière entre les quartiers touristiques et les autres : à Thamel, la relation est toujours intéressée ; ailleurs, beaucoup moins.</p>
+    <p>La veille du départ, nous avons acheté une grosse polaire, un bonnet et des bâtons de marche. Dans un cybercafé, j'ai appris la faillite de Dexia et la mort de Steve Jobs. Se reconnecter d'un coup n'avait rien d'agréable : la terre continuait de tourner sans moi. Mais on revient vite là où l'on se trouve, et je sentais que je décrochais, peu à peu. Par une étonnante coïncidence, nous sommes retombés sur Tachi, le sherpa de la veille. Au déjeuner, nous avons découvert qu'il était guide, et le hasard a vite cédé la place aux affaires. Tachi était d'une gentillesse incroyable, et fin négociateur. Nous lui avons exposé honnêtement nos envies, nos craintes, notre budget. Il nous a beaucoup appris sur le tour du Dhaulagiri : températures, neige, glacier, nourriture, poids du sac. Nous nous sommes quittés sans rien conclure, en promettant de le rappeler au retour.</p>
+    <p>Le soir, nous avons dîné avec Loulou de momos au buffle et de riz frit. Il avait quarante ans, avait été remercié par Siemens pendant la crise, avait repris des études sur la construction de l'Europe et voyageait depuis des mois. Il partait lui aussi vers l'Everest, mais sans guide, avec un sac de couchage de quinze ans. Réveil à 6 heures, départ à 7.</p>
+  </section>
+
+  <section data-jour="1">
+    <header class="tete-etape" data-calc="1">
+      <p class="quand"><b>Jour 1</b>7 octobre 2011</p>
+      <h2>Seize places, deux hélices</h2>
+      <p class="trajet">Katmandou → Lukla en avion, puis à pied jusqu'à Phakding</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>3 h de marche en plein soleil</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Phakding</li></ul>
+    </header>
+    <p>À 6 h 15, Thamel avait un autre visage : les poubelles ramassées, les trekkeurs en grappes qui attendaient leur taxi, des joggeurs. L'aéroport intérieur de Katmandou, lui, était un chaos à peu près dépourvu de contrôles. Notre avion avait seize places et deux moteurs à hélice. À bord, personne ne parlait, chacun fixait la piste. La tension, l'attente et l'excitation se mêlaient. Le vol fut court et parfait. La piste de Lukla est minuscule, dessinée à flanc de montagne, et nous avons applaudi à l'atterrissage.</p>
+    <p>Après un petit déjeuner, trois heures de marche en plein soleil nous ont menés à Phakding, la première étape. Notre guide, Dependra, avait vingt et un ans. Originaire de la région des Annapurnas, souriant, gentil, il parlait un anglais maladroit et négociait pour nous les repas et les chambres. Nous marchions au milieu d'autres touristes, de yaks, de Népalais et de porteurs. Le métier de ces derniers nous a choqués : des charges énormes, des yeux tristes et soumis. Ils portaient la vie lourdement. Ce n'était que le début, et nous étions déjà heureux. Grosse fatigue, dîner tôt, première nuit dans le sac de couchage.</p>
+  </section>
+
+  <section data-jour="2">
+    <header class="tete-etape" data-calc="2">
+      <p class="quand"><b>Jour 2</b>8 octobre 2011</p>
+      <h2>Les ponts suspendus</h2>
+      <p class="trajet">Phakding → Namche Bazaar</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 7 h 30 · 5 h de marche · +800 m selon le carnet</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Namche · 3 400 m</li></ul>
+    </header>
+    <p>Levés à 6 h 30, porridge au lait chaud, en route à 7 h 30. Il faisait très beau et la vallée était magnifique. Le chemin, bien tracé, franchissait souvent la rivière sur de grands ponts métalliques suspendus au-dessus d'un torrent très puissant. Aux postes de l'armée, Dependra présentait nos permis. Après cinq heures de marche et 800 mètres de montée, nous sommes arrivés à Namche Bazaar, une grande ville de bars, d'hôtels et de boutiques pour touristes.</p>
+    <p>L'après-midi, Romain est tombé sur un match de rugby dans un bar, et j'en ai profité pour me reposer une heure : j'avais mal à la tête. L'altitude, peut-être, même si nous n'étions qu'à 3 400 mètres. Au Liquid Bar, autour d'un thé au lait, on projetait gratuitement un film du National Geographic sur l'Everest. Il m'a redonné une énorme envie d'atteindre le camp de base. Puis nous avons joué aux cartes avec Dependra : deux jeux népalais, deux jeux français.</p>
+    <p>Après le dîner, Romain et moi sommes sortis marcher. Il faisait nuit, les lumières de la ville éclairaient les flancs de la montagne et le ciel nuageux, et la lune était presque pleine. Devant une maison népalaise, nous avons parlé du sens de la vie. Nous essayions de nous mettre dans la peau d'un villageois de montagne, de comparer sa vie à celle des villes. Comment être heureux ? Comment prendre les bonnes décisions ? Hasard ou déterminisme ? Nous sommes tombés d'accord sur une valeur simple : être heureux, et rendre heureux ceux qui nous entourent. Puis il y a eu une coupure d'électricité, et nous sommes allés nous coucher à la frontale.</p>
+  </section>
+
+  <section data-jour="3">
+    <header class="tete-etape" data-calc="3">
+      <p class="quand"><b>Jour 3</b>9 octobre 2011</p>
+      <h2>Into Thin Air</h2>
+      <p class="trajet">Journée d'acclimatation à Namche</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>4 h de marche le matin</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Namche · 3 400 m</li></ul>
+    </header>
+    <p>Le matin, quatre heures de marche pour s'habituer à l'altitude, avec une très belle vue sur le Khumbila, l'Ama Dablam, le Nuptse. L'Everest, lui, restait caché. L'après-midi, nous avons acheté un réchaud et une bouteille de gaz très ancienne, rouillée, couverte d'inscriptions en chinois. Peu importait : à 3 400 mètres, l'affaire était bonne. Avec un paquet de thé népalais, nous voilà indépendants pour les boissons chaudes.</p>
+    <p>Le soir, retour au Liquid Bar. Le film du jour était <i>Into Thin Air</i>, tiré du livre de Jon Krakauer, que je cherchais à voir depuis des années. Puis, entre deux parties de cartes, nous avons repensé à notre prochain trek. Le tour du Dhaulagiri nous paraissait maintenant trop dangereux : une semaine de forêt dense, puis une semaine sur un grand glacier exposé aux avalanches, plusieurs jours au-dessus de 5 000 mètres, le camping à chaque étape, et tout cela pendant dix-huit jours. Nous nous sommes rendus à l'évidence : c'était trop ambitieux pour nous. Après en avoir parlé avec Dependra, nous avons commencé à penser au tour du Manaslu.</p>
+  </section>
+
+  <section data-jour="4">
+    <header class="tete-etape" data-calc="4">
+      <p class="quand"><b>Jour 4</b>10 octobre 2011</p>
+      <h2>Enfin l'Everest</h2>
+      <p class="trajet">Namche → Khumjung</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>1 h 30 de marche · +400 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Khumjung · 3 800 m, vue sur l'Ama Dablam</li></ul>
+    </header>
+    <p>Ce jour-là, nous n'avons presque pas marché. En une heure et demie, nous étions à Khumjung, 400 mètres au-dessus de Namche. Et là, pour la première fois, ils sont apparus.</p>
+    <figure class="manuscrit">
+      <img src="images/everest/extrait-everest-vu.jpg" alt="Extrait manuscrit du carnet : que Namche. Nous apercevons pour la première fois le mont Everest, le Nuptse, le Lhotse, le Pumori. C'est extraordinairement beau, imposant, pur, blanc ! L'Ama…" width="1100" height="416">
+      <figcaption><i>« Nous apercevons pour la première fois le mont Everest, le Nupse, le Lotse, le Pumori. C'est extraordinairement beau, imposant, pur, blanc ! »</i>Carnet 1, page 26 · Khumjung, 10 octobre</figcaption>
+    </figure>
+    <p>L'Ama Dablam se dressait en entier, parfaitement dessiné, et à sa droite un autre beau sommet aux parois de neige impressionnantes. Je prenais conscience que je pouvais enfin mettre des images sur des mots : ces sommets, j'avais lu tant d'histoires à leur sujet. Désormais, chacun de nos pas nous en rapprocherait.</p>
+    <p>Nous avons fait la connaissance d'Isabelle et Christian, un couple de Suisses extrêmement sympathiques. Lui était professeur de philosophie, elle infirmière. Leur guide, Lok, était un bon ami du nôtre, et nous avions le même programme : nos chemins allaient se suivre de près. L'après-midi, Romain et moi avons fait le tour du village, posé sur un long plateau entre des parois de montagne. La pierre était très blanche, tout était bordé de murets, et la végétation mêlait la jungle à la haute montagne.</p>
+    <p>À 18 heures, pour la première fois, nous avons décidé de nous laver. Plutôt que de payer 200 roupies la douche chaude, nous sommes allés à un robinet dans la rue, d'où coulait l'eau du glacier. À 3 800 mètres, pieds nus et torse nu, nous nous sommes savonnés comme nous pouvions. Dependra, occupé à laver son tee-shirt, n'en revenait pas. Entre nos efforts pour ne payer aucun extra et cette douche froide en pleine rue, il commençait à comprendre à quels touristes il avait affaire. Notre lodge était une belle maison de bois, et notre chambre donnait directement, royalement, sur l'Ama Dablam. Je n'osais pas imaginer le spectacle du lendemain matin.</p>
+  </section>
+
+  <section data-jour="5">
+    <header class="tete-etape" data-calc="5">
+      <p class="quand"><b>Jour 5</b>11 octobre 2011</p>
+      <h2>Record d'altitude</h2>
+      <p class="trajet">Khumjung → Dole → Machhermo</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>arrivée 14 h 30 · 700 m de montée le matin</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Machhermo · 4 450 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>il fait froid au coucher</li></ul>
+    </header>
+    <p>Une belle journée de marche, avec 700 mètres de montée dès le matin. Nous avons déjeuné à Dole, à 4 000 mètres, avec les Suisses, puis repris la route jusqu'à Machhermo, atteint à 14 h 30. À 4 450 mètres, nous battions notre record d'altitude. La vallée était immense, et des sommets enneigés se dévoilaient. Je me suis rasé tant bien que mal dans un ruisseau, avec le savon.</p>
+    <p>Des bénévoles donnaient une petite séance d'information sur le mal des montagnes. Ils nous ont mesuré l'oxygène dans le sang : 86 % pour moi, la norme, 84 % pour Romain, et 90 % pour Jean-Louis, qui était là lui aussi. Ils nous ont montré comment fonctionne un caisson de décompression. Ensuite, cartes avec deux guides, dal bhat, et encore des cartes. À 20 heures, nous étions au lit. Il faisait froid.</p>
+  </section>
+
+  <section data-jour="6">
+    <header class="tete-etape" data-calc="6">
+      <p class="quand"><b>Jour 6</b>12 octobre 2011</p>
+      <h2>Pleine lune sur Gokyo</h2>
+      <p class="trajet">Machhermo → Gokyo, puis le 4<sup>e</sup> lac</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Gokyo · 4 800 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>il gèle dès le soir</li></ul>
+    </header>
+    <p>La marche du matin fut agréable. Au déjeuner, nous avons rencontré Raoul Sherpa, un Français qui passait six mois par an au Népal comme guide pour une agence népalaise. Il comptait gravir le Cho Oyu l'année suivante, l'Everest deux ans plus tard, et proposait des sommets à des prix très bas, faute d'intermédiaires : l'Everest à 19 000 euros. L'après-midi, nous sommes partis à la découverte des lacs 4, 5 et 6. Nous n'avons vu que le quatrième, faute de temps : nous sommes arrivés à Gokyo dix minutes avant le coucher du soleil. Le sixième se trouve au pied du Cho Oyu, tout près de son camp de base.</p>
+    <p>L'altitude nous tuait : à chaque montée, nous nous fatiguions très vite et devions avancer tout doucement. Pourtant nous étions bien acclimatés, sans maux de tête. Nous buvions beaucoup d'eau. Le soir, partie de « président » avec les guides, Isabelle et Christian, et dîner dans une pièce chauffée par un poêle central. Notre chambre servait pour la première fois : nous l'avons baptisée. Et en allant nous coucher, j'ai pris le carnet pour ne pas oublier ce que nous venions de voir.</p>
+    <figure class="manuscrit">
+      <img src="images/everest/extrait-pleine-lune.jpg" alt="Extrait manuscrit du carnet : la 1ère fois. Un spectacle extraordinaire s'offre à nous : la pleine lune illumine les montagnes enneigées qui tombent dans le 3ème lac de Gokyo. Derrière la maison se découvre le Cho Oyu grâce à ses glaciers et sa neige qui reflète les rayons de la lune. Quelle émotion, d'avoir la chance de voir ces sommets en pleine nuit dans ce cadre magnifique. Je suis sur une autre planète, c'est un autre monde." width="1100" height="948">
+      <figcaption><i>« Un spectacle extraordinaire s'offre à nous : la pleine lune illumine les montagnes enneigées qui tombent dans le 3<sup>e</sup> lac de Gokyo. Derrière la maison se découvre le Cho Oyu […]. Je suis sur une autre planète, c'est un autre monde. »</i>Carnet 1, page 30 · Gokyo, 12 octobre, écrit au moment de se coucher</figcaption>
+    </figure>
+    <p>Il gelait déjà. La nuit promettait d'être froide, et le réveil était fixé à 5 heures.</p>
+  </section>
+
+  <section data-jour="7">
+    <header class="tete-etape" data-calc="7">
+      <p class="quand"><b>Jour 7</b>13 octobre 2011</p>
+      <h2>Gokyo Ri</h2>
+      <p class="trajet">Gokyo → Gokyo Ri, 5 360 m → Gokyo</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ avant l'aube · 1 h 30 de montée</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Gokyo · 4 800 m</li></ul>
+    </header>
+    <p>Nous sommes partis avant le lever du soleil. Il faisait très froid, puis le soleil s'est enfin levé. En une heure et demie, sans forcer, nous étions à 5 360 mètres, au sommet du Gokyo Ri. La marche était régulière, exaltante. Cela ressemblait davantage à un sommet d'expédition qu'à un trek, et l'effort à celui de la course à pied. J'ai compris ce matin-là que c'était ce genre d'objectif qui m'attirait. Le trek est fantastique par la variété de ses paysages, mais son effort est celui de la durée, et son but de boucler la boucle. En montant, nous avons un peu oublié le trek et avancé à bonne allure jusqu'au sommet. Heureusement, nous suivions Isabelle ; sinon, nous serions allés plus vite encore.</p>
+    <p>De retour à Gokyo pour le déjeuner, Romain et moi avions un gros mal de tête. Un comprimé, une sieste dehors. C'était une sensation nouvelle et désagréable. Pendant deux heures, j'ai douté de mes capacités, ce qui n'est pas simple quand il reste plus d'un mois et demi à passer dans l'Himalaya. Après la sieste, la motivation, la confiance et la force étaient revenues. La fin de journée : de l'eau pompée dans le lac, des cartes, le programme négocié avec les guides, le dîner avec les Suisses, et quelques informations recueillies auprès de Jean-Louis pour le lendemain. Ici, impossible de courir, et le dépassement de soi me manquait. J'y avais goûté le matin même. La prochaine fois, ce serait pour un sommet.</p>
+    <blockquote class="citation">« L'altitude a des effets sur le corps complètement imprévisibles. Pour se connaître mieux il est donc préférable de voyager. »<footer>Carnet 1, page 34</footer></blockquote>
+  </section>
+
+  <section data-jour="8">
+    <header class="tete-etape" data-calc="8">
+      <p class="quand"><b>Jour 8</b>14 octobre 2011</p>
+      <h2>Le dédale de pierres</h2>
+      <p class="trajet">Gokyo → 5<sup>e</sup> lac → Gokyo, puis la traversée du glacier jusqu'à Thagnak</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 7 h 30 · lever 4 h le lendemain</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Thagnak</li></ul>
+    </header>
+    <p>Une très bonne journée. À 7 h 30, nous sommes partis vers le cinquième lac avec Lok, Isabelle et Christian. Les courbatures de la veille rendaient la marche moins facile, mais elle ne demandait pas un grand effort, et mes pensées se sont vite envolées. À l'aller, je réfléchissais à la façon dont nous répondons aux questions que nous nous posons, et à ce que cela change au bonheur. Au retour, j'imaginais une nouvelle forme de tourisme : la course à pied sur les hauts plateaux d'Éthiopie, pour découvrir les rythmes et les entraînements des coureurs éthiopiens. Je me voyais déjà proposer à Marc, un ami de la famille, coureur infatigable, d'y devenir coach pour des coureurs venus du monde entier. Quelle retraite ce serait.</p>
+    <p>Après le déjeuner à Gokyo, nous sommes partis vers Thagnak, à travers la large moraine d'un glacier qui se meurt. L'ambiance était extraordinaire. Dans ce dédale de pierres, de rochers, de cailloux et de grains de sable, on se sentait minuscule, en présence de quelque chose de plus grand que soi. J'étais de bonne humeur, sans mal des montagnes ; j'aurais voulu être ainsi pour toujours. Mais peut-on contrôler ses émotions ?</p>
+    <p>Le village était minuscule, posé sur une herbe rase jaune et orange d'où surgissaient de grands rochers noirs et verts. On voyait de là partir le chemin du Cho La. Le soir, cartes, thé, un énorme dal bhat, et coucher tôt. Pour la première fois, nous étions les seuls Français, dans une ambiance népalaise authentique, et nous avons beaucoup ri. Quelle belle journée. J'étais reconnaissant.</p>
+  </section>
+
+  <section data-jour="9">
+    <header class="tete-etape" data-calc="9">
+      <p class="quand"><b>Jour 9</b>15 octobre 2011</p>
+      <h2>Le Cho La en baskets</h2>
+      <p class="trajet">Thagnak → Cho La → Dzongla → Lobuche</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>plus de 8 h de marche · +1 200 m selon le carnet</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à l'hôtel, Lobuche · 4 790 m selon le carnet · 18 $, offerte par les Suisses</li></ul>
+    </header>
+    <p>Réveil difficile. J'ai sorti un bras du sac de couchage pour allumer le réchaud, et dix minutes plus tard nous étions assis tous les deux sur le lit, une tasse de thé chaud à la main, dans le noir, frontales allumées. De l'eau pompée à la rivière, un petit déjeuner, et nous voilà partis pour le col.</p>
+    <p>Nous sommes restés à l'ombre jusqu'au sommet du Cho La, 700 mètres plus haut, en grimpant dans les pierres et la neige. De l'autre côté, il fallait traverser un glacier. J'ai fait tout cela avec mes baskets de trail. Nous sommes ensuite descendus jusqu'à Dzongla, un petit village cerné par le Taboche, tout proche, et par l'Ama Dablam que nous retrouvions de ce côté-ci. C'était magnifique, et nous étions tous heureux d'avoir passé le Cho La sans problème. Il restait à rejoindre Lobuche : au total, plus de huit heures de marche et plus de 1 200 mètres de montée.</p>
+    <p>À l'arrivée, fatigués, nous avons appris qu'il ne restait plus une chambre libre dans les lodges. Il a fallu aller à l'hôtel, et ce sont Isabelle et Christian qui nous ont offert la chambre, 18 dollars. Nous y avons accueilli Lok et Dependra, qui n'avaient pas trouvé de place non plus. Ce 15 octobre, mon petit frère Simon fêtait ses 21 ans. Sans téléphone ni internet, je ne pouvais pas le lui souhaiter. Je l'ai écrit dans le carnet.</p>
+  </section>
+
+  <section data-jour="10">
+    <header class="tete-etape" data-calc="10">
+      <p class="quand"><b>Jour 10</b>16 octobre 2011</p>
+      <h2>La vieille canadienne verte</h2>
+      <p class="trajet">Lobuche → Gorak Shep</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>2 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>nuit sous tente, Gorak Shep · 5 200 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>double toit gelé dès 19 h</li></ul>
+    </header>
+    <p>Une journée difficile. La veille, nous avions beaucoup ri avec les guides, puis mal dormi. Deux heures de marche à peine, peu de dénivelé, et pourtant nous sommes arrivés épuisés à Gorak Shep. L'altitude, ou le contrecoup du Cho La ? C'est le dernier village avant le sommet de l'Everest, au milieu d'un cercle de montagnes, un tableau magnifique. En pleine saison, il n'y avait plus aucune chambre, bien que Dependra soit parti dès 6 h 30 pour en chercher une. Nous dormirions sous la tente, une vieille canadienne verte. L'idée nous enchantait : la nuit la plus haute de notre vie se passerait sous la toile.</p>
+    <p>Le minuscule village tournait au ralenti, chacun privé de la moitié de son oxygène. Romain et moi avons décidé de ne pas aller au camp de base : tout le monde le disait sans intérêt, vide à cette saison, et le chemin très mauvais. Le lendemain avant l'aube, nous monterions plutôt au Kala Patthar, d'où l'on voit le camp de base, le sommet de l'Everest et la voie qui y mène.</p>
+    <p>Dans la tente, l'iPod sur les oreilles, j'ai décroché complètement. Je prenais du recul sur ma vie et sur son sens : se fixer des objectifs, se questionner, trouver une réponse, se remettre en question, avancer. Jusqu'où ? Jusqu'au sommet, peut-être. À 16 heures, malgré le soleil et nos vêtements chauds, nous avions déjà froid. À la seconde où le soleil s'est couché, l'air est devenu glacial, et nous avons couru nous réfugier dans la salle commune avec tout le monde. Cartes, dîner servi à 18 heures. Nous y avons pris deux tasses de thé de plus, pour pouvoir en offrir un chaud à Isabelle et Christian à leur réveil, à 4 heures du matin. À 19 heures, le double toit de la tente était déjà entièrement gelé. Je me suis glissé dans le sac en gardant mon collant, avec une paire de chaussettes de laine. La nuit serait courte et froide, mais nous étions bien équipés et bien organisés.</p>
+  </section>
+
+  <section data-jour="11">
+    <header class="tete-etape" data-calc="11">
+      <p class="quand"><b>Jour 11</b>17 octobre 2011</p>
+      <h2>Kala Patthar</h2>
+      <p class="trajet">Gorak Shep → Kala Patthar, 5 550 m → Gorak Shep → Lobuche → Dingboche</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>le sommet en 1 h au lieu de 2</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>bouteilles gelées au réveil</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Dingboche · 4 400 m</li></ul>
+    </header>
+    <div class="scene">
+      <p>Le lever fut difficile, mais très beau. Sous le faisceau des frontales, l'intérieur de la tente brillait. Tout avait gelé, les bouteilles d'eau comme le reste, et nos sacs de couchage scintillaient. Nous avions pourtant eu chaud, tant que rien ne dépassait du duvet. Le réchaud a refusé de démarrer tout de suite, à cause du froid. Enfin une tasse de thé, et nous avons pris le sentier du Kala Patthar.</p>
+    </div>
+    <p>Dependra a imposé un très bon rythme, que nous avons tenu jusqu'en haut. Après avoir dépassé beaucoup de monde, nous étions parmi les premiers, et nous avons atteint le sommet en une heure au lieu de deux. L'altitude nous forçait à respirer à grandes goulées, sans nous obliger à nous arrêter. L'effort était plus intense que d'habitude, parce que c'était l'objectif final du trek. Sans le dire, nous laissions derrière nous la crainte du mal des montagnes : la descente commençait le jour même. Une fois encore, cette courte ascension a nourri mes envies de sommets. Pourquoi pas l'Island Peak ? Je me promettais de me renseigner à Katmandou.</p>
+    <p>Nous avons ensuite marché jusqu'à Dingboche, à 4 400 mètres, au pied de l'Ama Dablam. Le matin, nous le voyions de loin depuis le Kala Patthar ; au début de l'après-midi, nous étions à sa base. Pendant la descente, mon esprit s'est évadé. La montagne libère complètement les pensées. J'étais pourtant choqué par la foule sur le chemin du camp de base, bien plus dense que du côté de Gokyo. Heureusement, nous étions montés par les lacs et le Cho La. En route, nous avons croisé Jean-Louis, qui montait vers Gorak Shep. Le lendemain, nous quitterions Isabelle et Christian, qui s'arrêteraient à Tengboche, tandis que nous filerions jusqu'à Namche. Je pensais aussi à notre vie de tous les jours, où l'on s'échappe si facilement du moment présent, alors que dans une vie plus simple, on le vit sans effort.</p>
+  </section>
+
+  <section data-jour="12">
+    <header class="tete-etape" data-calc="12">
+      <p class="quand"><b>Jour 12</b>18 octobre 2011</p>
+      <h2>« Faster, faster, faster »</h2>
+      <p class="trajet">Dingboche → Pangboche → Tengboche → Namche</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ de bonne heure, à l'allure du trail</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Namche · 3 400 m</li></ul>
+    </header>
+    <p>Encore une excellente journée. Après un petit déjeuner d'au revoir avec les Suisses, nous sommes partis tôt, de bonne humeur et à très bonne allure, par Pangboche et Tengboche jusqu'à Namche. Dans les descentes, nous courions presque, avec pour fond sonore les « faster, faster, faster » de Dependra. Les montées, nous les avalions à une vitesse proche de celle du trail. L'oxygène se faisait de moins en moins rare et nous en profitions pleinement. Nous transpirions de nouveau, et les arbres revenaient.</p>
+    <p>Une heure avant Namche, nous avons croisé pour la deuxième fois un jeune couple. J'ai engagé la conversation, et le courant est passé tout de suite. Peter et Louise étaient danois, étudiaient la finance et la médecine à Aarhus, et revenaient du camp de base, sans Gokyo ni le Cho La. Très sportifs, ils enchaînaient l'Inde, le Népal, la Malaisie, Brunei et les Philippines. Nous les avons retrouvés à Namche pour une partie de cartes. Au dîner, Dependra nous a procuré de l'alcool de riz, le saké népalais, produit dans une petite maison avec du riz noir. Pas très bon. Puis, comme à notre habitude, un film au Liquid Bar avec un petit pot de thé au lait : <i>Touching the Void</i>. J'étais scotché à l'écran.</p>
+    <figure class="manuscrit">
+      <img src="images/everest/extrait-compagnon.jpg" alt="Extrait manuscrit du carnet : film. En descendant nous nous faisons la réflexion avec Romain de notre envie de remonter en altitude très rapidement. Comme d'habitude nous sommes sur la même longueur d'onde. C'est un compagnon idéal pour le moment et j'espère lui rendre la pareille. Nous avions faim, mal à la tête et sommeil en même temps. Mal aux yeux, du mal à respirer et des inquiétudes aux mêmes moments. C'est fantastique !" width="1100" height="967">
+      <figcaption><i>« Comme d'habitude nous sommes sur la même longueur d'onde. C'est un compagnon idéal pour le moment et j'espère lui rendre la pareille. Nous avions faim, mal à la tête et sommeil en même temps. Mal aux yeux, du mal à respirer et des inquiétudes aux mêmes moments. C'est fantastique ! »</i>Carnet 1, page 44 · Namche, sur Romain</figcaption>
+    </figure>
+    <p>À peine redescendus, nous avions déjà envie de remonter en altitude, très vite. Le soir, nous devions retrouver Peter, Louise et leurs amis à l'Irish Pub. Retardés par le dîner, nous sommes arrivés une demi-heure trop tard : ils étaient partis. Nous avons fait trois parties de baby-foot, une Carlsberg à la main, sur fond de rock à plein volume.</p>
+  </section>
+
+  <section data-jour="13">
+    <header class="tete-etape" data-calc="13">
+      <p class="quand"><b>Jour 13</b>19 octobre 2011</p>
+      <h2>La dernière étape</h2>
+      <p class="trajet">Namche → Lukla</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ vers 8 h · 5 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Lukla</li></ul>
+    </header>
+    <p>Départ vers 8 heures, le ventre plein. L'étape fut longue et usante. L'air devenait plus lourd et plus chaud, et nous croisions un nombre incroyable de touristes qui montaient. C'était la pleine saison, et c'est la seule route vers Gokyo, le camp de base ou le Kala Patthar : défilaient aussi des yaks, des ânes et des porteurs chargés de nourriture ou de matériel d'expédition. Chaleur, foule, paysage sans grand intérêt, et des montées psychologiquement pénibles au bout de treize jours de trek. Nous sommes pourtant arrivés en cinq petites heures, un très bon temps.</p>
+    <p>Un gros dal bhat, du repos, puis un documentaire IMAX de 1996 sur l'Everest, dans une salle de cinéma faite maison, avec du pain tibétain et des samosas, très bons et peu chers. Encore une fois, nous n'avons pas retrouvé nos amis danois, dépassés dans la matinée. Au dîner, avec Dependra, une pizza « Khumbu Resort » faite main, délicieuse, et un Coca. C'était notre dernière soirée avec lui, et nous avons joué aux cartes.</p>
+    <p>Il nous a fait un petit discours de fin de trek : il s'excusait de ses erreurs, de son manque d'expérience, et demandait si nous avions des remarques. Nous l'avons rassuré : tout avait été parfait, il avait été super. Il nous a invités dans sa famille pour un festival, le 8 novembre, dans son village, au départ du trek du Manaslu. Un signe, peut-être. Ensuite, Romain et moi avons remonté la rue principale de Lukla avec une bouteille d'alcool de riz et deux cigarettes achetées à l'unité. Deux gorgées et une demi-cigarette ont suffi à nous étourdir. Un beignet frit acheté à une famille, et au lit. J'étais rincé, vidé par cette journée et par treize jours de fatigue accumulée.</p>
+  </section>
+
+  <section data-jour="14">
+    <header class="tete-etape" data-calc="14">
+      <p class="quand"><b>Jour 14</b>20 octobre 2011</p>
+      <h2>Juste avant le précipice</h2>
+      <p class="trajet">Lukla → Katmandou en avion, puis Freak Street</p>
+      <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>décollage vers midi</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au Moon Stay Lodge, Katmandou · 2 €</li></ul>
+    </header>
+    <p>La grasse matinée n'a pas eu lieu : à 6 h 30, les cloisons trop fines nous ont réveillés, comme d'habitude. Après le petit déjeuner, il a fallu attendre longtemps que l'aéroport appelle Dependra. Nous avions deux jours d'avance sur le programme, et donc pas la priorité. À 10 heures, en pleine partie de président, le signal est enfin venu. Nous avons attrapé nos sacs et couru à l'aéroport. Entre-temps, nous avions recroisé Peter et Louise et échangé enfin nos adresses. La sœur de Peter vivait à Copenhague : nous nous reverrions en janvier.</p>
+    <p>Après une heure d'attente dans une petite salle, nous avons vu notre avion se poser et nous nous sommes précipités vers la porte. Il ne transportait qu'un seul passager ; le reste, c'étaient des vivres pour les touristes : bières, Snickers, Pringles, pommes de terre, oignons, pain, œufs, matériel d'expédition. Il était midi, le ciel se chargeait de nuages. La piste de Lukla est minuscule et en pente, pour que l'avion prenne plus vite de la vitesse.</p>
+    <div class="scene">
+      <p>Le décollage fut digne d'un film américain. Nous avons quitté le sol juste avant le précipice, et nous avons crié de joie, Romain et moi.</p>
+    </div>
+    <p>Le vol a été un peu secoué, pas très rassurant. À Katmandou, la chaleur et la pollution m'ont saisi. Un taxi jusqu'à Thamel, un déjeuner copieux pour 1,4 euro dans notre cantine tibétaine, puis la marche jusqu'à Freak Street, en contournant Durbar Square pour ne pas payer l'entrée. Après nous être perdus, nous avons trouvé le lodge que nous cherchions, le Moon Stay : un très vieux bâtiment hippie, qui proposait les chambres les moins chères de Katmandou et semblait prêt à s'effondrer. Notre chambre était grande, mais sale, avec des paillasses et des draps gris et tachés, et la salle de bains était insalubre. L'ambiance, elle, était parfaite, encore une fois digne d'un film. Deux euros la nuit. J'ai pris une douche froide au-dessus des toilettes à la turque, puis nous sommes partis découvrir le quartier.</p>
+    <p>Tout y était bon marché, et nous trouvions ce que nous cherchions : internet à 15 roupies l'heure, du riz et des lentilles pour le prochain trek, un dîner pour deux, boissons comprises, à 1,4 euro. Puis nous sommes restés trois heures dans un cybercafé, à donner des nouvelles et à chercher où nous irions ensuite.</p>
+
+    <aside class="encadre">
+      <h3>Le trek en chiffres</h3>
+      <div class="chiffres" id="chiffres-tour"></div>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--encre-2)">Distances et dénivelés calculés sur les sentiers cartographiés, à titre indicatif. Le carnet, lui, compte en heures.</p>
+    </aside>
+  </section>
+
+  <p class="note-fin">Ce chapitre est tiré du carnet 1.</p>
+  <nav class="nav-bas"><a class="suivant" href="chapitre-dhaulagiri.html">Chapitre 2 →<b>Le tour du Dhaulagiri</b></a></nav>
+</article>
+
+<div class="colonne-carte" aria-label="Carte du trek de l'Everest">
+  <div id="carte"></div>
+  <div class="profil">
+    <div class="legende-jour" id="legende-jour">Le trek de l'Everest</div>
+    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude du trek"></svg>
+    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="donnees.js"></script>
+<script src="courbes-everest.js"></script>
+<script>
+const V = window.VOYAGE, EP = "everest";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const ep = V.episodes.find(e => e.id === EP);
+const traces = V.traces.filter(f => f.properties.episode === EP);
+
+/* Carte */
+const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
+carte.setView([27.88, 86.75], 11);
+carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
+
+/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
+const renduCourbes = L.svg({padding: .3});
+const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
+for (const [alt, ligne] of window.COURBES.lignes) {
+  const maitresse = alt % window.COURBES.maitresse === 0;
+  L.polyline(ligne.map(c => [c[1], c[0]]), {
+    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
+  }).addTo(maitresse ? maitresses : intermediaires);
+}
+const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
+carte.on("zoomend", densite);
+const etiquette = (lat, lon, html, cls = "nom-lieu") =>
+  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: [-6, 8]})}).addTo(carte);
+const sommet = `<svg width="12" height="10" style="vertical-align:-1px"><path d="M6 1 L11 9 H1 Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>`;
+// sommets en bord de carte : le nom est écrit à gauche du triangle
+const aGauche = (lat, lon, html) => L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: "nom-lieu", iconSize: [0, 0],
+  html: `<span style="position:absolute;right:-6px;top:-9px">${html}</span>`})}).addTo(carte);
+aGauche(27.9881, 86.9250, `Everest · 8 849 m ${sommet}`);
+etiquette(27.8617, 86.8614, `${sommet} Ama Dablam · 6 812 m`);
+L.marker([V.lieux.kathmandou.lat, V.lieux.kathmandou.lon], {interactive: false, icon: L.divIcon({className: "nom-lieu", html: "Katmandou", iconSize: null, iconAnchor: [-15, 8]})}).addTo(carte);
+
+/* Aller à une étape du récit depuis la carte ou le profil */
+let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
+function allerAuJour(jour) {
+  const s = document.querySelector(`section[data-jour="${jour}"]`);
+  if (!s) return;
+  enNavigation = String(jour); afficher(String(jour));
+  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
+  addEventListener("scrollend", fin); setTimeout(fin, 2500);
+  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
+}
+const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
+
+const lignes = {}, aPied = {}; // jour -> [polylines]
+for (const f of traces) {
+  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
+  const l = L.polyline(pts, {
+    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
+    dashArray: p.mode !== "marche" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
+  }).addTo(carte);
+  (lignes[p.jour] ||= []).push(l);
+  if (p.mode === "marche") (aPied[p.jour] ||= []).push(l);
+  // zone de clic large et invisible par-dessus le tracé
+  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
+    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
+    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
+    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
+    .on("click", () => allerAuJour(p.jour))
+    .addTo(carte);
+}
+const tout = L.featureGroup(Object.values(aPied).flat()); // la vue d'ensemble se cale sur la marche, sans les vols
+
+/* Numéros des nuits : une pastille par lieu, plusieurs nuits au même endroit sont regroupées */
+const nuits = {}; let lieuNuit = null;
+for (const et of ep.etapes) {
+  lieuNuit = et.troncons.at(-1)?.[1].at(-1) || lieuNuit; // jour sans déplacement : même lieu que la veille
+  if (lieuNuit) (nuits[lieuNuit] ||= []).push(et.jour);
+}
+const lieuDuJour = {};
+for (const [id, jours] of Object.entries(nuits)) {
+  const l = V.lieux[id]; if (!l) continue;
+  jours.forEach(j => lieuDuJour[j] = l);
+  const multi = jours.length > 1;
+  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "num-nuit" + (multi ? " multi" : ""), html: jours.join(" · "), iconSize: [multi ? 12 + jours.join(" · ").length * 6 : 22, 22]})})
+    .bindTooltip(`${multi ? "Nuits" : "Nuit"} ${jours.join(", ")} · ${l.nom}${l.alt ? " · " + fmt(l.alt) + " m" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
+    .on("click", () => allerAuJour(jours[0]))
+    .addTo(carte);
+}
+for (const id of ["gokyo_ri", "cho_la", "kala_patthar"]) {
+  const l = V.lieux[id];
+  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "", iconSize: [14, 12], html: `<svg width="14" height="12"><path d="M7 1 L13 11 H1 Z" fill="${css("encre")}" stroke="${css("carte-fond")}" stroke-width="1.5"/></svg>`})})
+    .bindTooltip(`${l.nom} · ${fmt(l.alt)} m`, {permanent: true, direction: id === "cho_la" ? "right" : "left", offset: [id === "cho_la" ? 6 : -6, 0], className: "etiquette"}).addTo(carte);
+}
+carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
+
+/* Profil */
+let profil = [], prec = null, d = 0;
+const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
+  const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
+for (const f of traces.filter(f => f.properties.mode === "marche")) for (const c of f.geometry.coordinates) {
+  if (prec) d += dist(prec, c);
+  if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
+  prec = c;
+}
+const svg = document.getElementById("profil");
+function dessinerProfil(jour) {
+  const dMax = profil.at(-1).d, bas = 2000, haut = 6000;
+  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
+  const pas = Math.max(1, Math.floor(profil.length / 800));
+  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
+  let grille = "";
+  for (let a = 3000; a <= 5000; a += 1000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
+  const sel = profil.filter(p => p.jour === jour);
+  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
+  svg.style.color = css("encre");
+  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+}
+
+const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
+const pointProfil = e => {
+  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
+  return profil.find(q => q.d >= d) || profil.at(-1);
+};
+svg.addEventListener("mousemove", e => {
+  const p = pointProfil(e);
+  repere.setLatLng([p.lat, p.lon]).addTo(carte);
+  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
+});
+svg.addEventListener("mouseleave", () => {
+  carte.removeLayer(repere);
+  document.getElementById("aide-carte").textContent = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.";
+});
+svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
+
+/* Chiffres */
+const marche = traces.filter(f => f.properties.mode === "marche");
+const kmTour = marche.reduce((s, f) => s + f.properties.km, 0), dpTour = marche.reduce((s, f) => s + f.properties.d_plus, 0);
+document.getElementById("chiffres-tour").innerHTML = `
+  <div><b>14 jours</b><span>au lieu des 16 réservés</span></div>
+  <div><b>≈ ${fmt(kmTour)} km</b><span>à pied</span></div>
+  <div><b>≈ ${fmt(dpTour)} m</b><span>de montée cumulée</span></div>
+  <div><b>5 550 m</b><span>Kala Patthar, point le plus haut</span></div>
+  <div><b>7 nuits</b><span>au-dessus de 4 000 m, dont une sous la tente</span></div>
+  <div><b>1</b><span>guide, Dependra, 21 ans</span></div>`;
+
+/* Chiffres du jour dans les en-têtes (calculés sur la carte) */
+const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
+  const j = +h.dataset.calc, fs = traces.filter(f => f.properties.jour === j);
+  const m = fs.filter(f => f.properties.mode === "marche"), a = fs.filter(f => f.properties.mode === "avion");
+  const km = m.reduce((s, f) => s + f.properties.km, 0), dp = m.reduce((s, f) => s + f.properties.d_plus, 0), dm = m.reduce((s, f) => s + f.properties.d_moins, 0);
+  const kmAvion = a.reduce((s, f) => s + f.properties.km, 0);
+  let html = "";
+  if (kmAvion) html += `<li class="calc">${ico("avion")}<b>≈ ${fmt(kmAvion)} km</b> en avion</li>`;
+  if (km) html += `<li class="calc" title="Calculé sur les sentiers cartographiés">${ico("distance")}<b>≈ ${fmt(km)} km</b> à pied</li>
+    <li class="calc" title="Dénivelé positif calculé">${ico("montee")}<b>+${fmt(dp)} m</b></li>
+    <li class="calc" title="Dénivelé négatif calculé">${ico("descente")}<b>−${fmt(dm)} m</b></li>`;
+  h.querySelector(".stats").insertAdjacentHTML("afterbegin", html);
+});
+
+/* La carte suit la lecture */
+let courant = null;
+// Leaflet renvoie une position invalide (NaN) si l'on « vole » vers l'endroit exact où se trouve déjà la carte
+function voler(centre, zoom) {
+  if (carte.getCenter().distanceTo(centre) < 5 && Math.abs(carte.getZoom() - zoom) < .01) return;
+  carte.flyTo(centre, zoom, {duration: .9});
+}
+function afficher(jour) {
+  if (jour === courant) return; courant = jour;
+  const tous = jour === "tout";
+  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
+  const pad = innerWidth < 960 ? [16, 16] : [50, 50];
+  const cible = tous ? tout : L.featureGroup(aPied[jour] || lignes[jour] || []); // un jour de marche se cadre sur la marche, sans le vol
+  if (cible.getLayers().length) { const v = carte._getBoundsCenterZoom(cible.getBounds(), {padding: pad, maxZoom: 13}); voler(v.center, v.zoom); }
+  else if (lieuDuJour[jour]) voler(L.latLng(lieuDuJour[jour].lat, lieuDuJour[jour].lon), 13); // jour sans tracé : le lieu de la nuit
+  (lignes[jour] || []).forEach(l => l.bringToFront());
+  document.getElementById("legende-jour").textContent = tous ? "Le trek de l'Everest · profil d'altitude" : titreJour(jour);
+  dessinerProfil(tous ? null : +jour);
+}
+const obs = new IntersectionObserver(entrees => {
+  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
+}, {rootMargin: "-35% 0px -55% 0px"});
+document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
+afficher("tout");
+addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
+addEventListener("resize", () => carte.invalidateSize());
+</script>
+</body>
+</html>

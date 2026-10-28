@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Népal 2011</title>
+<meta name="description" content="Carnet de route de deux cousins au Népal, automne 2011 : l'Everest, le tour du Dhaulagiri, les Annapurnas et une virée à moto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
+  --accent:#2f4f3e; --moutarde:#a87a22; --papier-manuscrit:#efe9dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+    --accent:#9cc3a8; --moutarde:#d9ab55; --papier-manuscrit:#e6e0d2;
+  }
+}
+:root[data-theme="dark"]{
+  --papier:#1b1c1a; --papier-2:#242522; --carte-fond:#20211e; --encre:#ebe8e0; --encre-2:#a5a297; --trait:#383a35;
+  --accent:#9cc3a8; --moutarde:#d9ab55; --papier-manuscrit:#e6e0d2;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papier);color:var(--encre);font:18px/1.7 "Source Serif 4",Georgia,serif}
+a{color:inherit}
+.page{max-width:1180px;margin:0 auto;padding:64px clamp(16px,4vw,48px) 96px}
+
+.tete{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.surtitre{font:600 12px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--moutarde);margin:0}
+h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;letter-spacing:-.015em}
+.sous-titre{font:italic 400 22px/1.4 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 28px}
+.chapo{font-size:19px;line-height:1.7;margin:0}
+.chapo::first-letter{font:600 64px/0.9 Fraunces,Georgia,serif;float:left;margin:6px 10px 0 0;color:var(--moutarde)}
+.signature{font:14px/1.5 system-ui,sans-serif;color:var(--encre-2);margin:18px 0 0}
+
+.bloc-carte{background:var(--carte-fond);border:1px solid var(--trait);border-radius:8px;overflow:hidden}
+#carte{height:min(56vh,480px);background:var(--carte-fond)}
+.leaflet-container{font:inherit;background:var(--carte-fond)}
+.legende{font:12.5px/1.4 system-ui,sans-serif;color:var(--encre-2);padding:8px 14px;border-top:1px solid var(--trait);min-height:36px}
+.legende b{color:var(--encre);font-weight:600}
+.num-ep{background:var(--carte-fond);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:26px!important;height:26px!important;display:grid;place-items:center;font:600 13px Fraunces,Georgia,serif;cursor:pointer}
+.nom-lieu{font:italic 13px Fraunces,Georgia,serif;color:var(--encre);white-space:nowrap;text-shadow:0 0 3px var(--carte-fond),0 0 3px var(--carte-fond)}
+.etiquette{background:var(--carte-fond);color:var(--encre);border:1px solid var(--trait);font:12px system-ui,sans-serif;box-shadow:none;padding:1px 6px}
+.etiquette::before{display:none}
+
+.intertitre{font:600 12px system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--encre-2);margin:72px 0 18px;display:flex;align-items:center;gap:14px}
+.intertitre::after{content:"";flex:1;border-top:1px solid var(--trait)}
+
+.chapitres{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.chapitre{background:var(--carte-fond);border:1px solid var(--trait);border-top:3px solid var(--accent);border-radius:2px 2px 8px 8px;padding:20px 22px 18px;display:flex;flex-direction:column;transition:box-shadow .2s}
+.chapitre:hover,.chapitre.actif{box-shadow:0 1px 2px #0001,0 12px 28px -16px #0005}
+.chapitre .quand{font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--encre-2);margin:0}
+.chapitre .quand b{color:var(--moutarde);font-weight:700;margin-right:8px}
+.chapitre h2{font:600 28px/1.15 Fraunces,Georgia,serif;margin:6px 0 4px}
+.chapitre h2 a{text-decoration:none}
+.chapitre h2 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.chapitre .trajet{font:italic 17px/1.45 Fraunces,Georgia,serif;color:var(--encre-2);margin:0 0 14px}
+.chapitre .filet{font:15px/1.55 "Source Serif 4",Georgia,serif;margin:0 0 16px}
+.chiffres{list-style:none;margin:auto 0 0;padding:12px 0 0;border-top:1px dashed var(--trait);display:flex;flex-wrap:wrap;gap:6px 20px;font:13.5px/1.35 system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.chiffres b{font-weight:600}
+.liens{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font:600 14px system-ui,sans-serif}
+.liens a{text-decoration:none;color:var(--accent)}
+.liens a:hover{text-decoration:underline}
+.liens a.lire::after{content:" →"}
+.liens a.secondaire{color:var(--encre-2);font-weight:400}
+
+.extrait{margin:72px auto 0;max-width:640px;padding:18px 18px 12px;background:var(--papier-manuscrit);border-radius:4px;box-shadow:0 1px 2px #0001,0 8px 24px -12px #0003;transform:rotate(-.4deg)}
+.extrait img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
+.extrait figcaption{font:13px/1.5 system-ui,sans-serif;color:#6d6457;margin-top:10px}
+.extrait figcaption i{font:italic 15px/1.5 "Source Serif 4",Georgia,serif;color:#3b352c;display:block;margin-bottom:4px}
+.pied{font:14px/1.6 system-ui,sans-serif;color:var(--encre-2);border-top:1px solid var(--trait);margin-top:72px;padding-top:18px}
+
+@media (max-width:900px){
+  .page{padding-top:36px}
+  .tete{grid-template-columns:1fr}
+  .chapitres{grid-template-columns:1fr}
+  #carte{height:52vh}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="tete">
+    <div>
+      <p class="surtitre">Carnet de route · automne 2011</p>
+      <h1>Népal 2011</h1>
+      <p class="sous-titre">Deux cousins, deux mois, de moins en moins de filet</p>
+      <p class="chapo">À l'automne 2011, mon cousin Romain et moi sommes partis près de deux mois au Népal, un sac de 55 litres chacun. Ces pages racontent ce voyage à partir des carnets que j'ai tenus en route. Il tient en quatre épisodes, et à chaque fois un peu moins de filet : un trek avec guide vers l'Everest, le tour du Dhaulagiri sans guide ni porteur, la vallée de la Kali Gandaki et le sanctuaire des Annapurnas, puis cinq jours à moto sur les routes de l'est.</p>
+      <p class="signature">Clément</p>
+    </div>
+    <div class="bloc-carte">
+      <div id="carte" role="img" aria-label="Carte du Népal central avec le tracé des quatre épisodes"></div>
+      <p class="legende" id="legende">Survolez un tracé pour voir l'épisode, cliquez pour le lire.</p>
+    </div>
+  </header>
+
+  <h2 class="intertitre">Les quatre chapitres</h2>
+  <ol class="chapitres">
+    <li class="chapitre" data-ep="everest">
+      <p class="quand"><b>Chapitre 1</b>29 septembre – 20 octobre</p>
+      <h2><a href="chapitre-everest.html">Le trek de l'Everest</a></h2>
+      <p class="trajet">Quatorze jours avec un guide, de Lukla au Kala Patthar par Gokyo et le Cho La</p>
+      <p class="filet">Un guide, des lodges, les repas compris : la haute montagne à la manière de tout le monde.</p>
+      <ul class="chiffres"><li><b>14</b> jours de trek</li><li>≈ <b>121</b> km à pied</li><li>≈ <b>+6 100</b> m</li><li>point haut <b>5 550</b> m</li></ul>
+      <p class="liens"><a class="lire" href="chapitre-everest.html">Lire le chapitre</a><a class="secondaire" href="pdf/chapitre-everest.pdf">PDF à imprimer</a></p>
+    </li>
+    <li class="chapitre" data-ep="dhaulagiri">
+      <p class="quand"><b>Chapitre 2</b>24 octobre – 2 novembre</p>
+      <h2><a href="chapitre-dhaulagiri.html">Le tour du Dhaulagiri</a></h2>
+      <p class="trajet">Dix jours sans guide ni porteur, des rizières de la Myagdi au French Pass</p>
+      <p class="filet">Plus de guide ni de porteur : la tente, deux cols à plus de 5 000 mètres, et nous deux.</p>
+      <ul class="chiffres"><li><b>10</b> jours de trek</li><li>≈ <b>104</b> km à pied</li><li>≈ <b>+6 900</b> m</li><li>point haut <b>5 360</b> m</li></ul>
+      <p class="liens"><a class="lire" href="chapitre-dhaulagiri.html">Lire le chapitre</a><a class="secondaire" href="pdf/chapitre-dhaulagiri.pdf">PDF à imprimer</a></p>
+    </li>
+    <li class="chapitre" data-ep="annapurna">
+      <p class="quand"><b>Chapitre 3</b>3 – 17 novembre</p>
+      <h2><a href="chapitre-annapurna.html">Kali Gandaki et sanctuaire des Annapurnas</a></h2>
+      <p class="trajet">De Marpha au pied de l'Annapurna I, puis six jours à Pokhara</p>
+      <p class="filet">La descente de la Kali Gandaki, la remontée vers le sanctuaire, puis le retour en ville.</p>
+      <ul class="chiffres"><li><b>9</b> jours de trek</li><li>≈ <b>141</b> km à pied</li><li>≈ <b>+7 100</b> m</li><li>point haut <b>4 130</b> m</li></ul>
+      <p class="liens"><a class="lire" href="chapitre-annapurna.html">Lire le chapitre</a><a class="secondaire" href="pdf/chapitre-annapurna.pdf">PDF à imprimer</a></p>
+    </li>
+    <li class="chapitre" data-ep="moto">
+      <p class="quand"><b>Chapitre 4</b>18 – 29 novembre</p>
+      <h2><a href="chapitre-moto.html">La virée à moto</a></h2>
+      <p class="trajet">Cinq jours sur les routes de l'est, jusqu'à la frontière tibétaine et Jiri, puis Katmandou une dernière fois</p>
+      <p class="filet">Deux motos louées à Thamel, sans papiers ni assurance, une tente, et rien de prévu.</p>
+      <ul class="chiffres"><li><b>5</b> jours de moto</li><li>≈ <b>427</b> km</li><li><b>4</b> nuits sous la tente</li></ul>
+      <p class="liens"><a class="lire" href="chapitre-moto.html">Lire le chapitre</a><a class="secondaire" href="pdf/chapitre-moto.pdf">PDF à imprimer</a></p>
+    </li>
+  </ol>
+
+  <figure class="extrait">
+    <img src="images/extrait-french-pass.jpg" alt="Extrait manuscrit du carnet 2 : l'arrivée au French Pass" width="1100" height="419" loading="lazy">
+    <figcaption><i>« Nous arrivons finalement au French Pass sans vent, le ciel découvert, au soleil et les premiers ! Le paysage à 360° est magnifique. »</i>Carnet 2, page 33 · le tour du Dhaulagiri</figcaption>
+  </figure>
+
+  <p class="pied">Récit tiré des carnets 1, 2 et 3, tenus pendant le voyage. Distances et dénivelés calculés sur les sentiers et routes cartographiés, à titre indicatif.</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="donnees.js"></script>
+<script>
+const V = window.VOYAGE;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
+const fmt = n => Math.round(n).toLocaleString("fr-FR");
+const NUM = {everest: 1, dhaulagiri: 2, annapurna: 3, moto: 4};
+const TITRE = {}; document.querySelectorAll(".chapitre").forEach(c => TITRE[c.dataset.ep] = c.querySelector("h2").textContent);
+
+/* Carte d'ensemble, au trait */
+const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: false, zoomSnap: .25, attributionControl: true});
+carte.attributionControl.setPrefix(false).addAttribution("Tracés : OpenStreetMap");
+const groupes = {};
+for (const f of V.traces) {
+  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
+  if (p.mode === "avion") continue;
+  const g = groupes[p.episode] ||= {lignes: [], zones: []};
+  g.lignes.push(L.polyline(pts, {color: css("accent"), weight: 2.5, opacity: .85, interactive: false,
+    dashArray: p.mode === "bus" ? "2 6" : (p.trace_reel ? null : "6 5"), lineCap: "round"}).addTo(carte));
+  g.zones.push(L.polyline(pts, {color: "#000", opacity: 0, weight: 16}).addTo(carte));
+}
+const tout = L.featureGroup(Object.values(groupes).flatMap(g => g.lignes));
+const legende = document.getElementById("legende"), aideDefaut = legende.innerHTML;
+function surligner(id) {
+  for (const [e, g] of Object.entries(groupes))
+    g.lignes.forEach(l => l.setStyle(id == null ? {color: css("accent"), opacity: .85, weight: 2.5}
+      : e === id ? {color: css("moutarde"), opacity: 1, weight: 4} : {color: css("accent"), opacity: .3, weight: 2}));
+  if (id) groupes[id].lignes.forEach(l => l.bringToFront());
+  document.querySelectorAll(".chapitre").forEach(c => c.classList.toggle("actif", c.dataset.ep === id));
+  legende.innerHTML = id ? `<b>Chapitre ${NUM[id]} · ${TITRE[id]}</b> — cliquer pour lire` : aideDefaut;
+}
+for (const [id, g] of Object.entries(groupes)) {
+  const ouvrir = () => location.href = `chapitre-${id}.html`;
+  g.zones.forEach(z => z.on("mouseover", () => surligner(id)).on("mouseout", () => surligner(null)).on("click", ouvrir));
+  const b = L.featureGroup(g.lignes).getBounds(), c = b.getCenter();
+  // numéro du chapitre posé au bord du tracé
+  const pos = {everest: [b.getSouth(), b.getEast()], dhaulagiri: [b.getNorth(), b.getWest()], annapurna: [b.getSouth(), c.lng], moto: [b.getNorth(), b.getEast()]}[id] || [c.lat, c.lng];
+  L.marker(pos, {icon: L.divIcon({className: "", html: `<div class="num-ep">${NUM[id]}</div>`, iconSize: [26, 26], iconAnchor: [13, 13]})})
+    .bindTooltip(TITRE[id], {className: "etiquette", direction: "top", offset: [0, -12]})
+    .on("mouseover", () => surligner(id)).on("mouseout", () => surligner(null)).on("click", ouvrir).addTo(carte);
+}
+document.querySelectorAll(".chapitre").forEach(c => {
+  c.addEventListener("mouseenter", () => surligner(c.dataset.ep));
+  c.addEventListener("mouseleave", () => surligner(null));
+});
+// quelques repères
+for (const [k, nom] of [["kathmandou", "Katmandou"], ["pokhara", "Pokhara"]]) {
+  const l = V.lieux[k]; if (!l) continue;
+  L.circleMarker([l.lat, l.lon], {radius: 3.5, color: css("encre"), weight: 1, fillColor: css("carte-fond"), fillOpacity: 1, interactive: false}).addTo(carte);
+  L.marker([l.lat, l.lon], {interactive: false, icon: L.divIcon({className: "", html: `<span class="nom-lieu">${nom}</span>`, iconSize: [0, 0], iconAnchor: [-7, 8]})}).addTo(carte);
+}
+const cadrer = () => { carte.invalidateSize(); const s = carte.getSize(); if (s.x && s.y) carte.fitBounds(tout.getBounds(), {padding: [24, 24]}); else carte.setView([27.95, 85.2], 7); };
+cadrer();
+addEventListener("load", cadrer);
+addEventListener("resize", () => carte.invalidateSize());
+</script>
+</body>
+</html>
