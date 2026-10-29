@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 :root{
   --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
@@ -111,6 +110,20 @@ table.filet td:last-child{font-weight:600}
 .nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
 .nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
 .nav-bas .suivant{text-align:right;margin-left:auto}
+
+/* illustrations : cartes fixes, profils, photos */
+.page{display:block}
+article{margin:0 auto;justify-self:auto;max-width:800px}
+figure.carte-etape{margin:0 0 30px;padding:0;display:grid;gap:6px}
+figure.carte-etape img{display:block;width:100%;height:auto;border:1px solid var(--trait);border-radius:6px;background:#fcfbf8}
+figure.carte-etape img.profil-img{border-radius:0 0 6px 6px;border-top:0;margin-top:-6px}
+figure.carte-etape figcaption{font:12.5px/1.45 system-ui,sans-serif;color:var(--encre-2)}
+figure.photo{margin:32px 0}
+figure.photo img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.photo figcaption{font:13.5px/1.5 system-ui,sans-serif;color:var(--encre-2);margin-top:8px}
+figure.photo figcaption .legende-photo{display:block;font:italic 16px/1.45 "Source Serif 4",Georgia,serif;color:var(--encre)}
+figure.photo figcaption a{color:inherit}
+@media (max-width:960px){article{padding:32px 18px 80px}section{scroll-margin-top:16px}}
 </style>
 </head>
 <body>
@@ -217,6 +230,12 @@ table.filet td:last-child{font-weight:600}
     </header>
     <p>Le 4, nous nous réveillons après un sommeil profond, bien que notre chambre soit suspendue au-dessus d'une rue passante. Petit déjeuner sur le toit de la guesthouse, seuls, au soleil, à côté d'un gros plant de cannabis.</p>
     <p>C'est notre première vraie journée à Katmandou. Nous marchons jusqu'à Durbar Square, au sud de Thamel, parmi les temples et les belles maisons, sans parvenir à nous orienter : aucun nom de rue, et un plan très approximatif. La place de l'ancien palais royal est l'un des sept ensembles de la vallée de Katmandou inscrits au patrimoine mondial de l'Unesco en 1979.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-04-durbar-square-katmandou.jpg" alt="Durbar Square de Katmandou, le temple de Shiva-Parvati et les pagodes voisines, en décembre 2007." loading="lazy" width="1600" height="1127">
+      <figcaption><span class="legende-photo">Durbar Square, à Katmandou : le temple de Shiva-Parvati (photo de 2007, avant le séisme de 2015).</span>Photo : Vyacheslav Argenberg (retouche : UnpetitproleX) · <a href="https://creativecommons.org/licenses/by/4.0" rel="license noopener">CC BY 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Kathmandu_Durbar_Square,_Shiva_Parvati_Temple,_Nepal_(edit).jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Plus au sud encore, Freak Street, l'ancien repaire des hippies, est un quartier pauvre, moins touristique, où l'on vend à même le sol des fruits, des légumes et des poulets encore vivants. Son nom népalais est Jhochhen Tole ; dans les années 1960 et 1970, la rue était le terminus de la « route des hippies ». Un vieil homme y fait frire des samosas et d'autres beignets dans une grande bassine de métal ; nous en mangeons. Les rues sont bondées de Népalais, de vaches, de scooters, de motos, de voitures et de vélos.</p>
     <p>C'est là que nous rencontrons Jean-Louis, « Loulou », un Bruxellois qui revient des Andes et repartira pour l'Inde dans un mois. Il se joindra peut-être à nous pour le trek du camp de base de l'Everest.</p>
     <p>Autre rencontre, à une terrasse, autour d'un thé népalais : un couple de Français nous vante le trek sans guide, sauvage. Nous sommes terriblement tentés. Après réflexion, c'est le tour du Dhaulagiri qui répond le mieux à nos envies : très sauvage, à peine décrit dans les guides, presque entièrement sous la tente, avec deux cols à plus de 5 000 mètres. Nous achetons la carte. La suite plus tard. Le Dhaulagiri, 8 167 mètres, est le septième sommet du monde.</p>
@@ -231,7 +250,19 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Ratna Park → Pharping, aller-retour</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>1 h de bus à l'aller, le retour sur le toit</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>guesthouse à Thamel</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-05.svg" alt="Carte du 2011-10-05 : Pharping, Katmandou" loading="lazy" width="600" height="450">
+      <figcaption>Carte de l'étape. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 5, après un copieux petit déjeuner, nous prenons à Ratna Park le bus de Pharping. Une heure inoubliable, assis au fond sur une banquette minuscule, serrés les uns contre les autres. Le bus zigzague entre les motos, les passants et les voitures, puis quitte la ville par de petites routes et prend de l'altitude. Nous sautons sur nos sièges ; il s'arrête sans cesse pour laisser monter et descendre des passagers, et roule souvent à la limite entre la route et le vide. Plusieurs fois, nous retenons notre souffle.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-05-pharping.jpg" alt="Le bourg de Pharping et ses monastères, à flanc de colline au sud de la vallée de Katmandou." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">Pharping, au sud de la vallée de Katmandou.</span>Photo : Sundar1 · <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license noopener">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Pharping0880.JPG" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Pharping est une petite ville newar au bord sud de la vallée, à une vingtaine de kilomètres de la capitale, et un lieu de pèlerinage bouddhiste : la tradition veut que Padmasambhava, qui porta le bouddhisme au Tibet, ait médité dans ses grottes. Nous y visitons un monastère tibétain, puis déjeunons dans un restaurant de deux petites tables collées à la cuisinière. Personne n'y parle anglais : nous nous en remettons au frère et à la sœur qui cuisinent. Deux plats chacun arrivent, pour 1,2 euro en tout.</p>
     <p>La ville est pauvre, en grande partie en ruine, mais la lumière est belle. Les maisons de bois et de brique rouge, souvent enduites de chaux ocre et jaune, ont des fenêtres et des piliers très finement sculptés. Certaines rues sont pavées de briques, d'autres faites grossièrement de pierre et de terre. Une très belle ville. Les enfants jouent dehors ; ceux qui parlent anglais nous lancent des « Where are you from ? » et des « Hello ». Dans un café, autour d'un thé népalais, la serveuse rit de bon cœur chaque fois que nous disons merci en népalais.</p>
     <p>Le retour se fait sur le toit d'un bus qui dévale la montagne à toute vitesse ; il faut guetter les branches et les câbles électriques, et baisser souvent la tête. Là-haut, nous faisons la connaissance d'un sherpa né près de l'Everest, devenu moine à neuf ans, qui a fini ses études à Dharamsala et vit aujourd'hui près de Katmandou avec sa femme autrichienne. Il nous conseille pour le trek et nous invite dans sa famille à notre retour du camp de base. Dharamsala, en Inde, est le siège du gouvernement tibétain en exil depuis 1960.</p>
@@ -261,8 +292,21 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Katmandou → Lukla en avion, puis à pied jusqu'à Phakding</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-avion"/></svg>Katmandou – Lukla, seize places</li><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>3 h de marche en plein soleil</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Phakding · 2 610 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-07.svg" alt="Carte du 2011-10-07 : Phakding, Lukla" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-07-profil.svg" alt="Profil d'altitude du 2011-10-07" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 7 octobre, à 6 h 15, nous sommes dans la rue à chercher un petit déjeuner. Thamel a un autre visage à cette heure : les poubelles sont ramassées, les trekkeurs attendent leur taxi en grappes, des joggeurs courent.</p>
     <p>À l'aéroport intérieur de Katmandou règnent un désordre monstre et très peu de contrôles. Notre avion a seize places et deux moteurs à hélice. À bord, personne ne parle, chacun fixe la piste ; la tension, l'attente et l'excitation se mêlent. Le vol est court et parfait. La piste, toute petite, se dessine à flanc de montagne. Nous applaudissons : Lukla, enfin. L'aéroport de Lukla a été construit en 1964 sous la direction d'Edmund Hillary, et rebaptisé Tenzing-Hillary en 2008 ; sa piste mesure 527 mètres, en pente de près de 12 %.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-07-piste-lukla.jpg" alt="Un Twin Otter se pose sur la piste en pente de l&#x27;aéroport Tenzing-Hillary de Lukla." loading="lazy" width="1600" height="1208">
+      <figcaption><span class="legende-photo">L&#x27;atterrissage à Lukla : la piste monte à flanc de montagne.</span>Photo : Steve Hicks · <a href="https://creativecommons.org/licenses/by/2.0" rel="license noopener">CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Aircraft_lands_at_VNLK.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Un petit déjeuner, puis trois heures de marche en plein soleil jusqu'à Phakding, la première étape : sept kilomètres, avec plus de descente que de montée. Notre guide, Dependra, a vingt et un ans. Il vient de la région des Annapurnas ; gentil, souriant, il parle un anglais maladroit et négocie pour nous les repas et les chambres en lodge.</p>
     <p>Nous marchons parmi d'autres touristes, des porteurs, des yaks, des Népalais. La dureté du métier de porteur nous choque, et leurs yeux tristes et soumis. Ils portent la vie lourdement. Est-ce un choix ?</p>
     <p>À Phakding, nous nous promenons dans le village en rêvant de la suite. Ce n'est que le début, et nous sommes déjà heureux. Grosse fatigue, dîner tôt, la rencontre d'un Français et de son guide, et notre première nuit dans le sac de couchage, au lodge de Phakding.</p>
@@ -276,9 +320,28 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Phakding → Namche Bazaar</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 7 h 30 · 5 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Namche · 3 440 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-08.svg" alt="Carte du 2011-10-08 : Namche Bazaar, Phakding" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-08-profil.svg" alt="Profil d'altitude du 2011-10-08" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Lever à 6 h 30, les sacs, un porridge au lait chaud, et nous quittons Phakding à 7 h 30. Il fait très beau, la vallée est magnifique. Le chemin est bien tracé. Il franchit souvent la vallée sur de grands ponts métalliques suspendus, au-dessus d'un torrent très puissant. C'est la Dudh Kosi, la « rivière de lait », qui draine tout le massif de l'Everest.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-08-pont-larja-dudh-kosi.jpg" alt="La Dudh Kosi et un pont suspendu au confluent de Larja, au pied de la montée vers Namche, en octobre 2007." loading="lazy" width="1600" height="1101">
+      <figcaption><span class="legende-photo">Pont suspendu sur la Dudh Kosi, au confluent de Larja, avant la montée vers Namche.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Phakding-Namche-64-Larja-Bruecke-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Nous marchons d'un pas régulier ; aux postes de l'armée, Dependra présente nos permis. Nous entrons ce jour-là dans le parc national de Sagarmatha, du nom népalais de l'Everest : créé en 1976, il est inscrit au patrimoine mondial de l'Unesco depuis 1979.</p>
     <p>Au bout de cinq heures et dix kilomètres, nous sommes à Namche Bazaar, huit cents mètres plus haut que Phakding : une grande ville de bars, d'hôtels et de boutiques pour touristes. Accrochée en amphithéâtre à 3 440 mètres, Namche est le bourg principal du pays sherpa, le Khumbu, et son marché.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-08-namche-kongde.jpg" alt="Namche Bazaar en amphithéâtre, face au massif du Kongde Ri." loading="lazy" width="1600" height="1151">
+      <figcaption><span class="legende-photo">Namche Bazaar (3 440 m), face au Kongde Ri.</span>Photo : Nirojsedhai · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Namche_Bazaar_facing_Kongde_Ri_towards_west.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Après le déjeuner, Romain tombe sur un match de rugby dans un bar. J'en profite pour me reposer une heure, avec un Doliprane : j'ai mal à la tête. L'altitude, peut-être, mais nous ne sommes qu'à 3 400 mètres. Ce samedi 8 octobre, la Coupe du monde de rugby, en Nouvelle-Zélande, en est aux quarts de finale.</p>
     <p>Puis, au Liquid Bar, autour d'un thé au lait, une projection gratuite : un film du National Geographic sur l'Everest. Il est formidable et me redonne une énorme envie d'atteindre le camp de base. Quelle épreuve, d'aller jusqu'au sommet. Ensuite, des cartes avec Dependra : deux jeux népalais, deux jeux français.</p>
     <p>Après le dîner, Romain et moi sortons marcher. Il fait nuit, mais les lumières de la ville éclairent les flancs de la montagne et le ciel nuageux, et la lune est presque pleine. Devant une maison népalaise, nous parlons du sens de la vie. Nous essayons de nous mettre dans la peau d'un villageois de montagne, de comparer sa vie à celle des villes, et ce que chacune poursuit. Comment être heureux ? Comment prendre les bonnes décisions ? Hasard ou déterminisme ? Chaque action est la conséquence d'une action passée. Nous retenons une valeur simple : être heureux, et rendre heureux ceux qui nous entourent. Puis l'électricité est coupée, et nous allons nous coucher à la frontale, dans notre lodge de Namche.</p>
@@ -292,8 +355,20 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Journée d'acclimatation à Namche</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>4 h de marche le matin</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Namche · 3 440 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-09.svg" alt="Carte du 2011-10-09 : Namche Bazaar" loading="lazy" width="600" height="450">
+      <figcaption>Carte de l'étape. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 9, nous ne quittons pas Namche : c'est la journée d'acclimatation. Au-dessus de 3 000 mètres, l'usage est de ne pas dormir chaque soir beaucoup plus haut que la veille, et de s'accorder une journée de pause tous les trois ou quatre jours.</p>
     <p>Le matin, quatre heures de marche, avec une très belle vue sur l'Ama Dablam, le Khumbila et d'autres sommets. L'Everest, lui, reste caché.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-09-ama-dablam-alpage-namche.jpg" alt="L&#x27;Ama Dablam au-dessus des pins et de l&#x27;alpage, sur les hauteurs entre Namche et Khumjung, fin octobre 2007." loading="lazy" width="1600" height="951">
+      <figcaption><span class="legende-photo">L&#x27;Ama Dablam depuis les hauteurs au-dessus de Namche.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Namche-Khumjung-30-Alm-Ama_Dablam-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Après le déjeuner, nous achetons un réchaud, avec une bouteille de gaz très ancienne, rouillée, couverte d'inscriptions en chinois. Peu importe : à 3 400 mètres, l'affaire est bonne. Avec un paquet de thé népalais, nous voilà indépendants pour les boissons chaudes.</p>
     <p>Nous retournons au Liquid Bar pour un film. Celui du jour est <i>Into Thin Air</i>, tiré du livre de Jon Krakauer, que je cherche à voir depuis des années. Un très bon moment. Dans ce livre paru en 1997, Krakauer raconte la saison du printemps 1996 sur l'Everest, où il était client d'une expédition commerciale et où huit alpinistes sont morts dans la tempête du 10 au 11 mai.</p>
     <p>Dans la soirée, entre deux parties de cartes, nous repensons au trek suivant. Le tour du Dhaulagiri nous paraît maintenant trop dangereux : une semaine de forêt dense, puis une semaine sur un grand glacier exposé aux avalanches, plusieurs jours au-dessus de 5 000 mètres, le camping à chaque étape, et tout cela pendant dix-huit jours. Nous nous rendons à l'évidence : c'est trop ambitieux pour nous. Après en avoir parlé avec Dependra, nous commençons à penser au tour du Manaslu. Le Manaslu, 8 163 mètres, huitième sommet du monde, se dresse à l'est des Annapurnas. Nous dormons une deuxième nuit à Namche.</p>
@@ -307,7 +382,20 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Namche → Khumjung</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>1 h 30 de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Khumjung · 3 780 m, vue sur l'Ama Dablam</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-10.svg" alt="Carte du 2011-10-10 : Khumjung, Namche Bazaar" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-10-profil.svg" alt="Profil d'altitude du 2011-10-10" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 10, nous quittons Namche et ne marchons presque pas : en une heure et demie, quatre kilomètres et quatre cents mètres de montée, nous sommes à Khumjung. Et là, pour la première fois, ils apparaissent.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-10-everest-lhotse-ama-dablam-khumjung.jpg" alt="Au fond, l&#x27;Everest et le mur du Nuptse-Lhotse ; à droite, l&#x27;Ama Dablam. Photo prise le 31 octobre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Sur le chemin de Khumjung : l&#x27;Everest et le Lhotse au fond, l&#x27;Ama Dablam à droite.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Namche-Khumjung-40-Landschaft_mit_Ama_Dablam-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <figure class="manuscrit">
       <img src="images/everest/extrait-everest-vu.jpg" alt="Extrait manuscrit du carnet : que Namche. Nous apercevons pour la première fois le mont Everest, le Nuptse, le Lhotse, le Pumori. C'est extraordinairement beau, imposant, pur, blanc ! L'Ama…" width="1100" height="416">
       <figcaption><i>« Nous apercevons pour la première fois le mont Everest, le Nupse, le Lotse, le Pumori. C'est extraordinairement beau, imposant, pur, blanc ! »</i>Carnet 1, page 26 · Khumjung, 10 octobre</figcaption>
@@ -316,6 +404,12 @@ table.filet td:last-child{font-weight:600}
     <p>Je prends conscience que je peux enfin mettre des images sur des mots : ces sommets, j'ai lu tant d'histoires à leur sujet. C'est un grand moment. Désormais, chacun de nos pas nous en rapprochera.</p>
     <p>Nous faisons la connaissance d'Isabelle et Christian, un couple de Suisses extrêmement sympathiques : lui est professeur de philosophie, elle infirmière. Leur guide, Lok, est un bon ami du nôtre, et nous avons le même programme ; nos guides ne se quitteront sans doute pas, et nos chemins vont se suivre de près.</p>
     <p>L'après-midi, Romain et moi faisons le tour du village, étiré sur un long plateau entre des parois de montagne. La pierre est très blanche, tout est bordé de murets, et la végétation mêle la jungle à la haute montagne. Une très belle balade. Le monastère de Khumjung garde, sous verre, un prétendu scalp de yéti.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-10-khumjung-khumbila.jpg" alt="Le village de Khumjung, ses champs clos de murets et le Khumbila, la montagne sacrée des Sherpas, le 9 octobre 2012." loading="lazy" width="1600" height="872">
+      <figcaption><span class="legende-photo">Khumjung (3 780 m) sur son plateau, sous le Khumbila.</span>Photo : Jorge Díaz Bes · <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license noopener">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Khumjung_and_Khumbila.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Nous rentrons fatigués et décidons de nous laver, pour la première fois depuis le début du trek. Plutôt que de payer 200 roupies la douche chaude, nous allons à un robinet dans la rue, d'où coule l'eau du glacier. Il est 18 heures, nous sommes à 3 800 mètres, et pieds nus, torse nu, nous nous savonnons comme nous pouvons. Dependra, occupé à laver son tee-shirt, n'en revient pas. Entre nos efforts pour ne payer aucun extra et cette douche froide en pleine rue, il commence à comprendre à quels touristes il a affaire.</p>
     <p>Notre lodge est une belle maison de bois, et notre chambre donne directement, royalement, sur l'Ama Dablam. C'est à couper le souffle ; je n'ose pas imaginer le spectacle de demain matin. Première nuit à 3 800 mètres.</p>
   </section>
@@ -328,9 +422,22 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Khumjung → Dole → Machhermo</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>arrivée 14 h 30 · 700 m de montée le matin</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Machhermo · 4 470 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>il fait froid au coucher</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-11.svg" alt="Carte du 2011-10-11 : Machhermo, Khumjung, Dole" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-11-profil.svg" alt="Profil d'altitude du 2011-10-11" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 11 octobre au matin, nous quittons Khumjung. Le chemin y abandonne la grande route du camp de base de l'Everest et part vers le nord, vers les lacs de Gokyo, que nous atteindrons demain. Khumjung est posé au pied du Khumbila, la montagne sacrée des Sherpas ; c'est aussi le village où l'Himalayan Trust d'Edmund Hillary a bâti une école en 1961.</p>
     <p>Le sentier monte d'abord à un col, le Mong La, vers 3 970 mètres, puis plonge jusqu'à la Dudh Kosi, vers 3 600 mètres, avant de remonter sur Dole : une manière très himalayenne de prendre de l'altitude, qui consiste à commencer par en perdre. La journée de marche est belle, avec sept cents mètres de montée dans la matinée.</p>
     <p>À Dole, à 4 000 mètres, nous déjeunons avec Isabelle et Christian, puis reprenons la route. À 14 h 30, nous arrivons à Machhermo, à 4 450 mètres : jamais nous ne sommes montés si haut. Treize kilomètres dans la journée, un peu plus de mille mètres de montée en tout. La vallée s'élargit, et des sommets enneigés se découvrent un à un. Je me rase dans un ruisseau, au savon, tant bien que mal.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-11-machhermo.jpg" alt="Les lodges de Machhermo au fond de leur vallon, sous les sommets enneigés, début novembre 2007." loading="lazy" width="1600" height="1055">
+      <figcaption><span class="legende-photo">L&#x27;arrivée à Machhermo (4 470 m).</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Machhermo-02-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Machhermo abrite à cette époque un poste de secours de l'International Porter Protection Group, une association qui soigne gratuitement les porteurs et les villageois ; en saison, des médecins bénévoles y donnent chaque après-midi une causerie sur le mal des montagnes. C'est sans doute à l'une d'elles que nous assistons. Les bénévoles nous mesurent l'oxygène dans le sang : 86 % pour moi, la norme ; 84 % pour Romain ; 90 % pour Jean-Louis, qui est là lui aussi. Puis ils nous montrent comment on se sert d'un caisson de décompression, ce sac étanche que l'on gonfle à la pompe autour d'un malade pour lui rendre un peu de la pression de l'air d'en bas.</p>
     <p>Ensuite, des cartes avec deux guides, un dal bhat, encore des cartes. À 20 heures, nous sommes couchés. Il fait froid. Gokyo n'est plus qu'à une matinée de marche.</p>
   </section>
@@ -343,13 +450,32 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Machhermo → Gokyo le matin · l'après-midi, le 4<sup>e</sup> lac et retour</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>déjeuner à Gokyo · retour 10 min avant le coucher du soleil</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Gokyo · 4 750 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>il gèle dès 21 h</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-12.svg" alt="Carte du 2011-10-12 : Gokyo, Machhermo, 4ᵉ lac (Thonak Cho)" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-12-profil.svg" alt="Profil d'altitude du 2011-10-12" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 12, nous repartons de Machhermo le matin, et nous sommes à Gokyo pour le déjeuner. La marche est agréable, et brève : sept kilomètres, moins de quatre cents mètres de montée.</p>
     <p>Le sentier longe la moraine du glacier de Ngozumpa, qui naît sous le Cho Oyu et s'étire sur trente-six kilomètres, le plus long de l'Himalaya. Il mène au troisième des lacs de Gokyo, le Gokyo Cho, sur la rive est duquel le village est bâti. On compte là dix-neuf lacs, entre 4 700 et 5 000 mètres ; depuis 2007, ils sont protégés au titre de la convention de Ramsar sur les zones humides.</p>
     <p>C'est à Gokyo, au déjeuner, que nous faisons la connaissance de Raoul Sherpa, un Français qui passe six mois par an au Népal comme guide pour une agence népalaise. Il compte gravir le Cho Oyu l'année prochaine et l'Everest dans deux ans. Faute d'intermédiaire, il vend ses treks et ses sommets à des prix qu'il dit très abordables : l'Everest à 19 000 euros. Le Cho Oyu ferme la vallée au nord. Avec ses 8 188 mètres, c'est le sixième sommet du monde ; les Autrichiens Herbert Tichy et Joseph Jöchler, avec le sherpa Pasang Dawa Lama, en ont réussi la première ascension le 19 octobre 1954.</p>
     <p>L'après-midi, Romain et moi partons à la découverte des lacs 4, 5 et 6. Nous n'atteignons que le quatrième, faute de temps : le Thonak Cho, le plus grand et le plus profond de tous, soixante-deux mètres d'eau. Le sixième est au pied du Cho Oyu, tout près de son camp de base. Nous revenons à Gokyo dix minutes avant le coucher du soleil.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-12-gokyo-quatrieme-lac.jpg" alt="Le quatrième lac de Gokyo (Thonak Cho), entre moraine et parois." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">Le quatrième lac de Gokyo, le Thonak Cho.</span>Photo : DARIO SEVERI · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gokyofourthlake.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>L'altitude nous joue des tours : à chaque montée, nous nous fatiguons très vite et devons avancer tout doucement. Nous sommes pourtant bien acclimatés, et les maux de tête ont disparu. Nous buvons beaucoup d'eau.</p>
     <p>Le soir, une partie de président avec les guides, Isabelle et Christian, puis le dîner dans une pièce chauffée par un poêle central. Notre chambre sert pour la première fois ; nous la baptisons.</p>
     <p>En allant nous coucher, nous avons ce spectacle : la pleine lune éclaire les montagnes enneigées qui tombent dans le troisième lac, et derrière la maison le Cho Oyu se découvre, ses glaciers et sa neige renvoyant la lumière. Voir ces sommets en pleine nuit, dans ce décor : je prends le carnet pour ne pas l'oublier. La lune est pleine au sens strict : elle l'est ce 12 octobre 2011.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-12-gokyo-lac-cho-oyu.jpg" alt="Le troisième lac (Gokyo Cho ou Dudh Pokhari), les lodges de Gokyo et, au fond, le Cho Oyu." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">Le lac de Gokyo et le Cho Oyu.</span>Photo : ShankarBanjara · <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license noopener">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gokyo_01.JPG" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <figure class="manuscrit">
       <img src="images/everest/extrait-pleine-lune.jpg" alt="Extrait manuscrit du carnet : la 1ère fois. Un spectacle extraordinaire s'offre à nous : la pleine lune illumine les montagnes enneigées qui tombent dans le 3ème lac de Gokyo. Derrière la maison se découvre le Cho Oyu grâce à ses glaciers et sa neige qui reflète les rayons de la lune. Quelle émotion, d'avoir la chance de voir ces sommets en pleine nuit dans ce cadre magnifique. Je suis sur une autre planète, c'est un autre monde." width="1100" height="948">
       <figcaption><i>« Je suis sur une autre planète, c'est un autre monde. »</i>Carnet 1, page 30 · Gokyo, 12 octobre, écrit au moment de se coucher</figcaption>
@@ -365,7 +491,20 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Gokyo → Gokyo Ri, 5 360 m → Gokyo</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ avant l'aube · 1 h 30 de montée</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Gokyo · 4 750 m, 2<sup>e</sup> nuit</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-13.svg" alt="Carte du 2011-10-13 : Gokyo, Gokyo Ri" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-13-profil.svg" alt="Profil d'altitude du 2011-10-13" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 13, nous partons de Gokyo avant le lever du soleil. Le Gokyo Ri domine le village au nord-ouest : 5 357 mètres, près de six cents mètres au-dessus des toits, trois kilomètres et demi aller et retour. Il fait très froid, puis le soleil finit par se lever. En une heure et demie, sans forcer, nous sommes au sommet, à 5 360 mètres. Par temps clair, on voit de là-haut quatre des quatorze sommets de plus de 8 000 mètres : l'Everest, le Lhotse, le Makalu et le Cho Oyu. Je ne note rien du panorama. Ce matin, c'est la montée qui m'occupe.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-13-gokyo-ri-everest-ngozumpa.jpg" alt="Depuis le Gokyo Ri : l&#x27;Everest, le Nuptse et le Lhotse au-dessus du glacier de Ngozumpa, le 5 novembre 2007." loading="lazy" width="1600" height="1064">
+      <figcaption><span class="legende-photo">Du Gokyo Ri : l&#x27;Everest, le Nuptse et le Lhotse derrière le glacier de Ngozumpa.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gokyo_Ri-22-Everest-Nuptse-Lhotse-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>La marche est régulière, exaltante. Cela tient davantage du sommet d'expédition que du trek, et l'effort ressemble à celui de la course à pied. Je le sais à présent : c'est ce genre d'objectif qui m'attire. Le trek vaut par la variété de ses paysages, mais son effort est celui de la durée, et son but de boucler la boucle. Nous oublions un peu le trek et avançons à bonne allure jusqu'en haut. Heureusement, nous suivons Isabelle : sans elle, nous irions plus vite encore.</p>
     <p>Redescendus à Gokyo pour le déjeuner, nous avons tous les deux un gros mal de tête. Un comprimé, une sieste dehors. La sensation est nouvelle, et désagréable. Pendant deux heures, je doute de mes capacités, ce qui n'a rien de confortable quand il reste plus d'un mois et demi à passer dans l'Himalaya. La sieste remet tout en place : la motivation, la confiance, la force. Le reste de la journée tient en une liste : de l'eau pompée dans le lac, des cartes, le programme négocié avec les guides, le dîner avec les Suisses, quelques renseignements pris auprès de Jean-Louis pour le lendemain.</p>
     <p>Ici, courir est impensable, et le dépassement de soi me manque. J'y ai goûté ce matin même. La prochaine fois, au Népal, ce sera pour un sommet. On croit se connaître en partant ; on comprend vite que non, et l'altitude agit sur le corps d'une façon tout à fait imprévisible. J'en tire, ce soir, une conclusion de voyageur.</p>
@@ -381,9 +520,22 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Gokyo → 5<sup>e</sup> lac → Gokyo, puis la traversée du glacier jusqu'à Thagnak</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 7 h 30 · lever 4 h le lendemain</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Thagnak · 4 700 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-14.svg" alt="Carte du 2011-10-14 : Thagnak, Gokyo, 5ᵉ lac (Ngozumpa Cho)" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-14-profil.svg" alt="Profil d'altitude du 2011-10-14" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 14, une très bonne journée, qui commence par un long rêve dont je suis content de me réveiller. À 7 h 30, nous partons de Gokyo avec Lok, Isabelle et Christian, vers le cinquième lac. Les courbatures du Gokyo Ri rendent la marche moins facile, mais elle ne demande pas un grand effort.</p>
     <p>Mes pensées s'envolent vite, entre philosophie et projets. À l'aller, je cherche à comprendre comment nous répondons aux questions que nous nous posons, et ce que cela change au bonheur. Au retour, j'imagine un nouveau tourisme sportif : la course à pied sur les hauts plateaux d'Éthiopie. Un tourisme responsable, pour découvrir la course, progresser, préparer une épreuve, ou simplement partager les rythmes et les entraînements des coureurs éthiopiens. L'idée me plaît beaucoup. Je me vois déjà proposer à Marc, un ami de la famille, grand coureur, de devenir coach là-bas pour des groupes venus du monde entier. Quelle retraite ce serait. Ces hauts plateaux ont donné au monde ses plus grands coureurs de fond, depuis Abebe Bikila, champion olympique du marathon pieds nus à Rome, en 1960.</p>
     <p>Nous redescendons déjeuner à Gokyo, puis partons vers Thagnak, à travers la large moraine d'un glacier qui se meurt. L'ambiance est extraordinaire. Dans ce dédale de pierres, de rochers, de cailloux et de grains de sable, on se sent minuscule, en présence de quelque chose de plus grand que soi. C'est le Ngozumpa, que nous longeons depuis Machhermo : sa langue disparaît sous les débris rocheux, et des lacs de fonte s'y creusent.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-14-moraine-ngozumpa.jpg" alt="La crête de moraine au-dessus du glacier de Ngozumpa, couvert de pierres, avec le Cho Oyu au fond, le 3 novembre 2007." loading="lazy" width="1600" height="1018">
+      <figcaption><span class="legende-photo">La moraine du glacier de Ngozumpa, à traverser pour gagner Thagnak.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gokyo_surroundings-10-auf_der_Moraene-Gletscher-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Je repars dans mes pensées. Je suis de bonne humeur, la journée est belle, sans mal des montagnes ; j'aimerais être ainsi pour toujours. Mais peut-on contrôler ses émotions ?</p>
     <p>Thagnak est minuscule, posé sur une herbe rase, jaune orangé, d'où surgissent quantité de rochers noirs et verts. On y voit partir le chemin du Cho La. Le soir, des cartes, du thé, un énorme dal bhat. Nous rions beaucoup : pour la première fois, nous sommes les seuls Français, dans une ambiance népalaise authentique. Coucher tôt à Thagnak : demain, lever à 4 heures. Quelle belle journée. Je suis reconnaissant.</p>
   </section>
@@ -396,10 +548,29 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Thagnak → Cho La, 5 400 m environ → Dzongla → Lobuche</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>plus de 8 h de marche · 700 m de montée jusqu'au col</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à l'hôtel, Lobuche · 4 910 m · 18 $, offerte par les Suisses</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-15.svg" alt="Carte du 2011-10-15 : Lobuche, Thagnak, Cho La, Dzongla" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-15-profil.svg" alt="Profil d'altitude du 2011-10-15" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 15 octobre, mon petit frère Simon a vingt et un ans. La page du jour commence par lui.</p>
     <p>Le réveil est difficile. Je sors un bras du sac de couchage pour allumer le réchaud ; dix minutes plus tard, nous sommes assis tous les deux sur le lit, une tasse de thé chaud à la main, dans le noir, frontales allumées. De l'eau pompée à la rivière, un petit déjeuner, et nous quittons Thagnak pour le Cho La.</p>
     <p>Nous restons à l'ombre jusqu'au col, sept cents mètres plus haut, en grimpant dans les pierres et la neige. Le Cho La, à 5 400 mètres environ, relie la vallée de Gokyo à celle qui mène au camp de base de l'Everest. De l'autre côté, il faut traverser un glacier. Je fais tout cela en baskets de trail.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-15-cho-la.jpg" alt="Un marcheur dans les éboulis et la neige du Cho La, le 6 novembre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Neige et éboulis au passage du Cho La.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Cho_La-52-Rueckblick-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Nous descendons ensuite jusqu'à un petit village, Dzongla, cerné par le Taboche, tout proche, et par l'Ama Dablam, que nous retrouvons de ce côté-ci. C'est magnifique, et nous sommes tous heureux d'avoir passé le Cho La sans encombre.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-15-dzongla-lobuche.jpg" alt="Marcheurs sur la moraine entre Dzongla et Lobuche, sous les sommets pris dans les nuages, le 7 novembre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Entre Dzongla et Lobuche, au pied des grands sommets.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Dzongla_to_Lobuche-74-Wanderer-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Il reste à rejoindre Lobuche, à 4 790 mètres. Au total, plus de huit heures de marche.</p>
     <p>À l'arrivée, fatigués, nous apprenons qu'il ne reste plus une chambre libre dans les lodges. Il faut aller à l'hôtel, et ce sont Isabelle et Christian qui nous offrent la chambre, 18 dollars. Nous y accueillons Lok et Dependra, qui n'ont pas trouvé de place non plus.</p>
     <p>Sans téléphone ni internet, je ne peux pas souhaiter son anniversaire à Simon. Je lui écris dans le carnet que je pense à lui.</p>
@@ -413,7 +584,20 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Lobuche → Gorak Shep</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>2 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>nuit sous tente, Gorak Shep · 5 175 m</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>double toit gelé dès 19 h</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-16.svg" alt="Carte du 2011-10-16 : Gorak Shep, Lobuche" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-16-profil.svg" alt="Profil d'altitude du 2011-10-16" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 16, une journée difficile. Hier soir, nous avons beaucoup ri avec les guides avant de nous endormir ; ce matin, à Lobuche, nous sommes fatigués, nous avons mal dormi. Deux heures de marche à peine, quatre kilomètres et demi, peu de dénivelé, et pourtant nous arrivons épuisés à Gorak Shep. L'altitude, ou le contrecoup du Cho La ? C'est le dernier village avant le sommet de l'Everest, au milieu d'un cercle de montagnes : un tableau magnifique. Gorak Shep, « les corbeaux morts », tient son nom de l'absence de toute végétation. Le hameau borde un ancien lac gelé couvert de sable ; les Suisses y avaient installé leur camp de base en 1952, avant qu'il ne soit déplacé plus près de la montagne.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-16-gorak-shep.jpg" alt="Les lodges de Gorak Shep au bord de l&#x27;ancien lac ensablé, le 8 novembre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Gorak Shep (5 175 m) et son lac ensablé.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Gorak_Shep-02-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>En pleine saison, il ne reste plus une chambre libre, bien que Dependra soit parti en avant dès 6 h 30. Nous dormirons sous la tente, une vieille canadienne verte. L'idée nous enchante : la nuit la plus haute de notre vie, nous la passerons sous la toile.</p>
     <p>Le hameau, minuscule mais plein de touristes, tourne au ralenti : chacun y vit avec à peu près la moitié de l'oxygène d'en bas.</p>
     <p>Romain et moi décidons de ne pas aller au camp de base : tout le monde nous le dit sans intérêt, vide à cette saison, et le chemin très mauvais. Demain avant l'aube, nous monterons plutôt au Kala Patthar, à plus de 5 550 mètres, d'où l'on voit le camp de base, le sommet de l'Everest et la voie qui y mène. Kala Patthar veut dire « rocher noir » ; ce n'est pas vraiment un sommet, mais une bosse sur l'arête sud du Pumori, au-dessus de Gorak Shep.</p>
@@ -429,12 +613,31 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Gorak Shep → Kala Patthar, 5 550 m → Gorak Shep → Lobuche → Dingboche</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>le sommet en 1 h au lieu de 2</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>bouteilles gelées au réveil</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Dingboche · 4 410 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-17.svg" alt="Carte du 2011-10-17 : Dingboche, Gorak Shep, Kala Patthar, Lobuche" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-17-profil.svg" alt="Profil d'altitude du 2011-10-17" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 17, c'est le jour où nos efforts aboutissent, et celui où commence la descente.</p>
     <div class="scene">
       <p>Le lever est difficile, mais très beau. Sous le faisceau des frontales, l'intérieur de la tente brille. Tout a gelé, les bouteilles d'eau comme le reste, et nos sacs de couchage scintillent. Nous avons pourtant eu chaud, tant que rien ne dépassait du duvet. Le froid empêche d'abord le réchaud de démarrer. Enfin une tasse de thé, et nous prenons, depuis Gorak Shep, le sentier du Kala Patthar.</p>
     </div>
     <p>Dependra impose un très bon rythme, que nous tenons jusqu'en haut. Après avoir dépassé beaucoup de monde, nous sommes parmi les premiers, et nous atteignons le sommet en une heure au lieu de deux. L'altitude nous force à respirer à grandes goulées, sans nous obliger à nous arrêter. L'effort est plus intense que d'habitude, parce que c'est l'objectif final du trek. Sans le dire, nous laissons derrière nous la crainte du mal des montagnes : la descente commence aujourd'hui même. Une fois encore, cette courte ascension nourrit mes envies de sommets. Pourquoi pas l'Island Peak ? Je me renseignerai à Katmandou. L'Island Peak, ou Imja Tse, 6 189 mètres, au-dessus de Chhukung, est l'un des « sommets de trekking » que l'on peut gravir avec un permis et un guide.</p>
     <p>Redescendus à Gorak Shep, nous passons Lobuche et marchons jusqu'à Dingboche, à 4 400 mètres, au pied de l'Ama Dablam : seize kilomètres dans la journée, et plus de 1 200 mètres de descente. Ce matin, nous le voyions de loin depuis le Kala Patthar ; au début de l'après-midi, nous sommes à sa base.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-17-dingboche-ama-dablam.jpg" alt="Les champs clos de murets de Dingboche, poudrés de neige, sous l&#x27;Ama Dablam, le 14 novembre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Dingboche (4 410 m), au pied de l&#x27;Ama Dablam.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Dingboche-82-Ama_Dablam-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-17-kala-patthar-everest-nuptse.jpg" alt="L&#x27;Everest, son épaule ouest et le Nuptse au-dessus du glacier du Khumbu, le 19 octobre 2009." loading="lazy" width="1600" height="1130">
+      <figcaption><span class="legende-photo">Du Kala Patthar : l&#x27;Everest et le Nuptse au-dessus du glacier du Khumbu.</span>Photo : Vyacheslav Argenberg · <a href="https://creativecommons.org/licenses/by/4.0" rel="license noopener">CC BY 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Everest,_Nuptse,_Khumbu_Glacier,_Nepal,_Himalayas.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>La montagne libère complètement l'esprit. Pendant la descente, je m'évade ; la foule sur le chemin du camp de base me choque pourtant, bien plus dense que du côté de Gokyo. Heureusement, nous sommes montés par les lacs et le Cho La. En route, nous croisons Jean-Louis, qui monte vers Gorak Shep. Demain, nous quitterons Isabelle et Christian : ils s'arrêteront à Tengboche, et nous filerons jusqu'à Namche.</p>
     <p>Dans la vie de tous les jours, on s'échappe facilement du moment présent : internet, les livres, la télévision, le cinéma. Dans une vie plus simple, on le vit sans effort. Nous dormons à Dingboche.</p>
   </section>
@@ -447,7 +650,20 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Dingboche → Pangboche → Tengboche → Namche</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ de bonne heure, à l'allure du trail</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Namche · 3 440 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-18.svg" alt="Carte du 2011-10-18 : Namche Bazaar, Dingboche, Pangboche, Tengboche" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-18-profil.svg" alt="Profil d'altitude du 2011-10-18" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 18, encore une excellente journée. Petit déjeuner d'au revoir avec les Suisses, puis nous quittons Dingboche de bonne heure, de bonne humeur et à très bonne allure, par Pangboche et Tengboche, jusqu'à Namche : vingt kilomètres, et près de 1 400 mètres de descente. Tengboche abrite le plus grand monastère du Khumbu, fondé en 1916 ; détruit par un séisme en 1934, puis par un incendie en 1989, il a été chaque fois reconstruit.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-10-18-tengboche-lhotse-ama-dablam.jpg" alt="Le monastère de Tengboche et ses chortens, avec l&#x27;Everest, le Lhotse et l&#x27;Ama Dablam au fond, le 14 novembre 2007." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Le monastère de Tengboche, sous le Lhotse et l&#x27;Ama Dablam.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Tengboche-74-Lhotse_und_Ama_Dablam-2007-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Dans les descentes, nous courons presque, avec pour fond sonore les « faster, faster, faster » de Dependra. Les montées, nous les avalons à une vitesse proche de celle du trail. L'oxygène se fait de moins en moins rare, et nous en profitons pleinement. Nous transpirons de nouveau, et les arbres reviennent.</p>
     <p>Une heure avant Namche, nous croisons pour la deuxième fois un jeune couple. J'engage la conversation, et le courant passe tout de suite. Ils sont danois et reviennent du camp de base, sans Gokyo ni le Cho La. Très sportifs, ils voyagent depuis un mois : l'Inde, le Népal, puis la Malaisie, Brunei et enfin les Philippines. Nous les retrouvons à Namche pour une partie de cartes. Peter et Louise étudient la finance et la médecine à Aarhus.</p>
     <p>Au dîner, Dependra nous procure de l'alcool de riz, le saké népalais, produit avec du riz noir dans une petite maison du village. Pas très bon. Puis, comme à notre habitude, un film au Liquid Bar, avec un petit pot de thé au lait : <i>Touching the Void</i>. Je suis scotché à l'écran ; j'adore ce film. Le film de Kevin Macdonald, sorti en 2003, raconte la descente de Joe Simpson, la jambe brisée, après sa chute sur le Siula Grande, dans les Andes péruviennes, en 1985.</p>
@@ -467,6 +683,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Namche → Lukla</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ vers 8 h · 5 h de marche</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à Lukla · 2 850 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-19.svg" alt="Carte du 2011-10-19 : Lukla, Namche Bazaar" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-10-19-profil.svg" alt="Profil d'altitude du 2011-10-19" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 19, nous quittons Namche vers 8 heures, le ventre plein. L'étape est longue et usante. L'air devient plus lourd et plus chaud, et nous croisons un nombre incroyable de touristes qui montent. C'est la pleine saison, et c'est la seule route vers Gokyo, le camp de base ou le Kala Patthar : défilent aussi des yaks, des ânes et des porteurs chargés de nourriture ou de matériel d'expédition. Chaleur, foule, paysage sans grand intérêt, et des montées psychologiquement pénibles au bout de treize jours de trek : dix-huit kilomètres, plus de 1 100 mètres de descente, mais aussi 550 de montée. Nous arrivons pourtant à Lukla en cinq petites heures, un très bon temps.</p>
     <p>Un gros dal bhat au déjeuner, du repos, puis un documentaire IMAX de 1996 sur l'Everest, dans une salle de cinéma faite maison, avec du pain tibétain et des samosas, très bons et peu chers. Encore une fois, nous ne retrouvons pas nos amis danois, dépassés dans la matinée ; j'espère les croiser demain à l'aéroport. Notre vol est à 10 heures, si le temps est clair.</p>
     <p>Au dîner, avec Dependra, une pizza « Khumbu Resort » faite main, délicieuse, et un Coca. C'est notre dernière soirée avec lui ; nous jouons aux cartes.</p>
@@ -482,6 +705,12 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Lukla → Katmandou en avion, puis Freak Street</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>décollage vers midi</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au Moon Stay Lodge, Freak Street · 2 €</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-10-20.svg" alt="Carte du 2011-10-20 : Katmandou, Lukla" loading="lazy" width="600" height="450">
+      <figcaption>Carte de l'étape. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>La grasse matinée n'aura pas lieu : à 6 h 30, les cloisons trop fines nous réveillent, comme d'habitude. Après le petit déjeuner, il faut attendre longtemps que l'aéroport appelle Dependra. Nous avons deux jours d'avance sur le programme, et donc pas la priorité. Le reçu de l'agence prévoyait le retour pour le 22 octobre.</p>
     <p>À 10 heures, en pleine partie de président, le signal vient enfin. Nous attrapons nos sacs et courons à l'aéroport ; dix minutes plus tard, après un contrôle très léger, nous sommes dans la salle d'attente. Entre-temps, nous avons recroisé Peter et Louise et échangé enfin nos adresses. La sœur de Peter vit à Copenhague : nous nous reverrons en janvier, et l'idée m'enchante.</p>
     <p>Après une heure d'attente dans une petite salle, nous voyons notre avion se poser et nous nous précipitons vers la porte. Il ne transportait qu'un seul passager ; le reste, ce sont des vivres pour les touristes : bières, Snickers, Pringles, pommes de terre, oignons, pain, œufs, matériel d'expédition. Nous montons à bord. Il est midi, le ciel se charge de nuages. La piste est minuscule, et en pente, pour que l'avion prenne plus vite de la vitesse.</p>
@@ -506,19 +735,9 @@ table.filet td:last-child{font-weight:600}
   <nav class="nav-bas"><a class="suivant" href="chapitre-dhaulagiri.html">Chapitre 2 →<b>Le tour du Dhaulagiri</b></a></nav>
 </article>
 
-<div class="colonne-carte" aria-label="Carte du trek de l'Everest">
-  <div id="carte"></div>
-  <div class="profil">
-    <div class="legende-jour" id="legende-jour">Le trek de l'Everest</div>
-    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude du trek"></svg>
-    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
-  </div>
-</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="donnees.js"></script>
-<script src="courbes-everest.js"></script>
 <script>
 const V = window.VOYAGE, EP = "everest";
 const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
@@ -526,87 +745,7 @@ const fmt = n => Math.round(n).toLocaleString("fr-FR");
 const ep = V.episodes.find(e => e.id === EP);
 const traces = V.traces.filter(f => f.properties.episode === EP);
 
-/* Carte */
-const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
-carte.setView([27.88, 86.75], 11);
-carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
-
-/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
-const renduCourbes = L.svg({padding: .3});
-const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
-for (const [alt, ligne] of window.COURBES.lignes) {
-  const maitresse = alt % window.COURBES.maitresse === 0;
-  L.polyline(ligne.map(c => [c[1], c[0]]), {
-    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
-  }).addTo(maitresse ? maitresses : intermediaires);
-}
-const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
-carte.on("zoomend", densite);
-const etiquette = (lat, lon, html, cls = "nom-lieu") =>
-  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: [-6, 8]})}).addTo(carte);
-const sommet = `<svg width="12" height="10" style="vertical-align:-1px"><path d="M6 1 L11 9 H1 Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>`;
-// sommets en bord de carte : le nom est écrit à gauche du triangle
-const aGauche = (lat, lon, html) => L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: "nom-lieu", iconSize: [0, 0],
-  html: `<span style="position:absolute;right:-6px;top:-9px">${html}</span>`})}).addTo(carte);
-aGauche(27.9881, 86.9250, `Everest · 8 849 m ${sommet}`);
-etiquette(27.8617, 86.8614, `${sommet} Ama Dablam · 6 812 m`);
-L.marker([V.lieux.kathmandou.lat, V.lieux.kathmandou.lon], {interactive: false, icon: L.divIcon({className: "nom-lieu", html: "Katmandou", iconSize: null, iconAnchor: [-15, 8]})}).addTo(carte);
-
-/* Aller à une étape du récit depuis la carte ou le profil */
-let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
-function allerAuJour(jour) {
-  const s = document.querySelector(`section[data-jour="${jour}"]`);
-  if (!s) return;
-  enNavigation = String(jour); afficher(String(jour));
-  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
-  addEventListener("scrollend", fin); setTimeout(fin, 2500);
-  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
-}
-const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
-
-const lignes = {}, aPied = {}; // jour -> [polylines]
-for (const f of traces) {
-  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
-  const l = L.polyline(pts, {
-    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
-    dashArray: p.mode !== "marche" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
-  }).addTo(carte);
-  (lignes[p.jour] ||= []).push(l);
-  if (p.mode === "marche") (aPied[p.jour] ||= []).push(l);
-  // zone de clic large et invisible par-dessus le tracé
-  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
-    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
-    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
-    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
-    .on("click", () => allerAuJour(p.jour))
-    .addTo(carte);
-}
-const tout = L.featureGroup(Object.values(aPied).flat()); // la vue d'ensemble se cale sur la marche, sans les vols
-
-/* Numéros des nuits : une pastille par lieu, plusieurs nuits au même endroit sont regroupées */
-const nuits = {}; let lieuNuit = null;
-for (const et of ep.etapes) {
-  lieuNuit = et.troncons.at(-1)?.[1].at(-1) || lieuNuit; // jour sans déplacement : même lieu que la veille
-  if (lieuNuit) (nuits[lieuNuit] ||= []).push(et.jour);
-}
-const lieuDuJour = {};
-for (const [id, jours] of Object.entries(nuits)) {
-  const l = V.lieux[id]; if (!l) continue;
-  jours.forEach(j => lieuDuJour[j] = l);
-  const multi = jours.length > 1;
-  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "num-nuit" + (multi ? " multi" : ""), html: jours.join(" · "), iconSize: [multi ? 12 + jours.join(" · ").length * 6 : 22, 22]})})
-    .bindTooltip(`${multi ? "Nuits" : "Nuit"} ${jours.join(", ")} · ${l.nom}${l.alt ? " · " + fmt(l.alt) + " m" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
-    .on("click", () => allerAuJour(jours[0]))
-    .addTo(carte);
-}
-for (const id of ["gokyo_ri", "cho_la", "kala_patthar"]) {
-  const l = V.lieux[id];
-  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "", iconSize: [14, 12], html: `<svg width="14" height="12"><path d="M7 1 L13 11 H1 Z" fill="${css("encre")}" stroke="${css("carte-fond")}" stroke-width="1.5"/></svg>`})})
-    .bindTooltip(`${l.nom} · ${fmt(l.alt)} m`, {permanent: true, direction: id === "cho_la" ? "right" : "left", offset: [id === "cho_la" ? 6 : -6, 0], className: "etiquette"}).addTo(carte);
-}
-carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
-
-/* Profil */
+/* Profil (pour les chiffres) */
 let profil = [], prec = null, d = 0;
 const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
   const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
@@ -615,36 +754,6 @@ for (const f of traces.filter(f => f.properties.mode === "marche")) for (const c
   if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
   prec = c;
 }
-const svg = document.getElementById("profil");
-function dessinerProfil(jour) {
-  const dMax = profil.at(-1).d, bas = 2000, haut = 6000;
-  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
-  const pas = Math.max(1, Math.floor(profil.length / 800));
-  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
-  let grille = "";
-  for (let a = 3000; a <= 5000; a += 1000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
-  const sel = profil.filter(p => p.jour === jour);
-  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
-  svg.style.color = css("encre");
-  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
-}
-
-const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
-const pointProfil = e => {
-  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
-  return profil.find(q => q.d >= d) || profil.at(-1);
-};
-svg.addEventListener("mousemove", e => {
-  const p = pointProfil(e);
-  repere.setLatLng([p.lat, p.lon]).addTo(carte);
-  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
-});
-svg.addEventListener("mouseleave", () => {
-  carte.removeLayer(repere);
-  document.getElementById("aide-carte").textContent = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.";
-});
-svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
-
 /* Chiffres */
 const marche = traces.filter(f => f.properties.mode === "marche");
 const kmTour = marche.reduce((s, f) => s + f.properties.km, 0), dpTour = marche.reduce((s, f) => s + f.properties.d_plus, 0);
@@ -670,34 +779,6 @@ document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
     <li class="calc" title="Dénivelé négatif calculé">${ico("descente")}<b>−${fmt(dm)} m</b></li>`;
   h.querySelector(".stats").insertAdjacentHTML("afterbegin", html);
 });
-
-/* La carte suit la lecture */
-let courant = null;
-// Leaflet renvoie une position invalide (NaN) si l'on « vole » vers l'endroit exact où se trouve déjà la carte
-function voler(centre, zoom) {
-  if (carte.getCenter().distanceTo(centre) < 5 && Math.abs(carte.getZoom() - zoom) < .01) return;
-  carte.flyTo(centre, zoom, {duration: .9});
-}
-function afficher(jour) {
-  if (jour === courant) return; courant = jour;
-  const tous = jour === "tout";
-  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
-  const pad = innerWidth < 960 ? [16, 16] : [50, 50];
-  const cible = tous ? tout : L.featureGroup(aPied[jour] || lignes[jour] || []); // un jour de marche se cadre sur la marche, sans le vol
-  if (cible.getLayers().length) { const v = carte._getBoundsCenterZoom(cible.getBounds(), {padding: pad, maxZoom: 13}); voler(v.center, v.zoom); }
-  else if (lieuDuJour[jour]) voler(L.latLng(lieuDuJour[jour].lat, lieuDuJour[jour].lon), 13); // jour sans tracé : le lieu de la nuit
-  (lignes[jour] || []).forEach(l => l.bringToFront());
-  document.getElementById("legende-jour").textContent = tous ? "Le trek de l'Everest · profil d'altitude" : titreJour(jour);
-  dessinerProfil(tous ? null : +jour);
-}
-const obs = new IntersectionObserver(entrees => {
-  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
-}, {rootMargin: "-35% 0px -55% 0px"});
-document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
-afficher("tout");
-addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
-addEventListener("resize", () => carte.invalidateSize());
 </script>
 </body>
 </html>

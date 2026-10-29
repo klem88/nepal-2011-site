@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 :root{
   --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
@@ -110,6 +109,20 @@ table.filet td:last-child{font-weight:600}
 .nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
 .nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
 .nav-bas .suivant{text-align:right;margin-left:auto}
+
+/* illustrations : cartes fixes, profils, photos */
+.page{display:block}
+article{margin:0 auto;justify-self:auto;max-width:800px}
+figure.carte-etape{margin:0 0 30px;padding:0;display:grid;gap:6px}
+figure.carte-etape img{display:block;width:100%;height:auto;border:1px solid var(--trait);border-radius:6px;background:#fcfbf8}
+figure.carte-etape img.profil-img{border-radius:0 0 6px 6px;border-top:0;margin-top:-6px}
+figure.carte-etape figcaption{font:12.5px/1.45 system-ui,sans-serif;color:var(--encre-2)}
+figure.photo{margin:32px 0}
+figure.photo img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.photo figcaption{font:13.5px/1.5 system-ui,sans-serif;color:var(--encre-2);margin-top:8px}
+figure.photo figcaption .legende-photo{display:block;font:italic 16px/1.45 "Source Serif 4",Georgia,serif;color:var(--encre)}
+figure.photo figcaption a{color:inherit}
+@media (max-width:960px){article{padding:32px 18px 80px}section{scroll-margin-top:16px}}
 </style>
 </head>
 <body>
@@ -145,8 +158,21 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Marpha → Kalopani</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ vers 10 h 30 · arrivée dans l'après-midi</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit à l'hôtel, Kalopani · 2 530 m · 100 Rps</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-03.svg" alt="Carte du 2011-11-03 : Kalopani, Marpha" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-03-profil.svg" alt="Profil d'altitude du 2011-11-03" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 3 novembre, nous nous réveillons à Marpha, dans le lodge où nous avons fêté hier soir la fin du tour du Dhaulagiri. Je suis debout à 6 h 30, réglé par la seule horloge du corps, et je lis en attendant que Romain se réveille. Au petit déjeuner, à l'hôtel, un milk tea et un apple crumble : un petit délice. Nous nous préparons sans hâte. Le corps se repose ; il se remet des neuf derniers jours.</p>
     <p>Vers 10 h 30, nous quittons Marpha pour notre première étape sur le tour des Annapurnas, et la déception est immédiate. Le tracé tient du gros GR, avec des bus, des jeeps et des motos. Le chemin est sans intérêt, la vue bouchée par des nuages gris et monotones, et un vent de face, froid et régulier, n'arrange pas notre jugement. Ce vent est une habitude de la vallée : chaque jour, à partir de la fin de matinée, il la remonte, poussé par la différence de pression entre le plateau tibétain et le bas de la Kali Gandaki. Nous descendons vers le sud ; nous l'avons en pleine figure. Quant aux bus, ils roulent sur une route dont la construction a commencé au début des années 1980 et qui remonte aujourd'hui la vallée jusqu'à Muktinath. Elle a changé l'allure et l'atmosphère des villages.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-03-kali-gandaki-kalopani.jpg" alt="Le lit de galets de la Kali Gandaki entre les pinèdes, en remontant vers les sommets, en juin 2010." loading="lazy" width="1600" height="1008">
+      <figcaption><span class="legende-photo">La Kali Gandaki entre Tukuche et Kalopani.</span>Photo : Arne Hückelheim · <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license noopener">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:GandakiPineForest.JPG" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le décor, lui, n'est pas petit. La Kali Gandaki passe ici entre le Dhaulagiri, à l'ouest, et l'Annapurna I, à l'est, deux sommets de plus de 8 000 mètres distants d'environ trente-quatre kilomètres. Quelque part entre Tukuche et Lete, sur notre chemin d'aujourd'hui ou de demain, le lit de la rivière se trouve 5 571 mètres plus bas que le sommet de l'Annapurna I : on la compte parmi les gorges les plus profondes du monde.</p>
     <p>Après un déjeuner préparé par nos soins au bord du chemin, la route devient heureusement moins passante, et c'est Romain qui remarque le premier ce qui pousse sur les bas-côtés : du cannabis. Plus nous avançons, plus la quantité nous stupéfie : il y en a partout, sauvage ou cultivé. De là naît une longue discussion, passionnante, sur les drogues, les usages du chanvre, ses vertus thérapeutiques, la loi, l'alcool, les abus. Nous marchons d'un bon pas sans y prêter attention, et nous arrivons à Kalopani dans l'après-midi, au bout de dix-neuf kilomètres de piste presque à plat.</p>
     <p>Nous trouvons tout de suite une chambre bon marché, 100 roupies, dans un hôtel plutôt luxueux : nous n'y mangerons pas. Le dîner, nous le ferons nous-mêmes. Après un long repérage parmi des boutiques faites surtout pour les touristes, nous en dénichons une, à demi enterrée, qui vend, nous le découvrons au fil de la conversation, des graines, des légumes, des œufs, du pain. Pour une somme modeste, nous repartons avec du chou, du riz sucré, des œufs, du sel, de l'huile et du riz soufflé. Ravis de nos achats, nous prenons l'apéritif, jus de pomme et chips de lentilles, puis nous passons au dîner, parfaitement réussi.</p>
@@ -165,6 +191,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Kalopani → Ghasa → Tatopani</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>levés à 7 h · départ tardif</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit en chambre, Tatopani · 1 190 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-04.svg" alt="Carte du 2011-11-04 : Tatopani, Kalopani, Ghasa" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-04-profil.svg" alt="Profil d'altitude du 2011-11-04" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 4, à Kalopani, nous sommes debout à 7 heures. Il fait mauvais, le petit déjeuner est bon, et je suis épuisé. Nous pensons remettre l'étape au lendemain. Romain essaie de se rendormir, sans succès ; c'est moi qui y retombe.</p>
     <p>Puis nous partons quand même, pour une longue journée sur la route du tour des Annapurnas. Mouillée, elle a au moins le mérite d'être moins poussiéreuse. Nous restons dans les nuages toute la journée, sans prendre une goutte de pluie.</p>
     <figure class="document seul">
@@ -172,6 +205,12 @@ table.filet td:last-child{font-weight:600}
       <figcaption><b>Poste de Ghasa, Mustang.</b> Le tampon posé sur notre permis entre Kalopani et Tatopani. La date manuscrite est peu lisible : probablement le 4 novembre.</figcaption>
     </figure>
     <p>Après vingt-quatre kilomètres et 1 500 mètres de descente, nous sommes contents d'arriver à Tatopani. Le nom veut dire « eau chaude », et les sources servent à tout : une grande lessive, une toilette, puis un long bain chaud. Les muscles se dénouent ; c'est exactement ce qu'il nous fallait après le Dhaulagiri.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-04-tatopani-sources.jpg" alt="Le bassin des sources chaudes de Tatopani, au bord de la Kali Gandaki, en octobre 2007." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">Les sources chaudes de Tatopani.</span>Photo : Clement Bourse from Nouméa, Nouvelle Calédonie · <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="license noopener">CC BY-SA 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Bath_Tatopani,_Nepal_(1977872915).jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Nous partons ensuite en quête du dîner : chou, œufs, chiura, nouilles, oignons, chips, et même une bière locale pour l'apéritif. Assis par terre dans notre chambre, un verre de bière à la main, nous parlons méditation. Le dîner est excellent, et bien mérité. L'ambiance est très bonne ; la fatigue nous rattrape vite. Nous dormons à Tatopani, à 1 190 mètres, d'un sommeil de plomb. Demain, nous quittons la Kali Gandaki : le chemin du sanctuaire commence par la longue montée vers Ghorepani.</p>
   </section>
 
@@ -183,12 +222,25 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Tatopani → Sikha → Ghorepani · jour 1 du sanctuaire</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>6 h de marche · arrivée à la tombée de la nuit</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Ghorepani · 2 860 m · 100 Rps</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-05.svg" alt="Carte du 2011-11-05 : Ghorepani, Tatopani, Sikha" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-05-profil.svg" alt="Profil d'altitude du 2011-11-05" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 5, à Tatopani, petit déjeuner dans la chambre, puis rangement de cette même chambre, en plein désordre. Un passage éclair sur internet, hors de prix : 5 roupies la minute, quand Freak Street, à Katmandou, en demandait 15 de l'heure. Puis une petite toilette à l'hôtel, qui tourne au chantier : il me faut une demi-heure pour venir à bout d'une barbe d'un mois.</p>
     <figure class="manuscrit">
       <img src="images/annapurna/extrait-visage.jpg" alt="Extrait manuscrit du carnet : (je me rase pendant une demi-heure pour en venir à bout d'une barbe d'un mois. Je suis content de redécouvrir mon visage. C'est comme me retrouver… changé" width="1100" height="325">
       <figcaption><i>« Je suis content de redécouvrir mon visage. C'est comme me retrouver… changé »</i>Carnet 2, page 47 · le matin du départ pour le sanctuaire</figcaption>
     </figure>
     <p>Nous partons ensuite pour Ghorepani, le sac alourdi des provisions des cinq ou six jours à venir. Ça monte beaucoup, par des pentes abruptes, et pourtant notre rythme reste excellent du premier au dernier mètre. Je retrouve les sensations du trail et de la course à pied : à effort égal, marcher sous ce sac revient à courir.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-05-ghorepani.jpg" alt="Les lodges aux toits bleus de Ghorepani sur leur crête boisée." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Ghorepani (2 860 m).</span>Photo : Alexey Komarov · <a href="https://creativecommons.org/licenses/by/3.0" rel="license noopener">CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Ghorepani_-_panoramio.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <figure class="document seul">
       <img src="images/documents/tampon-sikha.jpg" alt="Tampon du poste de Sikha sur le permis ACAP, daté du 5 novembre 2011" width="460" height="580" loading="lazy">
       <figcaption><b>Poste de Sikha, « 2011-11-5 ».</b> Le tampon posé en chemin, pendant la montée vers Ghorepani.</figcaption>
@@ -206,6 +258,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Ghorepani → Tadapani · jour 2 du sanctuaire</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 8 h 30 · arrivée sous la grêle</li><li><svg class="ico" aria-hidden="true"><use href="#i-cabane"/></svg>nuit dans une chambre sommaire, Tadapani · 2 630 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-06.svg" alt="Carte du 2011-11-06 : Tadapani, Ghorepani, Deurali (col), Ban Thanti" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-06-profil.svg" alt="Profil d'altitude du 2011-11-06" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 6, à Ghorepani, la nuit a été très bonne, sur un matelas presque confortable. À 7 heures, nous descendons prendre le petit déjeuner imposé. Pour ménager les quelques roupies prévues, nous commandons deux chapatis seulement, très bons, que nous couvrons de sucre. Romain en profite pour mettre un peu de ce sucre de côté pour la suite, sans remords vu le prix des plats. Nous complétons dans la chambre, et nous partons à 8 h 30. Au premier poste de contrôle, à la sortie du village, le policier nous arrête : nous partons dans la mauvaise direction. Heureusement qu'il est là ; sans lui, nous serions sans doute redescendus sans nous en rendre compte.</p>
     <figure class="document seul">
       <img src="images/documents/tampon-6-novembre.jpg" alt="Visa manuscrit au dos du permis ACAP, daté du 6 novembre 2011, avec un tampon violet" width="760" height="710" loading="lazy">
@@ -231,7 +290,26 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Tadapani → Chhomrong → Sinuwa haut · jour 3 du sanctuaire</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>Chhomrong à l'heure du déjeuner</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Sinuwa haut · 2 360 m · 100 Rps</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-07.svg" alt="Carte du 2011-11-07 : Sinuwa, Tadapani, Chhomrong" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-07-profil.svg" alt="Profil d'altitude du 2011-11-07" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 7, à Tadapani, encore une belle journée. Au petit déjeuner, un bon pancake, et devant nous, enfin, l'Annapurna I et le Machapuchare. Le ciel se couvre vite, mais quel bonheur d'avoir un peu de soleil. Nous marchons vite et bien. À l'heure du déjeuner, nous sommes à Chhomrong, l'étape prévue. Nous sommes en forme : nous décidons de repartir. C'est de Chhomrong qu'en 1956 le colonel Jimmy Roberts est parti remonter en trois jours les gorges de la Modi Khola : avant lui, aucun étranger n'était entré dans le sanctuaire.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-07-chhomrong.jpg" alt="Les maisons et les terrasses de Chhomrong étagées sur leur versant." loading="lazy" width="1600" height="1062">
+      <figcaption><span class="legende-photo">Chhomrong vu de Sinuwa, de l&#x27;autre côté du ravin.</span>Photo : Nirojsedhai · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Chhomrong.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-07-tadapani-annapurna-sud-machapuchare.jpg" alt="Le premier soleil sur l&#x27;Annapurna Sud et le Machapuchare, au-dessus des forêts, en janvier 2017." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">Depuis Tadapani, au petit matin : l&#x27;Annapurna Sud et le Machapuchare.</span>Photo : Abhishek Shiwakoti · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mt._Annapurna_%26_Mt._Machapuchare.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Nous faisons la connaissance d'un couple âgé qui enchaîne le sanctuaire après le tour des Annapurnas, sans guide ni porteur, avec la même idée du trek que nous.</p>
     <p>Puis un interminable escalier de pierres nous ramène au niveau de la rivière, pour remonter aussitôt le même dénivelé de l'autre côté. Il faudra le refaire au retour : c'est le premier aller-retour de nos treks, si l'on excepte le tronçon sans intérêt entre Lukla et Namche, à l'Everest.</p>
     <p>Après une longue montée, nous arrivons à Sinuwa, dans sa partie haute, trois cents mètres au-dessus de la partie basse. Treize kilomètres dans la journée, 900 mètres de montée et 1 250 de descente. Nous négocions une chambre à 100 roupies dans un lodge entouré d'un grand potager, où poussent aussi des plants de cannabis. Le traditionnel « plain rice » du lodge, puis une soupe de lentilles dans la chambre. Nous mesurons souvent la chance que nous avons d'être là. Nous dormons à Sinuwa haut. Demain, nous comptons doubler l'étape, jusqu'au camp de base du Machapuchare.</p>
@@ -245,8 +323,27 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Sinuwa → Deurali → camp de base du Machapuchare (MBC), deux étapes en une</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>1 000 m de montée en 3 h 30 jusqu'à Deurali · MBC en début d'après-midi</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>nuit sous une tente louée à un lodge, MBC · 3 700 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-08.svg" alt="Carte du 2011-11-08 : MBC, Sinuwa, Deurali" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-08-profil.svg" alt="Profil d'altitude du 2011-11-08" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 8, nous quittons Sinuwa avec un programme arrêté d'avance : doubler l'étape. Nous nous sommes préparés à une longue et dure journée, et la motivation, la détermination fonctionnent parfaitement. Un chapati dans le ventre, une boule de tsampa dans la poche, nous partons à vive allure. Nous avons laissé au lodge, où nous devons repasser demain, la tente, les guêtres et les crampons : allégés, nous avons l'impression de voler. Mille mètres de montée en trois heures et demie, quand les cartes locales en annoncent huit ou neuf. Nous arrivons à Deurali les jambes lourdes, un peu titubants, mais heureux de notre petit exploit.</p>
     <p>Deurali est à 3 230 mètres, dans l'unique accès au sanctuaire : une vallée étroite, entre l'Hiunchuli et le Machapuchare, où coule la Modi Khola. Il fait très beau, et le déjeuner est une bénédiction : des nouilles, un café et deux biscuits à la noix de coco. Les Népalais nous appellent les « strong people ». Ça fait plaisir.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-08-machapuchare-montee-mbc.jpg" alt="Le Machapuchare au bout de la vallée, sur le chemin du camp de base, en octobre 2018." loading="lazy" width="1600" height="2133">
+      <figcaption><span class="legende-photo">Le Machapuchare dans la montée au camp de base.</span>Photo : Sthasourik · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mountainviewmbc.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-08-gorge-modi-khola.jpg" alt="La gorge de la Modi Khola, vers le sud, depuis le sentier du sanctuaire, en octobre 2018." loading="lazy" width="1600" height="901">
+      <figcaption><span class="legende-photo">La gorge de la Modi Khola, à l&#x27;entrée du sanctuaire.</span>Photo : HereAndSometimesThere · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Annapurna_Sanctuary.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Une fois reposés, la dernière partie nous paraît presque roulante, et nous atteignons le camp de base du Machapuchare en début d'après-midi, au bout d'une quinzaine de kilomètres. Surprise : tous les lodges sont complets. Il reste le dortoir, mais nous tenons à notre indépendance, et à nos dîners et petits déjeuners clandestins. Un lodge finit par nous apporter une tente, pour le prix d'une chambre. Elle est grande, nous sommes tranquilles, nous sommes comblés. Sur chacun de nos trois treks, la nuit la plus haute se sera passée sous la toile.</p>
     <p>Demain, nous filerons au lever du jour vers le camp de base de l'Annapurna, pour avoir une belle lumière là-haut, et peut-être échapper au petit déjeuner payant. Autour du camp, les montagnes sont déjà très belles.</p>
     <p>Le Machapuchare est une montagne sacrée, où vivent les dieux, et que personne n'a jamais gravie. Taillée très à pic, elle s'achève par une longue et fine crête sommitale. Nous voilà de retour dans l'univers des hautes montagnes himalayennes. Ses 6 993 mètres et son double sommet lui valent son nom, « queue de poisson » en népali ; la tradition y voit une demeure de Shiva. En 1957, les Britanniques Wilfrid Noyce et A. D. M. Cox se sont arrêtés à quarante-six mètres du sommet, comme le roi Mahendra l'avait exigé. Aucun permis d'ascension n'a été délivré depuis.</p>
@@ -266,12 +363,31 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">MBC → camp de base de l'Annapurna (ABC) → MBC → Himalaya → Sinuwa · jour 5 du sanctuaire</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ avant l'aube, sans sac · déjeuner à Himalaya à 11 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Sinuwa haut · même chambre</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-09.svg" alt="Carte du 2011-11-09 : Sinuwa, MBC, ABC (camp de base de l&#x27;Annapurna), Deurali, Himalaya" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-09-profil.svg" alt="Profil d'altitude du 2011-11-09" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 9, encore une grosse journée de marche, qui nous ramène ce soir au lodge de Sinuwa, celui d'avant-hier. La nuit n'a été bonne pour aucun de nous deux, et nous nous réveillons de mauvaise humeur. Romain a mis longtemps à s'endormir, j'ai mal dormi. La tente a pris l'humidité par le sol et respirait mal : nos sacs de couchage sont humides, et le froid nous transperce.</p>
     <p>Pas question de payer un petit déjeuner : nous partons de bonne heure en promettant à notre hôte de le prendre au retour de l'ABC. Au retour, nous lui dirons l'avoir pris là-haut. Un mensonge sans regret : cette nuit sous la tente nous a coûté cher. Nous mangeons à peine, faute de courage pour préparer la tsampa, mais nous marchons sans sac. Départ à la fraîche, d'un pas rapide, jusqu'au camp de base de l'Annapurna.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-09-abc-lever-machapuchare.jpg" alt="Le ciel du lever de soleil derrière le Machapuchare, drapeaux de prières au premier plan." loading="lazy" width="1600" height="1065">
+      <figcaption><span class="legende-photo">Lever du soleil derrière le Machapuchare, depuis le camp de base de l&#x27;Annapurna.</span>Photo : Rajan Karki · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Sunrise_at_Annapurna_Base_Camp.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <div class="scene">
       <p>Là-haut, le soleil se lève juste derrière le Machapuchare. Extraordinaire.</p>
     </div>
     <p>Le camp de base de l'Annapurna est à 4 130 mètres, au fond d'un cirque dont la plupart des sommets dépassent 7 000 mètres. Au-dessus se dresse l'Annapurna I, 8 091 mètres, le dixième sommet du monde. À son pied, nous pensons à Herzog. Nous avons le sentiment d'avoir suivi ses traces, depuis le tour du Dhaulagiri jusqu'ici. C'en est presque émouvant. Le sentiment n'est juste qu'à moitié. En 1950, l'expédition française de Maurice Herzog a bien exploré les abords du Dhaulagiri, par la vallée qu'elle a baptisée Hidden Valley et par le French Pass, où sont montés Lionel Terray et Marcel Oudot. Mais elle a attaqué l'Annapurna par le nord, depuis la Kali Gandaki et les gorges de la Miristi Khola, et c'est le 3 juin que Herzog et Louis Lachenal en ont atteint le sommet, le premier de plus de 8 000 mètres jamais gravi. La face sud, celle que nous avons sous les yeux, ne l'a été qu'en 1970, par Don Whillans et Dougal Haston, de l'expédition britannique de Chris Bonington.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-09-annapurna-i-face-sud.jpg" alt="La face sud de l&#x27;Annapurna I au premier soleil." loading="lazy" width="1600" height="1023">
+      <figcaption><span class="legende-photo">La face sud de l&#x27;Annapurna I, depuis le camp de base.</span>Photo : Tanweer Morshed · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Annapurna_I_during_sunrise.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Il faut d'abord redescendre au camp du Machapuchare, reprendre nos sacs. Puis commence une longue descente. Jusqu'à Himalaya, je suis exténué, encore engourdi par le froid. À 11 heures, nous nous y arrêtons pour remplir nos ventres vides. L'endroit est idéal : du soleil, de l'eau potable à portée de main, de quoi faire sécher nos sacs de couchage. Encore une fois, le déjeuner est une bénédiction, et nous en profitons longuement, pour repartir reposés. Himalaya n'a rien d'une montagne : c'est un hameau de lodges, vers 2 900 mètres, entre Deurali et Dovan.</p>
     <p>Pendant le café et la cigarette, chacun parle de ses frères et sœurs. Nous arrivons à la même conclusion : nous sommes fiers d'eux, nous les admirons, nous les aimons tellement. Penser à le leur dire.</p>
     <p>La descente reprend, les jambes presque fraîches mais le corps fatigué. Nous marchons comme des automates, attentifs seulement à ménager nos genoux. Mes pensées vagabondent : la suite, le retour, mon mail pour SimCorp, notre arrivée à Pokhara. Puis, vers la fin, plus rien : l'esprit vide, mais en éveil. La sensation est agréable.</p>
@@ -287,6 +403,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Sinuwa → Sinuwa bas → Chhomrong → Jhinu Danda → Landruk</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>pause aux sources de Jhinu · arrivée au soleil couchant</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit au lodge, Landruk · 1 565 m</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-10.svg" alt="Carte du 2011-11-10 : Landruk, Sinuwa, Chhomrong, Jhinu, New Bridge, Sinuwa bas" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-10-profil.svg" alt="Profil d'altitude du 2011-11-10" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 10, c'est l'anniversaire de Romain, et la journée commence bien. Hier soir, à Sinuwa, nous avons fait deux très belles rencontres. Juan, un Espagnol athlétique, travaille dans la prévision météorologique et dispose de beaucoup de temps libre : quatre semaines de congé pour deux semaines travaillées. Et un couple, dont Christophe, qui doit gravir l'Ama Dablam dans une semaine, seul avec un sherpa.</p>
     <p>Petit déjeuner de notre fabrication, thé, tsampa, flocons d'avoine, et nous partons. À Sinuwa bas nous attend un cinnamon roll repéré à l'aller, trois jours plus tôt, et qui nous était alors interdit. Pour l'anniversaire de Romain, nous nous l'offrons ; par chance, il sort du four. Nous sommes surexcités, et nous savourons ce moment jusqu'au bout.</p>
     <p>Puis nous refaisons en sens inverse l'escalier de l'aller, jusqu'à Chhomrong. La matinée se passe à monter et descendre des marches. Il fait beau, et nous en oublions presque le poids du sac : une pause nous attend à Jhinu, aux sources chaudes. Le cadre est magnifique, à peine transformé, sinon par les bassins. Encore une fois, l'eau chaude nous détend, et nous en profitons pour faire la lessive et nous doucher. La journée se déroule à merveille.</p>
@@ -301,6 +424,12 @@ table.filet td:last-child{font-weight:600}
       <figcaption><i>« … le meilleur de ma vie ! Il me fait penser au banana pancake que nous prenions au petit déjeuner à Koh Samui mais avec un pancake en plus ! Nous sommes époustouflés, conquis, rassasiés, comblés. Quelle belle journée. Nous nous en souviendrons. »</i>Carnet 2, page 64 · le soir de l'anniversaire de Romain, à Landruk</figcaption>
     </figure>
     <p>Nous dormons au lodge de Landruk. Demain, dernière étape : Dhampus, puis la route de Pokhara.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-10-sentier-landruk.jpg" alt="Escalier de pierre à flanc de forêt sur le sentier de Jhinu Danda à Landruk." loading="lazy" width="1600" height="2133">
+      <figcaption><span class="legende-photo">Sur le sentier de Jhinu à Landruk.</span>Photo : Tubakok · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:A_trail_to_Landruk_Village.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
   </section>
 
   <section data-jour="18" id="j-2011-11-11">
@@ -311,6 +440,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Landruk → Dhampus → Phedi, puis en bus jusqu'à Pokhara</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>une demi-heure de bus, puis un second jusqu'à Lakeside</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>nuit en chambre, Pokhara · 820 m · 200 Rps</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-11.svg" alt="Carte du 2011-11-11 : Pokhara, Landruk, Dhampus, Phedi" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-11-profil.svg" alt="Profil d'altitude du 2011-11-11" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 11, à Landruk, un réveil agréable, un pancake nature au sucre, au citron et au miel, et nous voilà en route. En marchant, nous parlons des projets professionnels de Romain : devenir accompagnateur en moyenne montagne, créer des centres d'apprentissage pour les enfants et les adultes. Nous essayons aussi de distinguer les activités qui construisent de celles qui ne construisent rien. Le ciel se couvre ; de Dhampus, nous ne voyons rien de la chaîne des Annapurnas.</p>
     <p>De là, un raccourci vers Phedi nous écarte du chemin habituel des touristes. Les paysans sont surpris de nous voir passer ; les enfants, eux, nous réclament tous des crayons pour l'école et des bonbons. Un groupe particulièrement insistant repère dans nos poches, juste à sa hauteur, nos derniers biscuits à la noix de coco, et ne nous lâche pas avant de les avoir obtenus.</p>
     <p>Nous rejoignons la route un peu désorientés, au bout de quinze kilomètres de marche. Nous demandons un bus pour Pokhara, et la réponse est immédiate : on nous installe dans un bus vide, et le chauffeur démarre aussitôt. Nous sommes ravis. En une demi-heure, nous voilà aux abords de Pokhara. Des passagers montent et descendent, à des arrêts ponctués de grands coups de klaxon. Nous voyons de près le travail des champs : c'est la pleine récolte du riz et du millet. Le tout sur le fond sonore grésillant de la radio du chauffeur.</p>
@@ -344,6 +480,12 @@ table.filet td:last-child{font-weight:600}
     </header>
     <p>Le 13, grasse matinée jusqu'à 8 heures. Petit déjeuner dans la chambre, délicieux encore : j'ajoute à mes œufs brouillés du lait frais, le premier que nous trouvons au Népal. Un régal. Il fait toujours gris, et toujours pas de moto. Nous faisons un repérage, et nous demandons à l'hôtel de nous aider à en trouver une. Déjeuner dans la chambre.</p>
     <p>Il nous faut dépenser de l'énergie, prendre l'air : nous passons notre temps à manger, et il nous faut une activité pour retrouver la faim et le plaisir de manger. Nous louons deux vélos très simples, en état de marche, 100 roupies chacun pour deux heures, et nous partons autour du lac. Le ciel gris et sombre donne une ambiance pesante, triste, et pourtant il rend le paysage très beau. La route est défoncée par endroits, criblée de flaques.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-13-pokhara-lac-phewa.jpg" alt="Barques sur le lac Phewa, à Pokhara, en mars 2013." loading="lazy" width="1600" height="1019">
+      <figcaption><span class="legende-photo">Le lac Phewa, à Pokhara.</span>Photo : Gerd Eichmann · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Pokhara-Phewasee-14-Boote-2013-gje.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Il se met à pleuvoir ; nous nous abritons juste avant une très grosse averse, digne de la mousson, étonnante en novembre. Assis près d'une boutique, un Népalais engage la conversation. Nous lui parlons de notre projet de moto : aurait-il un ami prêt à nous louer la sienne ? Il réfléchit, puis il dit oui. Rendez-vous demain, 7 heures, à l'hôtel. À suivre ; nous sommes optimistes.</p>
     <p>En rentrant, nous achetons de quoi faire un dessert après un dîner raisonnable au restaurant, des momos et un hamburger au steak végétarien. La soirée est calme, il pleut toujours. Nous essayons des banana pies de notre fabrication. C'est déjà bon ; demain, nous les enroberons de pâte à beignet.</p>
   </section>
@@ -372,6 +514,12 @@ table.filet td:last-child{font-weight:600}
     <p>Le 15, le malaise de la veille se révèle pour ce qu'il est : le début d'une intoxication alimentaire, qui va me gâcher la journée. Au petit déjeuner, pourtant bon, je ne digère rien, et je n'ai plus vraiment faim.</p>
     <p>Nous louons tout de même un scooter pour deux, pour la journée, afin d'aller voir les lacs des environs, beaucoup moins touristiques. Romain conduit en ville : il a bien plus d'expérience que moi. Mais le frein arrière ne fonctionne pas, et le frein avant bloque très facilement. Au premier freinage, pour éviter une moto, la roue avant se bloque, le scooter glisse, et nous nous étalons sur le capot d'une voiture à l'arrêt. Mauvais signe ; mais nous allons doucement, et personne n'a mal.</p>
     <p>Sur la route des lacs, je guette chacun des nids de poule dont elle est faite. La circulation, complètement désordonnée, est effrayante. Nous allons trop loin ; pendant le demi-tour, le scooter tombe dans un caniveau. C'est ridicule. Heureusement, nous n'avons pas de vitesse, le caniveau est sec et peu profond, et le scooter n'a rien. Près des lacs, il faut franchir de petits ponts instables, puis un chemin de terre humide et trop raide, où nous glissons : troisième et dernière chute. Les deux lacs sont très beaux, paisibles. Il fait presque beau, le soleil perce les nuages. Mais mon ventre reste gonflé : sur une petite terrasse au-dessus du lac, je n'avale pas plus de trois bouchées de mon chowmein. Je suis si fatigué qu'il me faut des pauses pour rejoindre le scooter.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-15-lac-begnas.jpg" alt="Le lac Begnas entre ses collines boisées, à l&#x27;est de Pokhara." loading="lazy" width="1600" height="1067">
+      <figcaption><span class="legende-photo">Le lac Begnas, près de Pokhara.</span>Photo : Shadow Ayush · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Begnas_Lake,_Pokhara,_Kaski.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le retour est chaotique. Je me sens mal, et chaque secousse du scooter est une épreuve. À l'entrée de Pokhara, je ne peux plus me retenir et je demande une pause à Romain. Cinq secondes plus tard, je vomis, face contre terre, sous le regard étonné mais habitué des passants. Nous filons à l'hôtel.</p>
     <p>Suivent sept ou huit heures d'enfer, entre le lit, des toilettes à la turque sombres et puantes, privées d'électricité au début, et la salle de bains, tantôt ouverte, tantôt fermée. Je bénis pourtant d'être à l'hôtel et non en pleine nature, avec des médicaments sous la main. Je me vide, et mon ventre reste gonflé. En début de soirée, j'ai la très désagréable impression de devoir digérer d'un coup deux jours de gros repas. À 22 heures, j'hésite à prendre des antibiotiques. Puis, après un dernier vomissement, à vide, je peux enfin me coucher, d'un sommeil sur le qui-vive, interrompu trois ou quatre fois par des courses aux toilettes.</p>
     <p>Romain me rapporte gentiment du Coca et de l'eau minérale. Lui est solide : il n'est pas malade, à peine une brûlure d'estomac. Par chance, nous pouvons repousser le bus pour Katmandou, prévu le lendemain matin : impossible de faire nos sacs pour une journée de trajet. Au fond, je n'ai que ce que je mérite. Notre hygiène alimentaire est exécrable : nous mangeons n'importe où, au moins cher, nous buvons l'eau des carafes des restaurants, nous ne nous lavons <i>jamais</i> les mains, nos provisions traînent par terre dans la chambre, et nos aliments bouillent rarement.</p>
@@ -412,19 +560,9 @@ table.filet td:last-child{font-weight:600}
   <nav class="nav-bas"><a class="precedent" href="chapitre-dhaulagiri.html">← Chapitre 2<b>Le tour du Dhaulagiri</b></a><a class="suivant" href="chapitre-moto.html">Chapitre 4 →<b>La virée à moto</b></a></nav>
 </article>
 
-<div class="colonne-carte" aria-label="Carte de la Kali Gandaki et du sanctuaire des Annapurnas">
-  <div id="carte"></div>
-  <div class="profil">
-    <div class="legende-jour" id="legende-jour">Kali Gandaki et sanctuaire des Annapurnas</div>
-    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude du chapitre"></svg>
-    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
-  </div>
-</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="donnees.js"></script>
-<script src="courbes-annapurna.js"></script>
 <script>
 const V = window.VOYAGE, EP = "annapurna";
 const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
@@ -433,79 +571,7 @@ const ep = V.episodes.find(e => e.id === EP);
 const traces = V.traces.filter(f => f.properties.episode === EP);
 const TITRE = "Kali Gandaki et sanctuaire des Annapurnas";
 
-/* Carte */
-const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
-carte.setView([28.45, 83.8], 10);
-carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
-
-/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
-const renduCourbes = L.svg({padding: .3});
-const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
-for (const [alt, ligne] of window.COURBES.lignes) {
-  const maitresse = alt % window.COURBES.maitresse === 0;
-  L.polyline(ligne.map(c => [c[1], c[0]]), {
-    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
-  }).addTo(maitresse ? maitresses : intermediaires);
-}
-const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
-carte.on("zoomend", densite);
-const etiquette = (lat, lon, html, cls = "nom-lieu", ancre = [-6, 8]) =>
-  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: ancre})}).addTo(carte);
-const sommet = `<svg width="12" height="10" style="vertical-align:-1px"><path d="M6 1 L11 9 H1 Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>`;
-etiquette(28.5961, 83.8203, `${sommet} Annapurna I · 8 091 m`);
-etiquette(28.4947, 83.9489, `${sommet} Machapuchare · 6 993 m`);
-// Tatopani et Pokhara portent aussi un numéro de nuit : leur nom est décalé pour ne pas le chevaucher
-for (const [id, ancre] of [["marpha", [-6, 8]], ["tatopani_kg", [-18, 8]], ["pokhara", [-20, 8]]]) { const l = V.lieux[id]; etiquette(l.lat, l.lon, l.nom.replace(/ \(.*\)/, ""), "nom-lieu", ancre); }
-
-/* Aller à une étape du récit depuis la carte ou le profil */
-let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
-function allerAuJour(jour) {
-  const s = document.querySelector(`section[data-jour="${jour}"]`);
-  if (!s) return;
-  enNavigation = String(jour); afficher(String(jour));
-  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
-  addEventListener("scrollend", fin); setTimeout(fin, 2500);
-  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
-}
-const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
-
-const lignes = {}; // jour -> [polylines]
-for (const f of traces) {
-  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
-  const l = L.polyline(pts, {
-    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
-    dashArray: p.mode === "bus" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
-  }).addTo(carte);
-  (lignes[p.jour] ||= []).push(l);
-  // zone de clic large et invisible par-dessus le tracé
-  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
-    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
-    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
-    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
-    .on("click", () => allerAuJour(p.jour))
-    .addTo(carte);
-}
-const tout = L.featureGroup(Object.values(lignes).flat());
-
-/* Numéros des nuits (Sinuwa revient deux fois : le second numéro est décalé) */
-const dejaPlaces = {};
-for (const et of ep.etapes) {
-  const dernier = et.troncons.at(-1)?.[1].at(-1), l = V.lieux[dernier];
-  if (!l) continue;
-  const rang = dejaPlaces[dernier] = (dejaPlaces[dernier] ?? -1) + 1;
-  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "num-nuit", html: et.jour, iconSize: [22, 22], iconAnchor: [11 - rang * 24, 11]})})
-    .bindTooltip(`Nuit ${et.jour} · ${l.nom}${l.alt ? " · " + fmt(l.alt) + " m" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
-    .on("click", () => allerAuJour(et.jour))
-    .addTo(carte);
-}
-{
-  const l = V.lieux.abc;
-  L.marker([l.lat, l.lon], {icon: L.divIcon({className: "", iconSize: [14, 12], html: `<svg width="14" height="12"><path d="M7 1 L13 11 H1 Z" fill="${css("encre")}" stroke="${css("carte-fond")}" stroke-width="1.5"/></svg>`})})
-    .bindTooltip(`ABC · ${fmt(l.alt)} m`, {permanent: true, direction: "left", offset: [-6, 0], className: "etiquette"}).addTo(carte);
-}
-carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
-
-/* Profil */
+/* Profil (pour les chiffres) */
 let profil = [], prec = null, d = 0;
 const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
   const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
@@ -514,36 +580,6 @@ for (const f of traces.filter(f => f.properties.mode === "marche")) for (const c
   if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
   prec = c;
 }
-const svg = document.getElementById("profil");
-function dessinerProfil(jour) {
-  const dMax = profil.at(-1).d, bas = 0, haut = 5000;
-  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
-  const pas = Math.max(1, Math.floor(profil.length / 800));
-  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
-  let grille = "";
-  for (let a = 1000; a <= 4000; a += 1000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
-  const sel = profil.filter(p => p.jour === jour);
-  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
-  svg.style.color = css("encre");
-  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
-}
-
-const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
-const pointProfil = e => {
-  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
-  return profil.find(q => q.d >= d) || profil.at(-1);
-};
-svg.addEventListener("mousemove", e => {
-  const p = pointProfil(e);
-  repere.setLatLng([p.lat, p.lon]).addTo(carte);
-  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
-});
-svg.addEventListener("mouseleave", () => {
-  carte.removeLayer(repere);
-  document.getElementById("aide-carte").textContent = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.";
-});
-svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
-
 /* Chiffres */
 const marche = traces.filter(f => f.properties.mode === "marche");
 const kmTour = marche.reduce((s, f) => s + f.properties.km, 0), dpTour = marche.reduce((s, f) => s + f.properties.d_plus, 0);
@@ -569,30 +605,6 @@ document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
   if (kmBus) html += `<li class="calc">${ico("bus")}<b>≈ ${fmt(kmBus)} km</b> en bus</li>`;
   h.querySelector(".stats").insertAdjacentHTML("afterbegin", html);
 });
-
-/* La carte suit la lecture */
-let courant = null;
-function afficher(jour) {
-  if (jour === courant) return; courant = jour;
-  const tous = jour === "tout", ville = jour === "pokhara";
-  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
-  if (ville) carte.flyTo([V.lieux.pokhara.lat, V.lieux.pokhara.lon], 11, {duration: .9});
-  else {
-    const cible = tous ? tout : L.featureGroup(lignes[jour] || []);
-    if (cible.getLayers().length) carte.flyToBounds(cible.getBounds(), {padding: innerWidth < 960 ? [16, 16] : [50, 50], maxZoom: 13, duration: .9});
-  }
-  (lignes[jour] || []).forEach(l => l.bringToFront());
-  document.getElementById("legende-jour").textContent = tous ? `${TITRE} · profil d'altitude` : ville ? "Pokhara · 12 – 17 novembre" : titreJour(jour);
-  dessinerProfil(tous || ville ? null : +jour);
-}
-const obs = new IntersectionObserver(entrees => {
-  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
-}, {rootMargin: "-35% 0px -55% 0px"});
-document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
-afficher("tout");
-addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
-addEventListener("resize", () => carte.invalidateSize());
 </script>
 </body>
 </html>

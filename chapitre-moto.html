@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 :root{
   --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
@@ -111,6 +110,20 @@ table.filet td:last-child{font-weight:600}
 .nav-bas{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:14px/1.5 system-ui,sans-serif;margin-top:28px}
 .nav-bas b{display:block;font:600 18px/1.3 Fraunces,Georgia,serif;color:var(--encre)}
 .nav-bas .suivant{text-align:right;margin-left:auto}
+
+/* illustrations : cartes fixes, profils, photos */
+.page{display:block}
+article{margin:0 auto;justify-self:auto;max-width:800px}
+figure.carte-etape{margin:0 0 30px;padding:0;display:grid;gap:6px}
+figure.carte-etape img{display:block;width:100%;height:auto;border:1px solid var(--trait);border-radius:6px;background:#fcfbf8}
+figure.carte-etape img.profil-img{border-radius:0 0 6px 6px;border-top:0;margin-top:-6px}
+figure.carte-etape figcaption{font:12.5px/1.45 system-ui,sans-serif;color:var(--encre-2)}
+figure.photo{margin:32px 0}
+figure.photo img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 1px 2px #0002,0 10px 24px -14px #0004}
+figure.photo figcaption{font:13.5px/1.5 system-ui,sans-serif;color:var(--encre-2);margin-top:8px}
+figure.photo figcaption .legende-photo{display:block;font:italic 16px/1.45 "Source Serif 4",Georgia,serif;color:var(--encre)}
+figure.photo figcaption a{color:inherit}
+@media (max-width:960px){article{padding:32px 18px 80px}section{scroll-margin-top:16px}}
 </style>
 </head>
 <body>
@@ -147,6 +160,12 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Pokhara → Katmandou en bus, puis Freak Street</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-bus"/></svg>bus pour Katmandou, départ 7 h 30</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>hôtel près de Freak Street · chambre avec salle de bain, 350 Rps</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-18.svg" alt="Carte du 2011-11-18 : Katmandou, Pokhara" loading="lazy" width="600" height="450">
+      <figcaption>Carte de l'étape. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 18 novembre, nous quittons Pokhara, après six jours passés à flâner, puis à nous remettre d'une intoxication alimentaire. Le lever, à 5 h 30, est un peu difficile. Les sacs sont prêts ; au point du jour, nous traversons à pied les rues encore tranquilles jusqu'à la gare routière. Places réservées, bus à l'heure : tout se passe bien. Je prends des biscuits pour la route, et à 7 h 30 nous partons. Le trajet se fait sans histoire.</p>
     <p>Je lis <i>Annapurna, premier 8000</i>, acheté la veille à Pokhara, et j'y retrouve l'ambiance du tour du Dhaulagiri, puis celle du sanctuaire. Il me semble qu'à peu de chose près, nous avons marché sur les traces de la première expédition française à l'Annapurna, en 1950. Les Français de 1950 ont en effet commencé par chercher une voie sur le Dhaulagiri, depuis Tukuche, dans la vallée de la Kali Gandaki ; c'est ensuite par une autre vallée, celle de la Miristi Khola, qu'ils ont gagné l'Annapurna, dont Maurice Herzog et Louis Lachenal ont atteint le sommet le 3 juin 1950. Le livre a paru l'année suivante. Dehors, il pleut. Une fois de plus, nous avons la chance d'être à l'abri dans un bus pendant que le ciel se vide.</p>
     <p>Le bus nous dépose dans un quartier de Katmandou que nous ne connaissons pas ; nous retrouvons sans peine Freak Street, notre quartier préféré. L'hôtel bon marché est plus difficile à trouver. Nous finissons par prendre, à 350 roupies la nuit, une chambre propre avec salle de bain : un luxe que nous ne nous sommes offert qu'une fois au Népal, le tout premier jour.</p>
@@ -185,9 +204,22 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Katmandou → Bhaktapur → col de Nagarkot → Dowa Pati → la grand-route → au bord de la rivière</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ 6 h · 9 h de moto, entre 30 et 40 km/h</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>1<sup>er</sup> bivouac, sur une plage de sable blanc au bord de la rivière</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-20.svg" alt="Carte du 2011-11-20 : Bivouac de la plage, Katmandou, Bhaktapur, Nagarkot" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-20-profil.svg" alt="Profil d'altitude du 2011-11-20" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Ce soir, la fatigue me donne peu envie d'écrire, et pourtant la journée mérite d'être racontée. Ce matin, nous nous levons à 6 heures et partons aussitôt. Les rues de Katmandou sont calmes, nous trouvons sans mal la sortie. Les réflexes appris la veille, encore bien jeunes, reviennent doucement. Je cale tout de même au milieu d'une grande rue de Ratna Park, que je m'apprêtais à prendre à contresens. Heureusement, il y a peu de monde.</p>
     <p>Nous rejoignons la route principale de Bhaktapur. Peu de routes goudronnées relient les villes entre elles, et celles qui existent sont très fréquentées. Calés sur la gauche, puisqu'au Népal on roule à gauche, nous avançons doucement et régulièrement, entre 30 et 40 km/h. Premier arrêt un peu en dessous de Bhaktapur, pour un petit déjeuner de deux bananes, de biscuits et de milk tea. Nos mains sont glacées par la fraîcheur du matin, mais la journée s'annonce splendide, et le soleil se découvre vite. Bhaktapur est, avec Katmandou et Patan, l'une des trois anciennes cités royales de la vallée, inscrites ensemble au patrimoine mondial de l'Unesco en 1979.</p>
     <p>Vingt kilomètres de montée nous mènent au col de Nagarkot, d'où l'on voit le centre de la chaîne himalayenne. La montée est très agréable, le soleil perce à travers les arbres, il fait doux : cela me rappelle les cols des Alpes. C'est magnifique, et moins fatigant pour les jambes. Ma concentration, en revanche, est au maximum, au point d'en avoir mal à la tête. Nagarkot est perché vers 2 200 mètres sur le rebord est de la vallée de Katmandou ; par temps clair, la vue y embrasse une grande partie de la chaîne, jusqu'à l'Everest.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-20-nagarkot-langtang-lirung.jpg" alt="Le Langtang Lirung (7 234 m) vu de Nagarkot, en janvier 2013." loading="lazy" width="1536" height="1024">
+      <figcaption><span class="legende-photo">Le Langtang Lirung depuis Nagarkot.</span>Photo : Jean-Pierre Dalbéra from Paris, France · <a href="https://creativecommons.org/licenses/by/2.0" rel="license noopener">CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Le_Langtang_Lirung_(Himalaya,_N%C3%A9pal)_(8448200379).jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Ensuite, nous prenons une route secondaire, par Dowa Pati. Le chemin, de terre et de pierres brutes, est casse-gueule et tourne vite à la piste de VTT : nous glissons dans la boue, nous calons dans les côtes. Mais il traverse aussi des passages plats, au milieu des rizières, et le paysage est très beau.</p>
     <p>À midi, après déjà cinq heures de moto, une pause bien méritée : pour un euro à deux, un gros chowmein chacun, un thé et un dessert. Le rêve.</p>
     <p>Nous repartons vers l'est, en direction de Jiri, en évitant désormais les pistes. Il faut, à regret, rejoindre la grand-route ; elle se révèle très belle, authentique, et de bonne qualité, tout est relatif. Ma concentration baisse un peu, et je revois à la baisse nos ambitions pour la journée. Je prends de l'aisance, je manie de mieux en mieux les vitesses, les freins, les dépassements, en restant extrêmement vigilant. Heureusement, on conduit lentement au Népal, comparé à l'Europe : j'ai le temps de réfléchir et d'anticiper.</p>
@@ -205,8 +237,21 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Bord de la rivière → Barabise → Kodari, frontière tibétaine → retour → crête de pins sur la route de Jiri</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>départ vers 8 h 30 – 9 h · à la frontière pour le déjeuner</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac sur une crête de pins</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-21.svg" alt="Carte du 2011-11-21 : Bivouac de la crête de pins, Bivouac de la plage, Barabise, Kodari (frontière), Lamosangu" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-21-profil.svg" alt="Profil d'altitude du 2011-11-21" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 21, sur notre plage, nous nous réveillons dans une humidité complète. Des gouttes nous tombent régulièrement sur le visage : la vallée est noyée dans un brouillard épais, et l'arbre qui nous abrite nous déverse la rosée du matin. Le cadre reste beau, et nous prenons le temps du petit déjeuner : tsampa de blé au miel, muesli et thé. Un délice.</p>
     <p>Vers 8 h 30 ou 9 heures, nous reprenons les motos, et la route du Tibet. Elle remonte un fleuve puissant jusqu'à la frontière chinoise. Il fait beau, et la route est bonne jusqu'à Barabise. C'est l'Araniko, la route construite dans les années 1960 avec l'aide de la Chine sur une ancienne piste de yaks, cent douze kilomètres de Katmandou à Kodari. Peu avant Barabise, elle quitte la Sun Koshi pour remonter son affluent, la Bhote Koshi, qui ne devient frontière qu'au dernier pont. Ensuite, comme l'annonçait la carte, le goudron alterne avec une piste de terre défoncée, boueuse par endroits, très pierreuse ailleurs. Nous traversons des cours d'eau, l'œil sur les bus qui roulent « à l'arrache ».</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-21-kodari-pont-amitie.jpg" alt="Le pont de l&#x27;Amitié sur la Bhote Kosi, la ville chinoise de Zhangmu étagée au-dessus et sa cascade." loading="lazy" width="1600" height="1200">
+      <figcaption><span class="legende-photo">À Kodari, la frontière : le pont de l&#x27;Amitié et Zhangmu, côté chinois.</span>Photo : Hiroki Ogawa · <a href="https://creativecommons.org/licenses/by/3.0" rel="license noopener">CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Friendship_Bridge_Kodari_Nepal_-_%E8%A5%BF%E8%97%8F_%E6%A8%9F%E6%9C%A8%E5%8F%A3%E5%B2%B8_-_panoramio.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>À l'heure du déjeuner, nous arrivons à la frontière, à Kodari. La ville est en effervescence, posée tant bien que mal le long d'une route éventrée. Les marchandises s'entassent sur les bas-côtés, la file des camions s'allonge. Nous garons les motos et avançons timidement vers la frontière. Au loin se dessine une grande ville étagée en terrasses, à l'architecture tibétaine. C'est Zhangmu, que les Népalais appellent Khasa, la première ville du Tibet, de l'autre côté du pont de l'Amitié. En avril 2015, le séisme du Gorkha fermera ce passage.</p>
     <p>Passé deux lignes de gardes, nous arrivons à la frontière elle-même : une ligne tracée au sol, gardée par deux soldats chinois. Photos interdites. Nous faisons demi-tour, heureux d'avoir atteint notre objectif.</p>
     <p>Cinq minutes de moto plus loin, nous déjeunons sur un point de vue, face à une grande cascade, côté chinois. Je commence sérieusement à prendre la moto en main, sans cesser d'être attentif à tout.</p>
@@ -226,8 +271,21 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Crête de pins → les lacets de la route de Jiri → une terrasse cachée de la route</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>course à pied à l'aube · déjeuner à 11 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac caché sur une terrasse de mousse et d'herbe</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-22.svg" alt="Carte du 2011-11-22 : Bivouac de la terrasse de mousse, Bivouac de la crête de pins, Charikot" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-22-profil.svg" alt="Profil d'altitude du 2011-11-22" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Le 22, quand j'ouvre un œil sur la crête, le jour se lève. La cime des arbres se dessine sur un ciel encore bleu pâle ; au loin, une légère teinte orangée. Il ne fait pas froid, l'air est sec. Si je me lève, autant aller courir : tout m'y invite, et depuis notre arrivée au Népal je n'ai pas couru une seule fois. Je tends le bras vers mon sac, en tire un caleçon et un tee-shirt ; deux minutes plus tard, je suis dehors. Il doit être entre 5 h 30 et 6 heures. C'est magique : je vais courir.</p>
     <p>Un chemin de terre court à flanc de montagne. La pente, par chance, reste douce, et la vue est imprenable sur la vallée et, au loin, sur la chaîne de l'Himalaya, où se lève le soleil. Les sommets sont orangés. C'est extraordinaire. Sous mes pieds, je sens que mes semelles sont usées. Au bout d'une demi-heure, je rentre retrouver Romain, qui se lève. Petit déjeuner tranquille dans la tente : je retrouve les sensations d'un matin de course à pied à Bruxelles. Quand les premiers rayons du soleil touchent la toile, nous rangeons le camp et nous préparons à partir.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-22-gauri-shankar-charikot.jpg" alt="Le Gauri Shankar et la chaîne du Rolwaling au-dessus des collines, au petit matin, vus de Charikot (Dolakha), en janvier 2017." loading="lazy" width="1600" height="928">
+      <figcaption><span class="legende-photo">Sur la route de Jiri : le Gauri Shankar au-dessus des collines de Dolakha.</span>Photo : Rupak Parajuli · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mount_Gauri_Sankar.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>La route est difficile. Nous prenons de l'altitude par une multitude de lacets serrés, et les bus nous arrivent droit dessus, à toute allure. Ils ont tous les droits et prennent toute la place ; à chaque fois, nous nous jetons sur le bas-côté pour ne pas être fauchés. Deux paquets de biscuits engloutis sur une terrasse, dans un beau village d'altitude, n'y font rien : la faim avance le déjeuner à 11 heures. La route est très belle et longe de larges flancs de montagne ; nous ouvrons de grands yeux devant le paysage : des collines boisées à perte de vue, et au fond la chaîne de l'Himalaya. Nous déjeunons de nouilles et de semoule sur une terrasse verte au bord de la route, sous un soleil si fort que nous finissons torse nu.</p>
     <p>Ensuite, la route s'améliore. Nous croisons un troupeau de cochons, et roulons souvent sur du millet que les jeunes étalent sur la chaussée pour en récupérer les grains. Après un plein d'essence dans un village, nous trouvons un bon endroit pour la nuit. D'après certains, la route n'est pas sûre, à cause des voleurs et des bandits : nous cachons les motos comme nous pouvons, et nous nous installons sur une terrasse de mousse et d'herbe, invisible depuis la route. Une fois encore, le paysage est grandiose, et le coucher de soleil très beau. Le bois est sec ; nous faisons un feu, pour dîner et nous réchauffer.</p>
     <blockquote class="citation">« Le feu s'éteignant, nous remarquons le ciel étoilé qui vient nous rappeler que nous sommes infiniment petits !! »<footer>Carnet 3, page 20 · la terrasse de mousse, 22 novembre</footer></blockquote>
@@ -242,8 +300,21 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Terrasse de mousse → Jiri → retour à la crête de pins</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>à Jiri à 11 h</li><li><svg class="ico" aria-hidden="true"><use href="#i-thermo"/></svg>froid et humide au réveil</li><li><svg class="ico" aria-hidden="true"><use href="#i-tente"/></svg>bivouac sur la crête de pins, comme l'avant-veille</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-23.svg" alt="Carte du 2011-11-23 : Bivouac de la crête de pins, Bivouac de la terrasse de mousse, Jiri" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-23-profil.svg" alt="Profil d'altitude du 2011-11-23" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Encore une grosse et belle journée. Le 23, sur la terrasse de mousse, nous ouvrons les yeux au lever du jour. Il fait froid et humide, mais le ciel est entièrement dégagé. Nos sacs de couchage sont trempés, et nous attendons le soleil avec impatience ; en attendant, petit déjeuner : une grosse tsampa, du muesli et du thé. Nous avons eu froid cette nuit, et le thé nous réchauffe.</p>
     <p>Dès les premiers rayons sur la tente, nous rangeons tranquillement le camp : s'habiller au soleil est bien plus agréable. Puis nous tirons les motos de leur cachette, approximative, de la veille, et prenons la route. À l'ombre, elle est glaciale ; au soleil, délicieuse. Elle est très belle : toujours les mêmes lacets, à flanc de montagne et parfois sur la crête. Mais le gravier et le sable qui la couvrent nous ralentissent. À 11 heures, nous atteignons Jiri, notre objectif. La ville est belle et paisible, le temps magnifique. Jiri, vers 1 900 mètres, est surnommée la porte de l'Everest : c'est d'ici que partent à pied vers le Khumbu ceux qui ne prennent pas, comme nous en octobre, l'avion de Lukla.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-23-jiri.jpg" alt="Jiri dans sa vallée verte, en juillet 2014." loading="lazy" width="1600" height="1065">
+      <figcaption><span class="legende-photo">Jiri, au bout de la route.</span>Photo : Arati Lohorung · <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="license noopener">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Jiri,_Nepal_2014.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>Une pause, trois paquets de biscuits, et nous repartons vers la crête de pins où nous avons dormi avant-hier.</p>
     <p>Le retour descend plus souvent qu'il ne monte. Tout roule ; nous sommes à l'aise sur nos motos. Ma vieille bécane peine dans les côtes, et Romain, sur sa moto neuve, me devance largement. La lumière est belle, je profite pleinement du paysage. Déjeuner sur une parcelle de millet, au soleil. En y chargeant mon sac, je fais tomber ma moto : un clignotant cassé. L'armée nous arrête, pour enregistrer notre passage : un simple point d'entrée et de sortie, rien de plus. Les bus sont toujours aussi brutaux, et nous toujours prêts à nous jeter dans les pierres du bas-côté.</p>
     <p>Nous n'avons plus de lentilles : nous achetons notre dîner dans un beau petit village d'altitude, face à la chaîne de l'Himalaya. Au coucher du soleil, nous retrouvons la crête de pins, un endroit idéal, parce que très peu humide le matin. Encore une grosse journée de conduite : une centaine de kilomètres.</p>
@@ -260,6 +331,13 @@ table.filet td:last-child{font-weight:600}
       <p class="trajet">Crête de pins → la grand-route → Patan → Katmandou</p>
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>jusqu'à 80 km/h sur la grand-route</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>Trekker's Paradise, Freak Street · une chambre simple pour deux</li></ul>
     </header>
+    <!-- illus -->
+    <figure class="carte-etape">
+      <img src="cartes/2011-11-24.svg" alt="Carte du 2011-11-24 : Katmandou, Bivouac de la crête de pins, Patan" loading="lazy" width="600" height="450">
+      <img class="profil-img" src="cartes/2011-11-24-profil.svg" alt="Profil d'altitude du 2011-11-24" loading="lazy" width="600" height="150">
+      <figcaption>Carte de l'étape et profil d'altitude. Altitudes : OpenStreetMap et modèle de terrain.</figcaption>
+    </figure>
+    <!-- /illus -->
     <p>J'ai attrapé un rhume, et je retrouve la sensation désagréable des jours d'avant le départ pour le Népal. La faute aux changements de température sur la moto, et à la grosse humidité froide de la nuit dernière. Un Doliprane dans la nuit, et je peux me rendormir.</p>
     <p>Le réveil, le 24, est magique : la nature, les pins, notre crête. Au fond, le soleil se lève sur les sommets de l'Himalaya, et la brume emplit la vallée. C'était notre dernière nuit de camping sauvage. Petit déjeuner très agréable, d'œufs et de biscuits.</p>
     <p>Puis les motos, et la route de Katmandou. Les derniers lacets de montagne, et nous retrouvons la route principale, qui mène tout droit à la capitale. Quel contraste avec la route de Jiri : un bon revêtement, assez de largeur pour deux camions. Très à l'aise, nous nous permettons de prendre de la vitesse, jusqu'à 80 km/h. À l'approche de Katmandou, la circulation se densifie. Doubler les bus, les camions et les motos n'a rien de simple : ma moto manque terriblement de reprise.</p>
@@ -267,6 +345,12 @@ table.filet td:last-child{font-weight:600}
     <p>Trouver où déjeuner est difficile ; nous finissons sur une petite terrasse au soleil, assis sur des bambous posés là. Puis un enfer de klaxons et de circulation jusque chez le loueur, qui refuse de nous rembourser le surplus d'essence. Bien décidés à ne pas perdre cet argent, nous arpentons la rue à la recherche d'un acheteur pour nos huit litres. À force de demander aux voyageurs et aux passants, nous trouvons un taxi intéressé : nous remplissons son réservoir, contre 600 roupies. Contents de l'affaire, nous mangeons des momos dans notre cantine tibétaine ; Romain garde un goût d'essence dans la bouche.</p>
     <p>Nos jeans sur mesure sont prêts, et la coupe nous plaît beaucoup. Autour d'un milk tea, nous commandons chacun trois autres pièces. Nous rentrons à l'hôtel avec l'impression d'être habillés comme des princes, et l'heureuse sensation retrouvée de porter un jean. Je m'achète un sac duffel noir North Face qui me fait envie depuis un mois : pratique, solide, il servira. Reste une mission, et pas une mince affaire : rapporter des cadeaux. Nous en parlons beaucoup. Nous trouverons.</p>
     <p>Le soir, dîner au restaurant de naans, délicieux. Nous faisons la connaissance d'un couple de Français très sympathiques, et je passe un moment en ligne avec des proches et mes parents. Bien chouette. Nous logeons désormais au Trekker's Paradise, un vrai paradis : bonne ambiance, et une grande chambre pour une personne, moins chère ; Romain se propose de dormir par terre. Puis une promenade de nuit dans Freak Street et sur Durbar Square, au frais, dans des rues plus calmes. Quel bonheur de retrouver notre ville. Nous n'en aurons bientôt plus l'occasion.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-24-freak-street-2011.jpg" alt="Freak Street, ses boutiques et ses guesthouses, le matin du 24 novembre 2011." loading="lazy" width="1600" height="1060">
+      <figcaption><span class="legende-photo">Freak Street, à Katmandou, le 24 novembre 2011.</span>Photo : Chris Shervey from Tewkesbury, UK · <a href="https://creativecommons.org/licenses/by/2.0" rel="license noopener">CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Freak-Street-chris-shervey.jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <aside class="encadre">
       <h3>La virée en chiffres</h3>
       <div class="chiffres" id="chiffres-tour"></div>
@@ -314,6 +398,12 @@ table.filet td:last-child{font-weight:600}
       <ul class="stats"><li><svg class="ico" aria-hidden="true"><use href="#i-horloge"/></svg>retour à pied, de nuit, pendant la coupure de courant</li><li><svg class="ico" aria-hidden="true"><use href="#i-lit"/></svg>Trekker's Paradise, Freak Street</li></ul>
     </header>
     <p>Dans la nuit, un mal de ventre me fait lever ; rien de grave. Comme d'habitude, petit déjeuner pantagruélique, granola en plus ce matin. Forts de cette bonne dose d'énergie, nous décidons d'aller à Patan, la ville voisine que nous avons traversée en vitesse au retour de la moto. Seule une large rivière la sépare de Katmandou. C'est la Bagmati, la rivière sacrée de la vallée ; Patan s'appelle aussi Lalitpur.</p>
+    <!-- illus -->
+    <figure class="photo">
+      <img src="photos/2011-11-27-patan-durbar-square.jpg" alt="Durbar Square de Patan : le Krishna Mandir et les pagodes, en mai 2010." loading="lazy" width="1600" height="1000">
+      <figcaption><span class="legende-photo">Durbar Square, à Patan (2010).</span>Photo : Alexander Shafir · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Nepal_Patan_Durbar_Square_10_(full_res).jpg" rel="noopener">Wikimedia Commons</a></figcaption>
+    </figure>
+    <!-- /illus -->
     <p>D'abord, un tailleur, pour des chemises. Romain a déjà son tissu, orange, et trouve facilement un tailleur. J'ai plus de mal à trouver un tissu à mon goût, puis je tombe sur un tailleur sympathique qui propose à peu près ce que je cherche. J'espère que Simon, mon petit frère, sera du même avis que moi : je peux raisonnablement supposer qu'il a mes mesures. Nous complétons notre collection de plaids en laine de yak, puis prenons enfin la direction de Patan. La route est longue, mais elle nous fait découvrir de nouveaux quartiers, et beaucoup de magasins de chaussures, où nous ne trouvons pas ce que nous cherchons.</p>
     <p>Patan est une belle ville, avec un grand Durbar Square et de nombreux palais. La lumière est belle, les briques rouges, le bois des maisons joliment sculpté. La place royale a été bâtie pour l'essentiel au XVII<sup>e</sup> siècle par les rois Malla ; elle est inscrite au patrimoine mondial de l'Unesco depuis 1979, avec le reste de la vallée.</p>
     <p>Sur la place principale, où se tient un meeting politique sur la démocratie, nous rencontrons par hasard un couple d'Auvergnats. Le pays cherche alors sa constitution : élue en 2008, l'Assemblée constituante doit la rédiger ; elle sera dissoute en mai 2012 sans y être parvenue. Nous finissons la journée ensemble, et rentrons tous les quatre à pied à Katmandou.</p>
@@ -354,19 +444,9 @@ table.filet td:last-child{font-weight:600}
   <nav class="nav-bas"><a class="precedent" href="chapitre-annapurna.html">← Chapitre 3<b>Kali Gandaki et sanctuaire des Annapurnas</b></a><a class="suivant" href="index.html">Retour à l'accueil →<b>Népal 2011</b></a></nav>
 </article>
 
-<div class="colonne-carte" aria-label="Carte de la virée à moto">
-  <div id="carte"></div>
-  <div class="profil">
-    <div class="legende-jour" id="legende-jour">La virée à moto</div>
-    <svg id="profil" viewBox="0 0 1000 120" preserveAspectRatio="none" role="img" aria-label="Profil d'altitude de la virée à moto"></svg>
-    <p class="aide-carte" id="aide-carte">Cliquez sur une étape de la carte ou du profil pour la lire dans le récit.</p>
-  </div>
-</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="donnees.js"></script>
-<script src="courbes-moto.js"></script>
 <script>
 const V = window.VOYAGE, EP = "moto";
 const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
@@ -374,72 +454,8 @@ const fmt = n => Math.round(n).toLocaleString("fr-FR");
 const ep = V.episodes.find(e => e.id === EP);
 const traces = V.traces.filter(f => f.properties.episode === EP);
 const AIDE = "Cliquez sur une étape de la carte ou du profil pour la lire dans le récit. Les bivouacs sont placés approximativement.";
-document.getElementById("aide-carte").textContent = AIDE;
 
-/* Carte */
-const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: true, attributionControl: true, maxZoom: 14, zoomSnap: .25, zoomDelta: .5});
-carte.setView([27.78, 85.75], 10);
-carte.attributionControl.setPrefix("").addAttribution("Courbes : Terrain Tiles (AWS Open Data, Mapzen) · tracés : OpenStreetMap");
-
-/* Fond de carte au trait : uniquement des courbes de niveau, sans remplissage */
-const renduCourbes = L.svg({padding: .3});
-const maitresses = L.layerGroup().addTo(carte), intermediaires = L.layerGroup();
-for (const [alt, ligne] of window.COURBES.lignes) {
-  const maitresse = alt % window.COURBES.maitresse === 0;
-  L.polyline(ligne.map(c => [c[1], c[0]]), {
-    color: css("encre-2"), weight: maitresse ? .8 : .4, opacity: maitresse ? .5 : .28, interactive: false, smoothFactor: 1.5, renderer: renduCourbes
-  }).addTo(maitresse ? maitresses : intermediaires);
-}
-const densite = () => carte.getZoom() >= 12 ? intermediaires.addTo(carte) : carte.removeLayer(intermediaires);
-carte.on("zoomend", densite);
-const etiquette = (lat, lon, html, cls = "nom-lieu") =>
-  L.marker([lat, lon], {interactive: false, icon: L.divIcon({className: cls, html, iconSize: null, iconAnchor: [-6, 8]})}).addTo(carte);
-for (const id of ["kathmandou", "bhaktapur", "nagarkot", "barabise", "kodari", "jiri"]) { const l = V.lieux[id]; etiquette(l.lat, l.lon, l.nom.replace(/ \(.*\)/, "")); }
-{ const l = V.lieux.kodari; etiquette(l.lat - .025, l.lon, `<span style="font-size:11px;opacity:.8">frontière tibétaine</span>`); }
-
-/* Aller à une étape du récit depuis la carte ou le profil */
-let enNavigation = null; // pendant le défilement vers une étape choisie, la carte ne suit pas les étapes traversées
-function allerAuJour(jour) {
-  const s = document.querySelector(`section[data-jour="${jour}"]`);
-  if (!s) return;
-  enNavigation = String(jour); afficher(String(jour));
-  const fin = () => { enNavigation = null; removeEventListener("scrollend", fin); };
-  addEventListener("scrollend", fin); setTimeout(fin, 2500);
-  (s.querySelector(".tete-etape") || s).scrollIntoView({behavior: "smooth", block: "start"});
-}
-const titreJour = j => { const h = document.querySelector(`section[data-jour="${j}"] h2`); return h ? `Jour ${j} · ${h.textContent}` : ""; };
-
-const lignes = {}; // jour -> [polylines]
-for (const f of traces) {
-  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
-  const l = L.polyline(pts, {
-    color: css("accent"), weight: 3.5, opacity: .9, interactive: false,
-    dashArray: p.mode === "bus" ? "2 7" : (p.trace_reel ? null : "8 6"), lineCap: "round"
-  }).addTo(carte);
-  (lignes[p.jour] ||= []).push(l);
-  // zone de clic large et invisible par-dessus le tracé
-  L.polyline(pts, {color: "#000", opacity: 0, weight: 16})
-    .bindTooltip(`${titreJour(p.jour)}<br><small>cliquer pour lire l'étape</small>`, {sticky: true, className: "etiquette", direction: "top", offset: [0, -8]})
-    .on("mouseover", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: 6})))
-    .on("mouseout", () => (lignes[p.jour] || []).forEach(x => x.setStyle({weight: courant === "tout" || +courant === p.jour ? 3.5 : 2})))
-    .on("click", () => allerAuJour(p.jour))
-    .addTo(carte);
-}
-const tout = L.featureGroup(Object.values(lignes).flat());
-
-/* Numéros des nuits : la crête de pins sert deux fois (nuits 2 et 4) */
-const nuits = {};
-for (const et of ep.etapes) { const id = et.troncons.at(-1)?.[1].at(-1); if (V.lieux[id]) (nuits[id] ||= []).push(et.jour); }
-for (const [id, jours] of Object.entries(nuits)) {
-  const l = V.lieux[id], large = jours.length > 1;
-  L.marker([l.lat, l.lon], {icon: L.divIcon({className: large ? "num-nuit large" : "num-nuit", html: jours.join("·"), iconSize: [large ? 32 : 22, 22]})})
-    .bindTooltip(`${jours.length > 1 ? "Nuits " + jours.join(" et ") : "Nuit " + jours[0]} · ${l.nom}${l.approx ? "<br><small>emplacement approximatif</small>" : ""}<br><small>cliquer pour lire l'étape</small>`, {className: "etiquette", direction: "top", offset: [0, -10]})
-    .on("click", () => allerAuJour(jours[0]))
-    .addTo(carte);
-}
-carte.fitBounds(tout.getBounds(), {padding: [30, 30]});
-
-/* Profil */
+/* Profil (pour les chiffres) */
 let profil = [], prec = null, d = 0;
 const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[1]-a[1])*r, dLo = (b[0]-a[0])*r;
   const h = Math.sin(dLa/2)**2 + Math.cos(a[1]*r)*Math.cos(b[1]*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); };
@@ -448,36 +464,6 @@ for (const f of traces.filter(f => f.properties.mode === "moto")) for (const c o
   if (c[2] != null) profil.push({d, alt: c[2], jour: f.properties.jour, lat: c[1], lon: c[0]});
   prec = c;
 }
-const svg = document.getElementById("profil");
-function dessinerProfil(jour) {
-  const dMax = profil.at(-1).d, bas = 0, haut = 3000;
-  const X = v => v / dMax * 1000, Y = a => 116 - (a - bas) / (haut - bas) * 110;
-  const pas = Math.max(1, Math.floor(profil.length / 800));
-  const pts = profil.filter((_, i) => i % pas === 0).map(p => `${X(p.d).toFixed(1)},${Y(p.alt).toFixed(1)}`).join(" ");
-  let grille = "";
-  for (let a = 1000; a <= 2000; a += 1000) grille += `<line x1="0" x2="1000" y1="${Y(a)}" y2="${Y(a)}" stroke="currentColor" stroke-opacity=".12" vector-effect="non-scaling-stroke"/><text x="4" y="${Y(a)-3}" font-size="10" fill="currentColor" opacity=".55">${fmt(a)} m</text>`;
-  const sel = profil.filter(p => p.jour === jour);
-  const surligne = sel.length ? `<rect x="${X(sel[0].d)}" width="${X(sel.at(-1).d) - X(sel[0].d)}" y="0" height="116" fill="${css("accent")}" fill-opacity=".14"/>` : "";
-  svg.style.color = css("encre");
-  svg.innerHTML = `${grille}${surligne}<polygon points="0,116 ${pts} 1000,116" fill="${css("accent")}" fill-opacity=".2"/><polyline points="${pts}" fill="none" stroke="${css("accent")}" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
-}
-
-const repere = L.circleMarker([0, 0], {radius: 6, color: css("carte-fond"), weight: 2, fillColor: css("accent"), fillOpacity: 1, interactive: false});
-const pointProfil = e => {
-  const box = svg.getBoundingClientRect(), d = (e.clientX - box.left) / box.width * profil.at(-1).d;
-  return profil.find(q => q.d >= d) || profil.at(-1);
-};
-svg.addEventListener("mousemove", e => {
-  const p = pointProfil(e);
-  repere.setLatLng([p.lat, p.lon]).addTo(carte);
-  document.getElementById("aide-carte").textContent = `${titreJour(p.jour)} · ${fmt(p.alt)} m — cliquer pour lire l'étape`;
-});
-svg.addEventListener("mouseleave", () => {
-  carte.removeLayer(repere);
-  document.getElementById("aide-carte").textContent = AIDE;
-});
-svg.addEventListener("click", e => allerAuJour(pointProfil(e).jour));
-
 /* Chiffres */
 const moto = traces.filter(f => f.properties.mode === "moto");
 const kmTour = moto.reduce((s, f) => s + f.properties.km, 0);
@@ -497,27 +483,6 @@ document.querySelectorAll(".tete-etape[data-calc]").forEach(h => {
   const km = fs.reduce((s, f) => s + f.properties.km, 0);
   if (km) h.querySelector(".stats").insertAdjacentHTML("afterbegin", `<li class="calc" title="Calculé sur les routes cartographiées">${ico("moto")}<b>≈ ${fmt(km)} km</b> à moto</li>`);
 });
-
-/* La carte suit la lecture */
-let courant = null;
-function afficher(jour) {
-  if (jour === courant) return; courant = jour;
-  const tous = jour === "tout";
-  for (const [j, ls] of Object.entries(lignes)) ls.forEach(l => l.setStyle({color: tous || +j === +jour ? css("accent") : css("encre-2"), opacity: tous ? .9 : (+j === +jour ? 1 : .35), weight: tous || +j === +jour ? 3.5 : 2}));
-  const cible = tous ? tout : L.featureGroup(lignes[jour] || []);
-  if (cible.getLayers().length) carte.flyToBounds(cible.getBounds(), {padding: innerWidth < 960 ? [16, 16] : [50, 50], maxZoom: 13, duration: .9});
-  (lignes[jour] || []).forEach(l => l.bringToFront());
-  document.getElementById("legende-jour").textContent = tous ? "La virée à moto · profil d'altitude" : titreJour(jour);
-  dessinerProfil(tous ? null : +jour);
-}
-const obs = new IntersectionObserver(entrees => {
-  const visibles = entrees.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-  if (visibles.length && !enNavigation) afficher(visibles[0].target.dataset.jour);
-}, {rootMargin: "-35% 0px -55% 0px"});
-document.querySelectorAll("section[data-jour]").forEach(s => obs.observe(s));
-afficher("tout");
-addEventListener("load", () => { carte.invalidateSize(); const c = courant; courant = null; afficher(c); });
-addEventListener("resize", () => carte.invalidateSize());
 </script>
 </body>
 </html>

@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
 :root{
   --papier:#f6f4ee; --papier-2:#ece9e1; --carte-fond:#fcfbf8; --encre:#26241f; --encre-2:#6b675e; --trait:#dcd7cc;
@@ -81,6 +80,7 @@ h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;l
   .chapitres{grid-template-columns:1fr}
   #carte{height:52vh}
 }
+.carte-fixe{display:block;width:100%;height:auto;border:1px solid var(--trait);border-radius:6px;background:#fcfbf8}
 </style>
 </head>
 <body>
@@ -94,8 +94,8 @@ h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;l
       <p class="signature">Clément</p>
     </div>
     <div class="bloc-carte">
-      <div id="carte" role="img" aria-label="Carte du Népal central avec le tracé des quatre épisodes"></div>
-      <p class="legende" id="legende">Survolez un tracé pour voir l'épisode, cliquez pour le lire.</p>
+      <!-- illus --><img class="carte-fixe" src="cartes/vue-d-ensemble.svg" alt="Carte d'ensemble du voyage : les quatre chapitres au Népal central et oriental" width="1000" height="560">
+      <p class="legende">Les quatre chapitres du voyage, de l'Everest à la virée à moto.</p><!-- /illus -->
     </div>
   </header>
 
@@ -143,61 +143,5 @@ h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;l
   <p class="pied">Récit tiré des carnets 1, 2 et 3, tenus pendant le voyage. Distances et dénivelés calculés sur les sentiers et routes cartographiés, à titre indicatif.</p>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="donnees.js"></script>
-<script>
-const V = window.VOYAGE;
-const css = n => getComputedStyle(document.documentElement).getPropertyValue("--" + n).trim();
-const fmt = n => Math.round(n).toLocaleString("fr-FR");
-const NUM = {everest: 1, dhaulagiri: 2, annapurna: 3, moto: 4};
-const TITRE = {}; document.querySelectorAll(".chapitre").forEach(c => TITRE[c.dataset.ep] = c.querySelector("h2").textContent);
-
-/* Carte d'ensemble, au trait */
-const carte = L.map("carte", {zoomControl: true, scrollWheelZoom: false, zoomSnap: .25, attributionControl: true});
-carte.attributionControl.setPrefix(false).addAttribution("Tracés : OpenStreetMap");
-const groupes = {};
-for (const f of V.traces) {
-  const p = f.properties, pts = f.geometry.coordinates.map(c => [c[1], c[0]]);
-  if (p.mode === "avion") continue;
-  const g = groupes[p.episode] ||= {lignes: [], zones: []};
-  g.lignes.push(L.polyline(pts, {color: css("accent"), weight: 2.5, opacity: .85, interactive: false,
-    dashArray: p.mode === "bus" ? "2 6" : (p.trace_reel ? null : "6 5"), lineCap: "round"}).addTo(carte));
-  g.zones.push(L.polyline(pts, {color: "#000", opacity: 0, weight: 16}).addTo(carte));
-}
-const tout = L.featureGroup(Object.values(groupes).flatMap(g => g.lignes));
-const legende = document.getElementById("legende"), aideDefaut = legende.innerHTML;
-function surligner(id) {
-  for (const [e, g] of Object.entries(groupes))
-    g.lignes.forEach(l => l.setStyle(id == null ? {color: css("accent"), opacity: .85, weight: 2.5}
-      : e === id ? {color: css("moutarde"), opacity: 1, weight: 4} : {color: css("accent"), opacity: .3, weight: 2}));
-  if (id) groupes[id].lignes.forEach(l => l.bringToFront());
-  document.querySelectorAll(".chapitre").forEach(c => c.classList.toggle("actif", c.dataset.ep === id));
-  legende.innerHTML = id ? `<b>Chapitre ${NUM[id]} · ${TITRE[id]}</b> — cliquer pour lire` : aideDefaut;
-}
-for (const [id, g] of Object.entries(groupes)) {
-  const ouvrir = () => location.href = `chapitre-${id}.html`;
-  g.zones.forEach(z => z.on("mouseover", () => surligner(id)).on("mouseout", () => surligner(null)).on("click", ouvrir));
-  const b = L.featureGroup(g.lignes).getBounds(), c = b.getCenter();
-  // numéro du chapitre posé au bord du tracé
-  const pos = {everest: [b.getSouth(), b.getEast()], dhaulagiri: [b.getNorth(), b.getWest()], annapurna: [b.getSouth(), c.lng], moto: [b.getNorth(), b.getEast()]}[id] || [c.lat, c.lng];
-  L.marker(pos, {icon: L.divIcon({className: "", html: `<div class="num-ep">${NUM[id]}</div>`, iconSize: [26, 26], iconAnchor: [13, 13]})})
-    .bindTooltip(TITRE[id], {className: "etiquette", direction: "top", offset: [0, -12]})
-    .on("mouseover", () => surligner(id)).on("mouseout", () => surligner(null)).on("click", ouvrir).addTo(carte);
-}
-document.querySelectorAll(".chapitre").forEach(c => {
-  c.addEventListener("mouseenter", () => surligner(c.dataset.ep));
-  c.addEventListener("mouseleave", () => surligner(null));
-});
-// quelques repères
-for (const [k, nom] of [["kathmandou", "Katmandou"], ["pokhara", "Pokhara"]]) {
-  const l = V.lieux[k]; if (!l) continue;
-  L.circleMarker([l.lat, l.lon], {radius: 3.5, color: css("encre"), weight: 1, fillColor: css("carte-fond"), fillOpacity: 1, interactive: false}).addTo(carte);
-  L.marker([l.lat, l.lon], {interactive: false, icon: L.divIcon({className: "", html: `<span class="nom-lieu">${nom}</span>`, iconSize: [0, 0], iconAnchor: [-7, 8]})}).addTo(carte);
-}
-const cadrer = () => { carte.invalidateSize(); const s = carte.getSize(); if (s.x && s.y) carte.fitBounds(tout.getBounds(), {padding: [24, 24]}); else carte.setView([27.95, 85.2], 7); };
-cadrer();
-addEventListener("load", cadrer);
-addEventListener("resize", () => carte.invalidateSize());
-</script>
 </body>
 </html>
