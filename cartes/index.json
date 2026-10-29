@@ -1,0 +1,5778 @@
+{
+ "_note": "Cartes statiques par étape (outils/cartes_fixes.py). Clé = date. Altitudes des lieux de l'itinéraire : donnees/lieux.json ; contexte : OpenStreetMap (balise ele, sinon modèle de terrain arrondi à 10 m, alt_source=MNT) ; profil : altitudes du tracé recalculé.",
+ "vue_ensemble": "vue-d-ensemble.svg",
+ "jours": [
+  {
+   "date": "2011-09-29",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "« La destruction d'avant départ »",
+   "nuit": "Paris (confirmé par Clément)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-09-30",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "aucune entrée",
+   "nuit": "Paris (confirmé par Clément)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-01",
+   "chapitre": "everest",
+   "jour": "veille",
+   "etapes": "café de la Croix-Rouge avec son père, lunettes au Vieux Campeur, sac chez Décathlon",
+   "nuit": "Paris (confirmé par Clément)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-02",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "Paris ✈ Muscat (Oman)",
+   "nuit": "aéroport de Muscat, puis vol de nuit de 2 h 35",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-03",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "Muscat ✈ Katmandou (atterrissage 7 h 30), Thamel, choix de l'agence",
+   "nuit": "guesthouse à Thamel (nom ?)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-04",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "Durbar Square, Freak Street, rencontre de Jean-Louis",
+   "nuit": "même guesthouse, Thamel",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-05",
+   "chapitre": "everest",
+   "jour": "—",
+   "etapes": "bus Ratna Park → Pharping, retour sur le toit, dîner chez un homme d'affaires",
+   "nuit": "(déduit) Thamel",
+   "carte": "2011-10-05.svg",
+   "profil": null,
+   "type": "situation",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Pharping",
+     "role": "nuit",
+     "alt": 1585,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Katmandou",
+     "role": "depart",
+     "alt": 1400,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Chandragiri Hill",
+     "genre": "sommet",
+     "alt": 2551,
+     "osm": "n6333301847",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Baadasur Hill Top",
+     "genre": "sommet",
+     "alt": 2538,
+     "osm": "n8572745423",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dahachok Danda",
+     "genre": "sommet",
+     "alt": 1874,
+     "osm": "n6336971048",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Halchok Danda",
+     "genre": "sommet",
+     "alt": 1497,
+     "osm": "n6336921181",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lalitpur",
+     "genre": "city",
+     "alt": 1320,
+     "osm": "n723880699",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Godawari",
+     "genre": "town",
+     "alt": 1470,
+     "osm": "n6434169987",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kirtipur",
+     "genre": "town",
+     "alt": 1410,
+     "osm": "n3347570023",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chandragiri",
+     "genre": "town",
+     "alt": 1390,
+     "osm": "n6646454828",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Nagarjun",
+     "genre": "town",
+     "alt": 1370,
+     "osm": "n6646454831",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gokarneshwar",
+     "genre": "town",
+     "alt": 1350,
+     "osm": "n6646454829",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Madhyapur Thimi",
+     "genre": "town",
+     "alt": 1340,
+     "osm": "n6508542863",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Mahalaxmi",
+     "genre": "town",
+     "alt": 1340,
+     "osm": "n7867791081",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Mahalaxmi",
+     "genre": "town",
+     "alt": 1330,
+     "osm": "n6349584672",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kankali",
+     "genre": "village",
+     "alt": 1560,
+     "osm": "n2374517682",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhaltaar",
+     "genre": "village",
+     "alt": 1380,
+     "osm": "n4510133489",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chandragiri",
+     "genre": "hamlet",
+     "alt": 2270,
+     "osm": "n2417354083",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Deurali",
+     "genre": "hamlet",
+     "alt": 2260,
+     "osm": "n10229768690",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Humane Bhanjyang",
+     "genre": "hamlet",
+     "alt": 1870,
+     "osm": "n11328913798",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "note": "Trajet en bus non tracé : ligne droite indicative."
+  },
+  {
+   "date": "2011-10-06",
+   "chapitre": "everest",
+   "jour": "veille du trek",
+   "etapes": "achats, Tachi, dîner avec Jean-Louis",
+   "nuit": "(déduit) Thamel",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-07",
+   "chapitre": "everest",
+   "jour": "1",
+   "etapes": "Katmandou ✈ Lukla → Phakding",
+   "nuit": "lodge, Phakding",
+   "carte": "2011-10-07.svg",
+   "profil": "2011-10-07-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Phakding",
+     "role": "nuit",
+     "alt": 2610,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Lukla",
+     "role": "depart",
+     "alt": 2850,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Khumbu Pasang Lhamu",
+     "genre": "town",
+     "alt": 2640,
+     "osm": "n13152168049",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Cheplung",
+     "genre": "village",
+     "alt": 2660,
+     "osm": "n703894844",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Thadokosi",
+     "genre": "village",
+     "alt": 2650,
+     "osm": "n354739766",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chhuthawa",
+     "genre": "village",
+     "alt": 2590,
+     "osm": "n703894847",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sano Gumela",
+     "genre": "hamlet",
+     "alt": 2720,
+     "osm": "n10858199194",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Nachipan",
+     "genre": "hamlet",
+     "alt": 2700,
+     "osm": "n10858199195",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Syanjma",
+     "genre": "hamlet",
+     "alt": 2680,
+     "osm": "n10858199196",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Nurning Ghat",
+     "genre": "hamlet",
+     "alt": 2540,
+     "osm": "n442197755",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 34.6,
+     "depuis": "Phakding"
+    },
+    {
+     "nom": "Numberchuli",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "distance_km": 13.9,
+     "depuis": "Phakding"
+    },
+    {
+     "nom": "Chamlang",
+     "alt": 7319,
+     "osm": "n2881620364",
+     "distance_km": 26.5,
+     "depuis": "Lukla"
+    },
+    {
+     "nom": "Jobo Rinjang",
+     "alt": 6778,
+     "osm": "n6415692718",
+     "distance_km": 36.7,
+     "depuis": "Phakding"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2854,
+    "arrivee_m": 2636,
+    "point_haut_m": 2854,
+    "point_bas_m": 2544,
+    "km": 7.4
+   },
+   "trace": {
+    "km": 7.4,
+    "d_plus": 114,
+    "d_moins": 343,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-08",
+   "chapitre": "everest",
+   "jour": "2",
+   "etapes": "Phakding → Namche Bazaar",
+   "nuit": "lodge, Namche",
+   "carte": "2011-10-08.svg",
+   "profil": "2011-10-08-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Namche Bazaar",
+     "role": "nuit",
+     "alt": 3440,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Phakding",
+     "role": "depart",
+     "alt": 2610,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Nupla",
+     "genre": "sommet",
+     "alt": 5878,
+     "osm": "n3213654206",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Syangboche",
+     "genre": "village",
+     "alt": 3750,
+     "osm": "n703895008",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Monjo",
+     "genre": "village",
+     "alt": 2835,
+     "osm": "n354740657",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Gumela",
+     "genre": "village",
+     "alt": 2760,
+     "osm": "n10858199193",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Toc Toc",
+     "genre": "village",
+     "alt": 2690,
+     "osm": "n1492311486",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Benkar",
+     "genre": "village",
+     "alt": 2630,
+     "osm": "n354740557",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Jorsale",
+     "genre": "hamlet",
+     "alt": 2800,
+     "osm": "n442260679",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sano Gumela",
+     "genre": "hamlet",
+     "alt": 2720,
+     "osm": "n10858199194",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 29.4,
+     "depuis": "Namche Bazaar"
+    },
+    {
+     "nom": "Numberchuli",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "distance_km": 13.9,
+     "depuis": "Phakding"
+    },
+    {
+     "nom": "Kangtega",
+     "alt": 6783,
+     "osm": "n9606342175",
+     "distance_km": 10.7,
+     "depuis": "Namche Bazaar"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2637,
+    "arrivee_m": 3410,
+    "point_haut_m": 3422,
+    "point_bas_m": 2612,
+    "km": 10.4
+   },
+   "trace": {
+    "km": 10.4,
+    "d_plus": 909,
+    "d_moins": 135,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-09",
+   "chapitre": "everest",
+   "jour": "3",
+   "etapes": "Namche, acclimatation (marche de 4 h, itinéraire non dit)",
+   "nuit": "lodge, Namche",
+   "carte": "2011-10-09.svg",
+   "profil": null,
+   "type": "contexte",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Namche Bazaar",
+     "role": "nuit",
+     "alt": 3440,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Khunde Peak",
+     "genre": "sommet",
+     "alt": 4251,
+     "osm": "n11248015140",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mong La",
+     "genre": "col",
+     "alt": 3985,
+     "osm": "n428704317",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumjung La",
+     "genre": "col",
+     "alt": 3868,
+     "osm": "n703895035",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde",
+     "genre": "village",
+     "alt": 3840,
+     "osm": "n425189494",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Syangboche",
+     "genre": "village",
+     "alt": 3750,
+     "osm": "n703895008",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Samde",
+     "genre": "village",
+     "alt": 3650,
+     "osm": "n703972526",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thamo",
+     "genre": "village",
+     "alt": 3470,
+     "osm": "n703972503",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Samshing",
+     "genre": "village",
+     "alt": 3450,
+     "osm": "n703972336",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Monjo",
+     "genre": "village",
+     "alt": 2835,
+     "osm": "n354740657",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kyangjuma",
+     "genre": "hamlet",
+     "alt": 3610,
+     "osm": "n704038308",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Selawa",
+     "genre": "hamlet",
+     "alt": 3530,
+     "osm": "n10858199192",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Lawi Schyasa",
+     "genre": "hamlet",
+     "alt": 3450,
+     "osm": "n5864146463",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Phunki Thanga",
+     "genre": "hamlet",
+     "alt": 3305,
+     "osm": "n736963686",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Jorsale",
+     "genre": "hamlet",
+     "alt": 2800,
+     "osm": "n442260679",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Numberchuli",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "distance_km": 14.6,
+     "depuis": "Namche Bazaar"
+    },
+    {
+     "nom": "Kangtega",
+     "alt": 6783,
+     "osm": "n9606342175",
+     "distance_km": 10.7,
+     "depuis": "Namche Bazaar"
+    }
+   ],
+   "note": "Journée d'acclimatation : balade de 4 h autour de Namche, itinéraire non noté."
+  },
+  {
+   "date": "2011-10-10",
+   "chapitre": "everest",
+   "jour": "4",
+   "etapes": "Namche → Khumjung",
+   "nuit": "lodge, Khumjung",
+   "carte": "2011-10-10.svg",
+   "profil": "2011-10-10-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Khumjung",
+     "role": "nuit",
+     "alt": 3780,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Namche Bazaar",
+     "role": "depart",
+     "alt": 3440,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Khunde Peak",
+     "genre": "sommet",
+     "alt": 4251,
+     "osm": "n11248015140",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mong La",
+     "genre": "col",
+     "alt": 3985,
+     "osm": "n428704317",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde",
+     "genre": "village",
+     "alt": 3840,
+     "osm": "n425189494",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Syangboche",
+     "genre": "village",
+     "alt": 3750,
+     "osm": "n703895008",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thamo",
+     "genre": "village",
+     "alt": 3470,
+     "osm": "n703972503",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Samshing",
+     "genre": "village",
+     "alt": 3450,
+     "osm": "n703972336",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sanasa",
+     "genre": "hamlet",
+     "alt": 3530,
+     "osm": "n736963685",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Selawa",
+     "genre": "hamlet",
+     "alt": 3530,
+     "osm": "n10858199192",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Lawi Schyasa",
+     "genre": "hamlet",
+     "alt": 3450,
+     "osm": "n5864146463",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Phunki Thanga",
+     "genre": "hamlet",
+     "alt": 3305,
+     "osm": "n736963686",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 27.4,
+     "depuis": "Khumjung"
+    },
+    {
+     "nom": "Cho Oyu",
+     "alt": 8201,
+     "osm": "n288180659",
+     "distance_km": 30.9,
+     "depuis": "Khumjung"
+    },
+    {
+     "nom": "Kangtega",
+     "alt": 6783,
+     "osm": "n9606342175",
+     "distance_km": 10.4,
+     "depuis": "Khumjung"
+    },
+    {
+     "nom": "Numberchuli",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "distance_km": 14.6,
+     "depuis": "Namche Bazaar"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3411,
+    "arrivee_m": 3766,
+    "point_haut_m": 3870,
+    "point_bas_m": 3411,
+    "km": 4.3
+   },
+   "trace": {
+    "km": 4.3,
+    "d_plus": 440,
+    "d_moins": 78,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-11",
+   "chapitre": "everest",
+   "jour": "5",
+   "etapes": "Khumjung → Dole (déjeuner, 4000 m) → Machhermo",
+   "nuit": "Machhermo (lodge (déduit))",
+   "carte": "2011-10-11.svg",
+   "profil": "2011-10-11-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Machhermo",
+     "role": "nuit",
+     "alt": 4470,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Khumjung",
+     "role": "depart",
+     "alt": 3780,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dole",
+     "role": "cite",
+     "alt": 4050,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Taboche",
+     "genre": "sommet",
+     "alt": 6495,
+     "osm": "n2526437540",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kyajori",
+     "genre": "sommet",
+     "alt": 6151,
+     "osm": "n442260822",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Teningbo",
+     "genre": "sommet",
+     "alt": 5839,
+     "osm": "n10731392490",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumbila",
+     "genre": "sommet",
+     "alt": 5761,
+     "osm": "n10264795124",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Luri Peak",
+     "genre": "sommet",
+     "alt": 5207,
+     "osm": "n12165263100",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde Peak",
+     "genre": "sommet",
+     "alt": 4251,
+     "osm": "n11248015140",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mong La",
+     "genre": "col",
+     "alt": 3985,
+     "osm": "n428704317",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Pangboche",
+     "genre": "village",
+     "alt": 3930,
+     "osm": "n428553230",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tengboche",
+     "genre": "village",
+     "alt": 3867,
+     "osm": "n274018195",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde",
+     "genre": "village",
+     "alt": 3840,
+     "osm": "n425189494",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phortse",
+     "genre": "village",
+     "alt": 3800,
+     "osm": "n428553269",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Millingo",
+     "genre": "village",
+     "alt": 3746,
+     "osm": "n736963687",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Deboche",
+     "genre": "village",
+     "alt": 3745,
+     "osm": "n5858520230",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Samde",
+     "genre": "village",
+     "alt": 3650,
+     "osm": "n703972526",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thamo",
+     "genre": "village",
+     "alt": 3470,
+     "osm": "n703972503",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Samshing",
+     "genre": "village",
+     "alt": 3450,
+     "osm": "n703972336",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thare",
+     "genre": "isolated_dwelling",
+     "alt": 4370,
+     "osm": "n704001672",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Luza",
+     "genre": "hamlet",
+     "alt": 4360,
+     "osm": "n425189336",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lhafarma",
+     "genre": "isolated_dwelling",
+     "alt": 4291,
+     "osm": "n425189333",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kohanar",
+     "genre": "isolated_dwelling",
+     "alt": 4060,
+     "osm": "n10858199191",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kyangjuma",
+     "genre": "hamlet",
+     "alt": 3610,
+     "osm": "n704038308",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Cho Oyu",
+     "alt": 8201,
+     "osm": "n288180659",
+     "distance_km": 22.2,
+     "depuis": "Machhermo"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3766,
+    "arrivee_m": 4385,
+    "point_haut_m": 4431,
+    "point_bas_m": 3616,
+    "km": 13.3
+   },
+   "trace": {
+    "km": 13.3,
+    "d_plus": 1080,
+    "d_moins": 458,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-12",
+   "chapitre": "everest",
+   "jour": "6",
+   "etapes": "Machhermo → Gokyo ; l'après-midi, vers les lacs 4, 5 et 6 (seul le 4ᵉ est atteint)",
+   "nuit": "lodge, Gokyo",
+   "carte": "2011-10-12.svg",
+   "profil": "2011-10-12-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Gokyo",
+     "role": "nuit",
+     "alt": 4750,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Machhermo",
+     "role": "depart",
+     "alt": 4470,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "4ᵉ lac (Thonak Cho)",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM w40201010"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Cholatse",
+     "genre": "sommet",
+     "alt": 6423,
+     "osm": "n2526429858",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kyajori",
+     "genre": "sommet",
+     "alt": 6151,
+     "osm": "n442260822",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kangchung",
+     "genre": "sommet",
+     "alt": 6083,
+     "osm": "n9905248503",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Machhermo Peak",
+     "genre": "sommet",
+     "alt": 6017,
+     "osm": "n442260815",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjola",
+     "genre": "sommet",
+     "alt": 5925,
+     "osm": "n8231547990",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Arakam Tse",
+     "genre": "sommet",
+     "alt": 5904,
+     "osm": "n10731513098",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjo La",
+     "genre": "col",
+     "alt": 5460,
+     "osm": "n4508735857",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Renjo La",
+     "genre": "col",
+     "alt": 5398,
+     "osm": "n703972266",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Cho La",
+     "genre": "col",
+     "alt": 5368,
+     "osm": "n1679173453",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dragnag",
+     "genre": "hamlet",
+     "alt": 4700,
+     "osm": "n5491797412",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Fangla",
+     "genre": "isolated_dwelling",
+     "alt": 4457,
+     "osm": "n736951507",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lungdhen",
+     "genre": "hamlet",
+     "alt": 4380,
+     "osm": "n703971918",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 22.7,
+     "depuis": "Machhermo"
+    },
+    {
+     "nom": "Tengi Ragi Tau",
+     "alt": 6943,
+     "osm": "n4526921984",
+     "distance_km": 16.7,
+     "depuis": "Machhermo"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4383,
+    "arrivee_m": 4759,
+    "point_haut_m": 4765,
+    "point_bas_m": 4383,
+    "km": 6.9
+   },
+   "trace": {
+    "km": 6.9,
+    "d_plus": 370,
+    "d_moins": 0,
+    "ligne_droite": false
+   },
+   "note": "Sortie de l'après-midi vers le 4ᵉ lac non tracée."
+  },
+  {
+   "date": "2011-10-13",
+   "chapitre": "everest",
+   "jour": "7",
+   "etapes": "Gokyo → Gokyo Ri (5360 / 5357) → Gokyo",
+   "nuit": "lodge, Gokyo",
+   "carte": "2011-10-13.svg",
+   "profil": "2011-10-13-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Gokyo",
+     "role": "nuit",
+     "alt": 4750,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Gokyo Ri",
+     "role": "cite",
+     "alt": 5357,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Cholo",
+     "genre": "sommet",
+     "alt": 6043,
+     "osm": "n6104367055",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Machhermo Peak",
+     "genre": "sommet",
+     "alt": 6017,
+     "osm": "n442260815",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjola",
+     "genre": "sommet",
+     "alt": 5925,
+     "osm": "n8231547990",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kangchung La",
+     "genre": "col",
+     "alt": 5610,
+     "osm": "n9905248504",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjo La",
+     "genre": "col",
+     "alt": 5460,
+     "osm": "n4508735857",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Renjo La",
+     "genre": "col",
+     "alt": 5398,
+     "osm": "n703972266",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dragnag",
+     "genre": "hamlet",
+     "alt": 4700,
+     "osm": "n5491797412",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 23.0,
+     "depuis": "Gokyo"
+    },
+    {
+     "nom": "Cho Oyu",
+     "alt": 8201,
+     "osm": "n288180659",
+     "distance_km": 15.2,
+     "depuis": "Gokyo Ri"
+    },
+    {
+     "nom": "Hungchi",
+     "alt": 7029,
+     "osm": "n2686686024",
+     "distance_km": 11.0,
+     "depuis": "Gokyo"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4760,
+    "arrivee_m": 4760,
+    "point_haut_m": 5328,
+    "point_bas_m": 4749,
+    "km": 3.4
+   },
+   "trace": {
+    "km": 3.4,
+    "d_plus": 558,
+    "d_moins": 557,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-14",
+   "chapitre": "everest",
+   "jour": "8",
+   "etapes": "Gokyo → 5ᵉ lac → Gokyo (déjeuner) → moraine du glacier → Thagnak",
+   "nuit": "Thagnak (lodge (déduit))",
+   "carte": "2011-10-14.svg",
+   "profil": "2011-10-14-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Thagnak",
+     "role": "nuit",
+     "alt": 4700,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Gokyo",
+     "role": "depart",
+     "alt": 4750,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "5ᵉ lac (Ngozumpa Cho)",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM w40201011"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Kangchung",
+     "genre": "sommet",
+     "alt": 6083,
+     "osm": "n9905248503",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Cholo",
+     "genre": "sommet",
+     "alt": 6043,
+     "osm": "n6104367055",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjola",
+     "genre": "sommet",
+     "alt": 5925,
+     "osm": "n8231547990",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Arakam Tse",
+     "genre": "sommet",
+     "alt": 5904,
+     "osm": "n10731513098",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Cho La Col",
+     "genre": "col",
+     "alt": 5656,
+     "osm": "n9905248505",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "PKT Pass",
+     "genre": "col",
+     "alt": 5555,
+     "osm": "n10728469652",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Henjo La",
+     "genre": "col",
+     "alt": 5460,
+     "osm": "n4508735857",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 20.8,
+     "depuis": "Thagnak"
+    },
+    {
+     "nom": "Hungchi",
+     "alt": 7029,
+     "osm": "n2686686024",
+     "distance_km": 8.2,
+     "depuis": "5ᵉ lac (Ngozumpa Cho)"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4750,
+    "arrivee_m": 4700,
+    "point_haut_m": 4750,
+    "point_bas_m": 4700,
+    "km": 2.9
+   },
+   "trace": {
+    "km": 2.9,
+    "d_plus": 0,
+    "d_moins": 45,
+    "ligne_droite": true
+   },
+   "note": "Aller-retour au 5ᵉ lac non tracé ; traversée du glacier en ligne droite."
+  },
+  {
+   "date": "2011-10-15",
+   "chapitre": "everest",
+   "jour": "9",
+   "etapes": "Thagnak → Cho La → Dzongla → Lobuche",
+   "nuit": "hôtel, Lobuche (18 $, offerte par les Suisses)",
+   "carte": "2011-10-15.svg",
+   "profil": "2011-10-15-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Lobuche",
+     "role": "nuit",
+     "alt": 4910,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Thagnak",
+     "role": "depart",
+     "alt": 4700,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Cho La",
+     "role": "cite",
+     "alt": 5368,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dzongla",
+     "role": "cite",
+     "alt": 4830,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Cholatse",
+     "genre": "sommet",
+     "alt": 6423,
+     "osm": "n2526429858",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nirekha",
+     "genre": "sommet",
+     "alt": 6159,
+     "osm": "n9905248502",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lobuche West",
+     "genre": "sommet",
+     "alt": 6135,
+     "osm": "n2683857479",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Arakam Tse",
+     "genre": "sommet",
+     "alt": 5904,
+     "osm": "n10731513098",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Thok La Pass",
+     "genre": "col",
+     "alt": 4830,
+     "osm": "n477904804",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Thukla",
+     "genre": "hamlet",
+     "alt": 4600,
+     "osm": "n11847375107",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Fangla",
+     "genre": "isolated_dwelling",
+     "alt": 4457,
+     "osm": "n736951507",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 12.1,
+     "depuis": "Lobuche"
+    },
+    {
+     "nom": "Pumori",
+     "alt": 7138,
+     "osm": "n2677892533",
+     "distance_km": 7.7,
+     "depuis": "Lobuche"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4689,
+    "arrivee_m": 4925,
+    "point_haut_m": 5366,
+    "point_bas_m": 4682,
+    "km": 14.0
+   },
+   "trace": {
+    "km": 14.0,
+    "d_plus": 919,
+    "d_moins": 686,
+    "ligne_droite": true
+   },
+   "note": "Glacier et Cho La en ligne droite (pas de sentier connu)."
+  },
+  {
+   "date": "2011-10-16",
+   "chapitre": "everest",
+   "jour": "10",
+   "etapes": "Lobuche → Gorak Shep",
+   "nuit": "sous tente (vieille canadienne), Gorak Shep",
+   "carte": "2011-10-16.svg",
+   "profil": "2011-10-16-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Gorak Shep",
+     "role": "nuit",
+     "alt": 5175,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Lobuche",
+     "role": "depart",
+     "alt": 4910,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Lobuche West",
+     "genre": "sommet",
+     "alt": 6135,
+     "osm": "n2683857479",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Changri",
+     "genre": "sommet",
+     "alt": 6027,
+     "osm": "n9859521563",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kongma Tse",
+     "genre": "sommet",
+     "alt": 5849,
+     "osm": "n9727634315",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dzonglha",
+     "genre": "hamlet",
+     "alt": 4830,
+     "osm": "n1679219308",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 9.5,
+     "depuis": "Gorak Shep"
+    },
+    {
+     "nom": "Pumori",
+     "alt": 7138,
+     "osm": "n2677892533",
+     "distance_km": 3.9,
+     "depuis": "Gorak Shep"
+    },
+    {
+     "nom": "Baruntse",
+     "alt": 7152,
+     "osm": "n8228784800",
+     "distance_km": 18.7,
+     "depuis": "Lobuche"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4925,
+    "arrivee_m": 5164,
+    "point_haut_m": 5186,
+    "point_bas_m": 4921,
+    "km": 4.5
+   },
+   "trace": {
+    "km": 4.5,
+    "d_plus": 249,
+    "d_moins": 0,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-17",
+   "chapitre": "everest",
+   "jour": "11",
+   "etapes": "Gorak Shep → Kala Patthar (5550 / 5545) → Gorak Shep → Lobuche → Dingboche",
+   "nuit": "Dingboche (lodge (déduit))",
+   "carte": "2011-10-17.svg",
+   "profil": "2011-10-17-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Dingboche",
+     "role": "nuit",
+     "alt": 4410,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Gorak Shep",
+     "role": "depart",
+     "alt": 5175,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Kala Patthar",
+     "role": "cite",
+     "alt": 5545,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Lobuche",
+     "role": "cite",
+     "alt": 4910,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Nuptse I",
+     "genre": "sommet",
+     "alt": 7864,
+     "osm": "n3696097628",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nuptse Shar III",
+     "genre": "sommet",
+     "alt": 7686,
+     "osm": "n3696097627",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Taboche",
+     "genre": "sommet",
+     "alt": 6495,
+     "osm": "n2526437540",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Cholatse",
+     "genre": "sommet",
+     "alt": 6423,
+     "osm": "n2526429858",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nirekha",
+     "genre": "sommet",
+     "alt": 6159,
+     "osm": "n9905248502",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lobuche West",
+     "genre": "sommet",
+     "alt": 6135,
+     "osm": "n2683857479",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kangchung",
+     "genre": "sommet",
+     "alt": 6083,
+     "osm": "n9905248503",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Changri",
+     "genre": "sommet",
+     "alt": 6027,
+     "osm": "n9859521563",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shangri La",
+     "genre": "col",
+     "alt": 5750,
+     "osm": "n10731513198",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kangchung La",
+     "genre": "col",
+     "alt": 5610,
+     "osm": "n9905248504",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kongma La Pass",
+     "genre": "col",
+     "alt": 5535,
+     "osm": "n1679173380",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chukhung",
+     "genre": "village",
+     "alt": 4730,
+     "osm": "n704038463",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumbu Icefall",
+     "genre": "locality",
+     "alt": 5486,
+     "osm": "n4880806687",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dzonglha",
+     "genre": "hamlet",
+     "alt": 4830,
+     "osm": "n1679219308",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Thukla",
+     "genre": "hamlet",
+     "alt": 4600,
+     "osm": "n11847375107",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Pheriche",
+     "genre": "hamlet",
+     "alt": 4260,
+     "osm": "n1303891304",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Everest",
+     "alt": 8849,
+     "osm": "n164979149",
+     "distance_km": 9.5,
+     "depuis": "Gorak Shep"
+    },
+    {
+     "nom": "Makalu",
+     "alt": 8485,
+     "osm": "n565159946",
+     "distance_km": 25.3,
+     "depuis": "Dingboche"
+    },
+    {
+     "nom": "Cho Oyu",
+     "alt": 8201,
+     "osm": "n288180659",
+     "distance_km": 20.0,
+     "depuis": "Kala Patthar"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 5163,
+    "arrivee_m": 4332,
+    "point_haut_m": 5603,
+    "point_bas_m": 4332,
+    "km": 16.0
+   },
+   "trace": {
+    "km": 16.0,
+    "d_plus": 429,
+    "d_moins": 1254,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-18",
+   "chapitre": "everest",
+   "jour": "12",
+   "etapes": "Dingboche → Pangboche → Tengboche → Namche",
+   "nuit": "Namche (lodge (déduit))",
+   "carte": "2011-10-18.svg",
+   "profil": "2011-10-18-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Namche Bazaar",
+     "role": "nuit",
+     "alt": 3440,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dingboche",
+     "role": "depart",
+     "alt": 4410,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Pangboche",
+     "role": "cite",
+     "alt": 3930,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Tengboche",
+     "role": "cite",
+     "alt": 3867,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Taboche",
+     "genre": "sommet",
+     "alt": 6495,
+     "osm": "n2526437540",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kang Thari",
+     "genre": "sommet",
+     "alt": 6070,
+     "osm": "n8229137627",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumbila",
+     "genre": "sommet",
+     "alt": 5761,
+     "osm": "n10264795124",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Luri Peak",
+     "genre": "sommet",
+     "alt": 5207,
+     "osm": "n12165263100",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde Peak",
+     "genre": "sommet",
+     "alt": 4251,
+     "osm": "n11248015140",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mong La",
+     "genre": "col",
+     "alt": 3985,
+     "osm": "n428704317",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumjung La",
+     "genre": "col",
+     "alt": 3868,
+     "osm": "n703895035",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shomare",
+     "genre": "village",
+     "alt": 4060,
+     "osm": "n704038426",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khunde",
+     "genre": "village",
+     "alt": 3840,
+     "osm": "n425189494",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phortse",
+     "genre": "village",
+     "alt": 3800,
+     "osm": "n428553269",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumjung",
+     "genre": "village",
+     "alt": 3780,
+     "osm": "n425189495",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Syangboche",
+     "genre": "village",
+     "alt": 3750,
+     "osm": "n703895008",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Millingo",
+     "genre": "village",
+     "alt": 3746,
+     "osm": "n736963687",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Deboche",
+     "genre": "village",
+     "alt": 3745,
+     "osm": "n5858520230",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Macchermo",
+     "genre": "hamlet",
+     "alt": 4380,
+     "osm": "n11847275665",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thare",
+     "genre": "isolated_dwelling",
+     "alt": 4370,
+     "osm": "n704001672",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Luza",
+     "genre": "hamlet",
+     "alt": 4360,
+     "osm": "n425189336",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lhafarma",
+     "genre": "isolated_dwelling",
+     "alt": 4291,
+     "osm": "n425189333",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Pheriche",
+     "genre": "hamlet",
+     "alt": 4260,
+     "osm": "n1303891304",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Churo",
+     "genre": "hamlet",
+     "alt": 4180,
+     "osm": "n12161640448",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kohanar",
+     "genre": "isolated_dwelling",
+     "alt": 4060,
+     "osm": "n10858199191",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Makalu",
+     "alt": 8485,
+     "osm": "n565159946",
+     "distance_km": 25.3,
+     "depuis": "Dingboche"
+    },
+    {
+     "nom": "Thamserku",
+     "alt": 6623,
+     "osm": "n274028194",
+     "distance_km": 5.5,
+     "depuis": "Tengboche"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4337,
+    "arrivee_m": 3410,
+    "point_haut_m": 4337,
+    "point_bas_m": 3301,
+    "km": 20.2
+   },
+   "trace": {
+    "km": 20.2,
+    "d_plus": 483,
+    "d_moins": 1395,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-19",
+   "chapitre": "everest",
+   "jour": "13",
+   "etapes": "Namche → Lukla",
+   "nuit": "Lukla (lodge (déduit))",
+   "carte": "2011-10-19.svg",
+   "profil": "2011-10-19-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Lukla",
+     "role": "nuit",
+     "alt": 2850,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Namche Bazaar",
+     "role": "depart",
+     "alt": 3440,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Kangtega",
+     "genre": "sommet",
+     "alt": 6783,
+     "osm": "n9606342175",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kyashar",
+     "genre": "sommet",
+     "alt": 6769,
+     "osm": "n4239681885",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kusum Kangguru",
+     "genre": "sommet",
+     "alt": 6367,
+     "osm": "n274029669",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kongde Ri",
+     "genre": "sommet",
+     "alt": 6187,
+     "osm": "n274019561",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nupla",
+     "genre": "sommet",
+     "alt": 5878,
+     "osm": "n3213654206",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Gonggila",
+     "genre": "sommet",
+     "alt": 5674,
+     "osm": "n12182196125",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumjung La",
+     "genre": "col",
+     "alt": 3868,
+     "osm": "n703895035",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khumbu Pasang Lhamu",
+     "genre": "town",
+     "alt": 2640,
+     "osm": "n13152168049",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Syangboche",
+     "genre": "village",
+     "alt": 3750,
+     "osm": "n703895008",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Monjo",
+     "genre": "village",
+     "alt": 2835,
+     "osm": "n354740657",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Gumela",
+     "genre": "village",
+     "alt": 2760,
+     "osm": "n10858199193",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Thadokosi",
+     "genre": "village",
+     "alt": 2650,
+     "osm": "n354739766",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Benkar",
+     "genre": "village",
+     "alt": 2630,
+     "osm": "n354740557",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chhuthawa",
+     "genre": "village",
+     "alt": 2590,
+     "osm": "n703894847",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bom",
+     "genre": "hamlet",
+     "alt": 2860,
+     "osm": "n10858199198",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tate",
+     "genre": "hamlet",
+     "alt": 2840,
+     "osm": "n10858199197",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sano Gumela",
+     "genre": "hamlet",
+     "alt": 2720,
+     "osm": "n10858199194",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Syanjma",
+     "genre": "hamlet",
+     "alt": 2680,
+     "osm": "n10858199196",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Numberchuli",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "distance_km": 14.6,
+     "depuis": "Namche Bazaar"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3411,
+    "arrivee_m": 2854,
+    "point_haut_m": 3422,
+    "point_bas_m": 2544,
+    "km": 17.7
+   },
+   "trace": {
+    "km": 17.7,
+    "d_plus": 547,
+    "d_moins": 1110,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-20",
+   "chapitre": "everest",
+   "jour": "14",
+   "etapes": "Lukla ✈ Katmandou (décollage vers midi), Thamel → Freak Street",
+   "nuit": "Moon Stay Lodge, Freak Street (2 €)",
+   "carte": "2011-10-20.svg",
+   "profil": null,
+   "type": "situation",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Katmandou",
+     "role": "nuit",
+     "alt": 1400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Lukla",
+     "role": "depart",
+     "alt": 2850,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Cho Oyu",
+     "genre": "sommet",
+     "alt": 8201,
+     "osm": "n288180659",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nuptse I",
+     "genre": "sommet",
+     "alt": 7864,
+     "osm": "n3696097628",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Langtang Lirung",
+     "genre": "sommet",
+     "alt": 7227,
+     "osm": "n3426381138",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Melungtse I",
+     "genre": "sommet",
+     "alt": 7181,
+     "osm": "n2908665203",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Numberchuli",
+     "genre": "sommet",
+     "alt": 6959,
+     "osm": "n2906971419",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kangtega",
+     "genre": "sommet",
+     "alt": 6783,
+     "osm": "n9606342175",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shuguang",
+     "genre": "sommet",
+     "alt": 6573,
+     "osm": "n9381866600",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kyajori",
+     "genre": "sommet",
+     "alt": 6151,
+     "osm": "n442260822",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lho La",
+     "genre": "col",
+     "alt": 5981,
+     "osm": "n2681546081",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nup La",
+     "genre": "col",
+     "alt": 5844,
+     "osm": "n2681546435",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mingbo La",
+     "genre": "col",
+     "alt": 5817,
+     "osm": "n2885239977",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dhulikhel",
+     "genre": "city",
+     "alt": 1540,
+     "osm": "n1833834697",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Rongxar",
+     "genre": "town",
+     "alt": 3670,
+     "osm": "n13288931546",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dram",
+     "genre": "town",
+     "alt": 2330,
+     "osm": "n576007690",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jiri",
+     "genre": "town",
+     "alt": 1990,
+     "osm": "n6339947315",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhimeshwar",
+     "genre": "town",
+     "alt": 1960,
+     "osm": "n3383645104",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dakshinkali",
+     "genre": "town",
+     "alt": 1560,
+     "osm": "n2365554101",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Changunarayan",
+     "genre": "town",
+     "alt": 1450,
+     "osm": "n6652889772",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chautara Sangachok Gadhi",
+     "genre": "town",
+     "alt": 1400,
+     "osm": "n13249206592",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tarakeshwar",
+     "genre": "town",
+     "alt": 1340,
+     "osm": "n6646454833",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "note": "Vol, en ligne droite."
+  },
+  {
+   "date": "2011-10-21",
+   "chapitre": "dhaulagiri",
+   "jour": "—",
+   "etapes": "Katmandou : agence (Krishna), trekking shop",
+   "nuit": "(déduit) « l'hôtel », sans doute le Moon Stay",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-22",
+   "chapitre": "dhaulagiri",
+   "jour": "—",
+   "etapes": "Katmandou : vivres, hôtel Shanker, dîner à la Dolce Vita",
+   "nuit": "(déduit) même hôtel",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-10-23",
+   "chapitre": "dhaulagiri",
+   "jour": "—",
+   "etapes": "bus Katmandou (6 h 30) → Pokhara, arrivée « 1[5 h ?] »",
+   "nuit": "hôtel à Pokhara, chambre double à trois avec Elizabeth (nom ?)",
+   "carte": "2011-10-23.svg",
+   "profil": null,
+   "type": "situation",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Pokhara",
+     "role": "nuit",
+     "alt": 820,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Katmandou",
+     "role": "depart",
+     "alt": 1400,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Himachuli",
+     "genre": "sommet",
+     "alt": 7893,
+     "osm": "n1781744530",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Yangra",
+     "genre": "sommet",
+     "alt": 7422,
+     "osm": "n4085224089",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mardi Himal",
+     "genre": "sommet",
+     "alt": 5553,
+     "osm": "n5612192705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lari",
+     "genre": "sommet",
+     "alt": 4850,
+     "osm": "n8674322706",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phulchoki",
+     "genre": "sommet",
+     "alt": 2782,
+     "osm": "n3490869705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shivapuri Peak",
+     "genre": "sommet",
+     "alt": 2732,
+     "osm": "n2662582253",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Baadasur Hill Top",
+     "genre": "sommet",
+     "alt": 2538,
+     "osm": "n8572745423",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Liglig",
+     "genre": "sommet",
+     "alt": 1418,
+     "osm": "n2637460419",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Pangsang Pass",
+     "genre": "col",
+     "alt": 3863,
+     "osm": "n3691038658",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Ghorka Darbar Pass",
+     "genre": "col",
+     "alt": 1380,
+     "osm": "n1782406900",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Badh bhanjyang",
+     "genre": "col",
+     "alt": null,
+     "osm": "n360737017",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khairenitar",
+     "genre": "city",
+     "alt": 510,
+     "osm": "n11357643278",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bharatpur",
+     "genre": "city",
+     "alt": 220,
+     "osm": "n567090203",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Shankharapur",
+     "genre": "town",
+     "alt": 1380,
+     "osm": "n6646454832",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Nagarjun",
+     "genre": "town",
+     "alt": 1370,
+     "osm": "n6646454831",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Laxmi BaZaar",
+     "genre": "town",
+     "alt": 800,
+     "osm": "n8985637273",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Besisahar",
+     "genre": "town",
+     "alt": 760,
+     "osm": "n293621413",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nilakantha",
+     "genre": "town",
+     "alt": 630,
+     "osm": "n3387669747",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kotre",
+     "genre": "town",
+     "alt": 590,
+     "osm": "n11277494560",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Palungtar Bazar",
+     "genre": "town",
+     "alt": 570,
+     "osm": "n10269035814",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "note": "Trajet en bus non tracé : ligne droite indicative."
+  },
+  {
+   "date": "2011-10-24",
+   "chapitre": "dhaulagiri",
+   "jour": "0",
+   "etapes": "Pokhara (TIMS, ACAP) → gare routière « de Baglung » → bus de 13 h → Beni",
+   "nuit": "hôtel familial, Beni (250 Rps)",
+   "carte": "2011-10-24.svg",
+   "profil": null,
+   "type": "etape",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Beni",
+     "role": "nuit",
+     "alt": 830,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Pokhara",
+     "role": "depart",
+     "alt": 820,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Muldai",
+     "genre": "sommet",
+     "alt": 3637,
+     "osm": "n4813044043",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mohare Danda",
+     "genre": "sommet",
+     "alt": 3313,
+     "osm": "n6076327370",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Deurali Pass",
+     "genre": "col",
+     "alt": 3128,
+     "osm": "n3518264508",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nakako Bisauné",
+     "genre": "col",
+     "alt": 2765,
+     "osm": "n11482408084",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "3380",
+     "genre": "col",
+     "alt": null,
+     "osm": "n11492335580",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Baglung",
+     "genre": "town",
+     "alt": 940,
+     "osm": "n1043713484",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kusma",
+     "genre": "town",
+     "alt": 880,
+     "osm": "n3385063307",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Ghorepani",
+     "genre": "village",
+     "alt": 2880,
+     "osm": "n293843716",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tikot",
+     "genre": "village",
+     "alt": 2260,
+     "osm": "n4231442094",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhukatangle",
+     "genre": "village",
+     "alt": 2240,
+     "osm": "n6062597781",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Swanta",
+     "genre": "village",
+     "alt": 2230,
+     "osm": "n6145895481",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chhomrong",
+     "genre": "village",
+     "alt": 2160,
+     "osm": "n5858824233",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lespar",
+     "genre": "village",
+     "alt": 2100,
+     "osm": "n3512194055",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Panchase Bhanjyang",
+     "genre": "village",
+     "alt": 2070,
+     "osm": "n3476013200",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": []
+  },
+  {
+   "date": "2011-10-25",
+   "chapitre": "dhaulagiri",
+   "jour": "1",
+   "etapes": "Beni → bus → Tatopani (sources) → à pied à 11 h 30 → Babiyachaur → Darbang",
+   "nuit": "lodge, Darbang (200 Rp)",
+   "carte": "2011-10-25.svg",
+   "profil": "2011-10-25-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Darbang",
+     "role": "nuit",
+     "alt": 1110,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Beni",
+     "role": "depart",
+     "alt": 830,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Tatopani",
+     "role": "cite",
+     "alt": 1100,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Babiyachaur",
+     "role": "cite",
+     "alt": 1000,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Malka Pahad",
+     "genre": "sommet",
+     "alt": 3169,
+     "osm": "n3661955886",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Galeshwar",
+     "genre": "village",
+     "alt": 890,
+     "osm": "n5669697138",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bairagi Tol",
+     "genre": "village",
+     "alt": 860,
+     "osm": "n5669695704",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jhin",
+     "genre": "hamlet",
+     "alt": 1750,
+     "osm": "n3480341497",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 852,
+    "arrivee_m": 1099,
+    "point_haut_m": 1449,
+    "point_bas_m": 846,
+    "km": 24.3
+   },
+   "trace": {
+    "km": 24.3,
+    "d_plus": 960,
+    "d_moins": 773,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-26",
+   "chapitre": "dhaulagiri",
+   "jour": "2",
+   "etapes": "Darbang (départ vers 10 h 30, après la nuit malade) → Dharapani (midi) → Muri (17 h)",
+   "nuit": "chez l'habitant, Muri (700 Rps)",
+   "carte": "2011-10-26.svg",
+   "profil": "2011-10-26-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Muri",
+     "role": "nuit",
+     "alt": 1850,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Darbang",
+     "role": "depart",
+     "alt": 1110,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dharapani",
+     "role": "cite",
+     "alt": 1470,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Jugja Pahad",
+     "genre": "sommet",
+     "alt": 3721,
+     "osm": "n3921968383",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Malka Pahad",
+     "genre": "sommet",
+     "alt": 3169,
+     "osm": "n3661955886",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phaliyagaon",
+     "genre": "town",
+     "alt": 2080,
+     "osm": "n3495459827",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Khaban",
+     "genre": "village",
+     "alt": 2380,
+     "osm": "n5669671049",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dar",
+     "genre": "village",
+     "alt": 1900,
+     "osm": "n3495459824",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sibang",
+     "genre": "village",
+     "alt": 1780,
+     "osm": "n3495459828",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 24.7,
+     "depuis": "Muri"
+    },
+    {
+     "nom": "Gurja",
+     "alt": 7193,
+     "osm": "n3667795248",
+     "distance_km": 18.9,
+     "depuis": "Muri"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 1099,
+    "arrivee_m": 1866,
+    "point_haut_m": 1912,
+    "point_bas_m": 1077,
+    "km": 20.6
+   },
+   "trace": {
+    "km": 20.6,
+    "d_plus": 1438,
+    "d_moins": 660,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-27",
+   "chapitre": "dhaulagiri",
+   "jour": "3",
+   "etapes": "Muri (6 h 30) → Boghara (11 h 17)",
+   "nuit": "grenier, chez l'habitant, Boghara",
+   "carte": "2011-10-27.svg",
+   "profil": "2011-10-27-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Boghara",
+     "role": "nuit",
+     "alt": 2080,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Muri",
+     "role": "depart",
+     "alt": 1850,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Barun Dhuri",
+     "genre": "sommet",
+     "alt": 3273,
+     "osm": "n5612193349",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Naura",
+     "genre": "village",
+     "alt": 1560,
+     "osm": "n3495459826",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 18.4,
+     "depuis": "Boghara"
+    },
+    {
+     "nom": "Dhaulagiri IV",
+     "alt": 7661,
+     "osm": "n3667795253",
+     "distance_km": 20.3,
+     "depuis": "Boghara"
+    },
+    {
+     "nom": "Nilgiri South",
+     "alt": 6839,
+     "osm": "n727458457",
+     "distance_km": 35.6,
+     "depuis": "Boghara"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 1866,
+    "arrivee_m": 2005,
+    "point_haut_m": 2099,
+    "point_bas_m": 1433,
+    "km": 10.1
+   },
+   "trace": {
+    "km": 10.1,
+    "d_plus": 794,
+    "d_moins": 641,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-28",
+   "chapitre": "dhaulagiri",
+   "jour": "4",
+   "etapes": "Boghara → Dobang (10 h 40, repartis à 11 h 45) → Choriban",
+   "nuit": "cabane, Choriban",
+   "carte": "2011-10-28.svg",
+   "profil": "2011-10-28-profil.svg",
+   "type": "etape",
+   "courbes_m": 500,
+   "lieux": [
+    {
+     "nom": "Choriban (cabane)",
+     "role": "nuit",
+     "alt": 3400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Boghara",
+     "role": "depart",
+     "alt": 2080,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dobang",
+     "role": "cite",
+     "alt": 2520,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Sallaghari",
+     "role": "cite",
+     "alt": 3100,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Dhaulagiri",
+     "genre": "sommet",
+     "alt": 8167,
+     "osm": "n530579647",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Konabon Peak",
+     "genre": "sommet",
+     "alt": 6570,
+     "osm": "n3667795245",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tsaurabong Peak",
+     "genre": "sommet",
+     "alt": 6395,
+     "osm": "n3544783599",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Manapathi East",
+     "genre": "sommet",
+     "alt": 6384,
+     "osm": "n3669384735",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Jirbang",
+     "genre": "sommet",
+     "alt": 6062,
+     "osm": "n3669384729",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Malbas",
+     "genre": "sommet",
+     "alt": 4625,
+     "osm": "n5612192706",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Gurja",
+     "alt": 7193,
+     "osm": "n3667795248",
+     "distance_km": 12.5,
+     "depuis": "Dobang"
+    },
+    {
+     "nom": "Baraha Shikhar (Annapurna Fang Peak)",
+     "alt": 7647,
+     "osm": "n2883814653",
+     "distance_km": 38.0,
+     "depuis": "Choriban (cabane)"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2018,
+    "arrivee_m": 3481,
+    "point_haut_m": 3481,
+    "point_bas_m": 1855,
+    "km": 16.4
+   },
+   "trace": {
+    "km": 16.4,
+    "d_plus": 1648,
+    "d_moins": 189,
+    "ligne_droite": true
+   },
+   "note": "Choriban placé à la main ; une partie du tracé en ligne droite."
+  },
+  {
+   "date": "2011-10-29",
+   "chapitre": "dhaulagiri",
+   "jour": "5",
+   "etapes": "Choriban → camp de base des Italiens (11 h 45)",
+   "nuit": "sous tente (leur tente, 1ʳᵉ fois), camp des Italiens",
+   "carte": "2011-10-29.svg",
+   "profil": "2011-10-29-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Camp des Italiens",
+     "role": "nuit",
+     "alt": 3700,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Choriban (cabane)",
+     "role": "depart",
+     "alt": 3400,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Sallaghari",
+     "genre": "isolated_dwelling",
+     "alt": 3160,
+     "osm": "n13960437176",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 5.1,
+     "depuis": "Camp des Italiens"
+    },
+    {
+     "nom": "Dhaulagiri II",
+     "alt": 7751,
+     "osm": "n3667795258",
+     "distance_km": 9.3,
+     "depuis": "Camp des Italiens"
+    },
+    {
+     "nom": "Dhaulagiri IV",
+     "alt": 7661,
+     "osm": "n3667795253",
+     "distance_km": 12.7,
+     "depuis": "Choriban (cabane)"
+    },
+    {
+     "nom": "Mukut Himal",
+     "alt": 6639,
+     "osm": "n3667795260",
+     "distance_km": 10.0,
+     "depuis": "Camp des Italiens"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3478,
+    "arrivee_m": 3597,
+    "point_haut_m": 3597,
+    "point_bas_m": 3478,
+    "km": 1.3
+   },
+   "trace": {
+    "km": 1.3,
+    "d_plus": 101,
+    "d_moins": 0,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-30",
+   "chapitre": "dhaulagiri",
+   "jour": "6",
+   "etapes": "camp des Italiens → Japanese Camp / Glacier Camp",
+   "nuit": "sous tente, Glacier Camp",
+   "carte": "2011-10-30.svg",
+   "profil": "2011-10-30-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Glacier Camp",
+     "role": "nuit",
+     "alt": 4100,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Camp des Italiens",
+     "role": "depart",
+     "alt": 3700,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Dhaulagiri",
+     "genre": "sommet",
+     "alt": 8167,
+     "osm": "n530579647",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri II",
+     "alt": 7751,
+     "osm": "n3667795258",
+     "distance_km": 6.9,
+     "depuis": "Glacier Camp"
+    },
+    {
+     "nom": "Dhaulagiri VI",
+     "alt": 7268,
+     "osm": "n3667795249",
+     "distance_km": 16.1,
+     "depuis": "Camp des Italiens"
+    },
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 38.8,
+     "depuis": "Camp des Italiens"
+    },
+    {
+     "nom": "Tukuche Peak",
+     "alt": 6920,
+     "osm": "n727451270",
+     "distance_km": 10.2,
+     "depuis": "Glacier Camp"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3597,
+    "arrivee_m": 4182,
+    "point_haut_m": 4182,
+    "point_bas_m": 3589,
+    "km": 6.9
+   },
+   "trace": {
+    "km": 6.9,
+    "d_plus": 624,
+    "d_moins": 48,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-10-31",
+   "chapitre": "dhaulagiri",
+   "jour": "7",
+   "etapes": "Glacier Camp (6 h 45) → camp de base du Dhaulagiri (9 h 45)",
+   "nuit": "sous tente, camp de base",
+   "carte": "2011-10-31.svg",
+   "profil": "2011-10-31-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Camp de base du Dhaulagiri",
+     "role": "nuit",
+     "alt": 4750,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Glacier Camp",
+     "role": "depart",
+     "alt": 4100,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 5.6,
+     "depuis": "Camp de base du Dhaulagiri"
+    },
+    {
+     "nom": "Dhaulagiri II",
+     "alt": 7751,
+     "osm": "n3667795258",
+     "distance_km": 6.9,
+     "depuis": "Glacier Camp"
+    },
+    {
+     "nom": "Mukut Himal",
+     "alt": 6639,
+     "osm": "n3667795260",
+     "distance_km": 4.5,
+     "depuis": "Glacier Camp"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4182,
+    "arrivee_m": 4661,
+    "point_haut_m": 4661,
+    "point_bas_m": 4182,
+    "km": 5.2
+   },
+   "trace": {
+    "km": 5.2,
+    "d_plus": 477,
+    "d_moins": 0,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-01",
+   "chapitre": "dhaulagiri",
+   "jour": "8",
+   "etapes": "camp de base (4 h 30) → French Pass (5360 / 5360) → Hidden Valley",
+   "nuit": "sous tente, Hidden Valley",
+   "carte": "2011-11-01.svg",
+   "profil": "2011-11-01-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Hidden Valley",
+     "role": "nuit",
+     "alt": 5100,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Camp de base du Dhaulagiri",
+     "role": "depart",
+     "alt": 4750,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "French Pass",
+     "role": "cite",
+     "alt": 5360,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Tukuche Peak",
+     "genre": "sommet",
+     "alt": 6920,
+     "osm": "n727451270",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Sita Chuchura",
+     "genre": "sommet",
+     "alt": 6611,
+     "osm": "n5612192693",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri II",
+     "alt": 7751,
+     "osm": "n3667795258",
+     "distance_km": 11.1,
+     "depuis": "Camp de base du Dhaulagiri"
+    },
+    {
+     "nom": "Hongde",
+     "alt": 6556,
+     "osm": "n5421313853",
+     "distance_km": 7.5,
+     "depuis": "Hidden Valley"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 4661,
+    "arrivee_m": 5090,
+    "point_haut_m": 5358,
+    "point_bas_m": 4661,
+    "km": 8.8
+   },
+   "trace": {
+    "km": 8.8,
+    "d_plus": 691,
+    "d_moins": 249,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-02",
+   "chapitre": "dhaulagiri",
+   "jour": "9",
+   "etapes": "Hidden Valley (7 h 30) → Dhampus Pass (5240 / 5240) → Yak Kharka (midi) → Marpha (15 h)",
+   "nuit": "lodge, Marpha",
+   "carte": "2011-11-02.svg",
+   "profil": "2011-11-02-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Marpha",
+     "role": "nuit",
+     "alt": 2670,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Hidden Valley",
+     "role": "depart",
+     "alt": 5100,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dhampus Pass",
+     "role": "cite",
+     "alt": 5240,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Yak Kharka",
+     "role": "cite",
+     "alt": 3680,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Tukuche Peak",
+     "genre": "sommet",
+     "alt": 6920,
+     "osm": "n727451270",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Sechi Lek",
+     "genre": "sommet",
+     "alt": 5981,
+     "osm": "n3589375511",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Alu Bari",
+     "genre": "hamlet",
+     "alt": 3810,
+     "osm": "n3495459821",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dhonga",
+     "genre": "hamlet",
+     "alt": 2660,
+     "osm": "n5669668350",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chhairo",
+     "genre": "hamlet",
+     "alt": 2650,
+     "osm": "n1280031043",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Sita Chuchura",
+     "alt": 6611,
+     "osm": "n5612192693",
+     "distance_km": 7.0,
+     "depuis": "Hidden Valley"
+    },
+    {
+     "nom": "Purpung Himal",
+     "alt": 6500,
+     "osm": "n3578202969",
+     "distance_km": 32.7,
+     "depuis": "Marpha"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 5091,
+    "arrivee_m": 2697,
+    "point_haut_m": 5272,
+    "point_bas_m": 2691,
+    "km": 18.3
+   },
+   "trace": {
+    "km": 18.3,
+    "d_plus": 203,
+    "d_moins": 2596,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-03",
+   "chapitre": "annapurna",
+   "jour": "10",
+   "etapes": "Marpha (vers 10 h 30) → Kalopani",
+   "nuit": "hôtel, Kalopani (100 Rps)",
+   "carte": "2011-11-03.svg",
+   "profil": "2011-11-03-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Kalopani",
+     "role": "nuit",
+     "alt": 2530,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Marpha",
+     "role": "depart",
+     "alt": 2670,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Nilgiri Central",
+     "genre": "sommet",
+     "alt": 6940,
+     "osm": "n2642085747",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tukuche Peak",
+     "genre": "sommet",
+     "alt": 6920,
+     "osm": "n727451270",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nilgiri South",
+     "genre": "sommet",
+     "alt": 6839,
+     "osm": "n727458457",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chimrang",
+     "genre": "village",
+     "alt": 2750,
+     "osm": "n5669668354",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Naurikot",
+     "genre": "village",
+     "alt": 2730,
+     "osm": "n5495352673",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Titi Tal",
+     "genre": "village",
+     "alt": 2700,
+     "osm": "n3299493576",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tukuche",
+     "genre": "village",
+     "alt": 2590,
+     "osm": "n5669668358",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kobang",
+     "genre": "village",
+     "alt": 2570,
+     "osm": "n5669668365",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Lete",
+     "genre": "village",
+     "alt": 2510,
+     "osm": "n5669668338",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Yak Kharka",
+     "genre": "locality",
+     "alt": 4170,
+     "osm": "n14077481158",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dhonga",
+     "genre": "hamlet",
+     "alt": 2660,
+     "osm": "n5669668350",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chhairo",
+     "genre": "hamlet",
+     "alt": 2650,
+     "osm": "n1280031043",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chokhopani",
+     "genre": "hamlet",
+     "alt": 2620,
+     "osm": "n13112443373",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sirkung",
+     "genre": "hamlet",
+     "alt": 2540,
+     "osm": "n13103249768",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kokhethanti",
+     "genre": "hamlet",
+     "alt": 2540,
+     "osm": "n5669668328",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dhampu",
+     "genre": "hamlet",
+     "alt": 2510,
+     "osm": "n3635813095",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 12.2,
+     "depuis": "Kalopani"
+    },
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 21.7,
+     "depuis": "Marpha"
+    },
+    {
+     "nom": "Hongde",
+     "alt": 6556,
+     "osm": "n5421313853",
+     "distance_km": 21.1,
+     "depuis": "Marpha"
+    },
+    {
+     "nom": "Chulu",
+     "alt": 6584,
+     "osm": "n727448632",
+     "distance_km": 34.1,
+     "depuis": "Marpha"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2697,
+    "arrivee_m": 2526,
+    "point_haut_m": 2697,
+    "point_bas_m": 2496,
+    "km": 19.0
+   },
+   "trace": {
+    "km": 19.0,
+    "d_plus": 87,
+    "d_moins": 256,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-04",
+   "chapitre": "annapurna",
+   "jour": "11",
+   "etapes": "Kalopani (levés 7 h ; ils pensent remettre l'étape au lendemain et se rendorment, puis partent quand même) → [Ghasa] → Tatopani",
+   "nuit": "chambre, Tatopani",
+   "carte": "2011-11-04.svg",
+   "profil": "2011-11-04-profil.svg",
+   "type": "etape",
+   "courbes_m": 500,
+   "lieux": [
+    {
+     "nom": "Tatopani",
+     "role": "nuit",
+     "alt": 1190,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Kalopani",
+     "role": "depart",
+     "alt": 2530,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Ghasa",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM n5669668346"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Nilgiri South",
+     "genre": "sommet",
+     "alt": 6839,
+     "osm": "n727458457",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Sarpang Dhuri",
+     "genre": "sommet",
+     "alt": 5007,
+     "osm": "n3541334392",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Thulobugun Pass",
+     "genre": "col",
+     "alt": 4310,
+     "osm": "n5612192638",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Titi Tal",
+     "genre": "village",
+     "alt": 2700,
+     "osm": "n3299493576",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Lete",
+     "genre": "village",
+     "alt": 2510,
+     "osm": "n5669668338",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jhipra Deurali",
+     "genre": "village",
+     "alt": 2480,
+     "osm": "n6027230787",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jagarghari",
+     "genre": "village",
+     "alt": 2360,
+     "osm": "n14114373119",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Malarani",
+     "genre": "village",
+     "alt": 2180,
+     "osm": "n14114373118",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Narchyang",
+     "genre": "village",
+     "alt": 2030,
+     "osm": "n3480341499",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhalebas",
+     "genre": "village",
+     "alt": 1710,
+     "osm": "n5495351616",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhurung",
+     "genre": "village",
+     "alt": 1680,
+     "osm": "n14206241741",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dovilla",
+     "genre": "village",
+     "alt": 1610,
+     "osm": "n14114373120",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Baskot",
+     "genre": "village",
+     "alt": 1510,
+     "osm": "n14114373121",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Ligma",
+     "genre": "village",
+     "alt": 1490,
+     "osm": "n5669668403",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tallo Narchyang",
+     "genre": "village",
+     "alt": 1390,
+     "osm": "n3642902850",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dhampu",
+     "genre": "hamlet",
+     "alt": 2510,
+     "osm": "n3635813095",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chhoyo",
+     "genre": "hamlet",
+     "alt": 2410,
+     "osm": "n3301793894",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 12.2,
+     "depuis": "Kalopani"
+    },
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 17.3,
+     "depuis": "Ghasa"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2526,
+    "arrivee_m": 1237,
+    "point_haut_m": 2530,
+    "point_bas_m": 1237,
+    "km": 23.9
+   },
+   "trace": {
+    "km": 23.9,
+    "d_plus": 230,
+    "d_moins": 1511,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-05",
+   "chapitre": "annapurna",
+   "jour": "12",
+   "etapes": "Tatopani → [Sikha] → Ghorepani",
+   "nuit": "lodge, Ghorepani (100 Rps)",
+   "carte": "2011-11-05.svg",
+   "profil": "2011-11-05-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Ghorepani",
+     "role": "nuit",
+     "alt": 2860,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Tatopani",
+     "role": "depart",
+     "alt": 1190,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Sikha",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM n293843713"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Muldai",
+     "genre": "sommet",
+     "alt": 3637,
+     "osm": "n4813044043",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Poon Hill",
+     "genre": "sommet",
+     "alt": 3210,
+     "osm": "n316997699",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Deurali Pass",
+     "genre": "col",
+     "alt": 3128,
+     "osm": "n3518264508",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nakako Bisauné",
+     "genre": "col",
+     "alt": 2765,
+     "osm": "n11482408084",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "3425",
+     "genre": "col",
+     "alt": null,
+     "osm": "n11492335533",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chitre",
+     "genre": "village",
+     "alt": 2410,
+     "osm": "n293843715",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tikot",
+     "genre": "village",
+     "alt": 2270,
+     "osm": "n4231442094",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Swanta",
+     "genre": "village",
+     "alt": 2230,
+     "osm": "n6145895481",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Phalate",
+     "genre": "village",
+     "alt": 2230,
+     "osm": "n293843714",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gharamdi",
+     "genre": "village",
+     "alt": 2090,
+     "osm": "n4234195224",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Khibang",
+     "genre": "village",
+     "alt": 2060,
+     "osm": "n3544751996",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Paudwar",
+     "genre": "village",
+     "alt": 2020,
+     "osm": "n9199881395",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Pairegaun",
+     "genre": "village",
+     "alt": 1820,
+     "osm": "n4234184835",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Ghara",
+     "genre": "village",
+     "alt": 1780,
+     "osm": "n293843712",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhurung",
+     "genre": "village",
+     "alt": 1680,
+     "osm": "n14206241741",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Birauta",
+     "genre": "village",
+     "alt": 1540,
+     "osm": "n293843711",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Pokharebagar",
+     "genre": "village",
+     "alt": 1220,
+     "osm": "n9199923066",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bashari",
+     "genre": "village",
+     "alt": 980,
+     "osm": "n5669671120",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Khopra Danda 3600m",
+     "genre": "hamlet",
+     "alt": 3660,
+     "osm": "n4855960324",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 19.6,
+     "depuis": "Tatopani"
+    },
+    {
+     "nom": "Dhaulagiri",
+     "alt": 8167,
+     "osm": "n530579647",
+     "distance_km": 27.5,
+     "depuis": "Tatopani"
+    },
+    {
+     "nom": "Machapuchare",
+     "alt": 6993,
+     "osm": "n727108156",
+     "distance_km": 26.3,
+     "depuis": "Ghorepani"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 1240,
+    "arrivee_m": 2880,
+    "point_haut_m": 2880,
+    "point_bas_m": 1208,
+    "km": 15.0
+   },
+   "trace": {
+    "km": 15.0,
+    "d_plus": 1673,
+    "d_moins": 53,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-06",
+   "chapitre": "annapurna",
+   "jour": "13",
+   "etapes": "Ghorepani (8 h 30) → montée 1 h → Tadapani",
+   "nuit": "chambre sommaire, lodge, Tadapani",
+   "carte": "2011-11-06.svg",
+   "profil": "2011-11-06-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Tadapani",
+     "role": "nuit",
+     "alt": 2630,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Ghorepani",
+     "role": "depart",
+     "alt": 2860,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Deurali (col)",
+     "role": "cite",
+     "alt": 3090,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Ban Thanti",
+     "role": "cite",
+     "alt": 2650,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Muldai",
+     "genre": "sommet",
+     "alt": 3637,
+     "osm": "n4813044043",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Poon Hill",
+     "genre": "sommet",
+     "alt": 3210,
+     "osm": "n316997699",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chitre",
+     "genre": "village",
+     "alt": 2410,
+     "osm": "n293843715",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dobato",
+     "genre": "hamlet",
+     "alt": 3450,
+     "osm": "n4818308378",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Isharu",
+     "genre": "hamlet",
+     "alt": 3200,
+     "osm": "n4818308377",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Meshar",
+     "genre": "isolated_dwelling",
+     "alt": 2990,
+     "osm": "n4818308374",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chuile",
+     "genre": "hamlet",
+     "alt": 2180,
+     "osm": "n293844554",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Nangethanti",
+     "genre": "hamlet",
+     "alt": 1035,
+     "osm": "n973821286",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 22.8,
+     "depuis": "Tadapani"
+    },
+    {
+     "nom": "Machapuchare",
+     "alt": 6993,
+     "osm": "n727108156",
+     "distance_km": 21.0,
+     "depuis": "Tadapani"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2879,
+    "arrivee_m": 2692,
+    "point_haut_m": 3199,
+    "point_bas_m": 2541,
+    "km": 9.2
+   },
+   "trace": {
+    "km": 9.2,
+    "d_plus": 623,
+    "d_moins": 797,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-07",
+   "chapitre": "annapurna",
+   "jour": "14",
+   "etapes": "Tadapani → Chhomrong (déjeuner) → Sinuwa haut",
+   "nuit": "lodge, Sinuwa haut (100 Rps)",
+   "carte": "2011-11-07.svg",
+   "profil": "2011-11-07-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Sinuwa",
+     "role": "nuit",
+     "alt": 2360,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Tadapani",
+     "role": "depart",
+     "alt": 2630,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Chhomrong",
+     "role": "cite",
+     "alt": 2170,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Tiribhu",
+     "genre": "hamlet",
+     "alt": 3430,
+     "osm": "n7265655432",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Naichha",
+     "genre": "hamlet",
+     "alt": 3270,
+     "osm": "n7265655463",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gurung Hill",
+     "genre": "locality",
+     "alt": 2620,
+     "osm": "n1269359647",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhaisi Kharka",
+     "genre": "hamlet",
+     "alt": 2530,
+     "osm": "n987556993",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Melache",
+     "genre": "hamlet",
+     "alt": 2230,
+     "osm": "n1747827222",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Komrong Danda (2220)",
+     "genre": "hamlet",
+     "alt": 2220,
+     "osm": "n1747827110",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Uri",
+     "genre": "hamlet",
+     "alt": 2200,
+     "osm": "n1747827104",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chuile",
+     "genre": "hamlet",
+     "alt": 2180,
+     "osm": "n293844554",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Taulung",
+     "genre": "hamlet",
+     "alt": 2140,
+     "osm": "n1382859050",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhanuwa (Lower Sinuwa)",
+     "genre": "hamlet",
+     "alt": 2060,
+     "osm": "n3424902285",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gurjung",
+     "genre": "hamlet",
+     "alt": 2030,
+     "osm": "n1382955650",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kimrong Kohla (1715)",
+     "genre": "hamlet",
+     "alt": 1800,
+     "osm": "n2291204206",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jhinu Danda",
+     "genre": "hamlet",
+     "alt": 1720,
+     "osm": "n293722563",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Motkyu",
+     "genre": "hamlet",
+     "alt": 1670,
+     "osm": "n12284613821",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 17.9,
+     "depuis": "Sinuwa"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2692,
+    "arrivee_m": 2354,
+    "point_haut_m": 2692,
+    "point_bas_m": 1858,
+    "km": 12.8
+   },
+   "trace": {
+    "km": 12.8,
+    "d_plus": 916,
+    "d_moins": 1254,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-08",
+   "chapitre": "annapurna",
+   "jour": "15",
+   "etapes": "Sinuwa → Deurali → camp de base du Machapuchare (MBC), début d'après-midi",
+   "nuit": "sous une tente louée à un lodge, MBC",
+   "carte": "2011-11-08.svg",
+   "profil": "2011-11-08-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "MBC",
+     "role": "nuit",
+     "alt": 3700,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Sinuwa",
+     "role": "depart",
+     "alt": 2360,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Deurali",
+     "role": "cite",
+     "alt": 3230,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Annapurna South",
+     "genre": "sommet",
+     "alt": 7219,
+     "osm": "n727090665",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Machapuchare",
+     "genre": "sommet",
+     "alt": 6993,
+     "osm": "n727108156",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Hiunchuli",
+     "genre": "sommet",
+     "alt": 6441,
+     "osm": "n727097756",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mardi Himal",
+     "genre": "sommet",
+     "alt": 5553,
+     "osm": "n5612192705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tiribhu",
+     "genre": "hamlet",
+     "alt": 3430,
+     "osm": "n7265655432",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Himalaya",
+     "genre": "hamlet",
+     "alt": 2850,
+     "osm": "n293725459",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kuldhigar",
+     "genre": "locality",
+     "alt": 2570,
+     "osm": "n1747936259",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Upper Doban",
+     "genre": "hamlet",
+     "alt": 2550,
+     "osm": "n6966300011",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bamboo",
+     "genre": "hamlet",
+     "alt": 2310,
+     "osm": "n293722511",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 11.2,
+     "depuis": "MBC"
+    },
+    {
+     "nom": "Gangapurna",
+     "alt": 7455,
+     "osm": "n2935182022",
+     "distance_km": 11.8,
+     "depuis": "MBC"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2352,
+    "arrivee_m": 3863,
+    "point_haut_m": 3863,
+    "point_bas_m": 2306,
+    "km": 15.1
+   },
+   "trace": {
+    "km": 15.1,
+    "d_plus": 1745,
+    "d_moins": 248,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-09",
+   "chapitre": "annapurna",
+   "jour": "16",
+   "etapes": "MBC → ABC (lever du soleil) → MBC → Himalaya (déjeuner, 11 h) → Sinuwa",
+   "nuit": "même lodge, même chambre, Sinuwa haut",
+   "carte": "2011-11-09.svg",
+   "profil": "2011-11-09-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Sinuwa",
+     "role": "nuit",
+     "alt": 2360,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "MBC",
+     "role": "depart",
+     "alt": 3700,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "ABC (camp de base de l'Annapurna)",
+     "role": "cite",
+     "alt": 4130,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Deurali",
+     "role": "cite",
+     "alt": 3230,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Himalaya",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM n293725459"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Annapurna South",
+     "genre": "sommet",
+     "alt": 7219,
+     "osm": "n727090665",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Machapuchare",
+     "genre": "sommet",
+     "alt": 6993,
+     "osm": "n727108156",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Hiunchuli",
+     "genre": "sommet",
+     "alt": 6441,
+     "osm": "n727097756",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mardi Himal",
+     "genre": "sommet",
+     "alt": 5553,
+     "osm": "n5612192705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chhomrong",
+     "genre": "village",
+     "alt": 2160,
+     "osm": "n5858824233",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tiribhu",
+     "genre": "hamlet",
+     "alt": 3430,
+     "osm": "n7265655432",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kuldhigar",
+     "genre": "locality",
+     "alt": 2570,
+     "osm": "n1747936259",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Upper Doban",
+     "genre": "hamlet",
+     "alt": 2550,
+     "osm": "n6966300011",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bamboo",
+     "genre": "hamlet",
+     "alt": 2310,
+     "osm": "n293722511",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 9.2,
+     "depuis": "ABC (camp de base de l'Annapurna)"
+    },
+    {
+     "nom": "Gangapurna",
+     "alt": 7455,
+     "osm": "n2935182022",
+     "distance_km": 11.8,
+     "depuis": "MBC"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 3863,
+    "arrivee_m": 2352,
+    "point_haut_m": 4107,
+    "point_bas_m": 2306,
+    "km": 19.3
+   },
+   "trace": {
+    "km": 19.3,
+    "d_plus": 476,
+    "d_moins": 1982,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-10",
+   "chapitre": "annapurna",
+   "jour": "17",
+   "etapes": "Sinuwa → Sinuwa bas → [Chhomrong] → Jhinu (sources) → déjeuner au bord de la rivière → Landruk",
+   "nuit": "lodge, Landruk",
+   "carte": "2011-11-10.svg",
+   "profil": "2011-11-10-profil.svg",
+   "type": "etape",
+   "courbes_m": 200,
+   "lieux": [
+    {
+     "nom": "Landruk",
+     "role": "nuit",
+     "alt": 1565,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Sinuwa",
+     "role": "depart",
+     "alt": 2360,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Chhomrong",
+     "role": "cite",
+     "alt": 2170,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Jhinu",
+     "role": "cite",
+     "alt": 1780,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "New Bridge",
+     "role": "cite",
+     "alt": 1480,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Sinuwa bas",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM n3424902285"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Ghandruk",
+     "genre": "village",
+     "alt": 2050,
+     "osm": "n388572114",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Purano Ghandruk",
+     "genre": "village",
+     "alt": 2020,
+     "osm": "n6991555219",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "High Camp",
+     "genre": "hamlet",
+     "alt": 3540,
+     "osm": "n1747989125",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Tiribhu",
+     "genre": "hamlet",
+     "alt": 3430,
+     "osm": "n7265655432",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Low High Camp",
+     "genre": "isolated_dwelling",
+     "alt": 3350,
+     "osm": "n6016984785",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Naichha",
+     "genre": "hamlet",
+     "alt": 3270,
+     "osm": "n7265655463",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Mid Camp",
+     "genre": "isolated_dwelling",
+     "alt": 3210,
+     "osm": "n6016984784",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Low Camp",
+     "genre": "hamlet",
+     "alt": 2970,
+     "osm": "n1679345112",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kamkiku",
+     "genre": "isolated_dwelling",
+     "alt": 2780,
+     "osm": "n10775344007",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gurung Hill",
+     "genre": "locality",
+     "alt": 2620,
+     "osm": "n1269359647",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Rest Camp",
+     "genre": "isolated_dwelling",
+     "alt": 2600,
+     "osm": "n1747928540",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Bhaisi Kharka",
+     "genre": "hamlet",
+     "alt": 2530,
+     "osm": "n987556993",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Forest Camp",
+     "genre": "isolated_dwelling",
+     "alt": 2440,
+     "osm": "n1747929780",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Melache",
+     "genre": "hamlet",
+     "alt": 2230,
+     "osm": "n1747827222",
+     "alt_source": "OSM"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 17.9,
+     "depuis": "Sinuwa"
+    },
+    {
+     "nom": "Annapurna II",
+     "alt": 7937,
+     "osm": "n3588473785",
+     "distance_km": 29.8,
+     "depuis": "Sinuwa"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 2352,
+    "arrivee_m": 1640,
+    "point_haut_m": 2352,
+    "point_bas_m": 1318,
+    "km": 11.6
+   },
+   "trace": {
+    "km": 11.6,
+    "d_plus": 680,
+    "d_moins": 1406,
+    "ligne_droite": true
+   },
+   "note": "Chhomrong → Jhinu en ligne droite."
+  },
+  {
+   "date": "2011-11-11",
+   "chapitre": "annapurna",
+   "jour": "18",
+   "etapes": "Landruk → Dhampus → raccourci → Phedi → bus → 2ᵉ bus → Lakeside",
+   "nuit": "chambre à 200 Rps (3 lits), Pokhara",
+   "carte": "2011-11-11.svg",
+   "profil": "2011-11-11-profil.svg",
+   "type": "etape",
+   "courbes_m": 500,
+   "lieux": [
+    {
+     "nom": "Pokhara",
+     "role": "nuit",
+     "alt": 820,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Landruk",
+     "role": "depart",
+     "alt": 1565,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Dhampus",
+     "role": "cite",
+     "alt": 1650,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Phedi",
+     "role": "cite",
+     "alt": 1130,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Panchase Bhanjyang",
+     "genre": "village",
+     "alt": 2070,
+     "osm": "n3476013200",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Ghandruk",
+     "genre": "village",
+     "alt": 2050,
+     "osm": "n388572114",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Taliban",
+     "genre": "village",
+     "alt": 1790,
+     "osm": "n1366644310",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chitre",
+     "genre": "village",
+     "alt": 1770,
+     "osm": "n6062700780",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kande",
+     "genre": "village",
+     "alt": 1750,
+     "osm": "n6976485209",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Saripakha Tuse",
+     "genre": "village",
+     "alt": 1690,
+     "osm": "n9599880237",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sarkeu",
+     "genre": "village",
+     "alt": 1680,
+     "osm": "n6914669194",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Taletra",
+     "genre": "village",
+     "alt": 1680,
+     "osm": "n7005597930",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dilghara",
+     "genre": "village",
+     "alt": 1610,
+     "osm": "n6976157933",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Aatighar",
+     "genre": "village",
+     "alt": 1590,
+     "osm": "n5163339258",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Armalakot",
+     "genre": "village",
+     "alt": 1580,
+     "osm": "n5163339259",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kaskikot",
+     "genre": "village",
+     "alt": 1550,
+     "osm": "n1366481495",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Patharegaon",
+     "genre": "village",
+     "alt": 1550,
+     "osm": "n3476129549",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Majh Gau",
+     "genre": "village",
+     "alt": 1550,
+     "osm": "n6979152183",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [
+    {
+     "nom": "Annapurna I",
+     "alt": 8091,
+     "osm": "n289923681",
+     "distance_km": 25.0,
+     "depuis": "Landruk"
+    },
+    {
+     "nom": "Annapurna II",
+     "alt": 7937,
+     "osm": "n3588473785",
+     "distance_km": 34.2,
+     "depuis": "Landruk"
+    }
+   ],
+   "profil_valeurs": {
+    "depart_m": 1640,
+    "arrivee_m": 812,
+    "point_haut_m": 2171,
+    "point_bas_m": 812,
+    "km": 35.6
+   },
+   "trace": {
+    "km": 35.7,
+    "d_plus": 632,
+    "d_moins": 1096,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-12",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 1",
+   "etapes": "Pokhara : recherche de moto, films",
+   "nuit": "(déduit) même chambre",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-13",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 2",
+   "etapes": "tour du lac à vélo",
+   "nuit": "(déduit) même chambre",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-14",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 3",
+   "etapes": "journée à la chambre",
+   "nuit": "(déduit) même chambre",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-15",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 4",
+   "etapes": "scooter vers les lacs des environs, intoxication",
+   "nuit": "(déduit) même chambre (« l'hôtel »)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-16",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 5",
+   "etapes": "convalescence ; bus repoussé",
+   "nuit": "(déduit) même chambre",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-17",
+   "chapitre": "annapurna",
+   "jour": "Pokhara 6",
+   "etapes": "marche dans Pokhara, achat d'Annapurna, premier 8000",
+   "nuit": "(déduit) même chambre",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-18",
+   "chapitre": "moto",
+   "jour": "Katmandou 1",
+   "etapes": "bus Pokhara (7 h 30) → Katmandou ; Juan",
+   "nuit": "hôtel près de Freak Street, chambre avec salle de bain (350 Rps, nom ?)",
+   "carte": "2011-11-18.svg",
+   "profil": null,
+   "type": "situation",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Katmandou",
+     "role": "nuit",
+     "alt": 1400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Pokhara",
+     "role": "depart",
+     "alt": 820,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Himachuli",
+     "genre": "sommet",
+     "alt": 7893,
+     "osm": "n1781744530",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Yangra",
+     "genre": "sommet",
+     "alt": 7422,
+     "osm": "n4085224089",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Mardi Himal",
+     "genre": "sommet",
+     "alt": 5553,
+     "osm": "n5612192705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Lari",
+     "genre": "sommet",
+     "alt": 4850,
+     "osm": "n8674322706",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phulchoki",
+     "genre": "sommet",
+     "alt": 2782,
+     "osm": "n3490869705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shivapuri Peak",
+     "genre": "sommet",
+     "alt": 2732,
+     "osm": "n2662582253",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Chandragiri Hill",
+     "genre": "sommet",
+     "alt": 2551,
+     "osm": "n6333301847",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Liglig",
+     "genre": "sommet",
+     "alt": 1418,
+     "osm": "n2637460419",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Pangsang Pass",
+     "genre": "col",
+     "alt": 3863,
+     "osm": "n3691038658",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Simbhanjyang pass",
+     "genre": "col",
+     "alt": 2504,
+     "osm": "n8425615124",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Ghorka Darbar Pass",
+     "genre": "col",
+     "alt": 1380,
+     "osm": "n1782406900",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Khairenitar",
+     "genre": "city",
+     "alt": 510,
+     "osm": "n11357643278",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bharatpur",
+     "genre": "city",
+     "alt": 220,
+     "osm": "n567090203",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Shankharapur",
+     "genre": "town",
+     "alt": 1380,
+     "osm": "n6646454832",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Mahalaxmi",
+     "genre": "town",
+     "alt": 1320,
+     "osm": "n6349584672",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Laxmi BaZaar",
+     "genre": "town",
+     "alt": 800,
+     "osm": "n8985637273",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Besisahar",
+     "genre": "town",
+     "alt": 760,
+     "osm": "n293621413",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nilakantha",
+     "genre": "town",
+     "alt": 630,
+     "osm": "n3387669747",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kotre",
+     "genre": "town",
+     "alt": 590,
+     "osm": "n11277494560",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Palungtar Bazar",
+     "genre": "town",
+     "alt": 570,
+     "osm": "n10269035814",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "note": "Trajet en bus non tracé : ligne droite indicative."
+  },
+  {
+   "date": "2011-11-19",
+   "chapitre": "moto",
+   "jour": "Katmandou 2",
+   "etapes": "Thamel, location des motos à 17 h, premier tour de nuit",
+   "nuit": "(déduit) même hôtel (« arriver à Freak Street »)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-20",
+   "chapitre": "moto",
+   "jour": "Moto 1",
+   "etapes": "Katmandou (6 h) → Bhaktapur → col de Nagarkot → Dowa Pati → grand-route → rivière",
+   "nuit": "bivouac sur une plage de sable blanc (lieu exact (déduit))",
+   "carte": "2011-11-20.svg",
+   "profil": "2011-11-20-profil.svg",
+   "type": "etape",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Bivouac de la plage",
+     "role": "nuit",
+     "alt": 770,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Katmandou",
+     "role": "depart",
+     "alt": 1400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Bhaktapur",
+     "role": "cite",
+     "alt": 1400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Nagarkot",
+     "role": "cite",
+     "alt": 2100,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Phulchoki",
+     "genre": "sommet",
+     "alt": 2782,
+     "osm": "n3490869705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shivapuri Peak",
+     "genre": "sommet",
+     "alt": 2732,
+     "osm": "n2662582253",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Champa Devi",
+     "genre": "sommet",
+     "alt": 2241,
+     "osm": "n5554697988",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Jamacho",
+     "genre": "sommet",
+     "alt": 2128,
+     "osm": "n5554703308",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kabilas",
+     "genre": "sommet",
+     "alt": 1290,
+     "osm": "n3499802030",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Badh bhanjyang",
+     "genre": "col",
+     "alt": null,
+     "osm": "n360737017",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dhulikhel",
+     "genre": "city",
+     "alt": 1550,
+     "osm": "n1833834697",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Lalitpur",
+     "genre": "city",
+     "alt": 1330,
+     "osm": "n723880699",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dakshinkali",
+     "genre": "town",
+     "alt": 1570,
+     "osm": "n2365554101",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Changunarayan",
+     "genre": "town",
+     "alt": 1490,
+     "osm": "n6652889772",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Banepa",
+     "genre": "town",
+     "alt": 1470,
+     "osm": "n10633046921",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Paunauti",
+     "genre": "town",
+     "alt": 1450,
+     "osm": "n558555689",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Namobuddha",
+     "genre": "town",
+     "alt": 1160,
+     "osm": "n11328812248",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Barhabise",
+     "genre": "town",
+     "alt": 920,
+     "osm": "n2257810264",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Panchkhal",
+     "genre": "town",
+     "alt": 860,
+     "osm": "n3497321288",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 1317,
+    "arrivee_m": 769,
+    "point_haut_m": 1912,
+    "point_bas_m": 631,
+    "km": 90.3
+   },
+   "trace": {
+    "km": 90.3,
+    "d_plus": 1189,
+    "d_moins": 1733,
+    "ligne_droite": false
+   },
+   "note": "Bivouac placé approximativement ; Dowa Pati (carnet) non localisé."
+  },
+  {
+   "date": "2011-11-21",
+   "chapitre": "moto",
+   "jour": "Moto 2",
+   "etapes": "plage (8 h 30-9 h) → Barabise → Kodari, frontière (déjeuner) → retour → route de Jiri, 45 min de lacets",
+   "nuit": "bivouac sur une crête de pins (lieu exact (déduit))",
+   "carte": "2011-11-21.svg",
+   "profil": "2011-11-21-profil.svg",
+   "type": "etape",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Bivouac de la crête de pins",
+     "role": "nuit",
+     "alt": 2250,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Bivouac de la plage",
+     "role": "depart",
+     "alt": 770,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Barabise",
+     "role": "cite",
+     "alt": 850,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Kodari (frontière)",
+     "role": "cite",
+     "alt": 1800,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Lamosangu",
+     "role": "cite",
+     "alt": 775,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Chaduk Bhir?",
+     "genre": "sommet",
+     "alt": 5940,
+     "osm": "n12138668501",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Pokharidada",
+     "genre": "sommet",
+     "alt": 4500,
+     "osm": "n8704424642",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phuma Bhanjyang",
+     "genre": "col",
+     "alt": 4778,
+     "osm": "n9211398843",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dram",
+     "genre": "town",
+     "alt": 2330,
+     "osm": "n576007690",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chautara Sangachok Gadhi",
+     "genre": "town",
+     "alt": 1430,
+     "osm": "n13249206592",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kuri",
+     "genre": "village",
+     "alt": 3370,
+     "osm": "n2662625467",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Xoibogang",
+     "genre": "village",
+     "alt": 2930,
+     "osm": "n13184327805",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bigu",
+     "genre": "village",
+     "alt": 2150,
+     "osm": "n8710473772",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Pokhari",
+     "genre": "village",
+     "alt": 1880,
+     "osm": "n8702426454",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kalinchok",
+     "genre": "village",
+     "alt": 1860,
+     "osm": "n13239176471",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Jugal",
+     "genre": "village",
+     "alt": 1690,
+     "osm": "n13250241289",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tripurasundari",
+     "genre": "village",
+     "alt": 1580,
+     "osm": "n13250737788",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 769,
+    "arrivee_m": 2264,
+    "point_haut_m": 2264,
+    "point_bas_m": 763,
+    "km": 81.4
+   },
+   "trace": {
+    "km": 81.4,
+    "d_plus": 3229,
+    "d_moins": 1752,
+    "ligne_droite": false
+   },
+   "note": "Bivouac placé approximativement."
+  },
+  {
+   "date": "2011-11-22",
+   "chapitre": "moto",
+   "jour": "Moto 3",
+   "etapes": "crête → lacets de la route de Jiri → déjeuner à 11 h → plein d'essence → terrasse",
+   "nuit": "bivouac caché sur une terrasse de mousse (lieu exact (déduit))",
+   "carte": "2011-11-22.svg",
+   "profil": "2011-11-22-profil.svg",
+   "type": "etape",
+   "courbes_m": 250,
+   "lieux": [
+    {
+     "nom": "Bivouac de la terrasse de mousse",
+     "role": "nuit",
+     "alt": 1550,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Bivouac de la crête de pins",
+     "role": "depart",
+     "alt": 2250,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Charikot",
+     "role": "cite",
+     "alt": null,
+     "source": "OSM n3383645104"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Sailung",
+     "genre": "village",
+     "alt": 2290,
+     "osm": "n13239176470",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Baiteshwor",
+     "genre": "village",
+     "alt": 1430,
+     "osm": "n13239176469",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kharidhunga",
+     "genre": "hamlet",
+     "alt": 2670,
+     "osm": "n9312125877",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Mudhe",
+     "genre": "hamlet",
+     "alt": 2540,
+     "osm": "n1026419004",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Makaiban",
+     "genre": "hamlet",
+     "alt": 2530,
+     "osm": "n3275042913",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Khanidanda",
+     "genre": "hamlet",
+     "alt": 2320,
+     "osm": "n3275042912",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 2251,
+    "arrivee_m": 1558,
+    "point_haut_m": 2694,
+    "point_bas_m": 857,
+    "km": 53.5
+   },
+   "trace": {
+    "km": 53.5,
+    "d_plus": 1362,
+    "d_moins": 2081,
+    "ligne_droite": false
+   },
+   "note": "Bivouac placé approximativement."
+  },
+  {
+   "date": "2011-11-23",
+   "chapitre": "moto",
+   "jour": "Moto 4",
+   "etapes": "terrasse → Jiri (11 h) → retour, contrôle de l'armée",
+   "nuit": "(déduit) la crête de pins du 21/11 (le carnet dit « le camp d'hier soir »)",
+   "carte": "2011-11-23.svg",
+   "profil": "2011-11-23-profil.svg",
+   "type": "etape",
+   "courbes_m": 500,
+   "lieux": [
+    {
+     "nom": "Bivouac de la crête de pins",
+     "role": "nuit",
+     "alt": 2250,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Bivouac de la terrasse de mousse",
+     "role": "depart",
+     "alt": 1550,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Jiri",
+     "role": "cite",
+     "alt": 1905,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Sailung",
+     "genre": "sommet",
+     "alt": 3146,
+     "osm": "n1026419629",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Bhimeshwar",
+     "genre": "town",
+     "alt": 1960,
+     "osm": "n3383645104",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Barhabise",
+     "genre": "town",
+     "alt": 880,
+     "osm": "n2257810264",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kuri",
+     "genre": "village",
+     "alt": 3370,
+     "osm": "n2662625467",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Sailung",
+     "genre": "village",
+     "alt": 2290,
+     "osm": "n13239176470",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Kalinchok",
+     "genre": "village",
+     "alt": 1860,
+     "osm": "n13239176471",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tripurasundari",
+     "genre": "village",
+     "alt": 1580,
+     "osm": "n13250737788",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Gaurishankar",
+     "genre": "village",
+     "alt": 1550,
+     "osm": "n13239775370",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Baiteshwor",
+     "genre": "village",
+     "alt": 1420,
+     "osm": "n13239176469",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Tamakoshi",
+     "genre": "village",
+     "alt": 1350,
+     "osm": "n3499329865",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 1549,
+    "arrivee_m": 2250,
+    "point_haut_m": 2694,
+    "point_bas_m": 857,
+    "km": 106.3
+   },
+   "trace": {
+    "km": 106.3,
+    "d_plus": 4286,
+    "d_moins": 3580,
+    "ligne_droite": false
+   }
+  },
+  {
+   "date": "2011-11-24",
+   "chapitre": "moto",
+   "jour": "Moto 5",
+   "etapes": "crête → grand-route → Patan (C3 p. 31-32) → Katmandou, rendu des motos ; tracé à refaire par Patan",
+   "nuit": "Trekker's Paradise, Freak Street",
+   "carte": "2011-11-24.svg",
+   "profil": "2011-11-24-profil.svg",
+   "type": "etape",
+   "courbes_m": 1000,
+   "lieux": [
+    {
+     "nom": "Katmandou",
+     "role": "nuit",
+     "alt": 1400,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Bivouac de la crête de pins",
+     "role": "depart",
+     "alt": 2250,
+     "source": "lieux.json"
+    },
+    {
+     "nom": "Patan",
+     "role": "cite",
+     "alt": 1340,
+     "source": "lieux.json"
+    }
+   ],
+   "contexte": [
+    {
+     "nom": "Sailung",
+     "genre": "sommet",
+     "alt": 3146,
+     "osm": "n1026419629",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Phulchoki",
+     "genre": "sommet",
+     "alt": 2782,
+     "osm": "n3490869705",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Shivapuri Peak",
+     "genre": "sommet",
+     "alt": 2732,
+     "osm": "n2662582253",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Champa Devi",
+     "genre": "sommet",
+     "alt": 2241,
+     "osm": "n5554697988",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Nagarkot",
+     "genre": "sommet",
+     "alt": 2150,
+     "osm": "n5554725036",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Jamacho",
+     "genre": "sommet",
+     "alt": 2128,
+     "osm": "n5554703308",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Kabilas",
+     "genre": "sommet",
+     "alt": 1290,
+     "osm": "n3499802030",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Badh bhanjyang",
+     "genre": "col",
+     "alt": null,
+     "osm": "n360737017",
+     "alt_source": "OSM"
+    },
+    {
+     "nom": "Dhulikhel",
+     "genre": "city",
+     "alt": 1550,
+     "osm": "n1833834697",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Bhaktapur",
+     "genre": "city",
+     "alt": 1340,
+     "osm": "n2035862217",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Dakshinkali",
+     "genre": "town",
+     "alt": 1570,
+     "osm": "n2365554101",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Paunauti",
+     "genre": "town",
+     "alt": 1450,
+     "osm": "n558555689",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chautara Sangachok Gadhi",
+     "genre": "town",
+     "alt": 1430,
+     "osm": "n13249206592",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Shankharapur",
+     "genre": "town",
+     "alt": 1390,
+     "osm": "n6646454832",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Chandragiri",
+     "genre": "town",
+     "alt": 1380,
+     "osm": "n6646454828",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Budhanilkantha",
+     "genre": "town",
+     "alt": 1370,
+     "osm": "n1772109893",
+     "alt_source": "MNT"
+    },
+    {
+     "nom": "Namobuddha",
+     "genre": "town",
+     "alt": 1160,
+     "osm": "n11328812248",
+     "alt_source": "MNT"
+    }
+   ],
+   "sommets_hors_cadre": [],
+   "profil_valeurs": {
+    "depart_m": 2251,
+    "arrivee_m": 1317,
+    "point_haut_m": 2251,
+    "point_bas_m": 631,
+    "km": 95.6
+   },
+   "trace": {
+    "km": 95.6,
+    "d_plus": 1428,
+    "d_moins": 2360,
+    "ligne_droite": false
+   },
+   "note": "Le carnet passe par Patan : tracé direct, à refaire."
+  },
+  {
+   "date": "2011-11-25",
+   "chapitre": "moto",
+   "jour": "KTM 1 · J-4",
+   "etapes": "quartier des vêtements, cadeaux, costume",
+   "nuit": "(déduit) Trekker's Paradise",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-26",
+   "chapitre": "moto",
+   "jour": "KTM 2 · J-3",
+   "etapes": "douche, cadeaux, Kumar",
+   "nuit": "(déduit) Trekker's Paradise",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-27",
+   "chapitre": "moto",
+   "jour": "KTM 3 · J-2",
+   "etapes": "tailleurs, Patan, retour à pied à la nuit",
+   "nuit": "(déduit) Trekker's Paradise",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-28",
+   "chapitre": "moto",
+   "jour": "KTM 4 · J-1",
+   "etapes": "dernières courses, retouches, soirée avec Juan",
+   "nuit": "(déduit) Trekker's Paradise (la chambre est reprise par un Hollandais au départ)",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  },
+  {
+   "date": "2011-11-29",
+   "chapitre": "moto",
+   "jour": "départ",
+   "etapes": "(costume à récupérer le matin) ; aéroport international de Katmandou",
+   "nuit": "? vol retour, non raconté",
+   "carte": null,
+   "profil": null,
+   "sans_carte": "jour en ville ou de repos : pas de carte"
+  }
+ ]
+}

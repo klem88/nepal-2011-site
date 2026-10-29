@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150" role="img" aria-labelledby="t">
+<title id="t">Profil · 2011-10-28 · 4 · Boghara → Dobang (10 h 40, repartis à 11 h 45) → Choriban</title>
+<style>
+.fond{fill:#fcfbf8}.cadre{fill:none;stroke:#dcd7cc}
+.ci{fill:none;stroke:#6b675e;stroke-width:.4;stroke-opacity:.32;stroke-linejoin:round}
+.cm{fill:none;stroke:#6b675e;stroke-width:.8;stroke-opacity:.55;stroke-linejoin:round}
+.riv{fill:none;stroke:#5f8fb4;stroke-width:1;stroke-opacity:.75;stroke-linejoin:round;stroke-linecap:round}
+.lac{fill:#d3e3ec;stroke:#6f9cbd;stroke-width:.5}
+.gla{fill:#e9f0f4;fill-opacity:.85;stroke:#97b2c4;stroke-width:.5;stroke-dasharray:2 1.5}
+.autre{fill:none;stroke:#6b675e;stroke-width:1.3;stroke-opacity:.38;stroke-linecap:round;stroke-linejoin:round}
+.tr{fill:none;stroke:#2f4f3e;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.tr.approx{stroke-dasharray:6 4}.tr.bus{stroke:#6b675e;stroke-width:1.6;stroke-dasharray:1.5 4}
+.tr.vol{stroke:#6b675e;stroke-width:1.3;stroke-dasharray:5 4}
+.halo{paint-order:stroke;stroke:#fcfbf8;stroke-width:3.2px;stroke-linejoin:round}
+text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;fill:#26241f}
+.serif{font-family:Fraunces,Georgia,"Times New Roman",serif;font-style:italic}
+.nuit{font-size:14px;font-weight:700}.dep{font-size:13px;font-weight:600}.cite{font-size:12.5px;font-weight:600}
+.som{font-size:11.5px;fill:#3d3a33}.vil{font-size:11.5px;fill:#3d3a33}.ham{font-size:10.5px;fill:#6b675e}
+.col{font-size:11px;fill:#3d3a33}.rivt{font-size:10.5px;fill:#41709a}.alt{font-weight:400;fill:#6b675e}
+.note{font-size:10.5px;fill:#6b675e;font-style:italic}.attr{font-size:7.5px;fill:#8a857a}
+.sym-s{fill:#4a463e}.sym-c{fill:#fcfbf8;stroke:#4a463e;stroke-width:1.1}.sym-v{fill:#6b675e}.sym-h{fill:#fcfbf8;stroke:#6b675e;stroke-width:.9}
+.sym-cite{fill:#fcfbf8;stroke:#26241f;stroke-width:1.4}.sym-dep{fill:#fcfbf8;stroke:#2f4f3e;stroke-width:2.2}
+.sym-nuit{fill:#2f4f3e;stroke:#fcfbf8;stroke-width:1.6}.encre{fill:#26241f}.trait{fill:none;stroke:#26241f;stroke-width:1}
+@media screen and (prefers-color-scheme:dark){
+.fond{fill:#20211e}.cadre{stroke:#383a35}.ci,.cm,.autre{stroke:#a5a297}.riv{stroke:#7fa9c9}
+.lac{fill:#2c3d48;stroke:#6f9cbd}.gla{fill:#2a3034;stroke:#6d8697}.tr{stroke:#9cc3a8}.tr.bus,.tr.vol{stroke:#a5a297}
+.halo{stroke:#20211e}text{fill:#ebe8e0}.som,.vil,.col{fill:#d6d2c7}.ham,.alt,.note{fill:#a5a297}.rivt{fill:#8fb6d4}
+.sym-s{fill:#d6d2c7}.sym-c{fill:#20211e;stroke:#d6d2c7}.sym-v{fill:#a5a297}.sym-h{fill:#20211e;stroke:#a5a297}
+.sym-cite{fill:#20211e;stroke:#ebe8e0}.sym-dep{fill:#20211e;stroke:#9cc3a8}.sym-nuit{fill:#9cc3a8;stroke:#20211e}
+.encre{fill:#ebe8e0}.trait{stroke:#ebe8e0}}
+.aire{fill:#2f4f3e;fill-opacity:.16}@media screen and (prefers-color-scheme:dark){.aire{fill:#9cc3a8}.grille{stroke:#a5a297}}</style>
+<rect class="fond" width="600" height="150"/>
+<path d="M46 126.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="129.0" text-anchor="end">1 500</text>
+<path d="M46 104.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="107.0" text-anchor="end">2 000</text>
+<path d="M46 82.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="85.0" text-anchor="end">2 500</text>
+<path d="M46 60.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="63.0" text-anchor="end">3 000</text>
+<path d="M46 38.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="41.0" text-anchor="end">3 500</text>
+<path d="M46 16.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="19.0" text-anchor="end">4 000</text>
+<path class="trait" d="M46.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="46.0" y="138" text-anchor="middle">0</text>
+<path class="trait" d="M112.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="112.0" y="138" text-anchor="middle">2</text>
+<path class="trait" d="M178.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="178.0" y="138" text-anchor="middle">4</text>
+<path class="trait" d="M244.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="244.0" y="138" text-anchor="middle">6</text>
+<path class="trait" d="M310.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="310.0" y="138" text-anchor="middle">8</text>
+<path class="trait" d="M376.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="376.0" y="138" text-anchor="middle">10</text>
+<path class="trait" d="M442.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="442.0" y="138" text-anchor="middle">12</text>
+<path class="trait" d="M508.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="508.0" y="138" text-anchor="middle">14</text>
+<path class="trait" d="M574.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="574.0" y="138" text-anchor="middle">16</text>
+<text class="attr" style="font-size:9px" x="586" y="147" text-anchor="end">km</text>
+<path d="M46.0 126 L46.0 103.2 48.4 103.8 51.5 103.9 53.8 103.2 55.3 103.1 58.5 103.9 59.9 104.7 61.3 105.7 63.0 106.0 65.7 106.5 67.8 106.8 70.2 106.6 70.4 106.7 72.4 108.0 73.8 108.5 76.4 108.9 77.7 109.1 78.7 109.4 79.4 109.5 80.7 109.8 81.8 110.1 83.6 110.3 84.2 110.4 85.6 110.4 87.2 109.9 89.1 109.3 92.0 108.0 94.6 106.7 96.5 106.0 98.2 104.9 100.7 103.6 102.2 104.5 103.4 105.3 106.3 103.3 109.3 102.4 112.1 100.5 114.8 100.2 117.7 100.2 123.1 103.3 126.2 102.6 128.1 100.9 131.7 101.0 133.2 102.1 133.8 102.4 136.8 101.8 138.9 103.1 140.0 102.0 141.3 102.7 143.8 101.5 146.1 102.6 147.3 103.6 150.0 103.3 152.6 104.0 155.3 102.5 157.4 103.7 158.6 103.5 160.8 103.8 162.1 103.6 163.1 102.9 164.0 102.9 166.7 101.6 168.9 100.7 173.0 99.7 176.6 99.2 178.1 99.5 179.7 100.1 181.8 99.8 184.3 98.3 186.4 98.3 188.2 99.2 189.5 99.3 190.7 99.7 193.7 99.6 194.8 99.4 196.0 99.1 199.7 95.7 201.8 94.8 204.4 95.7 205.6 96.4 208.0 96.9 210.8 95.6 212.6 96.6 214.3 96.3 215.6 95.2 217.2 94.3 220.2 93.2 221.2 93.5 221.7 94.0 222.6 93.9 223.3 93.8 226.3 93.4 229.7 93.3 233.4 91.1 235.3 92.4 237.7 90.5 239.6 90.0 241.9 92.2 242.8 92.2 244.5 91.3 246.2 90.9 247.6 89.5 248.9 90.3 250.2 90.1 251.8 89.4 254.2 90.3 256.3 90.2 257.4 89.5 259.1 89.3 260.3 87.8 262.5 89.3 263.4 88.6 265.2 88.1 267.0 89.2 269.3 88.0 272.2 87.6 274.2 88.9 277.9 88.7 284.6 86.3 289.6 88.2 290.9 88.2 295.9 88.7 297.3 87.6 303.7 86.4 306.0 84.8 307.6 85.1 309.0 85.0 310.6 84.6 312.3 83.4 314.2 83.8 316.7 86.4 317.1 86.1 318.2 85.0 319.2 83.4 319.7 83.1 320.9 84.2 321.6 84.9 322.3 84.9 322.7 84.9 324.0 84.2 324.5 83.6 325.0 83.1 325.7 83.3 328.3 83.9 329.2 83.7 330.4 83.7 332.0 83.9 332.8 83.6 333.9 83.5 334.5 83.7 335.2 83.4 336.2 83.5 336.7 83.6 337.7 83.7 338.3 83.7 339.5 84.0 340.3 84.1 348.6 79.8 356.9 78.6 365.2 77.3 373.5 76.0 381.8 74.7 390.1 73.5 398.4 72.2 406.7 70.9 415.0 69.6 423.3 68.4 431.6 67.1 439.9 65.8 448.1 64.5 456.4 63.3 464.7 62.0 473.0 60.7 481.3 59.4 489.6 58.2 497.9 56.9 506.2 55.6 506.6 55.4 507.0 55.3 507.6 55.2 507.6 55.2 509.5 55.0 511.0 54.9 514.5 53.7 518.7 53.0 520.1 52.7 521.8 52.1 524.3 51.7 526.2 51.0 528.0 50.7 529.3 50.2 531.1 49.6 532.9 49.0 536.5 48.0 537.4 47.8 537.9 47.8 538.3 47.6 539.8 47.7 541.0 47.8 542.4 48.2 544.5 47.6 546.3 46.9 547.3 46.7 548.2 46.7 549.9 46.1 554.6 44.2 555.9 43.7 557.0 43.4 558.1 43.1 560.3 42.8 562.7 42.5 563.0 42.7 563.5 42.5 564.1 42.1 564.6 42.2 565.3 41.8 565.8 41.5 566.9 41.7 570.7 41.2 574.2 40.6 575.3 40.3 577.7 40.0 578.3 40.1 578.8 40.0 579.1 40.0 580.0 39.9 581.3 39.9 582.2 39.7 582.7 39.7 583.7 39.6 585.0 39.2 586.0 38.8 L586.0 126z" class="aire"/>
+<path class="tr approx" style="stroke-width:1.8" d="M46.0 103.2 48.4 103.8 51.5 103.9 53.8 103.2 55.3 103.1 58.5 103.9 59.9 104.7 61.3 105.7 63.0 106.0 65.7 106.5 67.8 106.8 70.2 106.6 70.4 106.7 72.4 108.0 73.8 108.5 76.4 108.9 77.7 109.1 78.7 109.4 79.4 109.5 80.7 109.8 81.8 110.1 83.6 110.3 84.2 110.4 85.6 110.4 87.2 109.9 89.1 109.3 92.0 108.0 94.6 106.7 96.5 106.0 98.2 104.9 100.7 103.6 102.2 104.5 103.4 105.3 106.3 103.3 109.3 102.4 112.1 100.5 114.8 100.2 117.7 100.2 123.1 103.3 126.2 102.6 128.1 100.9 131.7 101.0 133.2 102.1 133.8 102.4 136.8 101.8 138.9 103.1 140.0 102.0 141.3 102.7 143.8 101.5 146.1 102.6 147.3 103.6 150.0 103.3 152.6 104.0 155.3 102.5 157.4 103.7 158.6 103.5 160.8 103.8 162.1 103.6 163.1 102.9 164.0 102.9 166.7 101.6 168.9 100.7 173.0 99.7 176.6 99.2 178.1 99.5 179.7 100.1 181.8 99.8 184.3 98.3 186.4 98.3 188.2 99.2 189.5 99.3 190.7 99.7 193.7 99.6 194.8 99.4 196.0 99.1 199.7 95.7 201.8 94.8 204.4 95.7 205.6 96.4 208.0 96.9 210.8 95.6 212.6 96.6 214.3 96.3 215.6 95.2 217.2 94.3 220.2 93.2 221.2 93.5 221.7 94.0 222.6 93.9 223.3 93.8 226.3 93.4 229.7 93.3 233.4 91.1 235.3 92.4 237.7 90.5 239.6 90.0 241.9 92.2 242.8 92.2 244.5 91.3 246.2 90.9 247.6 89.5 248.9 90.3 250.2 90.1 251.8 89.4 254.2 90.3 256.3 90.2 257.4 89.5 259.1 89.3 260.3 87.8 262.5 89.3 263.4 88.6 265.2 88.1 267.0 89.2 269.3 88.0 272.2 87.6 274.2 88.9 277.9 88.7 284.6 86.3 289.6 88.2 290.9 88.2 295.9 88.7 297.3 87.6 303.7 86.4 306.0 84.8 307.6 85.1 309.0 85.0 310.6 84.6 312.3 83.4 314.2 83.8 316.7 86.4 317.1 86.1 318.2 85.0 319.2 83.4 319.7 83.1 320.9 84.2 321.6 84.9 322.3 84.9 322.7 84.9 324.0 84.2 324.5 83.6 325.0 83.1 325.7 83.3 328.3 83.9 329.2 83.7 330.4 83.7 332.0 83.9 332.8 83.6 333.9 83.5 334.5 83.7 335.2 83.4 336.2 83.5 336.7 83.6 337.7 83.7 338.3 83.7 339.5 84.0 340.3 84.1 348.6 79.8 356.9 78.6 365.2 77.3 373.5 76.0 381.8 74.7 390.1 73.5 398.4 72.2 406.7 70.9 415.0 69.6 423.3 68.4 431.6 67.1 439.9 65.8 448.1 64.5 456.4 63.3 464.7 62.0 473.0 60.7 481.3 59.4 489.6 58.2 497.9 56.9 506.2 55.6 506.6 55.4 507.0 55.3 507.6 55.2 507.6 55.2 509.5 55.0 511.0 54.9 514.5 53.7 518.7 53.0 520.1 52.7 521.8 52.1 524.3 51.7 526.2 51.0 528.0 50.7 529.3 50.2 531.1 49.6 532.9 49.0 536.5 48.0 537.4 47.8 537.9 47.8 538.3 47.6 539.8 47.7 541.0 47.8 542.4 48.2 544.5 47.6 546.3 46.9 547.3 46.7 548.2 46.7 549.9 46.1 554.6 44.2 555.9 43.7 557.0 43.4 558.1 43.1 560.3 42.8 562.7 42.5 563.0 42.7 563.5 42.5 564.1 42.1 564.6 42.2 565.3 41.8 565.8 41.5 566.9 41.7 570.7 41.2 574.2 40.6 575.3 40.3 577.7 40.0 578.3 40.1 578.8 40.0 579.1 40.0 580.0 39.9 581.3 39.9 582.2 39.7 582.7 39.7 583.7 39.6 585.0 39.2 586.0 38.8"/>
+<text class="dep halo" style="font-size:11px" x="51.0" y="95.2">Boghara 2 018 m</text>
+<text class="nuit halo" style="font-size:11.5px" x="581.0" y="30.8" text-anchor="end">Choriban (cabane) 3 481 m</text>
+<circle class="sym-dep" cx="46.0" cy="103.2" r="3.6"/>
+<circle class="sym-nuit" cx="586.0" cy="38.8" r="4.2"/>
+<path class="trait" style="stroke-opacity:.35;stroke-dasharray:1.5 2" d="M340.3 87.1V110.0"/><circle class="sym-cite" cx="340.3" cy="84.1" r="2.2"/><text class="cite halo" style="font-size:10px;font-weight:500" x="340.3" y="120.0" text-anchor="middle">Dobang</text>
+<path class="trait" style="stroke-opacity:.35;stroke-dasharray:1.5 2" d="M506.2 58.6V110.0"/><circle class="sym-cite" cx="506.2" cy="55.6" r="2.2"/><text class="cite halo" style="font-size:10px;font-weight:500" x="506.2" y="120.0" text-anchor="middle">Sallaghari</text>
+<text class="attr" x="594" y="9" text-anchor="end">Altitudes du tracé recalculé (BRouter, modèle de terrain)</text>
+</svg>

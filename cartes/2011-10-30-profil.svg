@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150" role="img" aria-labelledby="t">
+<title id="t">Profil · 2011-10-30 · 6 · camp des Italiens → Japanese Camp / Glacier Camp</title>
+<style>
+.fond{fill:#fcfbf8}.cadre{fill:none;stroke:#dcd7cc}
+.ci{fill:none;stroke:#6b675e;stroke-width:.4;stroke-opacity:.32;stroke-linejoin:round}
+.cm{fill:none;stroke:#6b675e;stroke-width:.8;stroke-opacity:.55;stroke-linejoin:round}
+.riv{fill:none;stroke:#5f8fb4;stroke-width:1;stroke-opacity:.75;stroke-linejoin:round;stroke-linecap:round}
+.lac{fill:#d3e3ec;stroke:#6f9cbd;stroke-width:.5}
+.gla{fill:#e9f0f4;fill-opacity:.85;stroke:#97b2c4;stroke-width:.5;stroke-dasharray:2 1.5}
+.autre{fill:none;stroke:#6b675e;stroke-width:1.3;stroke-opacity:.38;stroke-linecap:round;stroke-linejoin:round}
+.tr{fill:none;stroke:#2f4f3e;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.tr.approx{stroke-dasharray:6 4}.tr.bus{stroke:#6b675e;stroke-width:1.6;stroke-dasharray:1.5 4}
+.tr.vol{stroke:#6b675e;stroke-width:1.3;stroke-dasharray:5 4}
+.halo{paint-order:stroke;stroke:#fcfbf8;stroke-width:3.2px;stroke-linejoin:round}
+text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;fill:#26241f}
+.serif{font-family:Fraunces,Georgia,"Times New Roman",serif;font-style:italic}
+.nuit{font-size:14px;font-weight:700}.dep{font-size:13px;font-weight:600}.cite{font-size:12.5px;font-weight:600}
+.som{font-size:11.5px;fill:#3d3a33}.vil{font-size:11.5px;fill:#3d3a33}.ham{font-size:10.5px;fill:#6b675e}
+.col{font-size:11px;fill:#3d3a33}.rivt{font-size:10.5px;fill:#41709a}.alt{font-weight:400;fill:#6b675e}
+.note{font-size:10.5px;fill:#6b675e;font-style:italic}.attr{font-size:7.5px;fill:#8a857a}
+.sym-s{fill:#4a463e}.sym-c{fill:#fcfbf8;stroke:#4a463e;stroke-width:1.1}.sym-v{fill:#6b675e}.sym-h{fill:#fcfbf8;stroke:#6b675e;stroke-width:.9}
+.sym-cite{fill:#fcfbf8;stroke:#26241f;stroke-width:1.4}.sym-dep{fill:#fcfbf8;stroke:#2f4f3e;stroke-width:2.2}
+.sym-nuit{fill:#2f4f3e;stroke:#fcfbf8;stroke-width:1.6}.encre{fill:#26241f}.trait{fill:none;stroke:#26241f;stroke-width:1}
+@media screen and (prefers-color-scheme:dark){
+.fond{fill:#20211e}.cadre{stroke:#383a35}.ci,.cm,.autre{stroke:#a5a297}.riv{stroke:#7fa9c9}
+.lac{fill:#2c3d48;stroke:#6f9cbd}.gla{fill:#2a3034;stroke:#6d8697}.tr{stroke:#9cc3a8}.tr.bus,.tr.vol{stroke:#a5a297}
+.halo{stroke:#20211e}text{fill:#ebe8e0}.som,.vil,.col{fill:#d6d2c7}.ham,.alt,.note{fill:#a5a297}.rivt{fill:#8fb6d4}
+.sym-s{fill:#d6d2c7}.sym-c{fill:#20211e;stroke:#d6d2c7}.sym-v{fill:#a5a297}.sym-h{fill:#20211e;stroke:#a5a297}
+.sym-cite{fill:#20211e;stroke:#ebe8e0}.sym-dep{fill:#20211e;stroke:#9cc3a8}.sym-nuit{fill:#9cc3a8;stroke:#20211e}
+.encre{fill:#ebe8e0}.trait{stroke:#ebe8e0}}
+.aire{fill:#2f4f3e;fill-opacity:.16}@media screen and (prefers-color-scheme:dark){.aire{fill:#9cc3a8}.grille{stroke:#a5a297}}</style>
+<rect class="fond" width="600" height="150"/>
+<path d="M46 126.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="129.0" text-anchor="end">3 400</text>
+<path d="M46 104.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="107.0" text-anchor="end">3 600</text>
+<path d="M46 82.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="85.0" text-anchor="end">3 800</text>
+<path d="M46 60.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="63.0" text-anchor="end">4 000</text>
+<path d="M46 38.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="41.0" text-anchor="end">4 200</text>
+<path d="M46 16.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="19.0" text-anchor="end">4 400</text>
+<path class="trait" d="M46.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="46.0" y="138" text-anchor="middle">0</text>
+<path class="trait" d="M124.4 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="124.4" y="138" text-anchor="middle">1</text>
+<path class="trait" d="M202.8 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="202.8" y="138" text-anchor="middle">2</text>
+<path class="trait" d="M281.2 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="281.2" y="138" text-anchor="middle">3</text>
+<path class="trait" d="M359.6 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="359.6" y="138" text-anchor="middle">4</text>
+<path class="trait" d="M438.1 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="438.1" y="138" text-anchor="middle">5</text>
+<path class="trait" d="M516.5 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="516.5" y="138" text-anchor="middle">6</text>
+<text class="attr" style="font-size:9px" x="586" y="147" text-anchor="end">km</text>
+<path d="M46.0 126 L46.0 104.3 46.1 104.3 47.1 104.2 48.4 104.1 50.8 103.4 51.8 103.1 52.8 103.2 54.9 103.7 56.6 103.5 57.4 103.5 58.9 103.3 59.6 103.0 61.9 103.1 63.0 102.7 64.8 102.9 65.8 102.3 68.7 103.4 69.7 102.6 70.9 101.9 72.1 101.4 73.4 100.8 75.9 100.6 78.0 100.4 78.9 100.0 80.0 99.2 81.4 98.3 82.1 97.9 83.2 98.0 84.4 98.2 85.7 97.3 86.7 96.8 88.1 97.0 90.2 97.3 92.1 97.3 93.1 97.4 94.7 97.7 95.6 98.0 96.6 98.0 97.5 98.2 98.6 98.3 99.5 98.1 100.3 98.5 103.7 97.7 104.4 97.5 105.9 98.3 106.6 98.7 108.3 99.6 109.4 100.0 110.4 100.3 111.6 100.8 114.5 101.1 115.5 101.1 117.3 101.7 121.1 102.0 123.2 102.8 125.1 103.3 125.9 103.3 126.7 103.5 127.6 103.5 128.5 103.8 129.7 103.8 130.9 104.1 131.9 103.9 132.8 104.1 133.9 104.4 135.5 104.7 136.6 105.0 137.5 105.2 139.0 105.1 141.3 104.8 141.9 104.7 142.5 104.7 143.2 104.5 144.3 104.6 146.8 104.7 148.0 104.9 148.6 105.0 149.3 104.9 152.2 103.5 154.3 103.3 156.0 103.1 156.6 102.7 159.6 101.6 160.0 101.3 161.8 101.2 168.1 100.4 168.6 99.9 170.5 98.2 172.7 96.5 175.8 93.6 179.7 91.3 184.3 92.6 187.8 94.1 191.8 93.2 192.5 92.1 193.6 92.4 194.5 91.1 195.1 91.4 196.0 90.1 196.6 90.3 197.3 89.5 198.3 89.2 199.1 88.2 199.9 87.1 201.0 87.7 202.4 85.7 203.9 86.6 206.0 89.1 207.3 87.9 208.2 87.9 209.4 86.8 210.2 86.7 211.1 87.1 218.4 84.0 222.1 83.2 225.2 84.7 228.8 83.1 234.2 80.8 236.0 82.6 237.8 83.0 240.6 82.5 246.4 84.2 250.2 84.0 252.9 83.7 260.9 82.2 264.3 82.7 266.8 81.7 268.7 81.9 271.9 81.0 275.9 80.5 278.3 79.9 280.3 79.9 282.5 80.0 288.5 80.3 292.1 80.1 296.2 80.2 298.9 80.4 304.9 80.4 307.6 80.5 311.8 81.3 316.3 81.6 319.7 81.5 323.4 81.3 326.9 81.0 331.1 81.1 334.2 80.7 337.0 80.5 340.1 79.7 343.3 79.1 346.4 79.3 349.0 78.9 356.5 77.2 359.2 76.6 361.3 76.6 366.0 77.4 369.0 76.9 374.7 75.5 376.9 75.2 378.8 75.1 380.4 75.8 383.2 75.5 385.7 75.2 388.1 75.1 394.2 75.9 397.7 75.3 402.8 74.4 405.9 73.6 408.3 73.3 411.3 73.4 416.8 74.5 417.2 74.6 419.2 74.2 421.9 73.9 423.6 73.7 425.9 73.6 426.5 73.6 433.7 72.1 439.4 68.8 476.9 65.3 496.8 59.7 498.3 59.7 498.7 59.7 499.1 59.7 504.9 58.8 516.8 56.3 547.5 47.4 553.1 44.5 555.4 43.7 559.7 43.7 562.1 43.3 565.5 42.9 571.3 42.1 577.2 41.1 578.4 41.1 585.5 39.9 586.0 40.0 L586.0 126z" class="aire"/>
+<path class="tr" style="stroke-width:1.8" d="M46.0 104.3 46.1 104.3 47.1 104.2 48.4 104.1 50.8 103.4 51.8 103.1 52.8 103.2 54.9 103.7 56.6 103.5 57.4 103.5 58.9 103.3 59.6 103.0 61.9 103.1 63.0 102.7 64.8 102.9 65.8 102.3 68.7 103.4 69.7 102.6 70.9 101.9 72.1 101.4 73.4 100.8 75.9 100.6 78.0 100.4 78.9 100.0 80.0 99.2 81.4 98.3 82.1 97.9 83.2 98.0 84.4 98.2 85.7 97.3 86.7 96.8 88.1 97.0 90.2 97.3 92.1 97.3 93.1 97.4 94.7 97.7 95.6 98.0 96.6 98.0 97.5 98.2 98.6 98.3 99.5 98.1 100.3 98.5 103.7 97.7 104.4 97.5 105.9 98.3 106.6 98.7 108.3 99.6 109.4 100.0 110.4 100.3 111.6 100.8 114.5 101.1 115.5 101.1 117.3 101.7 121.1 102.0 123.2 102.8 125.1 103.3 125.9 103.3 126.7 103.5 127.6 103.5 128.5 103.8 129.7 103.8 130.9 104.1 131.9 103.9 132.8 104.1 133.9 104.4 135.5 104.7 136.6 105.0 137.5 105.2 139.0 105.1 141.3 104.8 141.9 104.7 142.5 104.7 143.2 104.5 144.3 104.6 146.8 104.7 148.0 104.9 148.6 105.0 149.3 104.9 152.2 103.5 154.3 103.3 156.0 103.1 156.6 102.7 159.6 101.6 160.0 101.3 161.8 101.2 168.1 100.4 168.6 99.9 170.5 98.2 172.7 96.5 175.8 93.6 179.7 91.3 184.3 92.6 187.8 94.1 191.8 93.2 192.5 92.1 193.6 92.4 194.5 91.1 195.1 91.4 196.0 90.1 196.6 90.3 197.3 89.5 198.3 89.2 199.1 88.2 199.9 87.1 201.0 87.7 202.4 85.7 203.9 86.6 206.0 89.1 207.3 87.9 208.2 87.9 209.4 86.8 210.2 86.7 211.1 87.1 218.4 84.0 222.1 83.2 225.2 84.7 228.8 83.1 234.2 80.8 236.0 82.6 237.8 83.0 240.6 82.5 246.4 84.2 250.2 84.0 252.9 83.7 260.9 82.2 264.3 82.7 266.8 81.7 268.7 81.9 271.9 81.0 275.9 80.5 278.3 79.9 280.3 79.9 282.5 80.0 288.5 80.3 292.1 80.1 296.2 80.2 298.9 80.4 304.9 80.4 307.6 80.5 311.8 81.3 316.3 81.6 319.7 81.5 323.4 81.3 326.9 81.0 331.1 81.1 334.2 80.7 337.0 80.5 340.1 79.7 343.3 79.1 346.4 79.3 349.0 78.9 356.5 77.2 359.2 76.6 361.3 76.6 366.0 77.4 369.0 76.9 374.7 75.5 376.9 75.2 378.8 75.1 380.4 75.8 383.2 75.5 385.7 75.2 388.1 75.1 394.2 75.9 397.7 75.3 402.8 74.4 405.9 73.6 408.3 73.3 411.3 73.4 416.8 74.5 417.2 74.6 419.2 74.2 421.9 73.9 423.6 73.7 425.9 73.6 426.5 73.6 433.7 72.1 439.4 68.8 476.9 65.3 496.8 59.7 498.3 59.7 498.7 59.7 499.1 59.7 504.9 58.8 516.8 56.3 547.5 47.4 553.1 44.5 555.4 43.7 559.7 43.7 562.1 43.3 565.5 42.9 571.3 42.1 577.2 41.1 578.4 41.1 585.5 39.9 586.0 40.0"/>
+<text class="dep halo" style="font-size:11px" x="51.0" y="96.3">Camp des Italiens 3 597 m</text>
+<text class="nuit halo" style="font-size:11.5px" x="581.0" y="32.0" text-anchor="end">Glacier Camp 4 182 m</text>
+<circle class="sym-dep" cx="46.0" cy="104.3" r="3.6"/>
+<circle class="sym-nuit" cx="586.0" cy="40.0" r="4.2"/>
+<text class="attr" x="594" y="9" text-anchor="end">Altitudes du tracé recalculé (BRouter, modèle de terrain)</text>
+</svg>
