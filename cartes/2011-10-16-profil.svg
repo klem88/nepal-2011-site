@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150" role="img" aria-labelledby="t">
+<title id="t">Profil · 2011-10-16 · 10 · Lobuche → Gorak Shep</title>
+<style>
+.fond{fill:#fcfbf8}.cadre{fill:none;stroke:#dcd7cc}
+.ci{fill:none;stroke:#6b675e;stroke-width:.4;stroke-opacity:.32;stroke-linejoin:round}
+.cm{fill:none;stroke:#6b675e;stroke-width:.8;stroke-opacity:.55;stroke-linejoin:round}
+.riv{fill:none;stroke:#5f8fb4;stroke-width:1;stroke-opacity:.75;stroke-linejoin:round;stroke-linecap:round}
+.lac{fill:#d3e3ec;stroke:#6f9cbd;stroke-width:.5}
+.gla{fill:#e9f0f4;fill-opacity:.85;stroke:#97b2c4;stroke-width:.5;stroke-dasharray:2 1.5}
+.autre{fill:none;stroke:#6b675e;stroke-width:1.3;stroke-opacity:.38;stroke-linecap:round;stroke-linejoin:round}
+.tr{fill:none;stroke:#2f4f3e;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.tr.approx{stroke-dasharray:6 4}.tr.bus{stroke:#6b675e;stroke-width:1.6;stroke-dasharray:1.5 4}
+.tr.vol{stroke:#6b675e;stroke-width:1.3;stroke-dasharray:5 4}
+.halo{paint-order:stroke;stroke:#fcfbf8;stroke-width:3.2px;stroke-linejoin:round}
+text{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;fill:#26241f}
+.serif{font-family:Fraunces,Georgia,"Times New Roman",serif;font-style:italic}
+.nuit{font-size:14px;font-weight:700}.dep{font-size:13px;font-weight:600}.cite{font-size:12.5px;font-weight:600}
+.som{font-size:11.5px;fill:#3d3a33}.vil{font-size:11.5px;fill:#3d3a33}.ham{font-size:10.5px;fill:#6b675e}
+.col{font-size:11px;fill:#3d3a33}.rivt{font-size:10.5px;fill:#41709a}.alt{font-weight:400;fill:#6b675e}
+.note{font-size:10.5px;fill:#6b675e;font-style:italic}.attr{font-size:7.5px;fill:#8a857a}
+.sym-s{fill:#4a463e}.sym-c{fill:#fcfbf8;stroke:#4a463e;stroke-width:1.1}.sym-v{fill:#6b675e}.sym-h{fill:#fcfbf8;stroke:#6b675e;stroke-width:.9}
+.sym-cite{fill:#fcfbf8;stroke:#26241f;stroke-width:1.4}.sym-dep{fill:#fcfbf8;stroke:#2f4f3e;stroke-width:2.2}
+.sym-nuit{fill:#2f4f3e;stroke:#fcfbf8;stroke-width:1.6}.encre{fill:#26241f}.trait{fill:none;stroke:#26241f;stroke-width:1}
+@media screen and (prefers-color-scheme:dark){
+.fond{fill:#20211e}.cadre{stroke:#383a35}.ci,.cm,.autre{stroke:#a5a297}.riv{stroke:#7fa9c9}
+.lac{fill:#2c3d48;stroke:#6f9cbd}.gla{fill:#2a3034;stroke:#6d8697}.tr{stroke:#9cc3a8}.tr.bus,.tr.vol{stroke:#a5a297}
+.halo{stroke:#20211e}text{fill:#ebe8e0}.som,.vil,.col{fill:#d6d2c7}.ham,.alt,.note{fill:#a5a297}.rivt{fill:#8fb6d4}
+.sym-s{fill:#d6d2c7}.sym-c{fill:#20211e;stroke:#d6d2c7}.sym-v{fill:#a5a297}.sym-h{fill:#20211e;stroke:#a5a297}
+.sym-cite{fill:#20211e;stroke:#ebe8e0}.sym-dep{fill:#20211e;stroke:#9cc3a8}.sym-nuit{fill:#9cc3a8;stroke:#20211e}
+.encre{fill:#ebe8e0}.trait{stroke:#ebe8e0}}
+.aire{fill:#2f4f3e;fill-opacity:.16}@media screen and (prefers-color-scheme:dark){.aire{fill:#9cc3a8}.grille{stroke:#a5a297}}</style>
+<rect class="fond" width="600" height="150"/>
+<path d="M46 126.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="129.0" text-anchor="end">4 800</text>
+<path d="M46 104.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="107.0" text-anchor="end">4 900</text>
+<path d="M46 82.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="85.0" text-anchor="end">5 000</text>
+<path d="M46 60.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="63.0" text-anchor="end">5 100</text>
+<path d="M46 38.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="41.0" text-anchor="end">5 200</text>
+<path d="M46 16.0H586" stroke="#6b675e" stroke-opacity=".18" stroke-width=".6" class="grille"/><text class="attr" style="font-size:9px" x="42" y="19.0" text-anchor="end">5 300</text>
+<path class="trait" d="M46.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="46.0" y="138" text-anchor="middle">0</text>
+<path class="trait" d="M106.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="106.0" y="138" text-anchor="middle">0,5</text>
+<path class="trait" d="M166.0 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="166.0" y="138" text-anchor="middle">1</text>
+<path class="trait" d="M226.1 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="226.1" y="138" text-anchor="middle">1,5</text>
+<path class="trait" d="M286.1 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="286.1" y="138" text-anchor="middle">2</text>
+<path class="trait" d="M346.1 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="346.1" y="138" text-anchor="middle">2,5</text>
+<path class="trait" d="M406.1 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="406.1" y="138" text-anchor="middle">3</text>
+<path class="trait" d="M466.2 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="466.2" y="138" text-anchor="middle">3,5</text>
+<path class="trait" d="M526.2 126v3" stroke-opacity=".5"/><text class="attr" style="font-size:9px" x="526.2" y="138" text-anchor="middle">4</text>
+<text class="attr" style="font-size:9px" x="586" y="147" text-anchor="end">km</text>
+<path d="M46.0 126 L46.0 98.6 46.7 98.7 50.5 98.4 54.0 98.9 55.1 99.1 56.2 99.0 58.0 98.7 61.6 99.2 64.3 99.3 67.0 99.2 69.1 98.8 71.8 98.1 74.9 97.6 77.7 97.7 82.6 96.9 86.1 96.6 89.1 96.3 95.8 96.0 101.9 94.2 107.2 93.0 112.7 91.2 117.0 91.1 120.9 92.1 127.7 90.3 132.0 90.0 140.1 89.9 154.3 88.8 158.1 88.2 179.7 84.2 186.6 83.2 201.1 82.5 208.7 81.3 215.9 79.9 226.2 79.4 230.2 78.8 235.3 78.6 243.1 77.7 256.4 76.6 267.2 76.7 274.4 76.1 288.6 73.1 297.8 72.4 305.1 71.8 315.3 70.1 324.8 70.8 332.3 69.0 336.3 68.5 340.8 68.3 345.6 67.6 349.0 67.6 350.6 67.4 353.8 66.3 355.6 65.8 358.2 64.2 360.3 63.7 361.7 62.9 363.0 62.4 365.0 61.5 366.0 60.9 367.6 60.5 368.9 59.9 370.6 59.2 371.9 59.3 373.9 58.8 378.2 57.2 382.4 55.9 390.9 54.2 395.0 53.0 397.5 52.3 401.4 51.7 403.7 51.4 408.4 50.8 410.9 50.1 413.9 49.7 417.8 49.9 420.4 49.4 422.5 49.5 426.7 48.5 428.8 47.5 435.0 48.8 438.8 49.7 441.4 49.7 443.1 49.7 445.7 48.3 447.3 48.5 449.7 48.4 453.9 47.5 455.3 48.2 456.9 48.3 462.3 49.8 465.6 48.1 468.3 47.5 471.2 47.6 476.0 49.1 481.4 49.4 483.8 49.3 485.5 48.5 487.1 48.1 489.6 47.7 494.3 46.8 495.9 47.0 497.8 46.6 500.0 46.5 502.1 46.9 503.6 46.7 505.3 47.0 507.4 46.8 508.9 47.0 510.2 46.8 511.5 47.0 513.3 46.0 516.0 46.2 517.9 46.3 520.0 45.3 522.7 44.7 527.6 44.4 532.9 43.8 535.9 43.2 539.6 42.2 543.4 41.9 545.3 41.5 547.2 41.1 550.8 41.7 552.8 42.2 555.7 42.1 560.5 43.6 563.5 43.9 567.0 45.1 571.7 45.7 573.7 46.0 580.4 46.7 582.7 46.7 586.0 45.8 L586.0 126z" class="aire"/>
+<path class="tr" style="stroke-width:1.8" d="M46.0 98.6 46.7 98.7 50.5 98.4 54.0 98.9 55.1 99.1 56.2 99.0 58.0 98.7 61.6 99.2 64.3 99.3 67.0 99.2 69.1 98.8 71.8 98.1 74.9 97.6 77.7 97.7 82.6 96.9 86.1 96.6 89.1 96.3 95.8 96.0 101.9 94.2 107.2 93.0 112.7 91.2 117.0 91.1 120.9 92.1 127.7 90.3 132.0 90.0 140.1 89.9 154.3 88.8 158.1 88.2 179.7 84.2 186.6 83.2 201.1 82.5 208.7 81.3 215.9 79.9 226.2 79.4 230.2 78.8 235.3 78.6 243.1 77.7 256.4 76.6 267.2 76.7 274.4 76.1 288.6 73.1 297.8 72.4 305.1 71.8 315.3 70.1 324.8 70.8 332.3 69.0 336.3 68.5 340.8 68.3 345.6 67.6 349.0 67.6 350.6 67.4 353.8 66.3 355.6 65.8 358.2 64.2 360.3 63.7 361.7 62.9 363.0 62.4 365.0 61.5 366.0 60.9 367.6 60.5 368.9 59.9 370.6 59.2 371.9 59.3 373.9 58.8 378.2 57.2 382.4 55.9 390.9 54.2 395.0 53.0 397.5 52.3 401.4 51.7 403.7 51.4 408.4 50.8 410.9 50.1 413.9 49.7 417.8 49.9 420.4 49.4 422.5 49.5 426.7 48.5 428.8 47.5 435.0 48.8 438.8 49.7 441.4 49.7 443.1 49.7 445.7 48.3 447.3 48.5 449.7 48.4 453.9 47.5 455.3 48.2 456.9 48.3 462.3 49.8 465.6 48.1 468.3 47.5 471.2 47.6 476.0 49.1 481.4 49.4 483.8 49.3 485.5 48.5 487.1 48.1 489.6 47.7 494.3 46.8 495.9 47.0 497.8 46.6 500.0 46.5 502.1 46.9 503.6 46.7 505.3 47.0 507.4 46.8 508.9 47.0 510.2 46.8 511.5 47.0 513.3 46.0 516.0 46.2 517.9 46.3 520.0 45.3 522.7 44.7 527.6 44.4 532.9 43.8 535.9 43.2 539.6 42.2 543.4 41.9 545.3 41.5 547.2 41.1 550.8 41.7 552.8 42.2 555.7 42.1 560.5 43.6 563.5 43.9 567.0 45.1 571.7 45.7 573.7 46.0 580.4 46.7 582.7 46.7 586.0 45.8"/>
+<text class="dep halo" style="font-size:11px" x="51.0" y="90.6">Lobuche 4 925 m</text>
+<text class="nuit halo" style="font-size:11.5px" x="581.0" y="37.8" text-anchor="end">Gorak Shep 5 164 m</text>
+<circle class="sym-dep" cx="46.0" cy="98.6" r="3.6"/>
+<circle class="sym-nuit" cx="586.0" cy="45.8" r="4.2"/>
+<text class="attr" x="594" y="9" text-anchor="end">Altitudes du tracé recalculé (BRouter, modèle de terrain)</text>
+</svg>
