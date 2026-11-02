@@ -68,6 +68,12 @@ h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;l
 .liens a.lire::after{content:" →"}
 .liens a.secondaire{color:var(--encre-2);font-weight:400}
 
+.avant-propos{display:block;text-decoration:none;max-width:760px;padding:4px 0 4px 22px;border-left:3px solid var(--moutarde)}
+.ap-titre{display:block;font:600 28px/1.15 Fraunces,Georgia,serif}
+.ap-extrait{display:block;font:italic 18px/1.55 "Source Serif 4",Georgia,serif;color:var(--encre-2);margin:6px 0 10px}
+.ap-lien{font:600 14px system-ui,sans-serif;color:var(--accent)}
+.ap-lien::after{content:" →"}
+.avant-propos:hover .ap-lien{text-decoration:underline}
 .extrait{margin:72px auto 0;max-width:640px;padding:18px 18px 12px;background:var(--papier-manuscrit);border-radius:4px;box-shadow:0 1px 2px #0001,0 8px 24px -12px #0003;transform:rotate(-.4deg)}
 .extrait img{display:block;width:100%;height:auto;mix-blend-mode:multiply;filter:sepia(.18) contrast(1.05)}
 .extrait figcaption{font:13px/1.5 system-ui,sans-serif;color:#6d6457;margin-top:10px}
@@ -98,6 +104,13 @@ h1{font:600 clamp(44px,6.5vw,76px)/1 Fraunces,Georgia,serif;margin:12px 0 14px;l
       <p class="legende">Les quatre chapitres du voyage, de l'Everest à la virée à moto.</p><!-- /illus -->
     </div>
   </header>
+
+  <h2 class="intertitre">Avant-propos</h2>
+  <a class="avant-propos" href="avant-propos.html">
+    <span class="ap-titre">Le 10 novembre</span>
+    <span class="ap-extrait">« J'écris ces lignes le 10 novembre 2026. Romain a trente-neuf ans aujourd'hui. Il y a quinze ans, jour pour jour, nous fêtions ses vingt-quatre ans au Népal. »</span>
+    <span class="ap-lien">Lire l'avant-propos</span>
+  </a>
 
   <h2 class="intertitre">Les quatre chapitres</h2>
   <ol class="chapitres">
